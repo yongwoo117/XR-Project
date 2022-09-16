@@ -7,7 +7,7 @@ public class AttackState : State
     public override void Enter()
     {
         Debug.Log("Attack Enter");
-        m_stateMachine.ChangeState("SkillState");
+        m_stateMachine.ChangeState(e_State.Skill);
     }
 }
 

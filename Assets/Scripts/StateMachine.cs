@@ -5,27 +5,26 @@ using UnityEngine;
 
 public abstract class StateMachine : MonoBehaviour
 {
-    [SerializeField] private List<Object> states;
+    [SerializeField] private List<e_State> List_e_States;
     private State currentState;
-    private Dictionary<string,State> Dic_States = new Dictionary<string, State>();
+    private Dictionary<e_State,State> Dic_States = new Dictionary<e_State, State>();
 
     private void Start()
     {
-        if (states.Count > 0)
+        if (List_e_States.Count > 0)
         {
-            foreach (var obj in states)
+            foreach (var e_state in List_e_States)
             {
-                Debug.Log(obj.GetType().ToString());
-                if (StateDictionary.Dic_States.ContainsKey(obj.GetType()))
+                if (StateDictionary.Dic_States.ContainsKey(e_state))
                 {
-                    State state = StateDictionary.Dic_States[obj.GetType()];
+                    State state = StateDictionary.Dic_States[e_state];
                     state.SetMachine(this);
-                    Dic_States.Add(obj.GetType().ToString(), state);
+                    Dic_States.Add(e_state, state);
                 }
             }
 
-            if(Dic_States.ContainsKey("IdleState"))
-                ChangeState(Dic_States["IdleState"]);
+            if(Dic_States.ContainsKey(e_State.Idle))
+                ChangeState(Dic_States[e_State.Idle]);
         }
             
     }
@@ -37,11 +36,11 @@ public abstract class StateMachine : MonoBehaviour
         currentState?.Enter();
     }
 
-    public virtual void ChangeState(string name)
+    public virtual void ChangeState(e_State e_state)
     {
-        if (Dic_States.ContainsKey(name))
+        if (Dic_States.ContainsKey(e_state))
         {
-            State state = Dic_States[name];
+            State state = Dic_States[e_state];
 
             currentState?.Exit();
             currentState = state;
