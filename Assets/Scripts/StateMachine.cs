@@ -37,7 +37,7 @@ public abstract class StateMachine : MonoBehaviour
     public virtual void ChangeState(State state)
     {
         //같은 상태로의 변경인 경우
-        if(currentState.GetType() == state.GetType()) return;
+        if(currentState?.GetType() == state.GetType()) return;
         
         currentState?.Exit();
         currentState = state;
