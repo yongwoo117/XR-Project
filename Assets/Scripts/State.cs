@@ -1,6 +1,9 @@
 using System;
 using UnityEngine;
 
+/// <summary>
+/// 모든 상태의 베이스 클래스입니다.
+/// </summary>
 [Serializable]
 public class State : IState
 {
@@ -29,7 +32,7 @@ public class State : IState
        
     }
 
-    public virtual void RogicUpdate()
+    public virtual void LogicUpdate()
     {
        
     }
