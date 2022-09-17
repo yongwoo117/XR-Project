@@ -58,7 +58,7 @@ public class RhythmCore : Singleton<RhythmCore>
         set
         {
             bpm = value;
-            onBpmChanged.Invoke();
+            onBpmChanged?.Invoke();
         }
     }
     
@@ -97,7 +97,7 @@ public class RhythmCore : Singleton<RhythmCore>
             case EventState.Early:
                 if (FixedRemainTime < judgeOffset)
                 {
-                    onEarly.Invoke();
+                    onEarly?.Invoke();
                     currentEventState++;
                     prevTime = FixedRemainTime;
                 }
@@ -105,7 +105,7 @@ public class RhythmCore : Singleton<RhythmCore>
             case EventState.Right:
                 if (FixedRemainTime > prevTime)
                 {
-                    onRhythm.Invoke();
+                    onRhythm?.Invoke();
                     currentEventState++;
                 }
                 else
@@ -114,8 +114,8 @@ public class RhythmCore : Singleton<RhythmCore>
             case EventState.Late:
                 if (FixedRemainTime < rhythmDelay - judgeOffset)
                 {
-                    onLate.Invoke();
-                    currentEventState++;
+                    onLate?.Invoke();
+                    currentEventState = EventState.Early;
                 }
                 break;
             default:
