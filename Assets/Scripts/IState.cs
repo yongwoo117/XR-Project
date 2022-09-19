@@ -13,5 +13,5 @@ public interface IState
     void Exit();
     void LogicUpdate();
     void PhysicsUpdate();
-    void HandleInput();
+    void HandleInput(InteractionType interactionType);
 }

@@ -7,7 +7,7 @@ public abstract class StateMachine : MonoBehaviour
     protected State currentState;
     private Dictionary<e_State,State> Dic_States = new();
 
-    private void Start()
+    private void Awake()
     {
         if (List_e_States.Count <= 0) return;
         

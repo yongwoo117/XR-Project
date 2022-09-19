@@ -4,7 +4,7 @@ using JetBrains.Annotations;
 
 public enum e_State
 {
-    Idle,Attack,Move,Skill
+    Idle,Dash,Move,Skill
 }
 
 /// <summary>
@@ -15,7 +15,7 @@ public static class StateDictionary
     private static Dictionary<e_State, State> Dic_States = new(){
         {e_State.Idle, new IdleState()},
         {e_State.Move, new MoveState()},
-        {e_State.Attack, new AttackState()},
+        {e_State.Dash, new DashState()},
         {e_State.Skill, new SkillState()},
     };
 

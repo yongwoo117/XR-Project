@@ -67,13 +67,8 @@ public class RhythmCore : Singleton<RhythmCore>
     /// <summary>
     /// 현재 시점을 기준으로 노트를 판정합니다.
     /// </summary>
-    public bool Judge()
-    {
-        if (RemainTime < judgeOffset)
-            return true;
-        return rhythmDelay - RemainTime < judgeOffset;
-    }
-    
+    public bool Judge() => RemainTime < judgeOffset || rhythmDelay - RemainTime < judgeOffset;
+
     private void RhythmStart()
     {
         rhythmDelay = 60 / Bpm;
