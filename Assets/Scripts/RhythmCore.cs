@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -33,22 +32,7 @@ public class RhythmCore : Singleton<RhythmCore>
     /// 노트를 놓쳤다고 판정이 가능해지는 시점에 Callback됩니다.
     /// </summary>
     public UnityEvent onLate;
-
-    /// <summary>
-    /// BPM 발생 시 Callback하는 이벤트
-    /// </summary>
-    public UnityEvent onBPMStart;
-
-    /// <summary>
-    /// BPM 발생 후 Callback하는 이벤트
-    /// </summary>
-    public UnityEvent onBPMEnd;
-
-    /// <summary>
-    /// 비트를 위한 기본 오디오 소스
-    /// </summary>
-    private AudioSource audioSource;
-
+    
     /// <summary>
     /// 다음 노트까지 남은 시간입니다.
     /// </summary>
@@ -101,37 +85,6 @@ public class RhythmCore : Singleton<RhythmCore>
     {
         //RemainTime Update
         RemainTime = rhythmDelay - (Time.realtimeSinceStartupAsDouble - startTime) % rhythmDelay;
-
-        //Check BPM & Play Sound
-        CheckBPM();
-
-    }
-
-    private void CheckBPM()
-    {
-        if (bpmCheck >= rhythmDelay)
-        {
-            bpmCheck = 0d;
-
-
-            //BPM 출력 및 시작 이벤트 호출
-            onBPMStart?.Invoke();
-            audioSource?.Play();
-
-            StartCoroutine(WaitBPMSound());
-        }
-        else
-            bpmCheck += Time.deltaTime;
-    }
-
-    /// <summary>
-    /// BPM 사운드가 끝났을때 이벤트 호출
-    /// </summary>
-    private IEnumerator WaitBPMSound()
-    {
-        yield return new WaitUntil(() => audioSource.isPlaying == false);
-
-        onBPMEnd?.Invoke();
     }
 
     private double prevTime;
@@ -174,8 +127,6 @@ public class RhythmCore : Singleton<RhythmCore>
 
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-
         onBpmChanged.AddListener(RhythmStart);
         RhythmStart();
     }
