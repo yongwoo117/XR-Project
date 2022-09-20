@@ -1,8 +1,20 @@
+using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerStateMachine : StateMachine
 {
+    public PlayerProfil playerProfil;
+    public Rigidbody rigid { get; private set; }
+    
+    private Vector3 pointDir;
+
+    public Vector3 PointDir
+    {
+        get => pointDir;
+        set => pointDir = value;
+    }
+
     //true면 노트를 칠 수 있고, false면 칠 수 없습니다.
     private bool RhythmFlag
     {
@@ -19,8 +31,17 @@ public class PlayerStateMachine : StateMachine
     /// RhythmFlag의 값이 변경되면 RhythmFlag의 값과 함께 Callback됩니다.
     /// </summary>
     public UnityEvent<bool> onRhythmFlagChanged;
-    
-    private void Start() => rhythmFlag = true;
+
+    private void Start()
+    {
+        rhythmFlag = true;
+        rigid = GetComponent<Rigidbody>();
+    }
+
+    private void FixedUpdate()
+    {
+        currentState?.PhysicsUpdate();
+    }
 
     public void OnRhythmLate()
     {

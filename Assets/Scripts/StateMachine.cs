@@ -3,9 +3,10 @@ using UnityEngine;
 
 public abstract class StateMachine : MonoBehaviour
 {
-    [SerializeField] private List<e_State> List_e_States;
+    [SerializeField] protected List<e_State> List_e_States;
     protected State currentState;
-    private Dictionary<e_State,State> Dic_States = new();
+    protected Dictionary<e_State,State> Dic_States = new();
+
 
     private void Awake()
     {

@@ -90,6 +90,10 @@ public class RhythmCore : Singleton<RhythmCore>
         rhythmDelay = 60 / Bpm;
         startTime = Time.realtimeSinceStartupAsDouble - rhythmDelay / 2;
         currentEventState = EventState.Early;
+
+
+        //사운드 생성 이벤트 추가
+        onRhythm.AddListener(audioSource.Play);
     }
 
     private void Update()
@@ -97,26 +101,6 @@ public class RhythmCore : Singleton<RhythmCore>
         //RemainTime Update
         RemainTime = rhythmDelay - (Time.realtimeSinceStartupAsDouble - startTime) % rhythmDelay;
 
-        //Check BPM & Play Sound
-        CheckBPM();
-
-    }
-
-    private void CheckBPM()
-    {
-        if (bpmCheck >= rhythmDelay)
-        {
-            bpmCheck = 0d;
-
-
-            //BPM 출력 및 시작 이벤트 호출
-            onBPMStart?.Invoke();
-            audioSource?.Play();
-
-            StartCoroutine(WaitBPMSound());
-        }
-        else
-            bpmCheck += Time.deltaTime;
     }
 
     /// <summary>
