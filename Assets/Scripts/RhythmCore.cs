@@ -129,7 +129,7 @@ public class RhythmCore : Singleton<RhythmCore>
     private enum EventState
     {
         Early,
-        Right,
+        Right, //TODO: 적절한 다른 이름으로 대체
         Late
     }
 }

@@ -20,13 +20,6 @@ public static class StateDictionary
     };
 
     [CanBeNull]
-    public static State GetState(e_State e_state)
-    {
-        return Dic_States.ContainsKey(e_state) ? Dic_States[e_state] : null;
-    }
-
-    public static bool ContainsState(e_State e_state)
-    {
-        return Dic_States.ContainsKey(e_state);
-    }
+    public static State GetState(e_State e_state) => Dic_States.ContainsKey(e_state) ? Dic_States[e_state] : null;
+    public static bool ContainsState(e_State e_state) => Dic_States.ContainsKey(e_state);
 }

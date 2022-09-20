@@ -500,7 +500,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bpm: 60
-  judgeOffset: 0.2
+  judgeOffset: 0.1
   onBpmChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -771,6 +771,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   List_e_States: 0000000001000000
+  onRhythmFlagChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1735584691
 MonoBehaviour:
   m_ObjectHideFlags: 0
