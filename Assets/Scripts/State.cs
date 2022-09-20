@@ -22,7 +22,7 @@ public class State : IState
      
     }
 
-    public virtual void HandleInput()
+    public virtual void HandleInput(InteractionType interactionType)
     {
      
     }

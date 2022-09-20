@@ -1,15 +1,13 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public abstract class StateMachine : MonoBehaviour
 {
     [SerializeField] private List<e_State> List_e_States;
-    private State currentState;
+    protected State currentState;
     private Dictionary<e_State,State> Dic_States = new();
 
-    private void Start()
+    private void Awake()
     {
         if (List_e_States.Count <= 0) return;
         
@@ -55,5 +53,4 @@ public abstract class StateMachine : MonoBehaviour
         
         ChangeState(Dic_States[e_state]);
     }
-
 }

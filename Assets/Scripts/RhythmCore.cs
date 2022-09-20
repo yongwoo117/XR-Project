@@ -33,7 +33,7 @@ public class RhythmCore : Singleton<RhythmCore>
     /// 노트를 놓쳤다고 판정이 가능해지는 시점에 Callback됩니다.
     /// </summary>
     public UnityEvent onLate;
-
+    
     /// <summary>
     /// BPM 발생 시 Callback하는 이벤트
     /// </summary>
@@ -83,13 +83,8 @@ public class RhythmCore : Singleton<RhythmCore>
     /// <summary>
     /// 현재 시점을 기준으로 노트를 판정합니다.
     /// </summary>
-    public bool Judge()
-    {
-        if (RemainTime < judgeOffset)
-            return true;
-        return rhythmDelay - RemainTime < judgeOffset;
-    }
-    
+    public bool Judge() => RemainTime < judgeOffset || rhythmDelay - RemainTime < judgeOffset;
+
     private void RhythmStart()
     {
         rhythmDelay = 60 / Bpm;
@@ -183,7 +178,7 @@ public class RhythmCore : Singleton<RhythmCore>
     private enum EventState
     {
         Early,
-        Right,
+        Right, //TODO: 적절한 다른 이름으로 대체
         Late
     }
 }
