@@ -2,7 +2,7 @@ using UnityEditor;
 using UnityEngine;
 
 [CustomEditor(typeof(PlayerProfile))]
-public class PlayerProfilEditor : Editor
+public class PlayerProfileEditor : Editor
 {
     public override void OnInspectorGUI()
     {
