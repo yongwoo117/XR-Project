@@ -51,17 +51,17 @@ public class DashState : State
     /// <summary>
     /// 초기 변수들 초기화
     /// </summary>
-    /// <param name="dashDirection">캐릭터가 돌진할 방향입니다.</param>
-    private void Reset(Vector3 dashDirection)
+    /// <param name="dashPoint">캐릭터가 돌진할 위치입니다.</param>
+    private void Reset(Vector3 dashPoint)
     {
-        
         var profile = PlayerVariables.Instance.Profile;
         dashGraph = profile.dashPhysicsGraph;
         dashTime = profile.f_dashTime;
         dashDistance = profile.f_dashDistace;
         
+        // 대쉬 이동 거리에 제약을 걸어줍니다.
+        pointDir = dashPoint.magnitude > dashDistance ? dashPoint.normalized * dashDistance : dashPoint;
         physicsCurveArea = 0f;
-        pointDir = dashDirection * dashDistance;
         dashingTime = dashTime;
         rigid = m_stateMachine.GetComponent<Rigidbody>();
         isActivated = true;

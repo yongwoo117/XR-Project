@@ -26,7 +26,7 @@ public class PlayerStateMachine : StateMachine
     private void Start()
     {
         rhythmFlag = true;
-        rayCastPlane = new Plane(Vector3.up, transform.position.y);
+        rayCastPlane = new Plane(Vector3.up, -transform.position.y);
     }
 
     private void FixedUpdate()
@@ -64,7 +64,7 @@ public class PlayerStateMachine : StateMachine
         //필요 없는 이벤트를 걸러냅니다.
         if (!context.performed) return;
         
-        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        var ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
         
         if (!rayCastPlane.Raycast(ray, out float distance))
         {
@@ -73,6 +73,6 @@ public class PlayerStateMachine : StateMachine
         }
 
         var direction = ray.GetPoint(distance) - transform.position;
-        OnInteraction(InteractionType.Secondary, direction.normalized);
+        OnInteraction(InteractionType.Secondary, direction);
     }
 }
