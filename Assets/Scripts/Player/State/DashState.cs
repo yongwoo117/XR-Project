@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class DashState : State
@@ -6,38 +5,36 @@ public class DashState : State
     private float physicsCurveArea;
     private float dashingTime;
     private float dashTime;
+    private float dashDistance;
     private AnimationCurve dashGraph;
     private Rigidbody rigid;
     private Vector3 pointDir;
+    private bool isActivated;
 
     #region StateFunction
     public override void Enter()
     {
         Debug.Log("Dash Enter");
-
-        Reset(); //초기 변수 초기화
-        IntegralPhysicsGraph(); //물리 그래프 적분 함수
+        
+        isActivated = false;
     }
 
     public override void PhysicsUpdate()
     {
-        ApplyDashPhysics();
+        if (isActivated)
+            ApplyDashPhysics();
     }
 
-    public override void HandleInput(InteractionType interactionType)
+    public override void HandleInput(InteractionType interactionType, object arg)
     {
         switch (interactionType)
         {
-            case InteractionType.Primary:
-                break;
             case InteractionType.Secondary:
-                m_stateMachine.ChangeState(e_State.Idle);
+                if(arg is not Vector3)
+                    Debug.Log("arg is not Vector3! check input logic");
+                Reset((Vector3)arg); //초기 변수 초기화
+                IntegralPhysicsGraph(); //물리 그래프 적분 함수
                 break;
-            case InteractionType.Wrong:
-                //m_stateMachine.ChangeState(e_State.Idle);
-                break;
-            default:
-                throw new ArgumentOutOfRangeException(nameof(interactionType), interactionType, null);
         }
     }
 
@@ -54,20 +51,22 @@ public class DashState : State
     /// <summary>
     /// 초기 변수들 초기화
     /// </summary>
-    private void Reset()
+    /// <param name="dashDirection">캐릭터가 돌진할 방향입니다.</param>
+    private void Reset(Vector3 dashDirection)
     {
-        PlayerStateMachine playerStateMachine = m_stateMachine as PlayerStateMachine;
-
+        
+        var profile = PlayerVariables.Instance.Profile;
+        dashGraph = profile.dashPhysicsGraph;
+        dashTime = profile.f_dashTime;
+        dashDistance = profile.f_dashDistace;
+        
         physicsCurveArea = 0f;
-
-        dashGraph = playerStateMachine.playerProfil.dashPhyscisGrph;
-        dashTime = playerStateMachine.playerProfil.f_dashTime;
-        pointDir = playerStateMachine.PointDir;
-        rigid = playerStateMachine.rigid;
-
+        pointDir = dashDirection * dashDistance;
         dashingTime = dashTime;
-
-        Debug.DrawRay(playerStateMachine.transform.position, pointDir, Color.green, 1f);
+        rigid = m_stateMachine.GetComponent<Rigidbody>();
+        isActivated = true;
+        
+        Debug.DrawRay(m_stateMachine.transform.position, pointDir, Color.green, 1f);
     }
 
     /// <summary>

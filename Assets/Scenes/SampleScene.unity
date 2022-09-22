@@ -879,6 +879,7 @@ GameObject:
   - component: {fileID: 1735584690}
   - component: {fileID: 1735584691}
   - component: {fileID: 1735584692}
+  - component: {fileID: 1735584693}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -915,7 +916,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   List_e_States: 0000000001000000
-  playerProfil: {fileID: 11400000, guid: 12ebb71ec91446c4399f88950e6c7b1c, type: 2}
   onRhythmFlagChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1037,6 +1037,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1735584693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735584686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc80c103a931f4ee48b2ba06375e4f39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerProfile: {fileID: 11400000, guid: 12ebb71ec91446c4399f88950e6c7b1c, type: 2}
 --- !u!1 &1782955282
 GameObject:
   m_ObjectHideFlags: 0
