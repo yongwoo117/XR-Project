@@ -30,6 +30,7 @@ public class RhythmCore : Singleton<RhythmCore>
     /// 노트를 놓쳤다고 판정이 가능해지는 시점에 Callback됩니다.
     /// </summary>
     public UnityEvent onLate;
+    
     /// <summary>
     /// 다음 노트까지 남은 시간입니다.
     /// </summary>
@@ -47,6 +48,11 @@ public class RhythmCore : Singleton<RhythmCore>
         get;
         private set;
     }
+
+    /// <summary>
+    /// RemainTime, FixedRemainTime을 갱신하는 데에 사용되는 수식입니다.
+    /// </summary>
+    private double RemainFormula => rhythmDelay - (Time.realtimeSinceStartupAsDouble - startTime) % rhythmDelay;
     
     /// <summary>
     /// 분당 노트의 출현 횟수를 의미합니다.
@@ -70,25 +76,25 @@ public class RhythmCore : Singleton<RhythmCore>
     {
         rhythmDelay = 60 / Bpm;
         startTime = Time.realtimeSinceStartupAsDouble - rhythmDelay / 2;
-        currentEventState = EventState.Early;
+        currentEventState = EventState.OnEarly;
     }
 
     private void Update()
     {
         //RemainTime Update
-        RemainTime = rhythmDelay - (Time.realtimeSinceStartupAsDouble - startTime) % rhythmDelay;
+        RemainTime = RemainFormula;
     }
 
     private double prevTime;
     private void FixedUpdate()
     {
         //FixedRaminTime Update
-        FixedRemainTime = rhythmDelay - (Time.realtimeSinceStartupAsDouble - startTime) % rhythmDelay;
+        FixedRemainTime = RemainFormula;
 
         //이벤트 콜백을 위한 로직입니다.
         switch (currentEventState)
         {
-            case EventState.Early:
+            case EventState.OnEarly:
                 if (FixedRemainTime < judgeOffset)
                 {
                     onEarly?.Invoke();
@@ -96,7 +102,7 @@ public class RhythmCore : Singleton<RhythmCore>
                     prevTime = FixedRemainTime;
                 }
                 break;
-            case EventState.Right:
+            case EventState.OnRhythm:
                 if (FixedRemainTime > prevTime)
                 {
                     onRhythm?.Invoke();
@@ -105,11 +111,11 @@ public class RhythmCore : Singleton<RhythmCore>
                 else
                     prevTime = FixedRemainTime;
                 break;
-            case EventState.Late:
+            case EventState.OnLate:
                 if (FixedRemainTime < rhythmDelay - judgeOffset)
                 {
                     onLate?.Invoke();
-                    currentEventState = EventState.Early;
+                    currentEventState = EventState.OnEarly;
                 }
                 break;
             default:
@@ -125,8 +131,8 @@ public class RhythmCore : Singleton<RhythmCore>
 
     private enum EventState
     {
-        Early,
-        Right, //TODO: 적절한 다른 이름으로 대체
-        Late
+        OnEarly,
+        OnRhythm,
+        OnLate
     }
 }

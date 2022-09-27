@@ -3,7 +3,7 @@ using JetBrains.Annotations;
 
 public enum e_State
 {
-    Idle,Dash,Move,Skill
+    Idle,Dash,Move,Cut
 }
 
 /// <summary>
@@ -15,7 +15,7 @@ public static class StateDictionary
         {e_State.Idle, new IdleState()},
         {e_State.Move, new MoveState()},
         {e_State.Dash, new DashState()},
-        {e_State.Skill, new SkillState()},
+        {e_State.Cut, new CutState()},
     };
 
     [CanBeNull]
