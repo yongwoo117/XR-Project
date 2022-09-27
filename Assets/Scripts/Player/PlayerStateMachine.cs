@@ -36,9 +36,12 @@ public class PlayerStateMachine : StateMachine
 
     public void OnRhythmLate()
     {
-        //true였다면 노트를 놓친 경우이므로 패널티를 부여합니다.
-        //false였다면 정상적인 플레이였거나, 패널티를 받았더라도 이미 수행한 경우이므로 true를 넘겨줍니다.
-        RhythmFlag = !RhythmFlag;
+        //노트를 놓친 경우
+        if (!RhythmFlag)
+            currentState?.HandleInput(InteractionType.Wrong, null);
+        
+        //노트가 지나갔으므로 칠 수 있게 해둡니다.
+        RhythmFlag = true;
     }
     
     //TODO: 인풋 로직 FSM 로직과 분리 필요

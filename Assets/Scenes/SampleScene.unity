@@ -738,12 +738,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onBPMStart:
-    m_PersistentCalls:
-      m_Calls: []
-  onBPMEnd:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!82 &1659581282
 AudioSource:
   m_ObjectHideFlags: 0
@@ -915,7 +909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44db4eccdcba6464db9f87be4f9b1a66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  List_e_States: 0000000001000000
+  List_e_States: 000000000100000003000000
   onRhythmFlagChanged:
     m_PersistentCalls:
       m_Calls: []

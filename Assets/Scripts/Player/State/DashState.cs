@@ -35,6 +35,9 @@ public class DashState : State
                 Reset((Vector3)arg); //초기 변수 초기화
                 IntegralPhysicsGraph(); //물리 그래프 적분 함수
                 break;
+            case InteractionType.Wrong:
+                //TODO: 노트를 놓쳤거나, 너무 일찍 쳤을 때에 대한 처리를 해줍니다.
+                break;
         }
     }
 
@@ -57,7 +60,7 @@ public class DashState : State
         var profile = PlayerVariables.Instance.Profile;
         dashGraph = profile.dashPhysicsGraph;
         dashTime = profile.f_dashTime;
-        dashDistance = profile.f_dashDistace;
+        dashDistance = profile.f_dashDistance;
         
         // 대쉬 이동 거리에 제약을 걸어줍니다.
         pointDir = dashPoint.magnitude > dashDistance ? dashPoint.normalized * dashDistance : dashPoint;

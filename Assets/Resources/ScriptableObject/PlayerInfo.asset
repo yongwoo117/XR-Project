@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3abb9ee536dbb1a40a4da23c96a78564, type: 3}
   m_Name: PlayerInfo
   m_EditorClassIdentifier: 
-  dashPhyscisGrph:
+  dashPhysicsGraph:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
@@ -27,8 +27,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: 1
+      outSlope: 1
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
@@ -37,4 +37,4 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   f_dashTime: 0.2
-  f_dashDistace: 30
+  f_dashDistance: 30
