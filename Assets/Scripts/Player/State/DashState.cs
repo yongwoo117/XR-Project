@@ -8,9 +8,13 @@ namespace Player.State
         private float dashingTime;
         private float dashTime;
         private float dashDistance;
+
         private AnimationCurve dashGraph;
         private Rigidbody rigid;
+
         private Vector3 pointDir;
+        private Vector3 dashAttackRange;
+
         private bool isActivated;
 
         #region StateFunction
@@ -32,6 +36,25 @@ namespace Player.State
         {
             if (isActivated)
                 ApplyDashPhysics();
+        }
+
+        public override void LogicUpdate()
+        {
+            if(isActivated)
+                CheckEnemyHit();
+        }
+
+        private void CheckEnemyHit()
+        {
+            //오버렙 박스 이용해서 플레이어 위치에서 대쉬 공격 범위 만큼 판정 검사
+            Collider[] enemyHits = Physics.OverlapBox(StateMachine.transform.position, dashAttackRange, Quaternion.Euler(0f, Mathf.Atan2(pointDir.z, pointDir.x) * -Mathf.Rad2Deg, 0f), GetLayerMasks.Enemy);
+            
+
+            if (enemyHits.Length > 0)
+            {
+                Debug.Log("EnemyHit");
+                StateMachine.ChangeState(e_PlayerState.Idle);
+            }
         }
 
         public override void HandleInput(InteractionType interactionType, object arg)
@@ -94,6 +117,7 @@ namespace Player.State
             dashGraph = profile.dashPhysicsGraph;
             dashTime = profile.f_dashTime;
             dashDistance = profile.f_dashDistance;
+            dashAttackRange = profile.v3_dashRange;
         }
 
         /// <summary>

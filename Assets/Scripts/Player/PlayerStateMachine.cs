@@ -24,6 +24,8 @@ public class PlayerStateMachine : StateMachine<e_PlayerState,PlayerState>
     }
     private bool rhythmFlag;
 
+    private Vector3 Direction;
+
     protected override e_PlayerState StartState => e_PlayerState.Idle;
     protected override IStateDictionary<e_PlayerState, PlayerState> StateDictionary => new PlayerStateDictionary();
 
@@ -34,14 +36,30 @@ public class PlayerStateMachine : StateMachine<e_PlayerState,PlayerState>
         rayCastPlane = new Plane(Vector3.up, -transform.position.y);
     }
 
+    private void Update()
+    {
+        currentState?.LogicUpdate();
+    }
+
     private void FixedUpdate()
     {
         currentState?.PhysicsUpdate();
     }
 
-    private void Update()
+    private void OnDrawGizmos()
     {
-        currentState?.LogicUpdate();
+
+        //대쉬 스테이트가 있으면 대쉬 범위 기즈모로 그려줌
+        if(StateDictionary.ContainsState(e_PlayerState.Dash))
+        {
+            if(currentState==StateDictionary.GetState(e_PlayerState.Dash))
+            {
+                Vector3 dashAttackRange = new Vector3(Direction.magnitude, PlayerVariables.Instance.Profile.v3_dashRange.y, PlayerVariables.Instance.Profile.v3_dashRange.z);
+
+                Gizmos.matrix = Matrix4x4.TRS(transform.position, Quaternion.Euler(0f, Mathf.Atan2(Direction.z, Direction.x)*-Mathf.Rad2Deg,0f), transform.localScale);
+                Gizmos.DrawWireCube(Vector3.right * (Direction.magnitude * 0.5f), dashAttackRange);
+            }
+        }
     }
 
     public void OnRhythmLate()
@@ -87,8 +105,8 @@ public class PlayerStateMachine : StateMachine<e_PlayerState,PlayerState>
             return;
         }
 
-        var direction = ray.GetPoint(distance) - transform.position;
-        OnInteraction(InteractionType.Secondary, direction);
+        Direction = ray.GetPoint(distance) - transform.position;
+        OnInteraction(InteractionType.Secondary, Direction);
     }
 
     public void OnThirdInteraction(InputAction.CallbackContext context)

@@ -12,4 +12,5 @@ public class PlayerProfile : ScriptableObject
     public float f_dashTime; //대쉬 시간
     public float f_dashDistance; //대쉬 거리
     public float f_cutTime; //베기 시간
+    public Vector3 v3_dashRange;
 }

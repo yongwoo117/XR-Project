@@ -14,6 +14,8 @@ public class PlayerProfileEditor : Editor
         pmf.f_dashDistance = EditorGUILayout.FloatField("대쉬 최대 거리", pmf.f_dashDistance);
         pmf.f_dashTime = EditorGUILayout.FloatField("대쉬 이동 시간", pmf.f_dashTime);
         pmf.f_cutTime = EditorGUILayout.FloatField("베기 모션 시간", pmf.f_cutTime);
+        pmf.v3_dashRange = EditorGUILayout.Vector3Field("대쉬 공격 범위", pmf.v3_dashRange);
+
         EditorUtility.SetDirty(target);
     }
 }
