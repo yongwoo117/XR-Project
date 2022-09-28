@@ -6,6 +6,11 @@ public enum e_State
     Idle,Dash,Move,Cut
 }
 
+public enum e_EnemyState
+{
+    Idle, Move
+}
+
 public interface IStateDictionary<T1,T2>
 {
     public T2 GetState(T1 state);
@@ -27,4 +32,17 @@ public class PlayerStateDictionary : IStateDictionary<e_State,State>
     [CanBeNull]
     public State GetState(e_State e_state) => Dic_States.ContainsKey(e_state) ? Dic_States[e_state] : null;
     public bool ContainsState(e_State e_state) => Dic_States.ContainsKey(e_state);
+}
+
+public class EnemyStateDictionary : IStateDictionary<e_EnemyState, State>
+{
+    private static Dictionary<e_EnemyState, State> Dic_States = new()
+    {
+        { e_EnemyState.Idle, new IdleState() },
+        { e_EnemyState.Move, new MoveState() },
+    };
+
+    [CanBeNull]
+    public State GetState(e_EnemyState e_state) => Dic_States.ContainsKey(e_state) ? Dic_States[e_state] : null;
+    public bool ContainsState(e_EnemyState e_state) => Dic_States.ContainsKey(e_state);
 }
