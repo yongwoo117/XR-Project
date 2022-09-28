@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -36,6 +37,11 @@ public class PlayerStateMachine : StateMachine<e_PlayerState,PlayerState>
     private void FixedUpdate()
     {
         currentState?.PhysicsUpdate();
+    }
+
+    private void Update()
+    {
+        currentState?.LogicUpdate();
     }
 
     public void OnRhythmLate()

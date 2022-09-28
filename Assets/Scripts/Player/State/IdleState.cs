@@ -16,6 +16,9 @@ namespace Player.State
                 case InteractionType.Primary:
                     StateMachine.ChangeState(e_PlayerState.Dash);
                     break;
+                case InteractionType.Third:
+                    StateMachine.ChangeState(e_PlayerState.Cut);
+                    break;
             }
         }
     }
