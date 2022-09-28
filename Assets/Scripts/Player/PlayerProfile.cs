@@ -11,4 +11,5 @@ public class PlayerProfile : ScriptableObject
     public AnimationCurve dashPhysicsGraph; //대쉬 물리 그래프
     public float f_dashTime; //대쉬 시간
     public float f_dashDistance; //대쉬 거리
+    public Vector3 v3_dashRange;
 }
