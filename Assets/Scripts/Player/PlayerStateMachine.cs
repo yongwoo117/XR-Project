@@ -44,7 +44,9 @@ public class PlayerStateMachine : StateMachine
         //노트가 지나갔으므로 칠 수 있게 해둡니다.
         RhythmFlag = true;
     }
-    
+
+
+    #region Input
     //TODO: 인풋 로직 FSM 로직과 분리 필요
     private void OnInteraction(InteractionType interactionType, object arg)
     {
@@ -79,4 +81,5 @@ public class PlayerStateMachine : StateMachine
         var direction = ray.GetPoint(distance) - transform.position;
         OnInteraction(InteractionType.Secondary, direction);
     }
+    #endregion
 }
