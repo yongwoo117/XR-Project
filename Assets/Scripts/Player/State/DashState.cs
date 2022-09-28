@@ -12,6 +12,13 @@ public class DashState : State
     private bool isActivated;
 
     #region StateFunction
+    public override void Initialize()
+    {
+        rigid = m_stateMachine.GetComponent<Rigidbody>();
+        SetupProfile();
+        SetupIntegralPhysicsGraph(); //물리 그래프 적분 함수
+    }
+
     public override void Enter()
     {
         Debug.Log("Dash Enter");
@@ -33,7 +40,6 @@ public class DashState : State
                 if(arg is not Vector3)
                     Debug.Log("arg is not Vector3! check input logic");
                 Reset((Vector3)arg); //초기 변수 초기화
-                IntegralPhysicsGraph(); //물리 그래프 적분 함수
                 break;
             case InteractionType.Wrong:
                 //TODO: 노트를 놓쳤거나, 너무 일찍 쳤을 때에 대한 처리를 해줍니다.
@@ -57,30 +63,35 @@ public class DashState : State
     /// <param name="dashPoint">캐릭터가 돌진할 위치입니다.</param>
     private void Reset(Vector3 dashPoint)
     {
-        var profile = PlayerVariables.Instance.Profile;
-        dashGraph = profile.dashPhysicsGraph;
-        dashTime = profile.f_dashTime;
-        dashDistance = profile.f_dashDistance;
-        
         // 대쉬 이동 거리에 제약을 걸어줍니다.
         pointDir = dashPoint.magnitude > dashDistance ? dashPoint.normalized * dashDistance : dashPoint;
-        physicsCurveArea = 0f;
         dashingTime = dashTime;
-        rigid = m_stateMachine.GetComponent<Rigidbody>();
         isActivated = true;
-        
+
         Debug.DrawRay(m_stateMachine.transform.position, pointDir, Color.green, 1f);
     }
 
     /// <summary>
     /// 초기에 애니메이션 그래프를 fixedDeltaTime 주기에 맞게 적분하여 그래프 전체 영역을 구함
     /// </summary>
-    private void IntegralPhysicsGraph()
+    private void SetupIntegralPhysicsGraph()
     {
+        physicsCurveArea = 0f;
         for (float i = 0; i < dashTime; i += Time.fixedDeltaTime)
         {
             physicsCurveArea += dashGraph.Evaluate(i);
         }
+    }
+
+    /// <summary>
+    /// PlayerProfile 정보를 받아와서 변수들을 초기화합니다.
+    /// </summary>
+    private void SetupProfile()
+    {
+        var profile = PlayerVariables.Instance.Profile;
+        dashGraph = profile.dashPhysicsGraph;
+        dashTime = profile.f_dashTime;
+        dashDistance = profile.f_dashDistance;
     }
 
     /// <summary>

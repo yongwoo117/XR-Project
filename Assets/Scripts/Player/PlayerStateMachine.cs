@@ -23,8 +23,9 @@ public class PlayerStateMachine : StateMachine
     }
     private bool rhythmFlag;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         rhythmFlag = true;
         rayCastPlane = new Plane(Vector3.up, -transform.position.y);
     }

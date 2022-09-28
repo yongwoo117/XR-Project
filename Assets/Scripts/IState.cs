@@ -1,7 +1,12 @@
 
 
-public interface IState 
+public interface IState
 {
+    /// <summary>
+    /// MonoBehaviour.Start()와 같은 시점에 호출됩니다.
+    /// </summary>
+    void Initialize();
+    
     /// <summary>
     /// State가 시작되는 시점에 Callback 됩니다.
     /// </summary>

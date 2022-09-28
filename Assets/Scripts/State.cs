@@ -12,6 +12,12 @@ public class State : IState
     {
         m_stateMachine = stateMachine;
     }
+
+    public virtual void Initialize()
+    {
+        
+    }
+
     public virtual void Enter()
     {
         
