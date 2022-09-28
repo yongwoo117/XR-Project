@@ -1,11 +1,14 @@
 
 using UnityEngine;
 
-public class MoveState : State
+namespace Player.State
 {
-    public override void Enter()
+    public class MoveState : PlayerState
     {
-        Debug.Log("Move Enter");
-        m_stateMachine.ChangeState(e_State.Dash);
+        public override void Enter()
+        {
+            Debug.Log("Move Enter");
+            StateMachine.ChangeState(e_PlayerState.Dash);
+        }
     }
 }

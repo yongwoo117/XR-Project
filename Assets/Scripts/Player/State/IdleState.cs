@@ -1,19 +1,22 @@
 using UnityEngine;
 
-public class IdleState : State
+namespace Player.State
 {
-    public override void Enter()
+    public class IdleState : PlayerState
     {
-        Debug.Log("Idle Enter");
-    }
-
-    public override void HandleInput(InteractionType interactionType, object arg)
-    {
-        switch (interactionType)
+        public override void Enter()
         {
-            case InteractionType.Primary:
-                m_stateMachine.ChangeState(e_State.Dash);
-                break;
+            Debug.Log("Idle Enter");
+        }
+
+        public override void HandleInput(InteractionType interactionType, object arg)
+        {
+            switch (interactionType)
+            {
+                case InteractionType.Primary:
+                    StateMachine.ChangeState(e_PlayerState.Dash);
+                    break;
+            }
         }
     }
 }

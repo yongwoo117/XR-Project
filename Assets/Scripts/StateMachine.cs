@@ -12,7 +12,7 @@ public interface IStateMachine<T>
 public abstract class StateMachine<T1,T2> : MonoBehaviour, IStateMachine<T1> where T2 : IState<T1,T2>
 {
     [SerializeField] protected List<T1> List_e_States;
-    protected IState<T1,T2> currentState;
+    protected T2 currentState;
     protected Dictionary<T1,T2> Dic_States = new();
     
     /// <summary>
@@ -28,13 +28,12 @@ public abstract class StateMachine<T1,T2> : MonoBehaviour, IStateMachine<T1> whe
             if (StateDictionary.ContainsState(e_state) && !Dic_States.ContainsKey(e_state))
             {
                 var state = StateDictionary.GetState(e_state);
-                state.SetMachine(this);
+                state.StateMachine = this;
                 Dic_States.Add(e_state, state);
             }
         }
 
         //기본 상태를 Idle로 지정합니다.
-        //TODO: 하위에 
         if(Dic_States.ContainsKey(StartState))
             ChangeState(StartState);
     }

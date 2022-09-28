@@ -1,11 +1,14 @@
 
 using UnityEngine;
 
-public class CutState : State
+namespace Player.State
 {
-    public override void Enter()
+    public class CutState : PlayerState
     {
-        Debug.Log("Cut Enter");
+        public override void Enter()
+        {
+            Debug.Log("Cut Enter");
+        }
+        //TODO: 베기를 구현해야 합니다.
     }
-    //TODO: 베기를 구현해야 합니다.
 }
