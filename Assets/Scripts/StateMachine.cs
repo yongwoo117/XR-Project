@@ -1,14 +1,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public interface IStateMachine<T>
+{
+    void ChangeState(T state);
+}
+
 /// <summary>
 /// FSM을 추상화한 컴포넌트입니다.
 /// </summary>
-public abstract class StateMachine : MonoBehaviour
+public abstract class StateMachine<T1,T2> : MonoBehaviour, IStateMachine<T1> where T2 : IState<T1,T2>
 {
-    [SerializeField] protected List<e_State> List_e_States;
-    protected State currentState;
-    protected Dictionary<e_State,State> Dic_States = new();
+    [SerializeField] protected List<T1> List_e_States;
+    protected IState<T1,T2> currentState;
+    protected Dictionary<T1,T2> Dic_States = new();
     
     /// <summary>
     /// 오버라이딩하는 경우 하위 클래스에서 반드시 base.Awake()를 호출해야 합니다.
@@ -22,16 +27,20 @@ public abstract class StateMachine : MonoBehaviour
         {
             if (StateDictionary.ContainsState(e_state) && !Dic_States.ContainsKey(e_state))
             {
-                State state = StateDictionary.GetState(e_state);
+                var state = StateDictionary.GetState(e_state);
                 state.SetMachine(this);
                 Dic_States.Add(e_state, state);
             }
         }
 
         //기본 상태를 Idle로 지정합니다.
-        if(Dic_States.ContainsKey(e_State.Idle))
-            ChangeState(e_State.Idle);
+        //TODO: 하위에 
+        if(Dic_States.ContainsKey(StartState))
+            ChangeState(StartState);
     }
+
+    protected abstract T1 StartState { get; }
+    protected abstract IStateDictionary<T1, T2> StateDictionary { get; }
 
     /// <summary>
     /// 오버라이딩 하는 경우 하위 클래스에서 반드시 base.Start()를 호출해야 합니다.
@@ -47,7 +56,7 @@ public abstract class StateMachine : MonoBehaviour
     /// 캐릭터의 상태를 변경합니다. 이 과정에서 Exit()와 Enter()가 Callback됩니다.
     /// </summary>
     /// <param name="e_state">변경할 상태입니다. 기존과 같은 상태인 경우 무시됩니다.</param>
-    public void ChangeState(e_State e_state)
+    public void ChangeState(T1 e_state)
     {
         //캐릭터가 해당 상태를 보유하지 않은 경우
         if (!Dic_States.ContainsKey(e_state)) return;

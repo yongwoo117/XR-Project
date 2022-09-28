@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-public class PlayerStateMachine : StateMachine
+public class PlayerStateMachine : StateMachine<e_State,State>
 {
     /// <summary>
     /// RhythmFlag의 값이 변경되면 RhythmFlag의 값과 함께 Callback됩니다.
@@ -22,6 +22,9 @@ public class PlayerStateMachine : StateMachine
         }
     }
     private bool rhythmFlag;
+
+    protected override e_State StartState => e_State.Idle;
+    protected override IStateDictionary<e_State, State> StateDictionary => new PlayerStateDictionary();
 
     protected override void Start()
     {

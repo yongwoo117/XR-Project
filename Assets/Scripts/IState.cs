@@ -1,7 +1,10 @@
 
 
-public interface IState
+public interface IState<T1, T2> where T2 : IState<T1,T2>
 {
+    //TODO: StateMachine 인터페이스화
+    void SetMachine(StateMachine<T1, T2> stateMachine);
+
     /// <summary>
     /// MonoBehaviour.Start()와 같은 시점에 호출됩니다.
     /// </summary>
