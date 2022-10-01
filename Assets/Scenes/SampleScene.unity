@@ -1141,6 +1141,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e5339f26-163d-4965-9b38-9b3539d62c17
     m_ActionName: Player/Mouse LB Up[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1735584690}
+        m_TargetAssemblyTypeName: PlayerStateMachine, Assembly-CSharp
+        m_MethodName: OnThirdInteraction
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7f663fbf-0f1e-4a90-b5af-7d102ce5c0fa
+    m_ActionName: Player/Third Interaction[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

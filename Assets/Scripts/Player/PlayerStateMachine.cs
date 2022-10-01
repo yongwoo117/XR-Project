@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -106,6 +107,14 @@ public class PlayerStateMachine : StateMachine<e_PlayerState,PlayerState>
 
         Direction = ray.GetPoint(distance) - transform.position;
         OnInteraction(InteractionType.Secondary, Direction);
+    }
+
+    public void OnThirdInteraction(InputAction.CallbackContext context)
+    {
+        //필요 없는 이벤트를 걸러냅니다.
+        if (!context.performed) return;
+        
+        OnInteraction(InteractionType.Third, null);
     }
     #endregion
 }

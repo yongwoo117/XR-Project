@@ -19,6 +19,9 @@ public interface IState<T1, T2> where T2 : IState<T1,T2>
     /// </summary>
     void Exit();
     
+    /// <summary>
+    /// Update()와 동일합니다.
+    /// </summary>
     void LogicUpdate();
     
     /// <summary>
