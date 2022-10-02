@@ -13,10 +13,10 @@ namespace Player.State
         {
             switch (interactionType)
             {
-                case InteractionType.Primary:
+                case InteractionType.DashEnter:
                     StateMachine.ChangeState(e_PlayerState.Dash);
                     break;
-                case InteractionType.Third:
+                case InteractionType.CutEnter:
                     StateMachine.ChangeState(e_PlayerState.Cut);
                     break;
             }
