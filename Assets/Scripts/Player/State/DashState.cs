@@ -38,6 +38,7 @@ namespace Player.State
         {
             if (isActivated)
                 ApplyDashPhysics();
+
         }
 
         public override void LogicUpdate()

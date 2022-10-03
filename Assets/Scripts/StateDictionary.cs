@@ -8,7 +8,7 @@ public enum e_PlayerState
 
 public enum e_EnemyState
 {
-    Idle, Move
+    Idle, Chase
 }
 
 public interface IStateDictionary<T1,T2>
@@ -39,7 +39,7 @@ public class EnemyStateDictionary : IStateDictionary<e_EnemyState, EnemyState>
     private static Dictionary<e_EnemyState, EnemyState> Dic_States = new()
     {
         { e_EnemyState.Idle, new Enemy.State.IdleState() },
-        { e_EnemyState.Move, new Enemy.State.MoveState() },
+        { e_EnemyState.Chase, new Enemy.State.ChaseState() },
     };
 
     [CanBeNull]

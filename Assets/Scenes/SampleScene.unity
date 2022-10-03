@@ -443,6 +443,7 @@ GameObject:
   - component: {fileID: 1018982267}
   - component: {fileID: 1018982266}
   - component: {fileID: 1018982268}
+  - component: {fileID: 1018982269}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
@@ -493,7 +494,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Profile: {fileID: 11400000, guid: 4ed5bff6bf4fbed48b3f4c320c21f96b, type: 2}
-  List_e_States: 00000000
+  List_e_States: 0000000001000000
+--- !u!54 &1018982269
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018982265}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1449825953
 GameObject:
   m_ObjectHideFlags: 0
@@ -1021,6 +1038,7 @@ GameObject:
   - component: {fileID: 1735584692}
   - component: {fileID: 1735584695}
   - component: {fileID: 1735584694}
+  - component: {fileID: 1735584696}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -1240,6 +1258,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!136 &1735584696
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735584686}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2
+  m_Height: 11.51
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1782955282
 GameObject:
   m_ObjectHideFlags: 0
