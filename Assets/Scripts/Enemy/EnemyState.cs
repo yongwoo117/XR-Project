@@ -1,7 +1,9 @@
 
-public class EnemyState : IState<e_EnemyState,EnemyState>
+using Enemy.Profile;
+
+public class EnemyState : IState<e_EnemyState,EnemyState,EnemyProfile>
 {
-    public StateMachine<e_EnemyState, EnemyState> StateMachine { get; set; }
+    public StateMachine<e_EnemyState, EnemyState, EnemyProfile> StateMachine { get; set; }
 
     public virtual void Initialize()
     {
@@ -26,5 +28,13 @@ public class EnemyState : IState<e_EnemyState,EnemyState>
     public virtual void PhysicsUpdate()
     {
         
+    }
+
+    /// <summary>
+    /// 적 상태 범위를 보기 위한 기즈모 추가
+    /// </summary>
+    public virtual void OnDrawGizmos()
+    {
+
     }
 }

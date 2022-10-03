@@ -4,9 +4,9 @@ using System;
 /// 플레이어를 위한 State들의 베이스 클래스입니다.
 /// </summary>
 [Serializable]
-public class PlayerState : IState<e_PlayerState,PlayerState> 
+public class PlayerState : IState<e_PlayerState,PlayerState, PlayerProfile> 
 {
-    public StateMachine<e_PlayerState, PlayerState> StateMachine { get; set; }
+    public StateMachine<e_PlayerState, PlayerState, PlayerProfile> StateMachine { get; set; }
 
     public virtual void Initialize()
     {

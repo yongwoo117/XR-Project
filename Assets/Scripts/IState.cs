@@ -1,8 +1,9 @@
 
 
-public interface IState<T1, T2> where T2 : IState<T1,T2>
+/// <typeparam name="T3"></Profile을 추가하기 위해서 제네릭 타입을 추가하였습니다.>
+public interface IState<T1, T2, T3> where T2 : IState<T1,T2, T3> 
 {
-    public StateMachine<T1, T2> StateMachine { set; }
+    public StateMachine<T1, T2, T3> StateMachine { set; }
 
     /// <summary>
     /// MonoBehaviour.Start()와 같은 시점에 호출됩니다.

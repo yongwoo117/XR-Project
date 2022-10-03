@@ -83,7 +83,7 @@ namespace Player.State
             var direction = (Vector3)control.Direction;
             
             var attackRange = new Vector3(direction.magnitude,
-                PlayerVariables.Instance.Profile.v3_dashRange.y, PlayerVariables.Instance.Profile.v3_dashRange.z);
+                StateMachine.Profile.v3_dashRange.y, StateMachine.Profile.v3_dashRange.z);
 
             Gizmos.matrix = Matrix4x4.TRS(rigid.transform.position,
                 Quaternion.Euler(0f, Mathf.Atan2(direction.z, direction.x) * -Mathf.Rad2Deg, 0f),
@@ -126,7 +126,7 @@ namespace Player.State
         /// </summary>
         private void SetupProfile()
         {
-            var profile = PlayerVariables.Instance.Profile;
+            var profile = StateMachine.Profile;
             dashGraph = profile.dashPhysicsGraph;
             dashTime = profile.f_dashTime;
             dashDistance = profile.f_dashDistance;

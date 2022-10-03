@@ -11,7 +11,7 @@ namespace Player.State
         public override void Enter()
         {
             Debug.Log("Cut Enter");
-            cutTime = PlayerVariables.Instance.Profile.f_cutTime;
+            cutTime = StateMachine.Profile.f_cutTime;
             thresholdTime = Time.realtimeSinceStartup + cutTime;
         }
 

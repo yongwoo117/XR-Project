@@ -9,8 +9,10 @@ public interface IStateMachine<T>
 /// <summary>
 /// FSM을 추상화한 컴포넌트입니다.
 /// </summary>
-public abstract class StateMachine<T1,T2> : MonoBehaviour, IStateMachine<T1> where T2 : IState<T1,T2>
+/// <typeparam name="T3"></Profile을 추가하기 위해서 제네릭 타입을 추가하였습니다.>
+public abstract class StateMachine<T1,T2,T3> : MonoBehaviour, IStateMachine<T1> where T2 : IState<T1,T2, T3>
 {
+    public T3 Profile; //각 머신들이 사용할 Profile을 받아올수 있게 해주는 변수 추가
     [SerializeField] protected List<T1> List_e_States;
     protected T2 currentState;
     protected Dictionary<T1,T2> Dic_States = new();
