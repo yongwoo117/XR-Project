@@ -1,7 +1,8 @@
 public enum InteractionType
 {
-    Primary,
-    Secondary,
-    Third,
-    Wrong
+    DashEnter,
+    DashExit,
+    CutEnter,
+    RhythmEarly,
+    RhythmLate
 }

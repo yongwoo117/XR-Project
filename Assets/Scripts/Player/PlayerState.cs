@@ -33,6 +33,14 @@ public class PlayerState : IState<e_PlayerState,PlayerState>
      
     }
 
+    /// <summary>
+    /// 기즈모를 사용하려는 경우 이 메서드를 구현합니다.
+    /// </summary>
+    public virtual void OnDrawGizmos()
+    {
+        
+    }
+
     public virtual void PhysicsUpdate()
     {
        

@@ -11,6 +11,7 @@ namespace Player.State
 
         private AnimationCurve dashGraph;
         private Rigidbody rigid;
+        private IControl control;
 
         private Vector3 pointDir;
         private Vector3 dashAttackRange;
@@ -21,6 +22,7 @@ namespace Player.State
         public override void Initialize()
         {
             rigid = StateMachine.GetComponent<Rigidbody>();
+            control = StateMachine.GetComponent<IControl>();
             SetupProfile();
             SetupIntegralPhysicsGraph(); //물리 그래프 적분 함수
         }
@@ -61,13 +63,8 @@ namespace Player.State
         {
             switch (interactionType)
             {
-                case InteractionType.Secondary:
-                    if(arg is not Vector3)
-                        Debug.Log("arg is not Vector3! check input logic");
-                    Reset((Vector3)arg); //초기 변수 초기화
-                    break;
-                case InteractionType.Wrong:
-                    //TODO: 노트를 놓쳤거나, 너무 일찍 쳤을 때에 대한 처리를 해줍니다.
+                case InteractionType.DashExit:
+                    Reset(); //초기 변수 초기화
                     break;
             }
         }
@@ -79,15 +76,31 @@ namespace Player.State
             rigid.velocity = Vector3.zero; //대쉬 시간이 끝났으면 플레이어를 멈춰줌
             base.Exit();
         }
+
+        public override void OnDrawGizmos()
+        {
+            if (control.Direction == null) return;
+            var direction = (Vector3)control.Direction;
+            
+            var attackRange = new Vector3(direction.magnitude,
+                PlayerVariables.Instance.Profile.v3_dashRange.y, PlayerVariables.Instance.Profile.v3_dashRange.z);
+
+            Gizmos.matrix = Matrix4x4.TRS(rigid.transform.position,
+                Quaternion.Euler(0f, Mathf.Atan2(direction.z, direction.x) * -Mathf.Rad2Deg, 0f),
+                rigid.transform.localScale);
+            Gizmos.DrawWireCube(Vector3.right * (direction.magnitude * 0.5f), attackRange);
+        }
         #endregion
 
 
         /// <summary>
         /// 초기 변수들 초기화
         /// </summary>
-        /// <param name="dashPoint">캐릭터가 돌진할 위치입니다.</param>
-        private void Reset(Vector3 dashPoint)
+        private void Reset()
         {
+            if (control.Direction == null) return;
+            var dashPoint = (Vector3)control.Direction;
+            
             // 대쉬 이동 거리에 제약을 걸어줍니다.
             pointDir = dashPoint.magnitude > dashDistance ? dashPoint.normalized * dashDistance : dashPoint;
             dashingTime = dashTime;
