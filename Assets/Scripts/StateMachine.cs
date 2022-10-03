@@ -1,21 +1,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IStateMachine<T>
-{
-    void ChangeState(T state);
-}
-
 /// <summary>
 /// FSM을 추상화한 컴포넌트입니다.
 /// </summary>
-/// <typeparam name="T3"></Profile을 추가하기 위해서 제네릭 타입을 추가하였습니다.>
-public abstract class StateMachine<T1,T2,T3> : MonoBehaviour, IStateMachine<T1> where T2 : IState<T1,T2, T3>
+/// <typeparam name="T1">State를 구분할 enum 형식입니다.</typeparam>
+/// <typeparam name="T2">IState를 상속하는 State입니다.</typeparam>
+/// <typeparam name="T3">Profile을 추가하기 위해서 제네릭 타입을 추가하였습니다.</typeparam>
+public abstract class StateMachine<T1,T2,T3> : MonoBehaviour where T2 : IState<T1,T2,T3> where T3 : ScriptableObject
 {
-    public T3 Profile; //각 머신들이 사용할 Profile을 받아올수 있게 해주는 변수 추가
+    [SerializeField] private T3 profile; //각 머신들이 사용할 Profile을 받아올수 있게 해주는 변수 추가
     [SerializeField] protected List<T1> List_e_States;
     protected T2 currentState;
     protected Dictionary<T1,T2> Dic_States = new();
+    
+    protected abstract T1 StartState { get; }
+    protected abstract IStateDictionary<T1, T2> StateDictionary { get; }
+    public T3 Profile => profile;
     
     /// <summary>
     /// 오버라이딩하는 경우 하위 클래스에서 반드시 base.Awake()를 호출해야 합니다.
@@ -39,9 +40,6 @@ public abstract class StateMachine<T1,T2,T3> : MonoBehaviour, IStateMachine<T1> 
         if(Dic_States.ContainsKey(StartState))
             ChangeState(StartState);
     }
-
-    protected abstract T1 StartState { get; }
-    protected abstract IStateDictionary<T1, T2> StateDictionary { get; }
 
     /// <summary>
     /// 오버라이딩 하는 경우 하위 클래스에서 반드시 base.Start()를 호출해야 합니다.
