@@ -8,7 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.XR-Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.XR-Project/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/StartScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/StartScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/StartManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StartManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -110,7 +109,8 @@
       <workItem from="1664690451134" duration="1329000" />
       <workItem from="1664789699079" duration="3320000" />
       <workItem from="1664872648332" duration="1488000" />
-      <workItem from="1664876383077" duration="1637000" />
+      <workItem from="1664876383077" duration="1913000" />
+      <workItem from="1664881595144" duration="2296000" />
     </task>
     <servers />
   </component>

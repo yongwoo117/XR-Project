@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,7 +8,6 @@ public class StartManager : MonoBehaviour
     [SerializeField] private TMP_Dropdown resolutionDropdown;
     [SerializeField] private TMP_Dropdown screenModeDropdown;
     private AsyncOperation gameScene;
-    private List<Resolution> resolutions;
 
     private void Start()
     {
@@ -21,26 +19,44 @@ public class StartManager : MonoBehaviour
 
     private void SetupResolutionDropdown()
     {
-        resolutions = new List<Resolution>();
-        resolutions.AddRange(Screen.resolutions);
+        var resolutions = Screen.resolutions;
+        
+        //드롭다운에 아이템 추가
         resolutionDropdown.options.Clear();
         foreach (var resolution in resolutions)
             resolutionDropdown.options.Add(new TMP_Dropdown.OptionData(resolution.ToString()));
+        
+        //이벤트 등록
         resolutionDropdown.onValueChanged.AddListener(index =>
-            Screen.SetResolution(resolutions[index].width, resolutions[index].height, Screen.fullScreenMode));
+        {
+            PlayerPrefs.SetInt("ResolutionIndex", index);
+            Screen.SetResolution(resolutions[index].width, resolutions[index].height, Screen.fullScreenMode);
+        });
+
+        //드롭다운 기본값 세팅
+        resolutionDropdown.value = PlayerPrefs.HasKey("ResolutionIndex")
+            ? PlayerPrefs.GetInt("ResolutionIndex")
+            : resolutions.Length - 1;
     }
 
     private void SetupScreenModeDropdown()
     {
-        var screenModeList = Enum.GetNames(typeof(FullScreenMode));
+        if (Enum.GetValues(typeof(FullScreenMode)) is not FullScreenMode[] screenModeList) return;
+        
+        //드롭다운에 아이템 추가
         screenModeDropdown.options.Clear();
         foreach (var screenMode in screenModeList)
-            screenModeDropdown.options.Add(new TMP_Dropdown.OptionData(screenMode));
+            screenModeDropdown.options.Add(new TMP_Dropdown.OptionData(screenMode.ToString()));
+        
+        //이벤트 등록
         screenModeDropdown.onValueChanged.AddListener(index =>
         {
-            if(!Enum.TryParse(screenModeList[index], out FullScreenMode result)) return;
-            Screen.fullScreenMode = result;
+            PlayerPrefs.SetInt("ScreenModeIndex", index);
+            Screen.fullScreenMode = screenModeList[index];
         });
+        
+        //드롭다운 기본값 세팅
+        screenModeDropdown.value = PlayerPrefs.HasKey("ScreenModeIndex") ? PlayerPrefs.GetInt("ScreenModeIndex") : 0;
     }
 
     public void OnStartButtonClick()
