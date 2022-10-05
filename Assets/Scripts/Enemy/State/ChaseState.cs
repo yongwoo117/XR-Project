@@ -31,10 +31,7 @@ namespace Enemy.State
 
         public override void PhysicsUpdate()
         {
-            if (isRhythm)
-                ApplyPhysics();
-            else
-                rigid.velocity = Vector3.zero;
+            ApplyPhysics();
         }
 
         public override void LogicUpdate()
@@ -91,20 +88,20 @@ namespace Enemy.State
         /// </summary>
         public override void OnRhythm()
         {
-            if (!isRhythm)
-            {
-                if (rhythmIndex == rhythmCnt)
-                {
-                    rhythmIndex = 1;
-                    isRhythm = true;
-                }
-                else
-                    rhythmIndex++;
-            }
-            else
-            {
-                isRhythm = false;
-            }
+            //if (!isRhythm)
+            //{
+            //    if (rhythmIndex == rhythmCnt)
+            //    {
+            //        rhythmIndex = 1;
+            //        isRhythm = true;
+            //    }
+            //    else
+            //        rhythmIndex++;
+            //}
+            //else
+            //{
+            //    isRhythm = false;
+            //}
         }
     }
 }
