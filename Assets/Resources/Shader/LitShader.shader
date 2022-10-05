@@ -1,4 +1,4 @@
-    Shader "Custom/LitBillBoard"
+Shader "Custom/Lit_ZWriteOn"
 {
     Properties
     {
@@ -94,15 +94,7 @@
                     #if defined(DEBUG_DISPLAY)
                     o.positionWS = TransformObjectToWorld(v.positionOS);
                     #endif
-                    o.uv = v.uv.xy;
-
-
-                    float3 vpos = mul((float3x3)unity_ObjectToWorld, v.positionOS.xyz);
-                    float4 worldCoord = float4(unity_ObjectToWorld._m03, unity_ObjectToWorld._m13, unity_ObjectToWorld._m23, 1);
-                    float4 viewPos = mul(UNITY_MATRIX_V, worldCoord) + float4(vpos, 0);
-                    float4 outPos = mul(UNITY_MATRIX_P, viewPos);
-
-                    o.positionCS = outPos;
+                    o.uv = TRANSFORM_TEX(v.uv, _MainTex);
 
                     o.lightingUV = half2(ComputeScreenPos(o.positionCS / o.positionCS.w).xy);
 
