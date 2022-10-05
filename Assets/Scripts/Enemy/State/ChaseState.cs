@@ -27,7 +27,6 @@ namespace Enemy.State
         public override void Enter()
         {
             Reset();
-            RhythmCore.Instance.onRhythm.AddListener(OnRhythm);
         }
 
         public override void PhysicsUpdate()
@@ -90,7 +89,7 @@ namespace Enemy.State
         /// <summary>
         /// RhythmCore 이벤트를 통해 박자 체크
         /// </summary>
-        private void OnRhythm()
+        public override void OnRhythm()
         {
             if (!isRhythm)
             {

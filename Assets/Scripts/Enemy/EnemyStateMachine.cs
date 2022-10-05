@@ -11,6 +11,7 @@ public class EnemyStateMachine : StateMachine<e_EnemyState, EnemyState, EnemyPro
     protected override void Start()
     {
         base.Start();
+        RhythmCore.Instance.onRhythm.AddListener(OnRhythm);
     }
 
     private void OnDrawGizmos()
@@ -28,4 +29,13 @@ public class EnemyStateMachine : StateMachine<e_EnemyState, EnemyState, EnemyPro
         currentState?.LogicUpdate();
     }
 
+    private void OnRhythm()
+    {
+        currentState?.OnRhythm();
+    }
+
+    private void OnDestroy()
+    {
+        RhythmCore.Instance.onRhythm.RemoveListener(OnRhythm);
+    }
 }

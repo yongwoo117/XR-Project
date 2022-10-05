@@ -30,6 +30,11 @@ public class EnemyState : IState<e_EnemyState,EnemyState,EnemyProfile>
         
     }
 
+    public virtual void OnRhythm()
+    {
+
+    }
+
     /// <summary>
     /// 적 상태 범위를 보기 위한 기즈모 추가
     /// </summary>
