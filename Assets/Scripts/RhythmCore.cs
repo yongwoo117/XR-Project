@@ -75,7 +75,7 @@ public class RhythmCore : Singleton<RhythmCore>
     private void RhythmStart()
     {
         rhythmDelay = 60 / Bpm;
-        startTime = Time.realtimeSinceStartupAsDouble - rhythmDelay / 2;
+        startTime = Time.realtimeSinceStartupAsDouble;
         currentEventState = EventState.OnEarly;
     }
 
