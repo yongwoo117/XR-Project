@@ -2,7 +2,6 @@ using UnityEngine;
 
 namespace Player.State
 {
-    //TODO: 코드가 조금 난해해져서 정리가 필요합니다..
     public class DashState : PlayerState
     {
         private float physicsCurveArea;
@@ -51,13 +50,14 @@ namespace Player.State
         private void CheckEnemyHit()
         {
             //오버렙 박스 이용해서 플레이어 위치에서 대쉬 공격 범위 만큼 판정 검사
-            Collider[] enemyHits = Physics.OverlapBox(StateMachine.transform.position+pointDir.normalized*new Vector3(dashAttackRange.x,0f,dashAttackRange.z).magnitude, dashAttackRange, Quaternion.Euler(0f, Mathf.Atan2(pointDir.z, pointDir.x) * -Mathf.Rad2Deg, 0f), GetLayerMasks.Enemy);
+            Collider[] enemyHits = Physics.OverlapBox(
+                StateMachine.transform.position + pointDir.normalized *
+                new Vector3(dashAttackRange.x, 0f, dashAttackRange.z).magnitude, dashAttackRange,
+                Quaternion.Euler(0f, Mathf.Atan2(pointDir.z, pointDir.x) * -Mathf.Rad2Deg, 0f), GetLayerMasks.Enemy);
          
 
             if (enemyHits.Length > 0)
-            {
-                dashingTime = -1;
-            }
+                Deactivate();
         }
 
         public override void HandleInput(InteractionType interactionType, object arg)
@@ -66,15 +66,15 @@ namespace Player.State
             {
                 case InteractionType.DashExit:
                     IncreaseStreak();
-                    Reset(); //초기 변수 초기화
+                    Activate();
                     break;
-                case InteractionType.CutEnter when dashingTime < 0:
+                case InteractionType.CutEnter when dashingTime < 0: // dashingTime이 음수라면, 대쉬가 끝난 뒤 입력대기상태를 의미합니다.
                     IncreaseStreak();
                     StateMachine.ChangeState(e_PlayerState.Cut);
                     break; 
                 case InteractionType.DashEnter when dashingTime < 0:
                     IncreaseStreak();
-                    dashingTime = dashTime;
+                    Enter();
                     break;
                 default:
                     BreakStreak();
@@ -105,9 +105,9 @@ namespace Player.State
 
 
         /// <summary>
-        /// 초기 변수들 초기화
+        /// 대쉬를 실행합니다.
         /// </summary>
-        private void Reset()
+        private void Activate()
         {
             if (control.Direction == null) return;
             var dashPoint = (Vector3)control.Direction;
@@ -118,15 +118,23 @@ namespace Player.State
         }
 
         /// <summary>
+        /// 대쉬를 멈춥니다.
+        /// </summary>
+        private void Deactivate()
+        {
+            dashingTime = -1;
+            rigid.velocity = Vector3.zero; //대쉬 시간이 끝났으면 플레이어를 멈춰줌
+            isActivated = false;
+        }
+
+        /// <summary>
         /// 초기에 애니메이션 그래프를 fixedDeltaTime 주기에 맞게 적분하여 그래프 전체 영역을 구함
         /// </summary>
         private void SetupIntegralPhysicsGraph()
         {
             physicsCurveArea = 0f;
             for (float i = 0; i < dashTime; i += Time.fixedDeltaTime)
-            {
                 physicsCurveArea += dashGraph.Evaluate(i);
-            }
         }
 
         /// <summary>
@@ -153,14 +161,12 @@ namespace Player.State
         private void ApplyDashPhysics()
         {
             if (dashingTime <= 0f)
-            {
-                rigid.velocity = Vector3.zero; //대쉬 시간이 끝났으면 플레이어를 멈춰줌
-                isActivated = false;
-            }
+                Deactivate();
             else
-                rigid.velocity = pointDir / dashTime * ((dashTime / Time.fixedDeltaTime) / physicsCurveArea) * dashGraph.Evaluate(dashTime - dashingTime); //대쉬 시간이 끝이 아니면 그래프에 값 만큼 물리 적용
+                rigid.velocity = pointDir / dashTime * ((dashTime / Time.fixedDeltaTime) / physicsCurveArea) *
+                                 dashGraph.Evaluate(dashTime - dashingTime); //대쉬 시간이 끝이 아니면 그래프에 값 만큼 물리 적용
 
-            dashingTime -= Time.deltaTime; 
+            dashingTime -= Time.fixedDeltaTime; 
         }
     }
 }
