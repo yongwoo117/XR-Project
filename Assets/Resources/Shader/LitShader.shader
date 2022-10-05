@@ -28,9 +28,10 @@ Shader "Custom/Lit_ZWriteOn"
 
                 HLSLPROGRAM
                 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
-
+                
                 #pragma vertex CombinedShapeLightVertex
                 #pragma fragment CombinedShapeLightFragment
+                
 
                 #pragma multi_compile USE_SHAPE_LIGHT_TYPE_0 __
                 #pragma multi_compile USE_SHAPE_LIGHT_TYPE_1 __
