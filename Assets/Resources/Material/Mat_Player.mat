@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Mat_Player
-  m_Shader: {fileID: 4800000, guid: 7a86b723366fad9499696da11e4e7151, type: 3}
+  m_Shader: {fileID: 4800000, guid: 2979a205b6ac4a34faccdf289f8285ce, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
   - _SURFACE_TYPE_TRANSPARENT
