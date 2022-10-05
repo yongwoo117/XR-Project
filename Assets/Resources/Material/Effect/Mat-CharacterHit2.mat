@@ -41,7 +41,7 @@ Material:
     - _AlphaCutoff: 0.5
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _inten: 10
+    - _inten: 15
     m_Colors:
     - _Color0: {r: 0.4198113, g: 1, b: 0.97069746, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
