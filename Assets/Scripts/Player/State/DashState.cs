@@ -50,12 +50,11 @@ namespace Player.State
         private void CheckEnemyHit()
         {
             //오버렙 박스 이용해서 플레이어 위치에서 대쉬 공격 범위 만큼 판정 검사
-            Collider[] enemyHits = Physics.OverlapBox(StateMachine.transform.position, dashAttackRange, Quaternion.Euler(0f, Mathf.Atan2(pointDir.z, pointDir.x) * -Mathf.Rad2Deg, 0f), GetLayerMasks.Enemy);
-            
+            Collider[] enemyHits = Physics.OverlapBox(StateMachine.transform.position+pointDir.normalized*new Vector3(dashAttackRange.x,0f,dashAttackRange.z).magnitude, dashAttackRange, Quaternion.Euler(0f, Mathf.Atan2(pointDir.z, pointDir.x) * -Mathf.Rad2Deg, 0f), GetLayerMasks.Enemy);
+         
 
             if (enemyHits.Length > 0)
             {
-                Debug.Log("EnemyHit");
                 StateMachine.ChangeState(e_PlayerState.Idle);
             }
         }
@@ -107,7 +106,6 @@ namespace Player.State
             dashingTime = dashTime;
             isActivated = true;
 
-            Debug.DrawRay(StateMachine.transform.position, pointDir, Color.green, 1f);
         }
 
         /// <summary>

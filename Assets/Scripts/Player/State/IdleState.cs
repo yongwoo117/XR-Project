@@ -9,6 +9,8 @@ namespace Player.State
             Debug.Log("Idle Enter");
         }
 
+
+
         public override void HandleInput(InteractionType interactionType, object arg)
         {
             switch (interactionType)
