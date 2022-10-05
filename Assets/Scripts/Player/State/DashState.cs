@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace Player.State
 {
+    //TODO: 코드가 조금 난해해져서 정리가 필요합니다..
     public class DashState : PlayerState
     {
         private float physicsCurveArea;
@@ -31,6 +32,7 @@ namespace Player.State
         {
             Debug.Log("Dash Enter");
         
+            dashingTime = dashTime;
             isActivated = false;
         }
 
@@ -38,7 +40,6 @@ namespace Player.State
         {
             if (isActivated)
                 ApplyDashPhysics();
-
         }
 
         public override void LogicUpdate()
@@ -55,7 +56,7 @@ namespace Player.State
 
             if (enemyHits.Length > 0)
             {
-                StateMachine.ChangeState(e_PlayerState.Idle);
+                dashingTime = -1;
             }
         }
 
@@ -64,7 +65,20 @@ namespace Player.State
             switch (interactionType)
             {
                 case InteractionType.DashExit:
+                    IncreaseStreak();
                     Reset(); //초기 변수 초기화
+                    break;
+                case InteractionType.CutEnter when dashingTime < 0:
+                    IncreaseStreak();
+                    StateMachine.ChangeState(e_PlayerState.Cut);
+                    break; 
+                case InteractionType.DashEnter when dashingTime < 0:
+                    IncreaseStreak();
+                    dashingTime = dashTime;
+                    break;
+                default:
+                    BreakStreak();
+                    StateMachine.ChangeState(e_PlayerState.Idle);
                     break;
             }
         }
@@ -72,9 +86,6 @@ namespace Player.State
         public override void Exit()
         {
             Debug.Log("Dash Exit");
-
-            rigid.velocity = Vector3.zero; //대쉬 시간이 끝났으면 플레이어를 멈춰줌
-            base.Exit();
         }
 
         public override void OnDrawGizmos()
@@ -103,9 +114,7 @@ namespace Player.State
             
             // 대쉬 이동 거리에 제약을 걸어줍니다.
             pointDir = dashPoint.magnitude > dashDistance ? dashPoint.normalized * dashDistance : dashPoint;
-            dashingTime = dashTime;
             isActivated = true;
-
         }
 
         /// <summary>
@@ -145,7 +154,8 @@ namespace Player.State
         {
             if (dashingTime <= 0f)
             {
-                StateMachine.ChangeState(e_PlayerState.Idle); //대쉬 시간이 끝이면 Idle로 상태 변환
+                rigid.velocity = Vector3.zero; //대쉬 시간이 끝났으면 플레이어를 멈춰줌
+                isActivated = false;
             }
             else
                 rigid.velocity = pointDir / dashTime * ((dashTime / Time.fixedDeltaTime) / physicsCurveArea) * dashGraph.Evaluate(dashTime - dashingTime); //대쉬 시간이 끝이 아니면 그래프에 값 만큼 물리 적용

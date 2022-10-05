@@ -16,10 +16,11 @@ namespace Player.State
             switch (interactionType)
             {
                 case InteractionType.DashEnter:
+                    IncreaseStreak();
                     StateMachine.ChangeState(e_PlayerState.Dash);
                     break;
-                case InteractionType.CutEnter:
-                    StateMachine.ChangeState(e_PlayerState.Cut);
+                default:
+                    BreakStreak();
                     break;
             }
         }
