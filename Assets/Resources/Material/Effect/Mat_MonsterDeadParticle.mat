@@ -7,10 +7,11 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Mat-CharacterHit2
-  m_Shader: {fileID: 4800000, guid: 98a4270f321ff7e469961e1d8c364d2d, type: 3}
+  m_Name: Mat_MonsterDeadParticle
+  m_Shader: {fileID: 4800000, guid: 7374e9fbb362a2b41987ea8055e3741f, type: 3}
   m_ValidKeywords: []
-  m_InvalidKeywords: []
+  m_InvalidKeywords:
+  - _PARTICLESWITCH_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -20,8 +21,16 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _hitsplit1:
-        m_Texture: {fileID: 2800000, guid: f33fffabd09da3444b9c6929957227dd, type: 3}
+    - _Main_texture:
+        m_Texture: {fileID: 2800000, guid: c156ae7b1123ba54ba7de991b771637e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _blur01:
+        m_Texture: {fileID: 2800000, guid: 5227cebe6cbdbcb48b668ddeac7ee2b6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _main01:
+        m_Texture: {fileID: 2800000, guid: 474b47e04d9c7344593ff9c6c6e2667a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -39,10 +48,16 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaCutoff: 0.5
+    - _Man_inten: 30
+    - _ParticleSwitch: 1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _inten: 15
+    - _control: 0
+    - _intencity: 30
+    - _interval: 0.05
+    - _noise: 0.7391768
     m_Colors:
-    - _Color0: {r: 0.4198113, g: 1, b: 0.97069746, a: 0}
+    - _Color: {r: 0, g: 0.48017597, b: 1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Main_color: {r: 0.10980389, g: 0.5370403, b: 1, a: 0}
   m_BuildTextureStacks: []

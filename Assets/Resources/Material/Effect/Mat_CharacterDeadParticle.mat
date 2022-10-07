@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-604706918134507840
+--- !u!114 &-1398030900766525923
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,10 +20,11 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: enemy particle
-  m_Shader: {fileID: 4800000, guid: 98a4270f321ff7e469961e1d8c364d2d, type: 3}
+  m_Name: Mat_CharacterDeadParticle
+  m_Shader: {fileID: 4800000, guid: 7374e9fbb362a2b41987ea8055e3741f, type: 3}
   m_ValidKeywords: []
-  m_InvalidKeywords: []
+  m_InvalidKeywords:
+  - _PARTICLESWITCH_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -61,6 +62,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Main_texture:
+        m_Texture: {fileID: 2800000, guid: c156ae7b1123ba54ba7de991b771637e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -77,8 +82,12 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _hitsplit1:
-        m_Texture: {fileID: 2800000, guid: a7ac539886563aa42bcce120263f358e, type: 3}
+    - _blur01:
+        m_Texture: {fileID: 2800000, guid: 5227cebe6cbdbcb48b668ddeac7ee2b6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _main01:
+        m_Texture: {fileID: 2800000, guid: eae6fe6ce68f148418094f289fbf8f7a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -110,9 +119,11 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _Man_inten: 30
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
+    - _ParticleSwitch: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
@@ -123,11 +134,14 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _inten: 20
+    - _control: 0
+    - _intencity: 30
+    - _interval: 0.05
+    - _noise: 0.7391768
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color0: {r: 1, g: 0.4009434, b: 0.42488965, a: 0}
+    - _Color: {r: 1, g: 0.08363296, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Main_color: {r: 1, g: 0.24121624, b: 0.089622594, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
