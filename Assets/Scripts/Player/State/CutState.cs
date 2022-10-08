@@ -6,23 +6,22 @@ namespace Player.State
     public class CutState : PlayerState
     {
         private float cutTime;
-        private float thresholdTime;
         private int cutCount;
         private int remainCutCount;
+        private RhythmCombo combo;
 
         public override void Initialize()
         {
             cutTime = StateMachine.Profile.f_cutTime;
             cutCount = StateMachine.Profile.i_cutCount;
-            
-            //TODO: thresholdTIme을 이용하여 애니메이션 배속같은 것을 지정합니다.
-            thresholdTime = Time.realtimeSinceStartup + cutTime;
+            combo = StateMachine.GetComponent<RhythmCombo>();
         }
 
         public override void Enter()
         {
             Debug.Log("Cut Enter");
             remainCutCount = cutCount - 1;
+            combo.Combo++;
         }
 
         public override void Exit()
@@ -35,15 +34,13 @@ namespace Player.State
             switch (interactionType)
             {
                 case InteractionType.CutEnter when remainCutCount != 0:
-                    IncreaseStreak();
+                    combo.Combo++;
                     remainCutCount--;
                     break;
                 case InteractionType.DashEnter:
-                    IncreaseStreak();
                     StateMachine.ChangeState(e_PlayerState.Dash);
                     break;
                 default:
-                    BreakStreak();
                     StateMachine.ChangeState(e_PlayerState.Idle);
                     break;
             }

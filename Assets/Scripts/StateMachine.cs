@@ -32,25 +32,16 @@ public abstract class StateMachine<T1,T2,T3> : MonoBehaviour where T2 : IState<T
             {
                 var state = StateDictionary.GetState(e_state);
                 state.StateMachine = this;
+                state.Initialize();
                 Dic_States.Add(e_state, state);
             }
         }
-
+        
         //기본 상태를 Idle로 지정합니다.
         if(Dic_States.ContainsKey(StartState))
             ChangeState(StartState);
     }
 
-    /// <summary>
-    /// 오버라이딩 하는 경우 하위 클래스에서 반드시 base.Start()를 호출해야 합니다.
-    /// </summary>
-    protected virtual void Start()
-    {
-        //State들의 Initialize()를 호출합니다.
-        foreach (var pair in Dic_States)
-            pair.Value.Initialize();
-    }
-    
     /// <summary>
     /// 캐릭터의 상태를 변경합니다. 이 과정에서 Exit()와 Enter()가 Callback됩니다.
     /// </summary>

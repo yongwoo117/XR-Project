@@ -8,7 +8,7 @@ public interface IState<T1, T2, T3> where T2 : IState<T1,T2, T3> where T3 : Scri
     public StateMachine<T1, T2, T3> StateMachine { set; }
 
     /// <summary>
-    /// MonoBehaviour.Start()와 같은 시점에 호출됩니다.
+    /// MonoBehaviour.Awake()와 같은 시점에 호출됩니다.
     /// </summary>
     void Initialize();
     

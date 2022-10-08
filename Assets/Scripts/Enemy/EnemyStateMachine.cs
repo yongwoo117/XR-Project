@@ -8,9 +8,8 @@ public class EnemyStateMachine : StateMachine<e_EnemyState, EnemyState, EnemyPro
     protected override e_EnemyState StartState => e_EnemyState.Idle;
     protected override IStateDictionary<e_EnemyState, EnemyState> StateDictionary => new EnemyStateDictionary();
 
-    protected override void Start()
+    private void Start()
     {
-        base.Start();
         RhythmCore.Instance.onRhythm.AddListener(OnRhythm);
     }
 

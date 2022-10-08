@@ -12,6 +12,7 @@ namespace Player.State
         private AnimationCurve dashGraph;
         private Rigidbody rigid;
         private IControl control;
+        private RhythmCombo combo;
 
         private Vector3 pointDir;
         private Vector3 dashAttackRange;
@@ -23,6 +24,7 @@ namespace Player.State
         {
             rigid = StateMachine.GetComponent<Rigidbody>();
             control = StateMachine.GetComponent<IControl>();
+            combo = StateMachine.GetComponent<RhythmCombo>();
             SetupProfile();
             SetupIntegralPhysicsGraph(); //물리 그래프 적분 함수
         }
@@ -33,6 +35,7 @@ namespace Player.State
         
             dashingTime = dashTime;
             isActivated = false;
+            combo.Combo--;
         }
 
         public override void PhysicsUpdate()
@@ -56,8 +59,8 @@ namespace Player.State
                 Quaternion.Euler(0f, Mathf.Atan2(pointDir.z, pointDir.x) * -Mathf.Rad2Deg, 0f), GetLayerMasks.Enemy);
          
 
-            if (enemyHits.Length > 0)
-                Deactivate();
+            // if (enemyHits.Length > 0)
+            //     Deactivate();
         }
 
         public override void HandleInput(InteractionType interactionType, object arg)
@@ -65,19 +68,16 @@ namespace Player.State
             switch (interactionType)
             {
                 case InteractionType.DashExit:
-                    IncreaseStreak();
+                    combo.Combo += 3;
                     Activate();
                     break;
                 case InteractionType.CutEnter when dashingTime < 0: // dashingTime이 음수라면, 대쉬가 끝난 뒤 입력대기상태를 의미합니다.
-                    IncreaseStreak();
                     StateMachine.ChangeState(e_PlayerState.Cut);
                     break; 
                 case InteractionType.DashEnter when dashingTime < 0:
-                    IncreaseStreak();
                     Enter();
                     break;
                 default:
-                    BreakStreak();
                     StateMachine.ChangeState(e_PlayerState.Idle);
                     break;
             }

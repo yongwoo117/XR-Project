@@ -8,11 +8,10 @@ public class UIManger : MonoBehaviour
     private void Start()
     {
         rhythmStreakText.text = "0";
-        RhythmStreakModule.RhythmStreakChanged += OnRhythmStreakChanged;
     }
 
-    public void OnRhythmStreakChanged(int streak)
+    public void OnRhythmComboChanged(int combo)
     {
-        rhythmStreakText.text = streak.ToString();
+        rhythmStreakText.text = combo.ToString();
     }
 }

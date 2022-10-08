@@ -2032,6 +2032,7 @@ GameObject:
   - component: {fileID: 1735584695}
   - component: {fileID: 1735584694}
   - component: {fileID: 1735584696}
+  - component: {fileID: 1735584697}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -2203,21 +2204,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba035cb67a42747d586e3fd389e32395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onRhythmStreakChanged:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1659581284}
-        m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
-        m_MethodName: OnRhythmStreakChanged
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   onInteraction:
     m_PersistentCalls:
       m_Calls:
@@ -2280,6 +2266,33 @@ CapsuleCollider:
   m_Height: 10
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1735584697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735584686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94e9ac5737f6a45e58212075bb5e5fa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onComboChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1659581284}
+        m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
+        m_MethodName: OnRhythmComboChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1782955282
 GameObject:
   m_ObjectHideFlags: 0
