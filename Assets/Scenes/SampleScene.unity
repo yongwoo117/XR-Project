@@ -1826,6 +1826,7 @@ GameObject:
   - component: {fileID: 1659581281}
   - component: {fileID: 1659581283}
   - component: {fileID: 1659581284}
+  - component: {fileID: 1659581285}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1840,8 +1841,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1659581279}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.4583406, y: 11.41966, z: 3.1023998}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1925,18 +1926,20 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1108825099
-      Data2: 1155193423
-      Data3: 282107271
-      Data4: 1131801011
-    Path: event:/Battle
+      Data1: -1314278806
+      Data2: 1245105814
+      Data3: -1708895574
+      Data4: -950846002
+    Path: event:/BGM/Battle
   Event: 
   PlayEvent: 1
   StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
-  Params: []
+  Params:
+  - Name: Battle
+    Value: 0
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
@@ -1953,6 +1956,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rhythmStreakText: {fileID: 977276839}
+--- !u!114 &1659581285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659581279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f3ebf00e8b084229b698888ad71993c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rhythmTrigger: 0a00000014000000
 --- !u!1 &1723127483
 GameObject:
   m_ObjectHideFlags: 0
@@ -2283,6 +2299,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1659581284}
         m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
+        m_MethodName: OnRhythmComboChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1659581285}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
         m_MethodName: OnRhythmComboChanged
         m_Mode: 0
         m_Arguments:
