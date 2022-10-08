@@ -35,7 +35,7 @@ namespace Player.State
         
             dashingTime = dashTime;
             isActivated = false;
-            combo.Combo--;
+            combo.Combo++;
         }
 
         public override void PhysicsUpdate()
@@ -68,7 +68,7 @@ namespace Player.State
             switch (interactionType)
             {
                 case InteractionType.DashExit:
-                    combo.Combo += 3;
+                    combo.Combo++;
                     Activate();
                     break;
                 case InteractionType.CutEnter when dashingTime < 0: // dashingTime이 음수라면, 대쉬가 끝난 뒤 입력대기상태를 의미합니다.
