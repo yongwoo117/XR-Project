@@ -55,6 +55,7 @@ namespace Player.State
 
             if (enemyHits.Length > 0)
             {
+                enemyHits[0].GetComponent<EnemyStateMachine>().ChangeState(e_EnemyState.Hit);
                 StateMachine.ChangeState(e_PlayerState.Idle);
             }
         }
