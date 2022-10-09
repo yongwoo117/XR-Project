@@ -10,6 +10,10 @@ namespace Enemy.Profile
         {
             EnemyProfile ep = (EnemyProfile)target;
 
+            ep.i_Hp = EditorGUILayout.IntField("적 체력", ep.i_Hp);
+
+            GUILayout.Space(15);
+
             ep.f_AttackRange = EditorGUILayout.FloatField("공격 범위", ep.f_AttackRange);
             ep.f_ChaseRange = EditorGUILayout.FloatField("추격 범위", ep.f_ChaseRange);
             ep.f_CheckRange = EditorGUILayout.FloatField("탐색 범위", ep.f_CheckRange);

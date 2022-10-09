@@ -10,6 +10,12 @@ public class EnemyStateMachine : StateMachine<e_EnemyState, EnemyState, EnemyPro
 
     protected override void Start()
     {
+        //적 체력이 0이면 시작할때 죽는 상태로 변경
+        if(Profile.i_Hp<=0)
+        {
+            ChangeState(e_EnemyState.Die);
+        }
+
         base.Start();
         RhythmCore.Instance.onRhythm.AddListener(OnRhythm);
     }
@@ -38,4 +44,5 @@ public class EnemyStateMachine : StateMachine<e_EnemyState, EnemyState, EnemyPro
     {
         RhythmCore.Instance.onRhythm.RemoveListener(OnRhythm);
     }
+
 }

@@ -8,12 +8,9 @@ namespace Enemy.State
         //Profile 변수
         float chaseRange;
         float chaseSpeed;
-        int rhythmCnt;
 
         //상태 변수
         PlayerStateMachine player;
-        bool isRhythm;
-        int rhythmIndex;
 
         //Machine 변수
         Rigidbody rigid;
@@ -27,6 +24,11 @@ namespace Enemy.State
         public override void Enter()
         {
             Reset();
+        }
+
+        public override void Exit()
+        {
+            rigid.velocity = Vector3.zero;
         }
 
         public override void PhysicsUpdate()
@@ -72,7 +74,6 @@ namespace Enemy.State
 
             chaseSpeed = profile.f_ChaseSpeed;
             chaseRange = profile.f_ChaseRange;
-            rhythmCnt = profile.i_ChaseRhythmCount;
         }
 
         /// <summary>
@@ -80,28 +81,11 @@ namespace Enemy.State
         /// </summary>
         private void Reset()
         {
-            rhythmIndex = 1;
-            isRhythm = false;
         }
-        /// <summary>
-        /// RhythmCore 이벤트를 통해 박자 체크
-        /// </summary>
+
         public override void OnRhythm()
         {
-            //if (!isRhythm)
-            //{
-            //    if (rhythmIndex == rhythmCnt)
-            //    {
-            //        rhythmIndex = 1;
-            //        isRhythm = true;
-            //    }
-            //    else
-            //        rhythmIndex++;
-            //}
-            //else
-            //{
-            //    isRhythm = false;
-            //}
+         
         }
     }
 }

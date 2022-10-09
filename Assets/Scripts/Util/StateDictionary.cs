@@ -8,7 +8,7 @@ public enum e_PlayerState
 
 public enum e_EnemyState
 {
-    Idle, Chase
+    Idle, Chase, Die
 }
 
 public interface IStateDictionary<T1,T2>
@@ -40,6 +40,7 @@ public class EnemyStateDictionary : IStateDictionary<e_EnemyState, EnemyState>
     {
         { e_EnemyState.Idle, new Enemy.State.IdleState() },
         { e_EnemyState.Chase, new Enemy.State.ChaseState() },
+        { e_EnemyState.Die, new Enemy.State.DieState() }
     };
 
     [CanBeNull]

@@ -14,6 +14,7 @@ namespace Enemy.Profile
         public float f_ChaseSpeed; //추격 속도
 
         public int i_ChaseRhythmCount; //추격 박자
+        public int i_Hp;
         
     }
 }
