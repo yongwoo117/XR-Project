@@ -17,3 +17,4 @@ MonoBehaviour:
   f_ChaseRange: 30
   f_ChaseSpeed: 5
   i_ChaseRhythmCount: 2
+  i_Hp: 0

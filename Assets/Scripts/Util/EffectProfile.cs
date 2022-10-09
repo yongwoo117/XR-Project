@@ -1,6 +1,6 @@
 using UnityEngine;
 
-using SerializableDictionary;
+using Serializable.Dictionary;
 
 
 [CreateAssetMenu(fileName = "EffectScriptableObject", menuName = "EffectScriptableObject", order = 4)]

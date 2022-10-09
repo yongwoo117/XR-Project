@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace SerializableDictionary
+namespace Serializable.Dictionary
 {
 
     [Serializable]
@@ -15,7 +15,9 @@ namespace SerializableDictionary
 		[SerializeField]
 		List<V> values = new List<V>();
 
-		public void OnBeforeSerialize()
+      
+
+        public void OnBeforeSerialize()
 		{
 			keys.Clear();
 			values.Clear();
@@ -26,20 +28,18 @@ namespace SerializableDictionary
 				values.Add(pair.Value);
 			}
 		}
+        public void OnAfterDeserialize()
+        {
+            this.Clear();
 
-		public void OnAfterDeserialize()
-		{
-			this.Clear();
+            for (int i = 0, icount = keys.Count; i < icount; i++)
+            {
+                if (i <= Mathf.Min(keys.Count, values.Count))
+                {
+                    this.Add(keys[i], values[i]);
 
-			for (int i = 0, icount = keys.Count; i < icount; i++)
-			{
-				if (i <= Mathf.Min(keys.Count, values.Count))
-				{
-					this.Add(keys[i], values[i]);
-
-				}
-			}
-
-		}
-	}
+                }
+            }
+        }
+    }
 }
