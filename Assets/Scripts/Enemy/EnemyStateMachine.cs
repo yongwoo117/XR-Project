@@ -12,6 +12,7 @@ public class EnemyStateMachine : StateMachine<e_EnemyState, EnemyState, EnemyPro
     {
         base.Start();
 
+
         //적 체력이 0이면 시작할때 죽는 상태로 변경
         if (Profile.i_Hp <= 0)
         {

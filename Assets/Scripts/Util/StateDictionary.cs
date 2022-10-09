@@ -45,6 +45,6 @@ public class EnemyStateDictionary : IStateDictionary<e_EnemyState, EnemyState>
     };
 
     [CanBeNull]
-    public EnemyState GetState(e_EnemyState e_state) => Dic_States.ContainsKey(e_state) ? Dic_States[e_state] : null;
+    public EnemyState GetState(e_EnemyState e_state) => Dic_States.ContainsKey(e_state) ?  Dic_States[e_state] : null;
     public bool ContainsState(e_EnemyState e_state) => Dic_States.ContainsKey(e_state);
 }

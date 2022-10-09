@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -30,9 +31,13 @@ public abstract class StateMachine<T1,T2,T3> : MonoBehaviour where T2 : IState<T
         {
             if (StateDictionary.ContainsState(e_state) && !Dic_States.ContainsKey(e_state))
             {
-                var state = StateDictionary.GetState(e_state);
-                state.StateMachine = this;
-                Dic_States.Add(e_state, state);
+                Type type = StateDictionary.GetState(e_state).GetType();
+                var state = Activator.CreateInstance(type);
+
+                var stateMachine = type.GetProperty("StateMachine");
+                stateMachine.SetValue(state, this, null);
+
+                Dic_States.Add(e_state, (T2)state);
             }
         }
 
