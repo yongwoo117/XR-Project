@@ -37,11 +37,11 @@ public abstract class StateMachine<T1,T2,T3> : HealthModule<T3> where T1 : Enum 
             //IState가 아닌 경우 넘깁니다.
             if(type is null) continue;
             if (!type.IsSubclassOf(typeof(T2))) continue;
-                
-            dynamic state = Activator.CreateInstance(type);
+
+            var state = (T2)Activator.CreateInstance(type);
             state.StateMachine = this;
             state.Initialize();
-            Dic_States.Add(e_state, (T2)state);
+            Dic_States.Add(e_state, state);
         }
 
         //기본 상태를 Idle로 지정합니다.
