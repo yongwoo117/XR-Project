@@ -87,5 +87,10 @@ namespace Enemy.State
         {
          
         }
+        
+        public override void HealthChanged(float value)
+        {
+            StateMachine.ChangeState(e_EnemyState.Hit);
+        }
     }
 }

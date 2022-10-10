@@ -39,5 +39,10 @@ namespace Enemy.State
 
             checkRange = profile.f_CheckRange;
         }
+
+        public override void HealthChanged(float value)
+        {
+            StateMachine.ChangeState(e_EnemyState.Hit);
+        }
     }
 }

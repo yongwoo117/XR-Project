@@ -30,6 +30,21 @@ public class EnemyState : IState<e_EnemyState,EnemyState,EnemyProfile>
         
     }
 
+    public virtual void Dead()
+    {
+        
+    }
+
+    public virtual void HealthChanged(float value)
+    {
+        
+    }
+
+    public virtual void HealthRatioChanged(float value)
+    {
+        
+    }
+
     public virtual void OnRhythm()
     {
 

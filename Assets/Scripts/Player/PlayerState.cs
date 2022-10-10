@@ -50,4 +50,19 @@ public class PlayerState : IState<e_PlayerState,PlayerState, PlayerProfile>
     {
        
     }
+
+    public virtual void Dead()
+    {
+        
+    }
+
+    public virtual void HealthChanged(float value)
+    {
+        
+    }
+
+    public virtual void HealthRatioChanged(float value)
+    {
+        
+    }
 }

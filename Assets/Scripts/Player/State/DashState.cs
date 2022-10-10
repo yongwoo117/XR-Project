@@ -55,7 +55,7 @@ namespace Player.State
 
             if (enemyHits.Length > 0)
             {
-                enemyHits[0].GetComponent<EnemyStateMachine>().ChangeState(e_EnemyState.Hit);
+                enemyHits[0].GetComponent<IHealth>().HealthPoint -= 1.2f;
                 StateMachine.ChangeState(e_PlayerState.Idle);
             }
         }

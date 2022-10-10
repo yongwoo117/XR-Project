@@ -6,7 +6,7 @@ using UnityEngine;
 /// </summary>
 [CreateAssetMenu(fileName = "PlayerProfile", menuName = "PlayerProfile", order = 1)]
 [Serializable]
-public class PlayerProfile : ScriptableObject
+public class PlayerProfile : HealthProfile
 {
     public AnimationCurve dashPhysicsGraph; //대쉬 물리 그래프
     public float f_dashTime; //대쉬 시간
