@@ -2,7 +2,6 @@
 public class PlayerStateMachine : StateMachine<e_PlayerState, PlayerState, PlayerProfile>
 {
     protected override e_PlayerState StartState => e_PlayerState.Idle;
-    protected override IStateDictionary<e_PlayerState, PlayerState> StateDictionary => new PlayerStateDictionary();
 
     private void Update() => currentState?.LogicUpdate();
 

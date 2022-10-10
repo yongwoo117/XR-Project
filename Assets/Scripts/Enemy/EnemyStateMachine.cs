@@ -6,13 +6,9 @@ using UnityEngine;
 public class EnemyStateMachine : StateMachine<e_EnemyState, EnemyState, EnemyProfile>
 {
     protected override e_EnemyState StartState => e_EnemyState.Idle;
-    protected override IStateDictionary<e_EnemyState, EnemyState> StateDictionary => new EnemyStateDictionary();
 
-    protected override void Start()
+    private void Start()
     {
-        base.Start();
-
-
         //적 체력이 0이면 시작할때 죽는 상태로 변경
         if (Profile.i_Hp <= 0)
         {

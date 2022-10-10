@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using System;
 using JetBrains.Annotations;
 
 public enum e_PlayerState
@@ -11,40 +11,24 @@ public enum e_EnemyState
     Idle, Chase, Die, Hit
 }
 
-public interface IStateDictionary<T1,T2>
+public static class EnumExtensions
 {
-    public T2 GetState(T1 state);
-    public bool ContainsState(T1 state);
-}
-
-/// <summary>
-/// e_State와 실제 State객체와의 관계를 나타냅니다.
-/// </summary>
-public class PlayerStateDictionary : IStateDictionary<e_PlayerState,PlayerState>
-{
-    private static Dictionary<e_PlayerState, PlayerState> Dic_States = new(){
-        {e_PlayerState.Idle, new Player.State.IdleState()},
-        {e_PlayerState.Move, new Player.State.MoveState()},
-        {e_PlayerState.Dash, new Player.State.DashState()},
-        {e_PlayerState.Cut, new Player.State.CutState()},
-    };
-
     [CanBeNull]
-    public PlayerState GetState(e_PlayerState ePlayerState) => Dic_States.ContainsKey(ePlayerState) ? Dic_States[ePlayerState] : null;
-    public bool ContainsState(e_PlayerState ePlayerState) => Dic_States.ContainsKey(ePlayerState);
-}
-
-public class EnemyStateDictionary : IStateDictionary<e_EnemyState, EnemyState>
-{
-    private static Dictionary<e_EnemyState, EnemyState> Dic_States = new()
-    {
-        { e_EnemyState.Idle, new Enemy.State.IdleState() },
-        { e_EnemyState.Chase, new Enemy.State.ChaseState() },
-        { e_EnemyState.Die, new Enemy.State.DieState() },
-        { e_EnemyState.Hit, new Enemy.State.HitState() }
-    };
-
-    [CanBeNull]
-    public EnemyState GetState(e_EnemyState e_state) => Dic_States.ContainsKey(e_state) ?  Dic_States[e_state] : null;
-    public bool ContainsState(e_EnemyState e_state) => Dic_States.ContainsKey(e_state);
+    public static Type GetStateType(this Enum value) =>
+        value switch
+        {
+            //Player
+            e_PlayerState.Idle => typeof(Player.State.IdleState),
+            e_PlayerState.Dash => typeof(Player.State.DashState),
+            e_PlayerState.Cut => typeof(Player.State.CutState),
+            e_PlayerState.Move => typeof(Player.State.MoveState),
+            
+            //Enemy
+            e_EnemyState.Idle => typeof(Enemy.State.IdleState),
+            e_EnemyState.Chase => typeof(Enemy.State.ChaseState),
+            e_EnemyState.Hit => typeof(Enemy.State.HitState),
+            e_EnemyState.Die => typeof(Enemy.State.DieState),
+            
+            _ => null
+        };
 }
