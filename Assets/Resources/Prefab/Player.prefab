@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 1680146609352771346}
   - component: {fileID: 1680146609352771347}
   - component: {fileID: 1680146609352771357}
+  - component: {fileID: 8951550367549649632}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -134,7 +135,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1680146609352771339}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.9, y: 5, z: -34.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -318,9 +319,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba035cb67a42747d586e3fd389e32395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onRhythmStreakChanged:
-    m_PersistentCalls:
-      m_Calls: []
   onInteraction:
     m_PersistentCalls:
       m_Calls:
@@ -356,3 +354,30 @@ CapsuleCollider:
   m_Height: 10
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8951550367549649632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1680146609352771339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e2eea006b1884a7d9032c5eb9d8628b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onComboChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
+        m_MethodName: OnRhythmComboChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
