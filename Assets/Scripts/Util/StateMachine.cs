@@ -42,7 +42,7 @@ public abstract class StateMachine<T1,T2,T3> : MonoBehaviour where T1 : Enum whe
             state.Initialize();
             Dic_States.Add(e_state, state);
         }
-
+        
         //기본 상태를 Idle로 지정합니다.
         if(Dic_States.ContainsKey(StartState))
             ChangeState(StartState);

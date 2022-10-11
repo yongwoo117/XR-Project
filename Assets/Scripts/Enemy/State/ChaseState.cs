@@ -61,6 +61,7 @@ namespace Enemy.State
 
         private void ApplyPhysics()
         {
+            if(player == null) return;
             Vector3 Dir = (player.transform.position - StateMachine.transform.position).normalized;
             Dir *= chaseSpeed;
             

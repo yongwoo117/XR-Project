@@ -39,4 +39,5 @@ MonoBehaviour:
   f_dashTime: 0.2
   f_dashDistance: 30
   f_cutTime: 0.2
+  i_cutCount: 2
   v3_dashRange: {x: 1, y: 1, z: 1}

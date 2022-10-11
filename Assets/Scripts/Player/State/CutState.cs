@@ -6,25 +6,43 @@ namespace Player.State
     public class CutState : PlayerState
     {
         private float cutTime;
-        private float thresholdTime;
-        
+        private int cutCount;
+        private int remainCutCount;
+        private RhythmCombo combo;
+
+        public override void Initialize()
+        {
+            cutTime = StateMachine.Profile.f_cutTime;
+            cutCount = StateMachine.Profile.i_cutCount;
+            combo = StateMachine.GetComponent<RhythmCombo>();
+        }
+
         public override void Enter()
         {
             Debug.Log("Cut Enter");
-            cutTime = StateMachine.Profile.f_cutTime;
-            thresholdTime = Time.realtimeSinceStartup + cutTime;
+            remainCutCount = cutCount - 1;
+            combo.Combo++;
         }
 
         public override void Exit()
         {
             Debug.Log("Cut Exit");
         }
-
-        public override void PhysicsUpdate()
+        
+        public override void HandleInput(InteractionType interactionType, object arg)
         {
-            if (thresholdTime < Time.realtimeSinceStartup)
+            switch (interactionType)
             {
-                StateMachine.ChangeState(e_PlayerState.Idle);
+                case InteractionType.CutEnter when remainCutCount != 0:
+                    combo.Combo++;
+                    remainCutCount--;
+                    break;
+                case InteractionType.DashEnter:
+                    StateMachine.ChangeState(e_PlayerState.Dash);
+                    break;
+                default:
+                    StateMachine.ChangeState(e_PlayerState.Idle);
+                    break;
             }
         }
     }

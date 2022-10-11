@@ -14,7 +14,7 @@ public class EnemyStateMachine : StateMachine<e_EnemyState, EnemyState, EnemyPro
         {
             ChangeState(e_EnemyState.Die);
         }
-
+        
         RhythmCore.Instance.onRhythm.AddListener(OnRhythm);
     }
 
