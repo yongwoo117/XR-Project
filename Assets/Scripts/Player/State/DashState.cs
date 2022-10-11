@@ -11,6 +11,7 @@ namespace Player.State
 
         private AnimationCurve dashGraph;
         private Rigidbody rigid;
+        private Transform transform;
         private IControl control;
 
         private Vector3 pointDir;
@@ -21,10 +22,21 @@ namespace Player.State
         #region StateFunction
         public override void Initialize()
         {
-            rigid = StateMachine.GetComponent<Rigidbody>();
-            control = StateMachine.GetComponent<IControl>();
-            SetupProfile();
+            transform = gameObject.transform;
+            rigid = gameObject.GetComponent<Rigidbody>();
+            control = gameObject.GetComponent<IControl>();
             SetupIntegralPhysicsGraph(); //물리 그래프 적분 함수
+        }
+        
+        public override PlayerProfile Profile
+        {
+            set
+            {
+                dashGraph = value.dashPhysicsGraph;
+                dashTime = value.f_dashTime;
+                dashDistance = value.f_dashDistance;
+                dashAttackRange = value.v3_dashRange;
+            }
         }
 
         public override void Enter()
@@ -50,17 +62,20 @@ namespace Player.State
         private void CheckEnemyHit()
         {
             //오버렙 박스 이용해서 플레이어 위치에서 대쉬 공격 범위 만큼 판정 검사
-            Collider[] enemyHits = Physics.OverlapBox(StateMachine.transform.position+pointDir.normalized*new Vector3(dashAttackRange.x,0f,dashAttackRange.z).magnitude, dashAttackRange, Quaternion.Euler(0f, Mathf.Atan2(pointDir.z, pointDir.x) * -Mathf.Rad2Deg, 0f), GetLayerMasks.Enemy);
+            var enemyHits = Physics.OverlapBox(
+                transform.position +
+                pointDir.normalized * new Vector3(dashAttackRange.x, 0f, dashAttackRange.z).magnitude, dashAttackRange,
+                Quaternion.Euler(0f, Mathf.Atan2(pointDir.z, pointDir.x) * -Mathf.Rad2Deg, 0f), GetLayerMasks.Enemy);
          
 
             if (enemyHits.Length > 0)
             {
-                enemyHits[0].GetComponent<IHealth>().HealthPoint -= 1.2f;
+                enemyHits[0].GetComponent<HealthModule>().HealthPoint -= 1.2f;
                 StateMachine.ChangeState(e_PlayerState.Idle);
             }
         }
 
-        public override void HandleInput(InteractionType interactionType, object arg)
+        public override void HandleInput(InteractionType interactionType)
         {
             switch (interactionType)
             {
@@ -82,9 +97,8 @@ namespace Player.State
         {
             if (control.Direction == null) return;
             var direction = (Vector3)control.Direction;
-            
-            var attackRange = new Vector3(direction.magnitude,
-                StateMachine.Profile.v3_dashRange.y, StateMachine.Profile.v3_dashRange.z);
+
+            var attackRange = new Vector3(direction.magnitude, dashAttackRange.y, dashAttackRange.z);
 
             Gizmos.matrix = Matrix4x4.TRS(rigid.transform.position,
                 Quaternion.Euler(0f, Mathf.Atan2(direction.z, direction.x) * -Mathf.Rad2Deg, 0f),
@@ -120,19 +134,7 @@ namespace Player.State
                 physicsCurveArea += dashGraph.Evaluate(i);
             }
         }
-
-        /// <summary>
-        /// PlayerProfile 정보를 받아와서 변수들을 초기화합니다.
-        /// </summary>
-        private void SetupProfile()
-        {
-            var profile = StateMachine.Profile;
-            dashGraph = profile.dashPhysicsGraph;
-            dashTime = profile.f_dashTime;
-            dashDistance = profile.f_dashDistance;
-            dashAttackRange = profile.v3_dashRange;
-        }
-
+        
         /// <summary>
         /// 그래프를 통해서 목표 지점 까지 물리 적용
         /// 목표지점 까지의 속력: pointDir / dashTime 

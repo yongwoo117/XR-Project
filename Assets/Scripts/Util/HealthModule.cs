@@ -1,12 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public interface IHealth
-{
-    float HealthPoint { get; set; }
-}
-
-public abstract class HealthModule<T> : MonoBehaviour, IHealth where T : HealthProfile
+public abstract class HealthModule : MonoBehaviour
 {
     /// <summary>
     /// 체력값이 변경되었을 때, 체력값이 매개변수에 전달되며 호출됩니다.
@@ -23,9 +18,9 @@ public abstract class HealthModule<T> : MonoBehaviour, IHealth where T : HealthP
     /// </summary>
     public UnityEvent onDead;
     
-    public abstract T Profile { get; }
+    protected abstract HealthProfile healthProfile { get; }
 
-    public float MaximumHealth => Profile.f_maximumHealth;
+    public float MaximumHealth => healthProfile.f_maximumHealth;
     
     public float HealthPoint
     {
@@ -45,6 +40,6 @@ public abstract class HealthModule<T> : MonoBehaviour, IHealth where T : HealthP
 
     protected virtual void Awake()
     {
-        HealthPoint = Profile.f_maximumHealth;
+        HealthPoint = healthProfile.f_maximumHealth;
     }
 }

@@ -1,25 +1,27 @@
-using System;
+using Enemy.Profile;
 using UnityEngine;
 
 namespace Enemy.State
 {
     public class IdleState : EnemyState
     {
-        float checkRange;
+        private float checkRange;
+        private Transform transform;
+
+        public override EnemyProfile Profile
+        {
+            set => checkRange = value.f_CheckRange;
+        }
+
         public override void Initialize()
         {
-            SetupProfile();
+            transform = gameObject.transform;
         }
-
-        public override void Enter()
-        {
-            
-        }
-
+        
         public override void LogicUpdate()
         {
             //탐색 범위 안에 들어왔을 경우 추격 상태로 변경
-            Collider[] chaseHit = Physics.OverlapSphere(StateMachine.transform.position, checkRange, GetLayerMasks.Player);
+            Collider[] chaseHit = Physics.OverlapSphere(transform.position, checkRange, GetLayerMasks.Player);
 
             if (chaseHit.Length > 0)
             {
@@ -29,17 +31,10 @@ namespace Enemy.State
 
         public override void OnDrawGizmos()
         {
-            Gizmos.DrawWireSphere(StateMachine.transform.position, checkRange);
+            Gizmos.DrawWireSphere(transform.position, checkRange);
         }
 
-
-        private void SetupProfile()
-        {
-            var profile = StateMachine.Profile;
-
-            checkRange = profile.f_CheckRange;
-        }
-
+        
         public override void HealthChanged(float value)
         {
             StateMachine.ChangeState(e_EnemyState.Hit);

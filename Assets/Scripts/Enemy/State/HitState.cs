@@ -7,10 +7,13 @@ namespace Enemy.State
     {
         public override void Enter()
         {
-            GameObject HitEffect = EffectProfileData.Instance.PopEffect("Eff_MonsterHit");
-            HitEffect.transform.position = StateMachine.transform.GetChild(0).position;
-            if (StateMachine.HealthPoint < 0)
-                StateMachine.ChangeState(e_EnemyState.Die);
+            var HitEffect = EffectProfileData.Instance.PopEffect("Eff_MonsterHit");
+            HitEffect.transform.position = gameObject.transform.GetChild(0).position;
+        }
+
+        public override void Dead()
+        {
+            StateMachine.ChangeState(e_EnemyState.Die);
         }
     }
 }

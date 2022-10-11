@@ -1,4 +1,5 @@
 using System;
+using Enemy.Profile;
 using UnityEngine;
 
 namespace Enemy.State
@@ -6,19 +7,29 @@ namespace Enemy.State
     public class ChaseState : EnemyState
     {
         //Profile 변수
-        float chaseRange;
-        float chaseSpeed;
+        private float chaseRange;
+        private float chaseSpeed;
 
         //상태 변수
-        PlayerStateMachine player;
+        private PlayerStateMachine player;
 
         //Machine 변수
-        Rigidbody rigid;
+        private Rigidbody rigid;
+        private Transform transform;
+
+        public override EnemyProfile Profile
+        {
+            set
+            {
+                chaseSpeed = value.f_ChaseSpeed;
+                chaseRange = value.f_ChaseRange;
+            }
+        }
 
         public override void Initialize()
         {
-            SetupProfile();
-            rigid = StateMachine.GetComponent<Rigidbody>();
+            rigid = gameObject.GetComponent<Rigidbody>();
+            transform = gameObject.transform;
         }
 
         public override void Enter()
@@ -39,7 +50,7 @@ namespace Enemy.State
         public override void LogicUpdate()
         {
             //추격 범위 안에 들어왔을 경우 추격, 범위 밖일 경우 대기 상태로 변경
-            Collider[] chaseHit = Physics.OverlapSphere(StateMachine.transform.position,chaseRange,GetLayerMasks.Player);
+            Collider[] chaseHit = Physics.OverlapSphere(transform.position,chaseRange,GetLayerMasks.Player);
 
             if (chaseHit.Length>0)
             {
@@ -56,26 +67,18 @@ namespace Enemy.State
 
         public override void OnDrawGizmos()
         {
-            Gizmos.DrawWireSphere(StateMachine.transform.position, chaseRange);
+            Gizmos.DrawWireSphere(transform.position, chaseRange);
         }
 
         private void ApplyPhysics()
         {
-            Vector3 Dir = (player.transform.position - StateMachine.transform.position).normalized;
+            Vector3 Dir = (player.transform.position - transform.position).normalized;
             Dir *= chaseSpeed;
             
 
             rigid.velocity = new Vector3(Dir.x,0f,Dir.z);
         }
-
-        private void SetupProfile()
-        {
-            var profile = StateMachine.Profile;
-
-            chaseSpeed = profile.f_ChaseSpeed;
-            chaseRange = profile.f_ChaseRange;
-        }
-
+        
         /// <summary>
         /// 상태 변수 초기화
         /// </summary>

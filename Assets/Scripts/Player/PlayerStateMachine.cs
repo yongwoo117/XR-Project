@@ -1,7 +1,15 @@
+using UnityEngine;
 
-public class PlayerStateMachine : StateMachine<e_PlayerState, PlayerState, PlayerProfile>
+public class PlayerStateMachine : RhythmModule
 {
+    [SerializeField] private PlayerProfile profile;
     protected override e_PlayerState StartState => e_PlayerState.Idle;
-    
-    public void OnInteraction(InteractionType type, object arg) => currentState?.HandleInput(type, arg);
+    protected override HealthProfile healthProfile => profile;
+    protected override void OnInteraction(InteractionType type) => currentState?.HandleInput(type);
+
+    private void Start()
+    {
+        foreach (var pair in Dic_States)
+            pair.Value.Profile = profile;
+    }
 }

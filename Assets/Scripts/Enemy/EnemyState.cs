@@ -1,9 +1,11 @@
-
 using Enemy.Profile;
+using UnityEngine;
 
-public class EnemyState : IState<e_EnemyState,EnemyState,EnemyProfile>
+public class EnemyState : IState<e_EnemyState>
 {
-    public StateMachine<e_EnemyState, EnemyState, EnemyProfile> StateMachine { get; set; }
+    public IStateMachine<e_EnemyState> StateMachine { get; set; }
+    public virtual EnemyProfile Profile { set { } }
+    public GameObject gameObject { get; set; }
 
     public virtual void Initialize()
     {

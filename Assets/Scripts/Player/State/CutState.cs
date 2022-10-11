@@ -7,11 +7,15 @@ namespace Player.State
     {
         private float cutTime;
         private float thresholdTime;
-        
+
+        public override PlayerProfile Profile
+        {
+            set => cutTime = value.f_cutTime;
+        }
+
         public override void Enter()
         {
             Debug.Log("Cut Enter");
-            cutTime = StateMachine.Profile.f_cutTime;
             thresholdTime = Time.realtimeSinceStartup + cutTime;
         }
 

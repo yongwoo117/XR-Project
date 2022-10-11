@@ -2,21 +2,23 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+public interface IStateMachine<T> where T : Enum
+{
+    void ChangeState(T state);
+}
+
 /// <summary>
 /// FSM을 추상화한 컴포넌트입니다.
 /// </summary>
 /// <typeparam name="T1">State를 구분할 enum 형식입니다.</typeparam>
 /// <typeparam name="T2">IState를 상속하는 State입니다.</typeparam>
-/// <typeparam name="T3">받아올 ScriptableObject 형식입니다.</typeparam>
-public abstract class StateMachine<T1,T2,T3> : HealthModule<T3> where T1 : Enum where T2 : IState<T1,T2,T3> where T3 : HealthProfile
+public abstract class StateMachine<T1,T2> : HealthModule, IStateMachine<T1> where T1 : Enum where T2 : IState<T1>
 {
-    [SerializeField] private T3 profile; //각 머신들이 사용할 Profile을 받아올수 있게 해주는 변수 추가
     [SerializeField] protected List<T1> List_e_States;
     protected T2 currentState;
     protected Dictionary<T1,T2> Dic_States = new();
     
     protected abstract T1 StartState { get; }
-    public override T3 Profile => profile;
 
     /// <summary>
     /// 오버라이딩하는 경우 하위 클래스에서 반드시 base.Awake()를 호출해야 합니다.
@@ -40,6 +42,7 @@ public abstract class StateMachine<T1,T2,T3> : HealthModule<T3> where T1 : Enum 
 
             var state = (T2)Activator.CreateInstance(type);
             state.StateMachine = this;
+            state.gameObject = gameObject;
             state.Initialize();
             Dic_States.Add(e_state, state);
         }
