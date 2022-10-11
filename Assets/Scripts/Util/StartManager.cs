@@ -63,13 +63,13 @@ public class StartManager : MonoBehaviour
     private void SetupSlider(string path, Slider slider, PrefsKey prefsKey)
     {
         //버스 받아오기
-        // var bus = FMODUnity.RuntimeManager.GetBus(path);
+        var bus = FMODUnity.RuntimeManager.GetBus(path);
 
         //이벤트 등록
         slider.onValueChanged.AddListener(value =>
         {
             Prefs.SetFloat(prefsKey, value);
-            // bus.setVolume(value);
+            bus.setVolume(value);
         });
 
         //슬라이더 기본값 세팅
@@ -78,23 +78,9 @@ public class StartManager : MonoBehaviour
             : slider.maxValue / 2;
     }
 
-    private void SetupMasterVolumeSlider()
-    {
-        //TODO: path 수정 필요
-        SetupSlider("bus:/Master", masterVolumeSlider, PrefsKey.MasterVolume);
-    }
-
-    private void SetupBGMVolumeSlier()
-    {
-        //TODO: path 수정 필요
-        SetupSlider("bus:/BGM", bgmVolumeSlider, PrefsKey.BGMVolume);
-    }
-
-    private void SetupSFXVolumeSlider()
-    {
-        //TODO: path 수정 필요
-        SetupSlider("bus:/SFX", sfxVolumeSlider, PrefsKey.SFXVolume);
-    }
+    private void SetupMasterVolumeSlider() => SetupSlider("bus:/MasterBus", masterVolumeSlider, PrefsKey.MasterVolume);
+    private void SetupBGMVolumeSlier() => SetupSlider("bus:/MasterBus/BGM", bgmVolumeSlider, PrefsKey.BGMVolume);
+    private void SetupSFXVolumeSlider() => SetupSlider("bus:/MasterBus/SFX", sfxVolumeSlider, PrefsKey.SFXVolume);
 
     public void OnStartButtonClick()
     {

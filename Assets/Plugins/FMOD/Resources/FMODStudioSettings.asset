@@ -430,7 +430,7 @@ MonoBehaviour:
   sourceBankPath: Assets/Resources/Sound/Team7_FMOD/Build
   SourceBankPathUnformatted: 
   BankRefreshCooldown: 5
-  ShowBankRefreshWindow: 1
+  ShowBankRefreshWindow: 0
   AutomaticEventLoading: 1
   BankLoadType: 0
   AutomaticSampleLoading: 0
@@ -452,7 +452,6 @@ MonoBehaviour:
   MasterBanks:
   - Master
   Banks:
-  - AMB
   - BGM
   - SFX
   BanksToLoad: []
