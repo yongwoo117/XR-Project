@@ -36,6 +36,9 @@ namespace Player.State
             dashingTime = dashTime;
             isActivated = false;
             combo.Combo++;
+
+            GameObject ChargedEffect = EffectProfileData.Instance.PopEffect("Eff_CharacterCharge");
+            ChargedEffect.transform.position = StateMachine.transform.GetChild(0).position;
         }
 
         public override void PhysicsUpdate()
@@ -115,10 +118,25 @@ namespace Player.State
         {
             if (control.Direction == null) return;
             var dashPoint = (Vector3)control.Direction;
-            
+
             // 대쉬 이동 거리에 제약을 걸어줍니다.
             pointDir = dashPoint.magnitude > dashDistance ? dashPoint.normalized * dashDistance : dashPoint;
             isActivated = true;
+
+            DashEffect();
+        }
+
+        private void DashEffect()
+        {
+            GameObject DashEffect = EffectProfileData.Instance.PopEffect("Eff_CharacterAttack");
+            DashEffect.SetActive(false);
+
+            DashEffect.transform.position = StateMachine.transform.position;
+
+            float direction= Mathf.Atan2(pointDir.z, pointDir.x) * Mathf.Rad2Deg;
+
+            DashEffect.transform.localEulerAngles = new Vector3(0f, 0f, -direction); 
+            DashEffect.SetActive(true);
         }
 
         /// <summary>
