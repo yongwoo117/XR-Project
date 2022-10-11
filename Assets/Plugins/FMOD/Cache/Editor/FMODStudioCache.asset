@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/BGM.bank
   Name: BGM
   StudioPath: bank:/BGM
-  lastModified: 638011128798010250
+  lastModified: 638011136337653548
   FileSizes:
   - Name: Desktop
-    Value: 564800
+    Value: 1186976
   Exists: 1
 --- !u!114 &-6814344020887448383
 MonoBehaviour:
@@ -86,26 +86,6 @@ MonoBehaviour:
   - A
   - B
   - C
-  Exists: 1
---- !u!114 &-2179655065197830034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/AMB.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/AMB.bank
-  Name: AMB
-  StudioPath: bank:/AMB
-  lastModified: 638009479782702060
-  FileSizes:
-  - Name: Desktop
-    Value: 494
   Exists: 1
 --- !u!114 &-1750186579509521395
 MonoBehaviour:
@@ -188,19 +168,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 5478307260888760851}
-  - {fileID: -2179655065197830034}
   - {fileID: -9071532924224990511}
   - {fileID: 4892875853897798119}
   - {fileID: 3633717768094031359}
   EditorEvents:
   - {fileID: 2161808892195752257}
+  - {fileID: 984625832829442928}
   EditorParameters: []
   MasterBanks:
   - {fileID: 4892875853897798119}
   StringsBanks:
   - {fileID: 5478307260888760851}
-  cacheTime: 638011130577936998
+  cacheTime: 638011136337655702
   cacheVersion: 131592
+--- !u!114 &984625832829442928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BGM/Robby
+  m_EditorClassIdentifier: 
+  Path: event:/BGM/Robby
+  Guid:
+    Data1: -840325727
+    Data2: 1261852986
+    Data3: 621063842
+    Data4: 106413399
+  Banks:
+  - {fileID: -9071532924224990511}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 48000
 --- !u!114 &2161808892195752257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,7 +291,7 @@ MonoBehaviour:
   Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638011130577935091
+  lastModified: 638011135030541075
   FileSizes:
   - Name: Desktop
     Value: 1604
@@ -304,8 +311,8 @@ MonoBehaviour:
   Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638011130577936998
+  lastModified: 638011136337655702
   FileSizes:
   - Name: Desktop
-    Value: 1058
+    Value: 1072
   Exists: 1
