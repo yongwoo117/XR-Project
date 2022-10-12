@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8687467550503612404
+--- !u!114 &-4971674991587489751
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -19,63 +19,16 @@ MonoBehaviour:
     Data3: -1708895574
     Data4: -950846002
   Banks:
-  - {fileID: 3931912377779641040}
+  - {fileID: -136778096699445776}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -860009342637998328}
+  - {fileID: -1277267808261748907}
   MinDistance: 1
   MaxDistance: 20
   Length: 46000
---- !u!114 &-6317618563347637287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/BGM/Robby
-  m_EditorClassIdentifier: 
-  Path: event:/BGM/Robby
-  Guid:
-    Data1: -840325727
-    Data2: 1261852986
-    Data3: 621063842
-    Data4: 106413399
-  Banks:
-  - {fileID: 3931912377779641040}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 48000
---- !u!114 &-3967910431338284299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/SFX.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/SFX.bank
-  Name: SFX
-  StudioPath: bank:/SFX
-  lastModified: 638009479782723427
-  FileSizes:
-  - Name: Desktop
-    Value: 494
-  Exists: 1
---- !u!114 &-860009342637998328
+--- !u!114 &-1277267808261748907
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,34 +55,7 @@ MonoBehaviour:
   - B
   - C
   Exists: 1
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
-  m_Name: FMODStudioCache
-  m_EditorClassIdentifier: 
-  EditorBanks:
-  - {fileID: 434875691311170072}
-  - {fileID: 3931912377779641040}
-  - {fileID: 6080511240933485941}
-  - {fileID: -3967910431338284299}
-  EditorEvents:
-  - {fileID: -8687467550503612404}
-  - {fileID: -6317618563347637287}
-  EditorParameters: []
-  MasterBanks:
-  - {fileID: 6080511240933485941}
-  StringsBanks:
-  - {fileID: 434875691311170072}
-  cacheTime: 638011842145818858
-  cacheVersion: 131592
---- !u!114 &434875691311170072
+--- !u!114 &-565596261248417106
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,7 +75,7 @@ MonoBehaviour:
   - Name: Desktop
     Value: 1072
   Exists: 1
---- !u!114 &3931912377779641040
+--- !u!114 &-136778096699445776
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,7 +95,81 @@ MonoBehaviour:
   - Name: Desktop
     Value: 1186976
   Exists: 1
---- !u!114 &6080511240933485941
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  EditorBanks:
+  - {fileID: -565596261248417106}
+  - {fileID: -136778096699445776}
+  - {fileID: 3463254049732211283}
+  - {fileID: 2063370556683831229}
+  EditorEvents:
+  - {fileID: -4971674991587489751}
+  - {fileID: 278061662854040025}
+  EditorParameters: []
+  MasterBanks:
+  - {fileID: 3463254049732211283}
+  StringsBanks:
+  - {fileID: -565596261248417106}
+  cacheTime: 638011842145818858
+  cacheVersion: 131592
+--- !u!114 &278061662854040025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BGM/Robby
+  m_EditorClassIdentifier: 
+  Path: event:/BGM/Robby
+  Guid:
+    Data1: -840325727
+    Data2: 1261852986
+    Data3: 621063842
+    Data4: 106413399
+  Banks:
+  - {fileID: -136778096699445776}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 48000
+--- !u!114 &2063370556683831229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SFX.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/SFX.bank
+  Name: SFX
+  StudioPath: bank:/SFX
+  lastModified: 638009479782723427
+  FileSizes:
+  - Name: Desktop
+    Value: 494
+  Exists: 1
+--- !u!114 &3463254049732211283
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -16,6 +16,7 @@ public class PlayerProfileEditor : Editor
         pmf.f_cutTime = EditorGUILayout.FloatField("베기 모션 시간", pmf.f_cutTime);
         pmf.i_cutCount = EditorGUILayout.IntField("연속 베기 횟수 제한", pmf.i_cutCount);
         pmf.v3_dashRange = EditorGUILayout.Vector3Field("대쉬 공격 범위", pmf.v3_dashRange);
+        pmf.f_maximumHealth = EditorGUILayout.FloatField("최대 체력", pmf.f_maximumHealth);
 
         EditorUtility.SetDirty(target);
     }

@@ -17,7 +17,7 @@ namespace Player.State
             combo.Combo = 0;
         }
 
-        public override void HandleInput(InteractionType interactionType, object arg)
+        public override void HandleInput(InteractionType interactionType)
         {
             switch (interactionType)
             {

@@ -29,8 +29,8 @@ public class KBDMouseControl : MonoBehaviour, IControl
     /// </summary>
     public Vector3? Direction => Position - transform.position;
 
-    public UnityEvent<InteractionType, object> OnInteraction => onInteraction;
-    [SerializeField] private UnityEvent<InteractionType, object> onInteraction;
+    public UnityEvent<InteractionType> OnInteraction => onInteraction;
+    [SerializeField] private UnityEvent<InteractionType> onInteraction;
     
     private void Start()
     {
@@ -50,10 +50,10 @@ public class KBDMouseControl : MonoBehaviour, IControl
         switch (context.action.phase)
         {
             case InputActionPhase.Started:
-                OnInteraction?.Invoke(InteractionType.DashEnter, null);
+                onInteraction?.Invoke(InteractionType.DashEnter);
                 break;
             case InputActionPhase.Canceled:
-                OnInteraction?.Invoke(InteractionType.DashExit, null);
+                onInteraction?.Invoke(InteractionType.DashExit);
                 break;
         }
     }
@@ -64,6 +64,6 @@ public class KBDMouseControl : MonoBehaviour, IControl
     public void OnThirdInteraction(InputAction.CallbackContext context)
     {
         if(!context.started) return;
-        OnInteraction?.Invoke(InteractionType.CutEnter, null);
+        onInteraction?.Invoke(InteractionType.CutEnter);
     }
 }

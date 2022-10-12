@@ -10,6 +10,7 @@ namespace Enemy.Profile
         {
             EnemyProfile ep = (EnemyProfile)target;
 
+            ep.f_maximumHealth = EditorGUILayout.FloatField("최대 체력", ep.f_maximumHealth);
             ep.i_Hp = EditorGUILayout.IntField("적 체력", ep.i_Hp);
 
             GUILayout.Space(15);

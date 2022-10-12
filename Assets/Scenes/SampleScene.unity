@@ -1819,8 +1819,8 @@ MonoBehaviour:
   onLate:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1735584694}
-        m_TargetAssemblyTypeName: RhythmInput, Assembly-CSharp
+      - m_Target: {fileID: 1680146607699291302}
+        m_TargetAssemblyTypeName: RhythmModule, Assembly-CSharp
         m_MethodName: OnRhythmLate
         m_Mode: 1
         m_Arguments:
@@ -1970,17 +1970,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1680146609352771348, guid: 57d210aadf8ca364ca469553f372e63f, type: 3}
   m_PrefabInstance: {fileID: 1680146607699291301}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1735584694 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1680146609352771347, guid: 57d210aadf8ca364ca469553f372e63f, type: 3}
-  m_PrefabInstance: {fileID: 1680146607699291301}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba035cb67a42747d586e3fd389e32395, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1769169806 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8248359141127274627, guid: 992d79ed020fb2642b71f585636aff89, type: 3}
@@ -2273,6 +2262,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57d210aadf8ca364ca469553f372e63f, type: 3}
+--- !u!114 &1680146607699291302 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1680146609352771351, guid: 57d210aadf8ca364ca469553f372e63f, type: 3}
+  m_PrefabInstance: {fileID: 1680146607699291301}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44db4eccdcba6464db9f87be4f9b1a66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8248359140779405304
 PrefabInstance:
   m_ObjectHideFlags: 0
