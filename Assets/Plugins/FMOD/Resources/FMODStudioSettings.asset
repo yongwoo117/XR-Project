@@ -452,6 +452,7 @@ MonoBehaviour:
   MasterBanks:
   - Master
   Banks:
+  - AMB
   - BGM
   - SFX
   BanksToLoad: []

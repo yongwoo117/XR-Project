@@ -32,6 +32,10 @@ public class StartManager : MonoBehaviour
         foreach (var member in array)
             dropdown.options.Add(new TMP_Dropdown.OptionData(member.ToString()));
 
+        //드롭다운 기본값 세팅
+        dropdown.value = Prefs.HasKey(prefsKey) ? Prefs.GetInt(prefsKey) : initialValue;
+        onValueChanged(dropdown.value);
+        
         //이벤트 등록
         dropdown.onValueChanged.AddListener(index =>
         {
@@ -39,8 +43,6 @@ public class StartManager : MonoBehaviour
             onValueChanged(index);
         });
         
-        //드롭다운 기본값 세팅
-        dropdown.value = Prefs.HasKey(prefsKey) ? Prefs.GetInt(prefsKey) : initialValue;
     }
 
     private void SetupResolutionDropdown()
@@ -64,6 +66,10 @@ public class StartManager : MonoBehaviour
     {
         //버스 받아오기
         var bus = FMODUnity.RuntimeManager.GetBus(path);
+        
+        //슬라이더 기본값 세팅
+        slider.value = Prefs.HasKey(prefsKey) ? Prefs.GetFloat(prefsKey) : slider.maxValue / 2;
+        bus.setVolume(slider.value);
 
         //이벤트 등록
         slider.onValueChanged.AddListener(value =>
@@ -72,10 +78,6 @@ public class StartManager : MonoBehaviour
             bus.setVolume(value);
         });
 
-        //슬라이더 기본값 세팅
-        slider.value = Prefs.HasKey(prefsKey)
-            ? Prefs.GetFloat(prefsKey)
-            : slider.maxValue / 2;
     }
 
     private void SetupMasterVolumeSlider() => SetupSlider("bus:/MasterBus", masterVolumeSlider, PrefsKey.MasterVolume);
