@@ -4,7 +4,7 @@ using UnityEngine;
 /// 이 Class를 상속하면 Singleton 컴포넌트가 되며, 어디서나 접근 가능한 Instance 프로퍼티를 갖게 됩니다.
 /// </summary>
 /// <typeparam name="T"></typeparam>
-public class Singleton<T> : MonoBehaviour
+public class Singleton<T> : MonoBehaviour where T : Singleton<T>
 {
     public static T Instance { get; private set; }
 
@@ -19,6 +19,7 @@ public class Singleton<T> : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        Instance = GetComponent<T>();
+
+        Instance = (T)this;
     }
 }
