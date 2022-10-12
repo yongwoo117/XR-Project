@@ -53,21 +53,21 @@ namespace Player.State
                 CheckEnemyHit();
         }
 
+        private Collider[] results = new Collider[1];
         private void CheckEnemyHit()
         {
             //오버렙 박스 이용해서 플레이어 위치에서 대쉬 공격 범위 만큼 판정 검사
-            Collider[] enemyHits = Physics.OverlapBox(
+            var size = Physics.OverlapBoxNonAlloc(
                 StateMachine.transform.position + pointDir.normalized *
-                new Vector3(dashAttackRange.x, 0f, dashAttackRange.z).magnitude, dashAttackRange,
+                new Vector3(dashAttackRange.x, 0f, dashAttackRange.z).magnitude, dashAttackRange, results,
                 Quaternion.Euler(0f, Mathf.Atan2(pointDir.z, pointDir.x) * -Mathf.Rad2Deg, 0f), GetLayerMasks.Enemy);
-         
 
-            if (enemyHits.Length > 0)
+            if(size==0) return;
+            foreach (var collider in results)
             {
-                enemyHits[0].GetComponent<EnemyStateMachine>().ChangeState(e_EnemyState.Hit);
+                collider.GetComponent<EnemyStateMachine>().ChangeState(e_EnemyState.Die);
+                // collider.gameObject.GetComponent<HealthModule>().HealthPoint -= 1.2f;
             }
-            // if (enemyHits.Length > 0)
-            //     Deactivate();
         }
 
         public override void HandleInput(InteractionType interactionType, object arg)
