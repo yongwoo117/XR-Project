@@ -16,11 +16,10 @@ namespace Enemy.State
             GameObject HitEffect=EffectProfileData.Instance.PopEffect("Eff_MonsterHit");
             HitEffect.transform.position = StateMachine.transform.GetChild(0).position;
 
-            StateMachine.ChangeState(e_EnemyState.Die);
-            // if(--Hp==0)
-            // {
-            //     StateMachine.ChangeState(e_EnemyState.Die);
-            // }
+            if(--Hp==0)
+            {
+                StateMachine.ChangeState(e_EnemyState.Die);
+            }
         }
 
         private void SetupProfile()
