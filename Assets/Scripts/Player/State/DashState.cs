@@ -25,8 +25,18 @@ namespace Player.State
             rigid = StateMachine.GetComponent<Rigidbody>();
             control = StateMachine.GetComponent<IControl>();
             combo = StateMachine.GetComponent<RhythmCombo>();
-            SetupProfile();
             SetupIntegralPhysicsGraph(); //물리 그래프 적분 함수
+        }
+        
+        public override PlayerProfile Profile
+        {
+            set
+            {
+                dashGraph = value.dashPhysicsGraph;
+                dashTime = value.f_dashTime;
+                dashDistance = value.f_dashDistance;
+                dashAttackRange = value.v3_dashRange;
+            }
         }
 
         public override void Enter()
@@ -65,12 +75,11 @@ namespace Player.State
             if(size==0) return;
             foreach (var collider in results)
             {
-                collider.GetComponent<EnemyStateMachine>().ChangeState(e_EnemyState.Die);
-                // collider.gameObject.GetComponent<HealthModule>().HealthPoint -= 1.2f;
+                collider.gameObject.GetComponent<HealthModule>().HealthPoint -= 1.2f;
             }
         }
 
-        public override void HandleInput(InteractionType interactionType, object arg)
+        public override void HandleInput(InteractionType interactionType)
         {
             switch (interactionType)
             {
@@ -99,9 +108,8 @@ namespace Player.State
         {
             if (control.Direction == null) return;
             var direction = (Vector3)control.Direction;
-            
-            var attackRange = new Vector3(direction.magnitude,
-                StateMachine.Profile.v3_dashRange.y, StateMachine.Profile.v3_dashRange.z);
+
+            var attackRange = new Vector3(direction.magnitude, dashAttackRange.y, dashAttackRange.z);
 
             Gizmos.matrix = Matrix4x4.TRS(rigid.transform.position,
                 Quaternion.Euler(0f, Mathf.Atan2(direction.z, direction.x) * -Mathf.Rad2Deg, 0f),
@@ -158,19 +166,7 @@ namespace Player.State
             for (float i = 0; i < dashTime; i += Time.fixedDeltaTime)
                 physicsCurveArea += dashGraph.Evaluate(i);
         }
-
-        /// <summary>
-        /// PlayerProfile 정보를 받아와서 변수들을 초기화합니다.
-        /// </summary>
-        private void SetupProfile()
-        {
-            var profile = StateMachine.Profile;
-            dashGraph = profile.dashPhysicsGraph;
-            dashTime = profile.f_dashTime;
-            dashDistance = profile.f_dashDistance;
-            dashAttackRange = profile.v3_dashRange;
-        }
-
+        
         /// <summary>
         /// 그래프를 통해서 목표 지점 까지 물리 적용
         /// 목표지점 까지의 속력: pointDir / dashTime 

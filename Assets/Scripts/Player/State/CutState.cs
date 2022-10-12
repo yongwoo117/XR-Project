@@ -5,16 +5,18 @@ namespace Player.State
 {
     public class CutState : PlayerState
     {
-        private float cutTime;
         private int cutCount;
         private int remainCutCount;
         private RhythmCombo combo;
 
         public override void Initialize()
         {
-            cutTime = StateMachine.Profile.f_cutTime;
-            cutCount = StateMachine.Profile.i_cutCount;
             combo = StateMachine.GetComponent<RhythmCombo>();
+        }
+
+        public override PlayerProfile Profile
+        {
+            set => cutCount = value.i_cutCount;
         }
 
         public override void Enter()
@@ -29,7 +31,7 @@ namespace Player.State
             Debug.Log("Cut Exit");
         }
         
-        public override void HandleInput(InteractionType interactionType, object arg)
+        public override void HandleInput(InteractionType interactionType)
         {
             switch (interactionType)
             {
