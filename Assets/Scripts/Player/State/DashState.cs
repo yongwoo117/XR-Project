@@ -22,9 +22,9 @@ namespace Player.State
         #region StateFunction
         public override void Initialize()
         {
-            transform = gameObject.transform;
-            rigid = gameObject.GetComponent<Rigidbody>();
-            control = gameObject.GetComponent<IControl>();
+            transform = StateMachine.transform;
+            rigid = StateMachine.GetComponent<Rigidbody>();
+            control = StateMachine.GetComponent<IControl>();
             SetupIntegralPhysicsGraph(); //물리 그래프 적분 함수
         }
         

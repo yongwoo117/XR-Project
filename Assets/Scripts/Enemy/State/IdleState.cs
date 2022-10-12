@@ -15,7 +15,7 @@ namespace Enemy.State
 
         public override void Initialize()
         {
-            transform = gameObject.transform;
+            transform = StateMachine.transform;
         }
         
         public override void LogicUpdate()

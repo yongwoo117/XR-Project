@@ -8,7 +8,7 @@ namespace Enemy.State
         public override void Enter()
         {
             var HitEffect = EffectProfileData.Instance.PopEffect("Eff_MonsterHit");
-            HitEffect.transform.position = gameObject.transform.GetChild(0).position;
+            HitEffect.transform.position = StateMachine.transform.GetChild(0).position;
         }
 
         public override void Dead()

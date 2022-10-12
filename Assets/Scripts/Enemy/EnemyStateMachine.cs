@@ -1,7 +1,7 @@
 using Enemy.Profile;
 using UnityEngine;
 
-public class EnemyStateMachine : StateMachine<e_EnemyState, EnemyState>
+public class EnemyStateMachine : StateMachine<e_EnemyState, EnemyState, EnemyStateMachine>
 {
     [SerializeField] private EnemyProfile profile;
     protected override e_EnemyState StartState => e_EnemyState.Idle;
@@ -16,9 +16,7 @@ public class EnemyStateMachine : StateMachine<e_EnemyState, EnemyState>
         foreach (var pair in Dic_States)
             pair.Value.Profile = profile;
     }
-    
-    
-    
+
     private void OnRhythm()
     {
         currentState?.OnRhythm();

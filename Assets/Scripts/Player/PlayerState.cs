@@ -5,25 +5,28 @@ using UnityEngine;
 /// 플레이어를 위한 State들의 베이스 클래스입니다.
 /// </summary>
 [Serializable]
-public abstract class PlayerState : IState<e_PlayerState> 
+public abstract class PlayerState : IState<e_PlayerState, PlayerState, PlayerStateMachine>
 {
-    public IStateMachine<e_PlayerState> StateMachine { get; set; }
-    public virtual PlayerProfile Profile { set { } }
-    public GameObject gameObject { get; set; }
+    public PlayerStateMachine StateMachine { get; set; }
 
+    public virtual PlayerProfile Profile
+    {
+        set { }
+    }
+    
     public virtual void Initialize()
     {
-        
+
     }
 
     public virtual void Enter()
     {
-        
+
     }
 
     public virtual void Exit()
     {
-     
+
     }
 
     /// <summary>
@@ -32,7 +35,7 @@ public abstract class PlayerState : IState<e_PlayerState>
     /// <param name="interactionType">State에 전달할 InteractionType입니다.</param>
     public virtual void HandleInput(InteractionType interactionType)
     {
-     
+
     }
 
     /// <summary>
@@ -40,31 +43,31 @@ public abstract class PlayerState : IState<e_PlayerState>
     /// </summary>
     public virtual void OnDrawGizmos()
     {
-        
+
     }
 
     public virtual void PhysicsUpdate()
     {
-       
+
     }
 
     public virtual void LogicUpdate()
     {
-       
+
     }
 
     public virtual void Dead()
     {
-        
+
     }
 
     public virtual void HealthChanged(float value)
     {
-        
+
     }
 
     public virtual void HealthRatioChanged(float value)
     {
-        
+
     }
 }

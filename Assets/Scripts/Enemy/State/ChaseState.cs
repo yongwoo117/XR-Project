@@ -28,8 +28,8 @@ namespace Enemy.State
 
         public override void Initialize()
         {
-            rigid = gameObject.GetComponent<Rigidbody>();
-            transform = gameObject.transform;
+            rigid = StateMachine.GetComponent<Rigidbody>();
+            transform = StateMachine.transform;
         }
 
         public override void Enter()
