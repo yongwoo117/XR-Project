@@ -38,7 +38,7 @@ public abstract class StateMachine<T1, T2, T3> : HealthModule where T1 : Enum
             if (!type.IsSubclassOf(typeof(T2))) continue;
 
             var state = (T2)Activator.CreateInstance(type);
-            state.StateMachine = (T3)this;
+            OnBeforeStateInitialize(state);
             state.Initialize();
             Dic_States.Add(e_state, state);
         }
@@ -61,6 +61,11 @@ public abstract class StateMachine<T1, T2, T3> : HealthModule where T1 : Enum
     protected virtual void Update() => currentState.LogicUpdate();
     protected virtual void FixedUpdate() => currentState.PhysicsUpdate();
     protected virtual void OnDrawGizmos() => currentState?.OnDrawGizmos();
+
+    protected virtual void OnBeforeStateInitialize(T2 state)
+    {
+        state.StateMachine = (T3)this;
+    }
 
     protected virtual void OnDisable()
     {

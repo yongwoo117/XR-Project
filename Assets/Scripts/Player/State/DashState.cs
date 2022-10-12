@@ -11,7 +11,6 @@ namespace Player.State
 
         private AnimationCurve dashGraph;
         private Rigidbody rigid;
-        private Transform transform;
         private IControl control;
 
         private Vector3 pointDir;
@@ -22,7 +21,6 @@ namespace Player.State
         #region StateFunction
         public override void Initialize()
         {
-            transform = StateMachine.transform;
             rigid = StateMachine.GetComponent<Rigidbody>();
             control = StateMachine.GetComponent<IControl>();
             SetupIntegralPhysicsGraph(); //물리 그래프 적분 함수
@@ -63,7 +61,7 @@ namespace Player.State
         {
             //오버렙 박스 이용해서 플레이어 위치에서 대쉬 공격 범위 만큼 판정 검사
             var enemyHits = Physics.OverlapBox(
-                transform.position +
+                StateMachine.transform.position +
                 pointDir.normalized * new Vector3(dashAttackRange.x, 0f, dashAttackRange.z).magnitude, dashAttackRange,
                 Quaternion.Euler(0f, Mathf.Atan2(pointDir.z, pointDir.x) * -Mathf.Rad2Deg, 0f), GetLayerMasks.Enemy);
          

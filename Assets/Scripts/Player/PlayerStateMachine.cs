@@ -6,10 +6,9 @@ public class PlayerStateMachine : RhythmModule
     protected override e_PlayerState StartState => e_PlayerState.Idle;
     protected override HealthProfile healthProfile => profile;
     protected override void OnInteraction(InteractionType type) => currentState?.HandleInput(type);
-
-    private void Start()
+    protected override void OnBeforeStateInitialize(PlayerState state)
     {
-        foreach (var pair in Dic_States)
-            pair.Value.Profile = profile;
+        base.OnBeforeStateInitialize(state);
+        state.Profile = profile;
     }
 }
