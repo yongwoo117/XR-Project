@@ -12,7 +12,6 @@ namespace Player.State
         private AnimationCurve dashGraph;
         private Rigidbody rigid;
         private IControl control;
-        private RhythmCombo combo;
 
         private Vector3 pointDir;
         private Vector3 dashAttackRange;
@@ -24,7 +23,6 @@ namespace Player.State
         {
             rigid = StateMachine.GetComponent<Rigidbody>();
             control = StateMachine.GetComponent<IControl>();
-            combo = StateMachine.GetComponent<RhythmCombo>();
             SetupIntegralPhysicsGraph(); //물리 그래프 적분 함수
         }
         
@@ -39,13 +37,15 @@ namespace Player.State
             }
         }
 
+        public override bool AcceptHealthChange(ref float value) => !isActivated;
+
         public override void Enter()
         {
             Debug.Log("Dash Enter");
         
             dashingTime = dashTime;
             isActivated = false;
-            combo.Combo++;
+            StateMachine.Combo++;
 
             GameObject ChargedEffect = EffectProfileData.Instance.PopEffect("Eff_CharacterCharge");
             ChargedEffect.transform.position = StateMachine.transform.GetChild(0).position;
@@ -63,28 +63,12 @@ namespace Player.State
                 CheckEnemyHit();
         }
 
-        private Collider[] results = new Collider[1];
-        private void CheckEnemyHit()
-        {
-            //오버렙 박스 이용해서 플레이어 위치에서 대쉬 공격 범위 만큼 판정 검사
-            var size = Physics.OverlapBoxNonAlloc(
-                StateMachine.transform.position + pointDir.normalized *
-                new Vector3(dashAttackRange.x, 0f, dashAttackRange.z).magnitude, dashAttackRange, results,
-                Quaternion.Euler(0f, Mathf.Atan2(pointDir.z, pointDir.x) * -Mathf.Rad2Deg, 0f), GetLayerMasks.Enemy);
-
-            if(size==0) return;
-            foreach (var collider in results)
-            {
-                collider.gameObject.GetComponent<HealthModule>().HealthPoint -= 1.2f;
-            }
-        }
-
         public override void HandleInput(InteractionType interactionType)
         {
             switch (interactionType)
             {
                 case InteractionType.DashExit:
-                    combo.Combo++;
+                    StateMachine.Combo++;
                     Activate();
                     break;
                 case InteractionType.CutEnter when dashingTime < 0: // dashingTime이 음수라면, 대쉬가 끝난 뒤 입력대기상태를 의미합니다.
@@ -118,6 +102,21 @@ namespace Player.State
         }
         #endregion
 
+        private Collider[] results = new Collider[1];
+        private void CheckEnemyHit()
+        {
+            //오버렙 박스 이용해서 플레이어 위치에서 대쉬 공격 범위 만큼 판정 검사
+            var size = Physics.OverlapBoxNonAlloc(
+                StateMachine.transform.position + pointDir.normalized *
+                new Vector3(dashAttackRange.x, 0f, dashAttackRange.z).magnitude, dashAttackRange, results,
+                Quaternion.Euler(0f, Mathf.Atan2(pointDir.z, pointDir.x) * -Mathf.Rad2Deg, 0f), GetLayerMasks.Enemy);
+
+            if (size == 0) return;
+            foreach (var collider in results)
+            {
+                collider.gameObject.GetComponent<HealthModule>().RequestDamage(1.2f);
+            }
+        }
 
         /// <summary>
         /// 대쉬를 실행합니다.

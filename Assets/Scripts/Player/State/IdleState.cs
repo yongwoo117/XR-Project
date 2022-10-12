@@ -4,17 +4,10 @@ namespace Player.State
 {
     public class IdleState : PlayerState
     {
-        private RhythmCombo combo;
-
-        public override void Initialize()
-        {
-            combo = StateMachine.GetComponent<RhythmCombo>();
-        }
-
         public override void Enter()
         {
             Debug.Log("Idle Enter");
-            combo.Combo = 0;
+            StateMachine.Combo = 0;
         }
 
         public override void HandleInput(InteractionType interactionType)
@@ -28,7 +21,7 @@ namespace Player.State
                     StateMachine.ChangeState(e_PlayerState.Cut);
                     break;
                 default:
-                    combo.Combo = 0;
+                    StateMachine.Combo = 0;
                     break;
             }
         }

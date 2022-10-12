@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class RhythmCombo : MonoBehaviour
+public abstract class RhythmComboModule : RhythmInputModule
 {
     public UnityEvent<int> onComboChanged;
     

@@ -38,4 +38,11 @@ public interface IState<T1, T2, T3> where T1 : Enum where T2 : IState<T1, T2, T3
     void HealthChanged(float value);
 
     void HealthRatioChanged(float value);
+
+    /// <summary>
+    /// 체력 변경 요청에 대한 응답을 나타냅니다.
+    /// </summary>
+    /// <param name="value">양수면 피해, 음수면 회복입니다. 전달된 값을 변경하면 그 값이 체력에 반영됩니다.</param>
+    /// <returns>true를 반환하면 체력 변경 요청을 수락합니다.</returns>
+    bool AcceptHealthChange(ref float value);
 }

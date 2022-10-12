@@ -58,6 +58,7 @@ public abstract class StateMachine<T1, T2, T3> : HealthModule where T1 : Enum
     private void OnDead() => currentState.Dead();
     private void OnHealthChanged(float value) => currentState.HealthChanged(value);
     private void OnHealthRatioChanged(float value) => currentState.HealthRatioChanged(value);
+    protected override bool AcceptHealthChange(ref float value) => currentState.AcceptHealthChange(ref value);
     protected virtual void Update() => currentState.LogicUpdate();
     protected virtual void FixedUpdate() => currentState.PhysicsUpdate();
     protected virtual void OnDrawGizmos() => currentState?.OnDrawGizmos();

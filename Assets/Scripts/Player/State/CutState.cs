@@ -7,13 +7,7 @@ namespace Player.State
     {
         private int cutCount;
         private int remainCutCount;
-        private RhythmCombo combo;
-
-        public override void Initialize()
-        {
-            combo = StateMachine.GetComponent<RhythmCombo>();
-        }
-
+        
         public override PlayerProfile Profile
         {
             set => cutCount = value.i_cutCount;
@@ -23,7 +17,7 @@ namespace Player.State
         {
             Debug.Log("Cut Enter");
             remainCutCount = cutCount - 1;
-            combo.Combo++;
+            StateMachine.Combo++;
         }
 
         public override void Exit()
@@ -36,7 +30,7 @@ namespace Player.State
             switch (interactionType)
             {
                 case InteractionType.CutEnter when remainCutCount != 0:
-                    combo.Combo++;
+                    StateMachine.Combo++;
                     remainCutCount--;
                     break;
                 case InteractionType.DashEnter:

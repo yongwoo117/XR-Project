@@ -50,6 +50,8 @@ public class EnemyState : IState<e_EnemyState, EnemyState, EnemyStateMachine>
 
     }
 
+    public bool AcceptHealthChange(ref float value) => true;
+
     public virtual void OnRhythm()
     {
 

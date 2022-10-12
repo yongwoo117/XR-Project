@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerStateMachine : RhythmModule
+public class PlayerStateMachine : RhythmComboModule
 {
     [SerializeField] private PlayerProfile profile;
     protected override e_PlayerState StartState => e_PlayerState.Idle;

@@ -3,7 +3,7 @@ using UnityEngine.Events;
 /// <summary>
 /// 인터렉션 이벤트를 수신하여 리듬에 맞는지 체크합니다.
 /// </summary>
-public abstract class RhythmModule : StateMachine<e_PlayerState, PlayerState, PlayerStateMachine>
+public abstract class RhythmInputModule : StateMachine<e_PlayerState, PlayerState, PlayerStateMachine>
 {
     //true일 때만 노트를 칠 수 있습니다.
     private bool rhythmFlag;
