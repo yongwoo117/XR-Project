@@ -1,20 +1,23 @@
 using System.Collections.Generic;
+using FMOD.Studio;
 using FMODUnity;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class SoundManager : MonoBehaviour
+public class SoundManager : UIManger
 {
     [SerializeField] private List<int> rhythmTrigger;
     private StudioEventEmitter eventEmitter;
     private int rhythmIndex;
     
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         eventEmitter = GetComponent<StudioEventEmitter>();
         rhythmIndex = 0;
     }
-
-    public void OnRhythmComboChanged(int combo)
+    
+    protected void UpdateSound(int combo)
     {
         if (rhythmIndex < rhythmTrigger.Count && combo >= rhythmTrigger[rhythmIndex])
         {
@@ -33,4 +36,6 @@ public class SoundManager : MonoBehaviour
             eventEmitter.SetParameter("Battle", rhythmIndex);
         }
     }
+
+    protected void SetSoundPause(bool pause) => eventEmitter.EventInstance.setPaused(pause);
 }

@@ -5,13 +5,10 @@ public class UIManger : MonoBehaviour
 {
     [SerializeField] private TMP_Text rhythmStreakText;
 
-    private void Start()
+    protected virtual void Start()
     {
         rhythmStreakText.text = "0";
     }
-
-    public void OnRhythmComboChanged(int combo)
-    {
-        rhythmStreakText.text = combo.ToString();
-    }
+    
+    protected void UpdateComboUI(int combo) => rhythmStreakText.text = combo.ToString();
 }
