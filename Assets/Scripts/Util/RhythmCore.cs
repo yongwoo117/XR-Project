@@ -6,6 +6,7 @@ public class RhythmCore : Singleton<RhythmCore>
 {
     [SerializeField] private double bpm;
     [SerializeField] private float judgeOffset;
+    [SerializeField] private float startOffset;
     
     private double startTime;
     private double rhythmDelay;
@@ -50,10 +51,26 @@ public class RhythmCore : Singleton<RhythmCore>
     }
 
     /// <summary>
+    /// RhythmCore가 시작하는 시점을 초단위로 조정합니다. 음수면 더 늦게 시작되며, 양수면 더 빨리 시작됩니다.
+    /// </summary>
+    public float StartOffset
+    {
+        get => startOffset;
+        set => startOffset = value;
+    }
+
+    /// <summary>
     /// RemainTime, FixedRemainTime을 갱신하는 데에 사용되는 수식입니다.
     /// </summary>
-    private double RemainFormula => rhythmDelay - (Time.realtimeSinceStartupAsDouble - startTime) % rhythmDelay;
-    
+    private double RemainFormula
+    {
+        get
+        {
+            var difference = Time.realtimeSinceStartupAsDouble - startTime;
+            return difference < 0 ? rhythmDelay - difference : rhythmDelay - (difference % rhythmDelay);
+        }
+    }
+
     /// <summary>
     /// 분당 노트의 출현 횟수를 의미합니다.
     /// </summary>
@@ -63,6 +80,7 @@ public class RhythmCore : Singleton<RhythmCore>
         set
         {
             bpm = value;
+            RhythmStart(0);
             onBpmChanged?.Invoke();
         }
     }
@@ -72,10 +90,10 @@ public class RhythmCore : Singleton<RhythmCore>
     /// </summary>
     public bool Judge() => RemainTime < judgeOffset || rhythmDelay - RemainTime < judgeOffset;
 
-    private void RhythmStart()
+    private void RhythmStart(float offset)
     {
         rhythmDelay = 60 / Bpm;
-        startTime = Time.realtimeSinceStartupAsDouble;
+        startTime = Time.realtimeSinceStartupAsDouble + offset;
         currentEventState = EventState.OnEarly;
     }
 
@@ -125,8 +143,7 @@ public class RhythmCore : Singleton<RhythmCore>
 
     private void Start()
     {
-        onBpmChanged.AddListener(RhythmStart);
-        RhythmStart();
+        RhythmStart(startOffset);
     }
 
     private enum EventState
