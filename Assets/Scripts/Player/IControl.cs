@@ -17,5 +17,5 @@ public interface IControl
     /// <summary>
     /// 사용자의 입력에 대한 콜백입니다.
     /// </summary>
-    UnityEvent<InteractionType, object> OnInteraction { get; }
+    UnityEvent<InteractionType> OnInteraction { get; }
 }

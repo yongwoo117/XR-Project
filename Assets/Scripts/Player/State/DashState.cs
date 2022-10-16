@@ -23,22 +23,38 @@ namespace Player.State
         {
             rigid = StateMachine.GetComponent<Rigidbody>();
             control = StateMachine.GetComponent<IControl>();
-            SetupProfile();
             SetupIntegralPhysicsGraph(); //물리 그래프 적분 함수
         }
+        
+        public override PlayerProfile Profile
+        {
+            set
+            {
+                dashGraph = value.dashPhysicsGraph;
+                dashTime = value.f_dashTime;
+                dashDistance = value.f_dashDistance;
+                dashAttackRange = value.v3_dashRange;
+            }
+        }
+
+        public override bool AcceptHealthChange(ref float value) => !isActivated;
 
         public override void Enter()
         {
             Debug.Log("Dash Enter");
         
+            dashingTime = dashTime;
             isActivated = false;
+            StateMachine.Combo++;
+
+            GameObject ChargedEffect = EffectProfileData.Instance.PopEffect("Eff_CharacterCharge");
+            ChargedEffect.transform.position = StateMachine.transform.GetChild(0).position;
         }
 
         public override void PhysicsUpdate()
         {
             if (isActivated)
                 ApplyDashPhysics();
-
         }
 
         public override void LogicUpdate()
@@ -47,24 +63,22 @@ namespace Player.State
                 CheckEnemyHit();
         }
 
-        private void CheckEnemyHit()
-        {
-            //오버렙 박스 이용해서 플레이어 위치에서 대쉬 공격 범위 만큼 판정 검사
-            Collider[] enemyHits = Physics.OverlapBox(StateMachine.transform.position+pointDir.normalized*new Vector3(dashAttackRange.x,0f,dashAttackRange.z).magnitude, dashAttackRange, Quaternion.Euler(0f, Mathf.Atan2(pointDir.z, pointDir.x) * -Mathf.Rad2Deg, 0f), GetLayerMasks.Enemy);
-         
-
-            if (enemyHits.Length > 0)
-            {
-                StateMachine.ChangeState(e_PlayerState.Idle);
-            }
-        }
-
-        public override void HandleInput(InteractionType interactionType, object arg)
+        public override void HandleInput(InteractionType interactionType)
         {
             switch (interactionType)
             {
                 case InteractionType.DashExit:
-                    Reset(); //초기 변수 초기화
+                    StateMachine.Combo++;
+                    Activate();
+                    break;
+                case InteractionType.CutEnter when dashingTime < 0: // dashingTime이 음수라면, 대쉬가 끝난 뒤 입력대기상태를 의미합니다.
+                    StateMachine.ChangeState(e_PlayerState.Cut);
+                    break; 
+                case InteractionType.DashEnter when dashingTime < 0:
+                    Enter();
+                    break;
+                default:
+                    StateMachine.ChangeState(e_PlayerState.Idle);
                     break;
             }
         }
@@ -72,18 +86,14 @@ namespace Player.State
         public override void Exit()
         {
             Debug.Log("Dash Exit");
-
-            rigid.velocity = Vector3.zero; //대쉬 시간이 끝났으면 플레이어를 멈춰줌
-            base.Exit();
         }
 
         public override void OnDrawGizmos()
         {
             if (control.Direction == null) return;
             var direction = (Vector3)control.Direction;
-            
-            var attackRange = new Vector3(direction.magnitude,
-                StateMachine.Profile.v3_dashRange.y, StateMachine.Profile.v3_dashRange.z);
+
+            var attackRange = new Vector3(direction.magnitude, dashAttackRange.y, dashAttackRange.z);
 
             Gizmos.matrix = Matrix4x4.TRS(rigid.transform.position,
                 Quaternion.Euler(0f, Mathf.Atan2(direction.z, direction.x) * -Mathf.Rad2Deg, 0f),
@@ -92,20 +102,58 @@ namespace Player.State
         }
         #endregion
 
+        private Collider[] results = new Collider[1];
+        private void CheckEnemyHit()
+        {
+            //오버렙 박스 이용해서 플레이어 위치에서 대쉬 공격 범위 만큼 판정 검사
+            var size = Physics.OverlapBoxNonAlloc(
+                StateMachine.transform.position + pointDir.normalized *
+                new Vector3(dashAttackRange.x, 0f, dashAttackRange.z).magnitude, dashAttackRange, results,
+                Quaternion.Euler(0f, Mathf.Atan2(pointDir.z, pointDir.x) * -Mathf.Rad2Deg, 0f), GetLayerMasks.Enemy);
+
+            if (size == 0) return;
+            foreach (var collider in results)
+            {
+                collider.gameObject.GetComponent<HealthModule>().RequestDamage(1.2f);
+            }
+        }
 
         /// <summary>
-        /// 초기 변수들 초기화
+        /// 대쉬를 실행합니다.
         /// </summary>
-        private void Reset()
+        private void Activate()
         {
             if (control.Direction == null) return;
             var dashPoint = (Vector3)control.Direction;
-            
+
             // 대쉬 이동 거리에 제약을 걸어줍니다.
             pointDir = dashPoint.magnitude > dashDistance ? dashPoint.normalized * dashDistance : dashPoint;
-            dashingTime = dashTime;
             isActivated = true;
 
+            DashEffect();
+        }
+
+        private void DashEffect()
+        {
+            GameObject DashEffect = EffectProfileData.Instance.PopEffect("Eff_CharacterAttack");
+            DashEffect.SetActive(false);
+
+            DashEffect.transform.position = StateMachine.transform.position;
+
+            float direction= Mathf.Atan2(pointDir.z, pointDir.x) * Mathf.Rad2Deg;
+
+            DashEffect.transform.localEulerAngles = new Vector3(0f, 0f, -direction); 
+            DashEffect.SetActive(true);
+        }
+
+        /// <summary>
+        /// 대쉬를 멈춥니다.
+        /// </summary>
+        private void Deactivate()
+        {
+            dashingTime = -1;
+            rigid.velocity = Vector3.zero; //대쉬 시간이 끝났으면 플레이어를 멈춰줌
+            isActivated = false;
         }
 
         /// <summary>
@@ -115,23 +163,9 @@ namespace Player.State
         {
             physicsCurveArea = 0f;
             for (float i = 0; i < dashTime; i += Time.fixedDeltaTime)
-            {
                 physicsCurveArea += dashGraph.Evaluate(i);
-            }
         }
-
-        /// <summary>
-        /// PlayerProfile 정보를 받아와서 변수들을 초기화합니다.
-        /// </summary>
-        private void SetupProfile()
-        {
-            var profile = StateMachine.Profile;
-            dashGraph = profile.dashPhysicsGraph;
-            dashTime = profile.f_dashTime;
-            dashDistance = profile.f_dashDistance;
-            dashAttackRange = profile.v3_dashRange;
-        }
-
+        
         /// <summary>
         /// 그래프를 통해서 목표 지점 까지 물리 적용
         /// 목표지점 까지의 속력: pointDir / dashTime 
@@ -144,13 +178,12 @@ namespace Player.State
         private void ApplyDashPhysics()
         {
             if (dashingTime <= 0f)
-            {
-                StateMachine.ChangeState(e_PlayerState.Idle); //대쉬 시간이 끝이면 Idle로 상태 변환
-            }
+                Deactivate();
             else
-                rigid.velocity = pointDir / dashTime * ((dashTime / Time.fixedDeltaTime) / physicsCurveArea) * dashGraph.Evaluate(dashTime - dashingTime); //대쉬 시간이 끝이 아니면 그래프에 값 만큼 물리 적용
+                rigid.velocity = pointDir / dashTime * ((dashTime / Time.fixedDeltaTime) / physicsCurveArea) *
+                                 dashGraph.Evaluate(dashTime - dashingTime); //대쉬 시간이 끝이 아니면 그래프에 값 만큼 물리 적용
 
-            dashingTime -= Time.deltaTime; 
+            dashingTime -= Time.fixedDeltaTime; 
         }
     }
 }

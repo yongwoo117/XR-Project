@@ -1,32 +1,24 @@
 using Enemy.Profile;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyStateMachine : StateMachine<e_EnemyState, EnemyState, EnemyProfile>
+public class EnemyStateMachine : StateMachine<e_EnemyState, EnemyState, EnemyStateMachine>
 {
+    [SerializeField] private EnemyProfile profile;
     protected override e_EnemyState StartState => e_EnemyState.Idle;
-    protected override IStateDictionary<e_EnemyState, EnemyState> StateDictionary => new EnemyStateDictionary();
+    protected override HealthProfile healthProfile => profile;
 
-    protected override void Start()
+    protected override void OnBeforeStateInitialize(EnemyState state)
     {
-        base.Start();
+        base.OnBeforeStateInitialize(state);
+        state.Profile = profile;
+    }
+
+    private void Start()
+    {
+        //적 체력이 0이면 시작할때 죽는 상태로 변경
+        if (profile.f_maximumHealth <= 0) ChangeState(e_EnemyState.Die);
+
         RhythmCore.Instance.onRhythm.AddListener(OnRhythm);
-    }
-
-    private void OnDrawGizmos()
-    {
-        currentState?.OnDrawGizmos();
-    }
-
-    private void FixedUpdate()
-    {
-        currentState?.PhysicsUpdate();
-    }
-
-    private void Update()
-    {
-        currentState?.LogicUpdate();
     }
 
     private void OnRhythm()

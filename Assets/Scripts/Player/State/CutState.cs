@@ -5,26 +5,40 @@ namespace Player.State
 {
     public class CutState : PlayerState
     {
-        private float cutTime;
-        private float thresholdTime;
+        private int cutCount;
+        private int remainCutCount;
         
+        public override PlayerProfile Profile
+        {
+            set => cutCount = value.i_cutCount;
+        }
+
         public override void Enter()
         {
             Debug.Log("Cut Enter");
-            cutTime = StateMachine.Profile.f_cutTime;
-            thresholdTime = Time.realtimeSinceStartup + cutTime;
+            remainCutCount = cutCount - 1;
+            StateMachine.Combo++;
         }
 
         public override void Exit()
         {
             Debug.Log("Cut Exit");
         }
-
-        public override void PhysicsUpdate()
+        
+        public override void HandleInput(InteractionType interactionType)
         {
-            if (thresholdTime < Time.realtimeSinceStartup)
+            switch (interactionType)
             {
-                StateMachine.ChangeState(e_PlayerState.Idle);
+                case InteractionType.CutEnter when remainCutCount != 0:
+                    StateMachine.Combo++;
+                    remainCutCount--;
+                    break;
+                case InteractionType.DashEnter:
+                    StateMachine.ChangeState(e_PlayerState.Dash);
+                    break;
+                default:
+                    StateMachine.ChangeState(e_PlayerState.Idle);
+                    break;
             }
         }
     }

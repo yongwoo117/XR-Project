@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b05264d16cb4e5b48a8c9f2e486489b9, type: 3}
   m_Name: EnemyInfo
   m_EditorClassIdentifier: 
+  f_maximumHealth: 1
   f_CheckRange: 30
   f_AttackRange: 5
   f_ChaseRange: 30
   f_ChaseSpeed: 5
   i_ChaseRhythmCount: 2
+  i_Hp: 1

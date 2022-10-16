@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a99a74360e54317478c90a4f41bf31d6, type: 3}
+  m_Name: EffectProfile
+  m_EditorClassIdentifier: 
+  Dic_Effect:
+    keys:
+    - Eff_CharacterDead
+    - Eff_CharacterHit
+    - Eff_MonsterDead
+    - Eff_MonsterHit
+    - Eff_CharacterCharge
+    - Eff_CharacterAttack
+    values:
+    - {fileID: 7379835623210154396, guid: 4b2c702adee2188499d2c59ecf940b78, type: 3}
+    - {fileID: 1554671603398015269, guid: f386edd851b401f4f8e398ab9651456e, type: 3}
+    - {fileID: 1448537311201657898, guid: 9b7aca404fb215b448ea6b502a0a8ef1, type: 3}
+    - {fileID: 409216866104894514, guid: 1ded5cbad7dfe3b4e9310f7db96d9aa0, type: 3}
+    - {fileID: 917005785034365037, guid: 0d7f3d4166e45ed4d947f1a87fb81464, type: 3}
+    - {fileID: 452999729648205897, guid: c7aa10a7724b4c84f8d9f6eb13242de0, type: 3}

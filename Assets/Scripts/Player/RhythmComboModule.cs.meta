@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Editor/EffectProfileEditor.cs.meta
+guid: 0e2eea006b1884a7d9032c5eb9d8628b
+========
+guid: 94e9ac5737f6a45e58212075bb5e5fa9
+>>>>>>>> SoundSystem:Assets/Scripts/Player/RhythmCombo.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
