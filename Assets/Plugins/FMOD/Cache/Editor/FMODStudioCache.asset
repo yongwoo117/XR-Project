@@ -20,6 +20,33 @@ MonoBehaviour:
   - Name: Desktop
     Value: 494
   Exists: 1
+--- !u!114 &-6182699630472626512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Battle
+  m_EditorClassIdentifier: 
+  Path: event:/Battle
+  Guid:
+    Data1: 1108825099
+    Data2: 1155193423
+    Data3: 282107271
+    Data4: 1131801011
+  Banks:
+  - {fileID: 3931912377779641040}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 8000
 --- !u!114 &-4656456861428990800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39,6 +66,46 @@ MonoBehaviour:
   FileSizes:
   - Name: Desktop
     Value: 92256
+  Exists: 1
+--- !u!114 &-3967910431338284299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SFX.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/SFX.bank
+  Name: SFX
+  StudioPath: bank:/SFX
+  lastModified: 638009468975793128
+  FileSizes:
+  - Name: Desktop
+    Value: 494
+  Exists: 1
+--- !u!114 &-2867438738290869478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/AMB.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/AMB.bank
+  Name: AMB
+  StudioPath: bank:/AMB
+  lastModified: 638015976450075275
+  FileSizes:
+  - Name: Desktop
+    Value: 494
   Exists: 1
 --- !u!114 &-1750186579509521395
 MonoBehaviour:
@@ -120,20 +187,40 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: -1750186579509521395}
-  - {fileID: -763598408223639613}
-  - {fileID: -4656456861428990800}
-  - {fileID: 2279607781597253664}
-  - {fileID: -6814344020887448383}
+  - {fileID: 434875691311170072}
+  - {fileID: 3931912377779641040}
+  - {fileID: 6080511240933485941}
+  - {fileID: -3967910431338284299}
+  - {fileID: -2867438738290869478}
   EditorEvents:
-  - {fileID: -1196362384913171503}
+  - {fileID: -6182699630472626512}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 2279607781597253664}
+  - {fileID: 6080511240933485941}
   StringsBanks:
-  - {fileID: -1750186579509521395}
-  cacheTime: 638010070198950707
+  - {fileID: 434875691311170072}
+  cacheTime: 638015976450115296
   cacheVersion: 131592
+--- !u!114 &434875691311170072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638015976450115296
+  FileSizes:
+  - Name: Desktop
+    Value: 870
+  Exists: 1
 --- !u!114 &2279607781597253664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,6 +237,46 @@ MonoBehaviour:
   Name: Master
   StudioPath: bank:/Master
   lastModified: 638009479782717384
+  FileSizes:
+  - Name: Desktop
+    Value: 1036
+  Exists: 1
+--- !u!114 &3931912377779641040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/BGM.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/BGM.bank
+  Name: BGM
+  StudioPath: bank:/BGM
+  lastModified: 638015976450095283
+  FileSizes:
+  - Name: Desktop
+    Value: 92256
+  Exists: 1
+--- !u!114 &6080511240933485941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638015976450105288
   FileSizes:
   - Name: Desktop
     Value: 1036
