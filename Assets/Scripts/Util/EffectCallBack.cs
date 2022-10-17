@@ -4,7 +4,7 @@ public class EffectCallBack : MonoBehaviour
 {
     private void OnParticleSystemStopped()
     {
-        EffectProfileData.Instance.PushEffect(gameObject);
+        EffectProfileData.Instance.PushObject(gameObject);
     }
 
 }

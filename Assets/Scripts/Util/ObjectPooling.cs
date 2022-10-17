@@ -30,7 +30,10 @@ public class ObjectPooling: MonoBehaviour
 
                 for (int i = 0; i < PoolIndex; i++)
                 {
-                    GameObject clone = CreateObject(obj.Value, transform, false);
+                    GameObject clone = CreateObject(obj.Value);
+                    clone.transform.parent = transform;
+                    clone.SetActive(false);
+
                     clonePool.Push(clone);
 
                     Dic_PoolingObj.Add(clone, clonePool);
@@ -41,11 +44,9 @@ public class ObjectPooling: MonoBehaviour
         }
     }
 
-    protected virtual GameObject CreateObject(GameObject obj, Transform parent, bool isActive)
+    protected virtual GameObject CreateObject(GameObject obj)
     {
-        GameObject clone = Instantiate(obj, parent);
-        clone.SetActive(isActive);
-
+        GameObject clone = Instantiate(obj);
         onCreateObject.Invoke(clone);
 
 
@@ -54,7 +55,7 @@ public class ObjectPooling: MonoBehaviour
 
 
     //키 값을 통해 해당하는 오브젝트가 있을 경우 Pop 풀링된 오브젝트보다 많을 경우 재생성
-    public virtual GameObject PopEffect(string key)
+    public virtual GameObject PopObject(string key)
     {
         GameObject clone = null;
 
@@ -66,20 +67,25 @@ public class ObjectPooling: MonoBehaviour
 
 
         if (Dic_Pool[poolData].Count > 0)
+        {
             clone = Dic_Pool[poolData].Pop();
+        }
         else
         {
-            clone = CreateObject(poolData,null,true);
+            clone = CreateObject(poolData);
 
             Dic_Pool[poolData].Push(clone);
             Dic_PoolingObj.Add(clone, Dic_Pool[poolData]);
         }
 
+        clone.transform.parent = null;
+        clone.SetActive(true);
+
         return clone;
     }
 
     //사용된 오브젝트들은 Push해서 다시 넣어줌 (콜백)
-    public virtual void PushEffect(GameObject obj)
+    public virtual void PushObject(GameObject obj)
     {
         if (!Dic_PoolingObj.TryGetValue(obj, out var pool))
         {
