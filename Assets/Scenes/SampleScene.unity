@@ -657,8 +657,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee64077e358c2064dbf243f1e9c06803, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poolType: 0
   poolingData: {fileID: 11400000, guid: 1d32525542fd4a442b5f2e983b51123b, type: 2}
-  effectPoolIndex: 3
+  collectionChecks: 1
+  maxPoolSize: 10
 --- !u!4 &565776936
 Transform:
   m_ObjectHideFlags: 0

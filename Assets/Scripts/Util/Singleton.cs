@@ -22,8 +22,5 @@ public class Singleton<T> :MonoBehaviour where T : Component
         }
         Instance = GetComponent<T>();
 
-        if (Instance == null)
-            Instance = gameObject.AddComponent<T>();
-
     }
 }
