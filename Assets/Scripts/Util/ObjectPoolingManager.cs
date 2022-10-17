@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class ObjectPooling<T>: MonoBehaviour where T:ObjectPoolingCallBack
+public class ObjectPoolingManager: Singleton<ObjectPoolingManager> 
 {
     public enum PoolType
     {
@@ -22,19 +22,24 @@ public class ObjectPooling<T>: MonoBehaviour where T:ObjectPoolingCallBack
 
     private IObjectPool<GameObject> m_Pool;
 
-    public IObjectPool<GameObject> Pool(string key)
+    protected override void Awake()
+    {
+        base.Awake();
+    }
+
+    public IObjectPool<GameObject> Pool<T>(string key) where T:ObjectPoolingCallBack
     {
         poolkey = key;
         if (m_Pool == null)
         {
             if (poolType == PoolType.Stack)
-                m_Pool = new ObjectPool<GameObject>(CreatePooledItem, OnTakeFromPool, OnReturnedToPool, OnDestroyPoolObject, collectionChecks, 10, maxPoolSize);
+                m_Pool = new ObjectPool<GameObject>(CreatePooledItem<T>, OnTakeFromPool, OnReturnedToPool, OnDestroyPoolObject, collectionChecks, 10, maxPoolSize);
             else
-                m_Pool = new LinkedPool<GameObject>(CreatePooledItem, OnTakeFromPool, OnReturnedToPool, OnDestroyPoolObject, collectionChecks, maxPoolSize);
+                m_Pool = new LinkedPool<GameObject>(CreatePooledItem<T>, OnTakeFromPool, OnReturnedToPool, OnDestroyPoolObject, collectionChecks, maxPoolSize);
         }
         return m_Pool;
     }
-    GameObject CreatePooledItem()
+    GameObject CreatePooledItem<T>() where T:ObjectPoolingCallBack
     {
         var go = Instantiate(poolingData.Dic_Pooling[poolkey], transform);
 

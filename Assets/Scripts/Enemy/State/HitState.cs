@@ -13,7 +13,7 @@ namespace Enemy.State
 
         public override void Enter()
         {
-            GameObject HitEffect =EffectProfileData.Instance.Pool("Eff_MonsterHit").Get();
+            GameObject HitEffect =  ObjectPoolingManager.Instance.Pool<EffectCallBack>("Eff_MonsterHit").Get();
             HitEffect.transform.position = StateMachine.transform.GetChild(0).position;
 
             if(--Hp==0)

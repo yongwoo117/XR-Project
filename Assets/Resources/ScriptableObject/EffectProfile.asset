@@ -17,7 +17,9 @@ MonoBehaviour:
     - Eff_MonsterDead
     - Eff_CharacterHit
     - Eff_MonsterHit
+    - Enemy
     values:
     - {fileID: 1448537311201657898, guid: 9b7aca404fb215b448ea6b502a0a8ef1, type: 3}
     - {fileID: 1554671603398015269, guid: f386edd851b401f4f8e398ab9651456e, type: 3}
     - {fileID: 409216866104894514, guid: 1ded5cbad7dfe3b4e9310f7db96d9aa0, type: 3}
+    - {fileID: 8248359141127274625, guid: 992d79ed020fb2642b71f585636aff89, type: 3}
