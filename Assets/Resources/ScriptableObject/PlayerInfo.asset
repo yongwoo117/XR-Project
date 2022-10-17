@@ -17,17 +17,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: -0.0038899733
-      value: 0.004638672
-      inSlope: Infinity
-      outSlope: Infinity
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.0074096173
-      value: 0.007523656
+      time: -0.0015730858
+      value: -0.0054605007
       inSlope: 2.1328902
       outSlope: 2.1328902
       tangentMode: 0
@@ -35,23 +26,41 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.16600636
     - serializedVersion: 3
-      time: 0.33359164
-      value: 0.98129535
-      inSlope: 0.9261246
-      outSlope: 0.9261246
-      tangentMode: 0
+      time: 0.067411885
+      value: 0.13197424
+      inSlope: 3.6453583
+      outSlope: -0.05112926
+      tangentMode: 65
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0.49070126
+      outWeight: 1
+    - serializedVersion: 3
+      time: 0.15978323
+      value: 0.12725136
+      inSlope: -0.05112926
+      outSlope: -0.0567795
+      tangentMode: 5
+      weightedMode: 0
+      inWeight: 1
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.5037578
-      value: 0.37351784
-      inSlope: -2.5039003
-      outSlope: -2.5039003
+      time: 0.32496795
+      value: 0.975178
+      inSlope: 2.151771
+      outSlope: 2.151771
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0.6119699
       outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.35563037
+      value: 0.31225273
+      inSlope: 0.13779703
+      outSlope: 0.13779703
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.8338969
+      outWeight: 0.94741976
     - serializedVersion: 3
       time: 0.741634
       value: 0.02525425
@@ -73,8 +82,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  f_dashTime: 0.1
-  f_dashDistance: 500
-  f_cutTime: 0.2
+  f_dashTime: 0.15
+  f_dashDistance: 2000
+  f_cutTime: 0.15
   i_cutCount: 2
   v3_dashRange: {x: 1, y: 1, z: 1}
