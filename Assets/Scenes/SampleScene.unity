@@ -237,10 +237,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   List_SpawnPoints:
-  - {fileID: 1101008813}
-  - {fileID: 1601105439}
-  - {fileID: 1944101077}
-  - {fileID: 1255138450}
+  - SpawnTransform: {fileID: 1101008813}
+    AreaSize: {x: 127.57, y: 90.9}
+    List_EnemyType: 0000000001000000
+    ReSpawnCount: 5
+  - SpawnTransform: {fileID: 1601105439}
+    AreaSize: {x: 100, y: 100}
+    List_EnemyType: 0000000001000000
+    ReSpawnCount: 5
+  - SpawnTransform: {fileID: 1944101077}
+    AreaSize: {x: 50, y: 50}
+    List_EnemyType: 00000000
+    ReSpawnCount: 5
+  - SpawnTransform: {fileID: 1255138450}
+    AreaSize: {x: 50, y: 50}
+    List_EnemyType: 00000000
+    ReSpawnCount: 5
+  enemySpawnProfile: {fileID: 11400000, guid: 4aef58d977e40754ab80f444469df511, type: 2}
   SpawnCount: 10
 --- !u!4 &46367351
 Transform:
@@ -723,13 +736,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 565776934}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7ba3075fb997d4e99d44dfc52c7a91, type: 3}
+  m_Script: {fileID: 11500000, guid: a4c43bcc44e8cc245928a751e50bfa83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolType: 0
-  poolingData: {fileID: 11400000, guid: 1d32525542fd4a442b5f2e983b51123b, type: 2}
-  collectionChecks: 1
-  maxPoolSize: 10
+  effectProfile: {fileID: 11400000, guid: 1d32525542fd4a442b5f2e983b51123b, type: 2}
+  effectPoolIndex: 5
 --- !u!1 &609967942
 GameObject:
   m_ObjectHideFlags: 0
@@ -1943,7 +1954,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1680146609352771348, guid: 57d210aadf8ca364ca469553f372e63f, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1680146609352771348, guid: 57d210aadf8ca364ca469553f372e63f, type: 3}
       propertyPath: m_LocalPosition.x

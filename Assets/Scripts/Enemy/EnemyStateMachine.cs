@@ -43,5 +43,4 @@ public class EnemyStateMachine : StateMachine<e_EnemyState, EnemyState, EnemyPro
         RhythmCore.Instance.onRhythm.RemoveListener(OnRhythm);
     }
 
-
 }

@@ -28,9 +28,9 @@ public class EffectProfileData : Singleton<EffectProfileData>
     //오브젝트 풀링
     private void CreateEffectClone()
     {
+        poolDictionary = new Dictionary<string, ObjectPool<GameObject>>();
         foreach (var obj in effectProfile.Dic_Effect)
         {
-            if(poolDictionary.ContainsKey(obj.Key)) continue;
             var pool = new ObjectPool<GameObject>(
                 () => InstantiatePrefab(obj),
                 instance => instance.SetActive(true),

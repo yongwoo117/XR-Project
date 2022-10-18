@@ -1,10 +1,10 @@
 
 using Enemy.Profile;
+using System;
 
 public class EnemyState : IState<e_EnemyState,EnemyState,EnemyProfile>
 {
     public StateMachine<e_EnemyState, EnemyState, EnemyProfile> StateMachine { get; set; }
-
     public virtual void Initialize()
     {
         

@@ -16,7 +16,7 @@
 
         SubShader
         {
-            Tags {"Queue" = "Transparent" "RenderType" = "Transparent" "RenderPipeline" = "UniversalPipeline" }
+            Tags {"Queue" = "Transparent" "RenderType" = "Transparent" "RenderPipeline" = "UniversalPipeline"  "DisableBatching" = "True"}
 
             Blend SrcAlpha OneMinusSrcAlpha, One OneMinusSrcAlpha
             Cull Off

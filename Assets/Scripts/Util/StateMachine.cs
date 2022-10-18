@@ -17,6 +17,7 @@ public abstract class StateMachine<T1,T2,T3> : MonoBehaviour where T1 : Enum whe
     
     protected abstract T1 StartState { get; }
     public T3 Profile => profile;
+    public Dictionary<T1, T2> States => Dic_States;
     
     /// <summary>
     /// 오버라이딩하는 경우 하위 클래스에서 반드시 base.Awake()를 호출해야 합니다.

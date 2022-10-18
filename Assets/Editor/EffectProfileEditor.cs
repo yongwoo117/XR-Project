@@ -2,18 +2,18 @@ using UnityEditor;
 using UnityEngine;
 
 
-[CustomEditor(typeof(PoolingData))]
-public class PoolingDataEdtior : Editor
+[CustomEditor(typeof(EffectProfile))]
+public class EffectProfileEditor : Editor
 {
     SerializedProperty m_Dic;
     void OnEnable()
     {
-        m_Dic = serializedObject.FindProperty("Dic_Pooling");
+        m_Dic = serializedObject.FindProperty("Dic_Effect");
     }
 
     public override void OnInspectorGUI()
     {
-        PoolingData epd = (PoolingData)target;
+        EffectProfile epd = (EffectProfile)target;
 
         EditorGUILayout.PropertyField(m_Dic, new GUIContent("풀링 리시트"));
         
