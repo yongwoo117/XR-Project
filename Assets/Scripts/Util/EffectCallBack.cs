@@ -1,11 +1,18 @@
-using System;
 using UnityEngine;
+using UnityEngine.Pool;
 
-public class EffectCallBack : MonoBehaviour
+public class EffectCallBack : ObjectPoolingCallBack
 {
-    public Action<GameObject> ReturnAction { private get; set; }
+    public ParticleSystem system;
+    void Start()
+    {
+        system = GetComponent<ParticleSystem>();
+        var main = system.main;
+        main.stopAction = ParticleSystemStopAction.Callback;
+    }
     private void OnParticleSystemStopped()
     {
-        ReturnAction(gameObject);
+        Pool.Release(gameObject);
     }
+  
 }
