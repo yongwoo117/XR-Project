@@ -3,7 +3,7 @@ using UnityEngine;
 
 
 [CustomEditor(typeof(EffectProfile))]
-public class EffeProfileEdtior : Editor
+public class EffectProfileEditor : Editor
 {
     SerializedProperty m_Dic;
     void OnEnable()
@@ -15,7 +15,7 @@ public class EffeProfileEdtior : Editor
     {
         EffectProfile epd = (EffectProfile)target;
 
-        EditorGUILayout.PropertyField(m_Dic, new GUIContent("이펙트 리시트"));
+        EditorGUILayout.PropertyField(m_Dic, new GUIContent("풀링 리시트"));
         
         serializedObject.ApplyModifiedProperties();
         EditorUtility.SetDirty(epd);
