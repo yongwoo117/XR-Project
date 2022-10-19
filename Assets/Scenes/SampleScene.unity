@@ -236,7 +236,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 214a6d9ab377f1d4bbf290006d1b0a51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  List_SpawnArea: []
+  List_SpawnArea:
+  - SpawnTransform: {fileID: 1101008813}
+    AreaSize: {x: 50, y: 50}
+    List_EnemyType: 0000000001000000
+    ReSpawnCount: 5
+    CurrentReSpawnCount: 0
   enemySpawnProfile: {fileID: 11400000, guid: 4aef58d977e40754ab80f444469df511, type: 2}
   SpawnCount: 5
 --- !u!4 &46367351

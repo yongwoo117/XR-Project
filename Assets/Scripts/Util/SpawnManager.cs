@@ -15,18 +15,21 @@ public struct SpawnArea
     public Vector2 AreaSize; //스폰 영역의 크기
     public List<e_EnemyType> List_EnemyType; //스폰 영역 내 스폰 가능한 적 타입
     public int ReSpawnCount; //스폰 영역 내 리스폰 횟수
-    [HideInInspector]public int CurrentReSpawnCount; //스폰 영역 내 리스폰 남은 횟수
+    public bool isCanSpawn; //스폰 영역을 사용할지
 }
 
 
 public class SpawnManager : MonoBehaviour
-{
+{ 
     [SerializeField] private List<SpawnArea> List_SpawnArea = new List<SpawnArea>();
     [SerializeField] private EnemySpawnProfile enemySpawnProfile;
     [SerializeField] private int SpawnCount;
 
     private Dictionary<e_EnemyType, ObjectPool<GameObject>> poolDictionary;
     private int CurrentSpawnCount;
+
+    private List<SpawnArea> CurSpawnArea;
+
 
     private void OnDrawGizmos()
     {
@@ -41,17 +44,19 @@ public class SpawnManager : MonoBehaviour
 
     private void Awake()
     {
+        CurSpawnArea = List_SpawnArea;
         CreateEnemyClone();
         SpawnObject();
     }
 
     private void Start()
     {
-       for(int i=0;i<SpawnCount;i++)
-       {
-            SpawnObject();
-       }
 
+    }
+
+    private void FixedUpdate()
+    {
+        SpawnObject();
     }
 
     /// <summary>
@@ -63,6 +68,7 @@ public class SpawnManager : MonoBehaviour
     {
         if(CurrentSpawnCount<SpawnCount)
         {
+
             SpawnArea area = List_SpawnArea[UnityEngine.Random.Range(0, List_SpawnArea.Count)];
 
             if(area.CurrentReSpawnCount<area.ReSpawnCount)
