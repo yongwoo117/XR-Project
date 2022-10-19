@@ -147,8 +147,13 @@ public class RhythmCore : Singleton<RhythmCore>
     }
 
     private double pausedTime;
-    protected void PauseRhythm() => pausedTime = RemainFormula;
-    protected void ResumeRhythm() => RhythmStart((float)pausedTime - (float)rhythmDelay);
+    protected void PauseRhythm(bool isPaused)
+    {
+        if (isPaused)
+            pausedTime = RemainFormula;
+        else
+            RhythmStart((float)pausedTime - (float)rhythmDelay);
+    }
 
     private enum EventState
     {
