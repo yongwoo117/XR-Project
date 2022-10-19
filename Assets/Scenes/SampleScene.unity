@@ -3239,6 +3239,7 @@ MonoBehaviour:
   rhythmStreakText: {fileID: 977276839}
   pauseInterface: {fileID: 2114241537}
   rhythmTrigger: 0a00000014000000
+  playerInput: {fileID: 1680146607699291306}
 --- !u!1 &1672992296
 GameObject:
   m_ObjectHideFlags: 0
@@ -4451,7 +4452,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2130262800}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e056020cfad8c4d9eacf9f046634cceb, type: 3}
+  m_Script: {fileID: 11500000, guid: 57262b6adf4c9fd42ae00a5f937d3e9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   List_SpawnArea:
@@ -4537,6 +4538,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 44db4eccdcba6464db9f87be4f9b1a66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1680146607699291306 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1680146609352771350, guid: 57d210aadf8ca364ca469553f372e63f, type: 3}
+  m_PrefabInstance: {fileID: 1680146607699291301}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &8248359140779405304

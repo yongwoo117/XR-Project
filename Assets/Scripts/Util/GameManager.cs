@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : SoundManager
 {
+    [SerializeField] private PlayerInput playerInput;
+    
     private bool IsPaused
     {
         get => isPaused;
@@ -11,7 +13,7 @@ public class GameManager : SoundManager
         {
             isPaused = value;
             Time.timeScale = IsPaused ? 0 : 1.0f;
-            //TODO: 퍼즈 상태에서 클릭시에 콤보가 깨져버리는 문제 발생. 인풋을 안받게끔 처리해야함
+            playerInput.enabled = !isPaused;
             PauseRhythm(IsPaused);
             PauseSound(IsPaused);
             PauseUI(IsPaused);
@@ -46,6 +48,7 @@ public class GameManager : SoundManager
 
     public void OnExitButtonDown()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene("StartScene");
     }
 }
