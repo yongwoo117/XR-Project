@@ -1,4 +1,5 @@
 using Enemy.Profile;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyStateMachine : StateMachine<e_EnemyState, EnemyState, EnemyStateMachine>
@@ -6,6 +7,8 @@ public class EnemyStateMachine : StateMachine<e_EnemyState, EnemyState, EnemySta
     [SerializeField] private EnemyProfile profile;
     protected override e_EnemyState StartState => e_EnemyState.Idle;
     protected override HealthProfile healthProfile => profile;
+
+    public Dictionary<e_EnemyState, EnemyState> States => Dic_States;
 
     protected override void OnBeforeStateInitialize(EnemyState state)
     {

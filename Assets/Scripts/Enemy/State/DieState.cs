@@ -5,6 +5,7 @@ namespace Enemy.State
 {
     public class DieState : EnemyState
     {
+        public Action<GameObject> DieAction;
         public override void Enter()
         {
             GameObject DeadEffect = EffectProfileData.Instance.PopEffect("Eff_MonsterDead");
