@@ -19,11 +19,22 @@ namespace Player.State
         private bool isActivated;
         private GameObject dashEffect;
 
+        private GameObject attackRange;
+        private GameObject RythmRange;
+
+        private LineRenderer lineRender;
+
         #region StateFunction
         public override void Initialize()
         {
             rigid = StateMachine.GetComponent<Rigidbody>();
             control = StateMachine.GetComponent<IControl>();
+
+            attackRange = StateMachine.transform.GetChild(2).gameObject;
+            RythmRange = StateMachine.transform.GetChild(1).gameObject;
+
+            lineRender = attackRange.GetComponent<LineRenderer>();
+
             SetupIntegralPhysicsGraph(); //물리 그래프 적분 함수
         }
         
@@ -62,6 +73,16 @@ namespace Player.State
         {
             if(isActivated)
                 CheckEnemyHit();
+            else
+            {
+                if (control.Direction == null) return;
+                var dashPoint = (Vector3)control.Direction;
+
+                dashPoint = dashPoint.normalized* dashPoint.magnitude;
+
+                lineRender.SetPosition(1, new Vector3(dashPoint.x, dashPoint.z,0f));
+
+            }
         }
 
         public override void HandleInput(InteractionType interactionType)
@@ -160,8 +181,6 @@ namespace Player.State
             dashingTime = -1;
             rigid.velocity = Vector3.zero; //대쉬 시간이 끝났으면 플레이어를 멈춰줌
             isActivated = false;
-
-            dashEffect.GetComponent<ParticleSystem>().Pause();
         }
 
         /// <summary>
