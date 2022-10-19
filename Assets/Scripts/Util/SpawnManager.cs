@@ -28,8 +28,6 @@ public class SpawnManager : MonoBehaviour
     private Dictionary<e_EnemyType, ObjectPool<GameObject>> poolDictionary;
     private int CurrentSpawnCount;
 
-    private List<SpawnArea> CurSpawnArea;
-
 
     private void OnDrawGizmos()
     {
@@ -44,14 +42,8 @@ public class SpawnManager : MonoBehaviour
 
     private void Awake()
     {
-        CurSpawnArea = List_SpawnArea;
         CreateEnemyClone();
         SpawnObject();
-    }
-
-    private void Start()
-    {
-
     }
 
     private void FixedUpdate()
@@ -66,24 +58,73 @@ public class SpawnManager : MonoBehaviour
     /// </summary>
     private void SpawnObject()
     {
-        if(CurrentSpawnCount<SpawnCount)
+
+        if (CurrentSpawnCount < SpawnCount)
         {
+            int randIndex = RandomAreaIndex();
+            SpawnArea area = List_SpawnArea[randIndex];
 
-            SpawnArea area = List_SpawnArea[UnityEngine.Random.Range(0, List_SpawnArea.Count)];
+            GameObject spawnObj = PopEnemy(area.List_EnemyType[UnityEngine.Random.Range(0, area.List_EnemyType.Count)]);
 
-            if(area.CurrentReSpawnCount<area.ReSpawnCount)
+            float randX = UnityEngine.Random.Range(area.AreaSize.x * -0.5f, area.AreaSize.x * 0.5f);
+            float randZ = UnityEngine.Random.Range(area.AreaSize.y * -0.5f, area.AreaSize.y * 0.5f);
+
+            spawnObj.transform.position = area.SpawnTransform.position + new Vector3(randX, 0f, randZ);
+
+            if (--area.ReSpawnCount <= 0)
             {
-                GameObject spawnObj = PopEnemy(area.List_EnemyType[UnityEngine.Random.Range(0, area.List_EnemyType.Count)]);
-
-                float randX = UnityEngine.Random.Range(area.AreaSize.x * -0.5f, area.AreaSize.x * 0.5f);
-                float randZ = UnityEngine.Random.Range(area.AreaSize.y * -0.5f, area.AreaSize.y * 0.5f);
-
-                spawnObj.transform.position = area.SpawnTransform.position + new Vector3(randX, 0f, randZ);
-
-                area.CurrentReSpawnCount++;
+                area.isCanSpawn = false;
             }
+
+            List_SpawnArea[randIndex] = area;
         }
     }
+
+    private int RandomAreaIndex()
+    {
+        List<int> RandIndexPool = new List<int>();
+        bool isPlayerInArea = false;
+        int PlayerAreaIndex = 0;
+
+        for (int i = 0; i < List_SpawnArea.Count; i++)
+        {
+            SpawnArea area = List_SpawnArea[i];
+
+            if (!Physics.CheckBox(area.SpawnTransform.position, new Vector3(area.AreaSize.x * 0.5f, 10f, area.AreaSize.y * 0.5f), Quaternion.identity, GetLayerMasks.Player))
+            {
+                if (area.isCanSpawn)
+                {
+                    RandIndexPool.Add(i);
+                }
+            }
+            else
+            {
+                isPlayerInArea = true;
+                PlayerAreaIndex = i;
+            }
+
+          
+        }
+
+        if (RandIndexPool.Count == 0)
+        {
+            if(isPlayerInArea)
+            {
+                for(int i=0;i<List_SpawnArea.Count;i++)
+                {
+                    if(i!=PlayerAreaIndex)
+                        RandIndexPool.Add(i);
+                }
+            }
+
+            if (RandIndexPool.Count == 0)
+                return 0;
+        }
+
+
+        return RandIndexPool[UnityEngine.Random.Range(0, RandIndexPool.Count)];
+    }
+
     //오브젝트 풀링
     private void CreateEnemyClone()
     {
