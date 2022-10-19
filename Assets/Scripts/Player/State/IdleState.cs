@@ -12,7 +12,7 @@ namespace Player.State
         private MaterialPropertyBlock RhythmMat;
         private MaterialPropertyBlock RhythmDirMat;
 
-        private bool isRhythmEaly;
+        private bool isRhythmEarly;
         public override void Initialize()
         {
             control = StateMachine.GetComponent<IControl>();
@@ -30,7 +30,16 @@ namespace Player.State
             Debug.Log("Idle Enter");
             StateMachine.Combo = 0;
 
+            isRhythmEarly = false;
+
             RhythmDirSprite.gameObject.SetActive(true);
+
+            RhythmDirMat.SetFloat("Fill", 0f);
+            RhythmDirSprite.SetPropertyBlock(RhythmDirMat);
+            RhythmMat.SetFloat("Fill", 0f);
+            RhythmSprite.SetPropertyBlock(RhythmMat);
+
+            FillRhyRange();
         }
 
         public override void Exit()
@@ -57,7 +66,8 @@ namespace Player.State
                 RhythmDirMat.SetFloat("Fill", Fill);
                 RhythmDirSprite.SetPropertyBlock(RhythmDirMat);
             }
-            else if(!isRhythmEaly)
+            
+            if(!isRhythmEarly)
             {
                 Fill = Mathf.Lerp(0f, 1f, RemainTime / (1f - JudgeOffset));
 
@@ -95,10 +105,10 @@ namespace Player.State
                 case InteractionType.RhythmLate:
                     RhythmDirMat.SetFloat("Fill", 0f);
                     RhythmDirSprite.SetPropertyBlock(RhythmDirMat);
-                    isRhythmEaly = false;
+                    isRhythmEarly = false;
                     break;
                 case InteractionType.RhythmEarly:
-                    isRhythmEaly = true;
+                    isRhythmEarly = true;
                     break;
                 default:
                     StateMachine.Combo = 0;

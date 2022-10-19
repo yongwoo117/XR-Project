@@ -32,18 +32,44 @@ public abstract class RhythmInputModule : StateMachine<e_PlayerState, PlayerStat
         if (rhythmFlag && RhythmCore.Instance.Judge())
         {
             OnInteraction(type);
-            rhythmFlag = false;
         }
         else
         {
-            onTooEarly?.Invoke();
+
+            if (RhythmCore.Instance.RemainTime < (1f - RhythmCore.Instance.JudgeOffset))
+            {
+                OnInputEarly();
+            }
+            else
+            {
+                onTooLate?.Invoke();
+                OnInputLate();
+            }
         }
 
+        rhythmFlag = false;
+
     }
-    
-    /// <summary>
-    /// 리듬 발생이 호출되는 인터렉션
-    /// </summary>
+
+
+    public void OnInputEnter()
+    {
+        OnInteraction(InteractionType.InputEnter);
+    }
+
+    public void OnInputEarly()
+    {
+        onTooEarly?.Invoke();
+        OnInteraction(InteractionType.InputEarly);
+    }
+
+    public void OnInputLate()
+    {
+        onTooLate?.Invoke();
+        OnInteraction(InteractionType.InputLate);
+    }
+
+
     public void OnRhythmEnter()
     {
         OnInteraction(InteractionType.RhythmEnter);
@@ -51,14 +77,12 @@ public abstract class RhythmInputModule : StateMachine<e_PlayerState, PlayerStat
 
     public void OnRhythmEarly()
     {
+        rhythmFlag = true;
         OnInteraction(InteractionType.RhythmEarly);
     }
 
     public void OnRhythmLate()
     {
-        onTooLate?.Invoke();
         OnInteraction(InteractionType.RhythmLate);
-
-        rhythmFlag = true;
     }
 }

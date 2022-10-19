@@ -17,6 +17,8 @@ namespace Player.State
         private Vector3 dashAttackRange;
 
         private bool isActivated;
+        private bool isOnRhythm;
+
         private GameObject dashEffect;
 
         private GameObject attackRange;
@@ -58,8 +60,18 @@ namespace Player.State
             Debug.Log("Dash Enter");
         
             dashingTime = dashTime;
+
             isActivated = false;
+            isOnRhythm = false;
+
             StateMachine.Combo++;
+
+            AttackRangeMat.SetFloat("Fill", 0);
+            lineRender.SetPropertyBlock(AttackRangeMat);
+
+            FillAttackRange();
+
+            attackRange.SetActive(true);
 
             GameObject ChargedEffect = EffectProfileData.Instance.PopEffect("Eff_CharacterCharge");
             ChargedEffect.transform.position = StateMachine.transform.GetChild(0).position;
@@ -96,8 +108,17 @@ namespace Player.State
                 case InteractionType.DashEnter when dashingTime < 0:
                     Enter();
                     break;
+                case InteractionType.RhythmEarly:
+                    if (!isOnRhythm)
+                        isOnRhythm = true;
+                    else if(dashingTime<=0f)
+                        StateMachine.ChangeState(e_PlayerState.Idle);
+                    break;
                 case InteractionType.RhythmEnter:
-                    attackRange.SetActive(true);
+                    break;
+                case InteractionType.RhythmLate:
+                    if(isOnRhythm&& dashingTime <= 0f)
+                        StateMachine.ChangeState(e_PlayerState.Idle);
                     break;
                 default:
                     StateMachine.ChangeState(e_PlayerState.Idle);
@@ -129,11 +150,18 @@ namespace Player.State
 
         private void FillAttackRange()
         {
-            float RemainTime = 1f - (float)RhythmCore.Instance.RemainTime;
-            float Fill = Mathf.Lerp(0f, 1f, RemainTime);
+            if (!isOnRhythm)
+            {
+                float JudgeOffset = RhythmCore.Instance.JudgeOffset;
+                float RemainTime = 1f - (float)RhythmCore.Instance.RemainTime;
 
-            AttackRangeMat.SetFloat("Fill", Fill);
-            lineRender.SetPropertyBlock(AttackRangeMat);
+                float Fill;
+
+                Fill = Mathf.Lerp(0f, 1f, RemainTime / (1f - JudgeOffset));
+
+                AttackRangeMat.SetFloat("Fill", Fill);
+                lineRender.SetPropertyBlock(AttackRangeMat);
+            }
         }
         private void RotationAttackRange()
         {
