@@ -17,6 +17,7 @@ namespace Player.State
         private Vector3 dashAttackRange;
 
         private bool isActivated;
+        private GameObject dashEffect;
 
         #region StateFunction
         public override void Initialize()
@@ -137,15 +138,18 @@ namespace Player.State
 
         private void DashEffect()
         {
-            GameObject DashEffect = EffectProfileData.Instance.PopEffect("Eff_CharacterAttack");
-            DashEffect.SetActive(false);
+            dashEffect = EffectProfileData.Instance.PopEffect("Eff_Trail");
+            dashEffect.SetActive(false);
 
-            DashEffect.transform.position = StateMachine.transform.position;
 
-            float direction= Mathf.Atan2(pointDir.z, pointDir.x) * Mathf.Rad2Deg;
+            dashEffect.transform.parent = StateMachine.transform.GetChild(0);
+            dashEffect.transform.position = StateMachine.transform.GetChild(0).position;
 
-            DashEffect.transform.localEulerAngles = new Vector3(0f, 0f, -direction); 
-            DashEffect.SetActive(true);
+
+            //float direction= Mathf.Atan2(pointDir.z, pointDir.x) * Mathf.Rad2Deg;
+
+            //DashEffect.transform.localEulerAngles = new Vector3(0f, 0f, -direction); 
+            dashEffect.SetActive(true);
         }
 
         /// <summary>
@@ -156,6 +160,8 @@ namespace Player.State
             dashingTime = -1;
             rigid.velocity = Vector3.zero; //대쉬 시간이 끝났으면 플레이어를 멈춰줌
             isActivated = false;
+
+            dashEffect.GetComponent<ParticleSystem>().Pause();
         }
 
         /// <summary>

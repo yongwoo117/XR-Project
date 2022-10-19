@@ -20,6 +20,7 @@ MonoBehaviour:
     - Eff_MonsterHit
     - Eff_CharacterCharge
     - Eff_CharacterAttack
+    - Eff_Trail
     values:
     - {fileID: 7379835623210154396, guid: 4b2c702adee2188499d2c59ecf940b78, type: 3}
     - {fileID: 1554671603398015269, guid: f386edd851b401f4f8e398ab9651456e, type: 3}
@@ -27,3 +28,4 @@ MonoBehaviour:
     - {fileID: 409216866104894514, guid: 1ded5cbad7dfe3b4e9310f7db96d9aa0, type: 3}
     - {fileID: 917005785034365037, guid: 0d7f3d4166e45ed4d947f1a87fb81464, type: 3}
     - {fileID: 452999729648205897, guid: c7aa10a7724b4c84f8d9f6eb13242de0, type: 3}
+    - {fileID: 5890887717139786769, guid: 66c2bfb6e843876419dfe73ed80c3ef8, type: 3}
