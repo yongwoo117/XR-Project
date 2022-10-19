@@ -18,6 +18,7 @@ public abstract class RhythmInputModule : StateMachine<e_PlayerState, PlayerStat
     /// </summary>
     public UnityEvent onTooLate;
 
+
     protected abstract void OnInteraction(InteractionType type);
 
     protected override void Awake()
@@ -36,18 +37,27 @@ public abstract class RhythmInputModule : StateMachine<e_PlayerState, PlayerStat
         else
         {
             onTooEarly?.Invoke();
-            OnInteraction(InteractionType.RhythmEarly);
         }
 
+    }
+    
+    /// <summary>
+    /// 리듬 발생이 호출되는 인터렉션
+    /// </summary>
+    public void OnRhythmEnter()
+    {
+        OnInteraction(InteractionType.RhythmEnter);
+    }
+
+    public void OnRhythmEarly()
+    {
+        OnInteraction(InteractionType.RhythmEarly);
     }
 
     public void OnRhythmLate()
     {
-        if (rhythmFlag)
-        {
-            onTooLate?.Invoke();
-            OnInteraction(InteractionType.RhythmLate);
-        }
+        onTooLate?.Invoke();
+        OnInteraction(InteractionType.RhythmLate);
 
         rhythmFlag = true;
     }

@@ -22,14 +22,17 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Mat_RhythmRange
   m_Shader: {fileID: -6465566751694194690, guid: 2fd4e6953fde9424a9152ccdf7e9f177, type: 3}
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _SURFACE_TYPE_TRANSPARENT
   m_InvalidKeywords: []
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 3001
-  stringTagMap: {}
-  disabledShaderPasses: []
+  stringTagMap:
+    RenderType: Transparent
+  disabledShaderPasses:
+  - DepthOnly
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -38,7 +41,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 37e93113453ac0d46863acd4090899c8, type: 3}
+        m_Texture: {fileID: 2800000, guid: d3d07d2b6db81f04592444ffba04433b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTex:
@@ -64,16 +67,26 @@ Material:
     m_Ints: []
     m_Floats:
     - BlendFill: 0
-    - Fill: 2.26
+    - Fill: 1
     - _Alpha: 0.42
+    - _AlphaClip: 0
     - _BUILTIN_QueueControl: -1
     - _BUILTIN_QueueOffset: 0
+    - _Blend: 0
+    - _CastShadows: 1
+    - _Cull: 2
+    - _DstBlend: 10
     - _EnableExternalAlpha: 0
-    - _QueueControl: 0
+    - _QueueControl: 1
     - _QueueOffset: 1
+    - _SrcBlend: 5
+    - _Surface: 1
     - _TimeScale: 1
+    - _ZTest: 4
+    - _ZWrite: 0
+    - _ZWriteControl: 0
     m_Colors:
-    - BlankColor: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 0}
+    - BlankColor: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 1}
     - BlendColor: {r: 1, g: 0, b: 0.07585335, a: 1}
     - FillColor: {r: 0.9062743, g: 1, b: 0, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
@@ -81,4 +94,5 @@ Material:
     - _Offset: {r: 0, g: 0, b: 0, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _Tiling: {r: 0.15, g: 1, b: 0, a: 0}
+    - _Tilling_Offset: {r: 0.6, g: 0.6, b: 0.2, a: 0.2}
   m_BuildTextureStacks: []

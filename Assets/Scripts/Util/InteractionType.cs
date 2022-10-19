@@ -4,5 +4,6 @@ public enum InteractionType
     DashExit,
     CutEnter,
     RhythmEarly,
+    RhythmEnter,
     RhythmLate
 }

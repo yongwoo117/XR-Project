@@ -60,6 +60,11 @@ public class RhythmCore : Singleton<RhythmCore>
     }
 
     /// <summary>
+    /// 
+    /// </summary>
+    public float JudgeOffset => judgeOffset;
+
+    /// <summary>
     /// RemainTime, FixedRemainTime을 갱신하는 데에 사용되는 수식입니다.
     /// </summary>
     private double RemainFormula

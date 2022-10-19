@@ -20,7 +20,8 @@ namespace Player.State
         private GameObject dashEffect;
 
         private GameObject attackRange;
-        private GameObject RythmRange;
+
+        private MaterialPropertyBlock AttackRangeMat;
 
         private LineRenderer lineRender;
 
@@ -31,9 +32,10 @@ namespace Player.State
             control = StateMachine.GetComponent<IControl>();
 
             attackRange = StateMachine.transform.GetChild(2).gameObject;
-            RythmRange = StateMachine.transform.GetChild(1).gameObject;
 
             lineRender = attackRange.GetComponent<LineRenderer>();
+
+            AttackRangeMat = new MaterialPropertyBlock();
 
             SetupIntegralPhysicsGraph(); //물리 그래프 적분 함수
         }
@@ -75,13 +77,8 @@ namespace Player.State
                 CheckEnemyHit();
             else
             {
-                if (control.Direction == null) return;
-                var dashPoint = (Vector3)control.Direction;
-
-                dashPoint = dashPoint.normalized* dashPoint.magnitude;
-
-                lineRender.SetPosition(1, new Vector3(dashPoint.x, dashPoint.z,0f));
-
+                FillAttackRange();
+                RotationAttackRange();
             }
         }
 
@@ -98,6 +95,9 @@ namespace Player.State
                     break; 
                 case InteractionType.DashEnter when dashingTime < 0:
                     Enter();
+                    break;
+                case InteractionType.RhythmEnter:
+                    attackRange.SetActive(true);
                     break;
                 default:
                     StateMachine.ChangeState(e_PlayerState.Idle);
@@ -126,6 +126,26 @@ namespace Player.State
         #endregion
 
         private Collider[] results = new Collider[1];
+
+        private void FillAttackRange()
+        {
+            float RemainTime = 1f - (float)RhythmCore.Instance.RemainTime;
+            float Fill = Mathf.Lerp(0f, 1f, RemainTime);
+
+            AttackRangeMat.SetFloat("Fill", Fill);
+            lineRender.SetPropertyBlock(AttackRangeMat);
+        }
+        private void RotationAttackRange()
+        {
+            if (control.Direction == null) return;
+            var dashPoint = (Vector3)control.Direction;
+
+            dashPoint = dashPoint.normalized * dashPoint.magnitude;
+
+            lineRender.SetPosition(1, new Vector3(dashPoint.x, dashPoint.z, 0f));
+        }
+
+
         private void CheckEnemyHit()
         {
             //오버렙 박스 이용해서 플레이어 위치에서 대쉬 공격 범위 만큼 판정 검사
@@ -154,6 +174,7 @@ namespace Player.State
 
             isActivated = true;
 
+            attackRange.SetActive(false);
             DashEffect();
         }
 
@@ -178,6 +199,7 @@ namespace Player.State
         /// </summary>
         private void Deactivate()
         {
+            attackRange.SetActive(false);
             dashingTime = -1;
             rigid.velocity = Vector3.zero; //대쉬 시간이 끝났으면 플레이어를 멈춰줌
             isActivated = false;
