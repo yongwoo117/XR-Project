@@ -10,7 +10,7 @@ public class RhythmCore : Singleton<RhythmCore>
     
     private double startTime;
     private double rhythmDelay;
-    private EventState currentEventState;
+    private EventState? currentEventState;
 
     /// <summary>
     /// Bpm이 변경되면 Callback됩니다.
@@ -94,17 +94,17 @@ public class RhythmCore : Singleton<RhythmCore>
     {
         rhythmDelay = 60 / Bpm;
         startTime = Time.realtimeSinceStartupAsDouble + offset;
-        currentEventState = EventState.OnEarly;
+        currentEventState ??= EventState.OnEarly;
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         //RemainTime Update
         RemainTime = RemainFormula;
     }
 
     private double prevTime;
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         //FixedRaminTime Update
         FixedRemainTime = RemainFormula;
@@ -141,10 +141,14 @@ public class RhythmCore : Singleton<RhythmCore>
         }
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         RhythmStart(startOffset);
     }
+
+    private double pausedTime;
+    protected void PauseRhythm() => pausedTime = RemainFormula;
+    protected void ResumeRhythm() => RhythmStart((float)pausedTime - (float)rhythmDelay);
 
     private enum EventState
     {

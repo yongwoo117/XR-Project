@@ -1,12 +1,13 @@
 using TMPro;
 using UnityEngine;
 
-public class UIManger : MonoBehaviour
+public class UIManger : RhythmCore
 {
     [SerializeField] private TMP_Text rhythmStreakText;
 
-    protected virtual void Start()
+    protected override void Start()
     {
+        base.Start();
         rhythmStreakText.text = "0";
     }
     

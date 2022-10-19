@@ -20,9 +20,17 @@ public class GameManager : SoundManager
     public void OnInterrupt(InputAction.CallbackContext context)
     {
         if (!context.started) return;
-        //TODO: 일시정지를 해제한 후에 리듬 싱크가 틀어져버리는 문제가 발생. 수정 필요
         isPaused = !isPaused;
-        Time.timeScale = isPaused ? 0 : 1.0f;
+        if (isPaused)
+        {
+            Time.timeScale = 0;
+            PauseRhythm();
+        }
+        else
+        {
+            Time.timeScale = 1.0f;
+            ResumeRhythm();
+        }
         SetSoundPause(isPaused);
     }
 }

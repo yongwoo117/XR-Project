@@ -2381,7 +2381,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1659581280}
-  - component: {fileID: 1659581281}
   - component: {fileID: 1659581283}
   - component: {fileID: 1659581286}
   - component: {fileID: 1659581287}
@@ -2407,69 +2406,6 @@ Transform:
   m_Father: {fileID: 1724471789}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1659581281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1659581279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: debf1ff637f0248bf897e3d480e53c6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bpm: 60
-  judgeOffset: 0.2
-  startOffset: 0.3
-  onBpmChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  onEarly:
-    m_PersistentCalls:
-      m_Calls: []
-  onRhythm:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2013125080}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  onLate:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1680146607699291302}
-        m_TargetAssemblyTypeName: RhythmModule, Assembly-CSharp
-        m_MethodName: OnRhythmLate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2013125080}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1659581283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2600,6 +2536,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f5375e9e56949ec8c4beeb00245139, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bpm: 60
+  judgeOffset: 0.2
+  startOffset: 0
+  onBpmChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  onEarly:
+    m_PersistentCalls:
+      m_Calls: []
+  onRhythm:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2013125080}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  onLate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2013125080}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1680146607699291302}
+        m_TargetAssemblyTypeName: RhythmInputModule, Assembly-CSharp
+        m_MethodName: OnRhythmLate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   rhythmStreakText: {fileID: 977276839}
   rhythmTrigger: 0a00000014000000
 --- !u!1 &1672992296
