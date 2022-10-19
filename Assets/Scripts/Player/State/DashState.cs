@@ -86,6 +86,7 @@ namespace Player.State
         public override void Exit()
         {
             Debug.Log("Dash Exit");
+            Deactivate();
         }
 
         public override void OnDrawGizmos()
