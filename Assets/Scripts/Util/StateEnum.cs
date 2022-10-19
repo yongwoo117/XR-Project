@@ -11,11 +11,6 @@ public enum e_EnemyState
     Idle, Chase, Die, Hit
 }
 
-public enum e_EnemyType
-{
-    Basic, Speed, Heavy
-}
-
 public static class EnumExtensions
 {
     [CanBeNull]

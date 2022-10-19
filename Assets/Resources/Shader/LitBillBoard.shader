@@ -6,9 +6,6 @@
         _MaskTex("Mask", 2D) = "white" {}
         _NormalMap("Normal Map", 2D) = "bump" {}
 
-        // Legacy properties. They're here so that materials using this shader can gracefully fallback to the legacy sprite shader.
-        [HideInInspector] _Color("Tint", Color) = (1,1,1,1)
-        [HideInInspector] _RendererColor("RendererColor", Color) = (1,1,1,1)
         [HideInInspector] _Flip("Flip", Vector) = (1,1,1,1)
         [HideInInspector] _AlphaTex("External Alpha", 2D) = "white" {}
         [HideInInspector] _EnableExternalAlpha("Enable External Alpha", Float) = 0
@@ -16,7 +13,7 @@
 
         SubShader
         {
-            Tags {"Queue" = "Transparent" "RenderType" = "Transparent" "RenderPipeline" = "UniversalPipeline"  "DisableBatching" = "True"}
+            Tags {"Queue" = "Transparent" "RenderType" = "Transparent" "RenderPipeline" = "UniversalPipeline" "DisableBatching" = "True"}
 
             Blend SrcAlpha OneMinusSrcAlpha, One OneMinusSrcAlpha
             Cull Off
@@ -65,8 +62,7 @@
                 TEXTURE2D(_MaskTex);
                 SAMPLER(sampler_MaskTex);
                 half4 _MainTex_ST;
-                float4 _Color;
-                half4 _RendererColor;
+
 
                 #if USE_SHAPE_LIGHT_TYPE_0
                 SHAPE_LIGHT(0)
@@ -87,13 +83,7 @@
                 Varyings CombinedShapeLightVertex(Attributes v)
                 {
                     Varyings o = (Varyings)0;
-                    UNITY_SETUP_INSTANCE_ID(v);
-                    UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
-
-                    o.positionCS = TransformObjectToHClip(v.positionOS);
-                    #if defined(DEBUG_DISPLAY)
-                    o.positionWS = TransformObjectToWorld(v.positionOS);
-                    #endif
+                   
                     o.uv = v.uv.xy;
 
 
@@ -106,7 +96,7 @@
 
                     o.lightingUV = half2(ComputeScreenPos(o.positionCS / o.positionCS.w).xy);
 
-                    o.color = v.color * _Color * _RendererColor;
+                    o.color = v.color ;
                     return o;
                 }
 
