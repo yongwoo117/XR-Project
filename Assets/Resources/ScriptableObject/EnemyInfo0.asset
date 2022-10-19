@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: EnemyInfo0
   m_EditorClassIdentifier: 
   f_maximumHealth: 1
-  f_CheckRange: 30
+  f_CheckRange: 100
   f_AttackRange: 5
-  f_ChaseRange: 30
+  f_ChaseRange: 100
   f_ChaseSpeed: 5
   i_ChaseRhythmCount: 2
   i_Hp: 1

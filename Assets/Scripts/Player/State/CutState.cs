@@ -1,23 +1,24 @@
 
+using UnityEditor;
 using UnityEngine;
 
 namespace Player.State
 {
     public class CutState : PlayerState
     {
-        private int cutCount;
-        private int remainCutCount;
+        private float attackRange;
         
         public override PlayerProfile Profile
         {
-            set => cutCount = value.i_cutCount;
+            set => attackRange = value.f_cutRange;
         }
 
         public override void Enter()
         {
             Debug.Log("Cut Enter");
-            remainCutCount = cutCount - 1;
             StateMachine.Combo++;
+            combatCombo++;
+            Attack();
         }
 
         public override void Exit()
@@ -29,9 +30,8 @@ namespace Player.State
         {
             switch (interactionType)
             {
-                case InteractionType.CutEnter when remainCutCount != 0:
-                    StateMachine.Combo++;
-                    remainCutCount--;
+                case InteractionType.CutEnter:
+                    Enter();
                     break;
                 case InteractionType.DashEnter:
                     StateMachine.ChangeState(e_PlayerState.Dash);
@@ -40,6 +40,34 @@ namespace Player.State
                     StateMachine.ChangeState(e_PlayerState.Idle);
                     break;
             }
+        }
+
+        public override void OnDrawGizmos()
+        {
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawWireSphere(StateMachine.transform.position, attackRange);
+        }
+
+        private readonly Collider[] collisionBuffer = new Collider[10];
+        private void Attack()
+        {
+            var count = Physics.OverlapSphereNonAlloc(StateMachine.transform.position, attackRange, collisionBuffer,
+                GetLayerMasks.Enemy);
+            if (count == 0) return;
+            
+            var nearestEnemy = collisionBuffer[0].gameObject;
+            var nearestSqrDistance = (nearestEnemy.transform.position - StateMachine.transform.position).sqrMagnitude;
+            
+            for (var index = 1; index < count; index++)
+            {
+                var sqrDistance = (collisionBuffer[index].transform.position - StateMachine.transform.position)
+                    .sqrMagnitude;
+                if (!(sqrDistance < nearestSqrDistance)) continue;
+                nearestEnemy = collisionBuffer[index].gameObject;
+                nearestSqrDistance = sqrDistance;
+            }
+
+            nearestEnemy.GetComponent<HealthModule>().RequestDamage(-1.2f);
         }
     }
 }

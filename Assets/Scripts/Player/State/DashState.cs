@@ -97,6 +97,7 @@ namespace Player.State
 
             var attackRange = new Vector3(direction.magnitude, dashAttackRange.y, dashAttackRange.z);
 
+            Gizmos.color = Color.red;
             Gizmos.matrix = Matrix4x4.TRS(rigid.transform.position,
                 Quaternion.Euler(0f, Mathf.Atan2(direction.z, direction.x) * -Mathf.Rad2Deg, 0f),
                 rigid.transform.localScale);
