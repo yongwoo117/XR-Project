@@ -15,5 +15,5 @@ MonoBehaviour:
   Dic_Spawn:
     keys: 0000000001000000
     values:
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 8248359141127274625, guid: 992d79ed020fb2642b71f585636aff89, type: 3}
+    - {fileID: 8248359141127274625, guid: 992d79ed020fb2642b71f585636aff89, type: 3}

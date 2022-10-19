@@ -128,6 +128,7 @@ namespace Player.State
 
             // 대쉬 이동 거리에 제약을 걸어줍니다.
             pointDir = dashPoint.magnitude > dashDistance ? dashPoint.normalized * dashDistance : dashPoint;
+
             isActivated = true;
 
             DashEffect();
@@ -182,6 +183,7 @@ namespace Player.State
             else
                 rigid.velocity = pointDir / dashTime * ((dashTime / Time.fixedDeltaTime) / physicsCurveArea) *
                                  dashGraph.Evaluate(dashTime - dashingTime); //대쉬 시간이 끝이 아니면 그래프에 값 만큼 물리 적용
+
 
             dashingTime -= Time.fixedDeltaTime; 
         }
