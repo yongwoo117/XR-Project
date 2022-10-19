@@ -1,56 +1,34 @@
+
 using Enemy.Profile;
-using UnityEngine;
+using System;
 
-public class EnemyState : IState<e_EnemyState, EnemyState, EnemyStateMachine>
+public class EnemyState : IState<e_EnemyState,EnemyState,EnemyProfile>
 {
-    public EnemyStateMachine StateMachine { get; set; }
-
-    public virtual EnemyProfile Profile
-    {
-        set { }
-    }
-    
+    public StateMachine<e_EnemyState, EnemyState, EnemyProfile> StateMachine { get; set; }
     public virtual void Initialize()
     {
-
+        
     }
 
     public virtual void Enter()
     {
-
+        
     }
 
     public virtual void Exit()
     {
-
+        
     }
 
     public virtual void LogicUpdate()
     {
-
+        
     }
 
     public virtual void PhysicsUpdate()
     {
-
+        
     }
-
-    public virtual void Dead()
-    {
-
-    }
-
-    public virtual void HealthChanged(float value)
-    {
-
-    }
-
-    public virtual void HealthRatioChanged(float value)
-    {
-
-    }
-
-    public bool AcceptHealthChange(ref float value) => true;
 
     public virtual void OnRhythm()
     {

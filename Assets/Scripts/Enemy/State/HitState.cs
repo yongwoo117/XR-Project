@@ -5,15 +5,28 @@ namespace Enemy.State
 {
     public class HitState : EnemyState
     {
-        public override void Enter()
+        int Hp;
+        public override void Initialize()
         {
-            var HitEffect = EffectProfileData.Instance.PopEffect("Eff_MonsterHit");
-            HitEffect.transform.position = StateMachine.transform.GetChild(0).position;
+            SetupProfile();
         }
 
-        public override void Dead()
+        public override void Enter()
         {
-            StateMachine.ChangeState(e_EnemyState.Die);
+            GameObject HitEffect = EffectProfileData.Instance.PopEffect("Eff_MonsterHit");
+            HitEffect.transform.position = StateMachine.transform.GetChild(0).position;
+
+            if(--Hp==0)
+            {
+                StateMachine.ChangeState(e_EnemyState.Die);
+            }
+        }
+
+        private void SetupProfile()
+        {
+            var profile = StateMachine.Profile;
+
+            Hp = profile.i_Hp;
         }
     }
 }
