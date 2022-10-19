@@ -43,7 +43,7 @@ public class GameManager : SoundManager
 
     public void OnOptionButtonDown()
     {
-        //TODO: 옵션 창을 띄워줍니다.
+        DisplaySettingMenu();
     }
 
     public void OnExitButtonDown()

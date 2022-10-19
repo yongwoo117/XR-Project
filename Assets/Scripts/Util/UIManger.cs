@@ -5,6 +5,7 @@ public class UIManger : RhythmCore
 {
     [SerializeField] private TMP_Text rhythmStreakText;
     [SerializeField] private GameObject pauseInterface;
+    [SerializeField] private GameObject settingInterface;
 
     protected override void Start()
     {
@@ -14,5 +15,12 @@ public class UIManger : RhythmCore
     }
     
     protected void UpdateComboUI(int combo) => rhythmStreakText.text = combo.ToString();
-    protected void PauseUI(bool isPaused) => pauseInterface.SetActive(isPaused);
+    protected void PauseUI(bool isPaused)
+    {
+        pauseInterface.SetActive(isPaused);
+        if (!isPaused)
+            settingInterface.SetActive(false);
+    }
+
+    protected void DisplaySettingMenu() => settingInterface.SetActive(true);
 }
