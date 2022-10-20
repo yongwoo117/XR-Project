@@ -6,7 +6,20 @@
   <component name="ChangeListManager">
     <list default="true" id="eaa1b3f2-8e36-4531-8cca-a8a38a967539" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.XR-Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.XR-Project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/State/DashState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/State/DashState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/EnemyProfileEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/EnemyProfileEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefab/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefab/Enemy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptableObject/EnemyInfo0.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/ScriptableObject/EnemyInfo0.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptableObject/EnemyInfo1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/ScriptableObject/EnemyInfo1.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyProfile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/State/ChaseState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/State/ChaseState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/State/DieState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/State/DieState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/State/HitState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/State/HitState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/State/IdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/State/IdleState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/IState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/IState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/StateEnum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/StateEnum.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/StateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/StateMachine.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -17,13 +30,9 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/KBDMouseControl.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Users/yongwoo/Documents/Unity Projects/XR-Project/Assets/Scripts/Player/RhythmInputModule.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/yongwoo/Documents/Unity Projects/XR-Project/Assets/Scripts/Player/RhythmInputModule.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/yongwoo/Documents/Unity Projects/XR-Project/Assets/Scripts/Player/RhythmInputModule.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/yongwoo/Documents/Unity Projects/XR-Project/Assets/Scripts/Player/RhythmInputModule.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/yongwoo/Documents/Unity Projects/XR-Project/Assets/Scripts/Player/RhythmInputModule.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Util/HealthModule.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.4.2/InputSystem/Actions/InputAction.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5c9c091dd9d54d4a854c4a73d1e71218157a00/de/c2fcab5b/Transform.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -116,6 +125,7 @@
       <workItem from="1666059551569" duration="1910000" />
       <workItem from="1666138777834" duration="2784000" />
       <workItem from="1666176352182" duration="3881000" />
+      <workItem from="1666258061869" duration="4733000" />
     </task>
     <servers />
   </component>

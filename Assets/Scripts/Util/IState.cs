@@ -37,6 +37,8 @@ public interface IState<T1, T2, T3> where T1 : Enum where T2 : IState<T1, T2, T3
 
     void HealthChanged(float value);
 
+    void OnDamaged(float value);
+
     void HealthRatioChanged(float value);
 
     /// <summary>

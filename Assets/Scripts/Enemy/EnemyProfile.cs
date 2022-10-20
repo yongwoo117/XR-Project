@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using UnityEngine;
 
 namespace Enemy.Profile
@@ -13,7 +12,9 @@ namespace Enemy.Profile
         public float f_ChaseRange; //추격 범위
         public float f_ChaseSpeed; //추격 속도
 
-        public int i_ChaseRhythmCount; //추격 박자
         public float f_maximumHealth;
+        public float f_hitTime;
+        public float f_damage;
+        public float f_attackTime;
     }
 }

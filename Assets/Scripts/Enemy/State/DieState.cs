@@ -8,9 +8,13 @@ namespace Enemy.State
         public Action<GameObject> DieAction;
         public override void Enter()
         {
-            GameObject DeadEffect = EffectProfileData.Instance.PopEffect("Eff_MonsterDead");
-            DeadEffect.transform.position = StateMachine.transform.GetChild(0).position;
-            DeadEffect.transform.localScale = StateMachine.transform.localScale;
+            var deadEffect = EffectProfileData.Instance.PopEffect("Eff_MonsterDead");
+            if (deadEffect is not null)
+            {
+                var transform= StateMachine.transform;
+                deadEffect.transform.position = transform.GetChild(0).position;
+                deadEffect.transform.localScale = transform.localScale;
+            }
 
             StateMachine.gameObject.SetActive(false);
         }
