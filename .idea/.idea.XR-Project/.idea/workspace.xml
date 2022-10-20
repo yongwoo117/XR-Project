@@ -6,17 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="eaa1b3f2-8e36-4531-8cca-a8a38a967539" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.XR-Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.XR-Project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Editor/PlayerProfileEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/PlayerProfileEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptableObject/EnemyInfo0.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/ScriptableObject/EnemyInfo0.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptableObject/EnemyInfo1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/ScriptableObject/EnemyInfo1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptableObject/PlayerInfo.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/ScriptableObject/PlayerInfo.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefab/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefab/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/KBDMouseControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/KBDMouseControl.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/State/CutState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/State/CutState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/State/DashState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/State/DashState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fmod_editor.log" beforeDir="false" afterPath="$PROJECT_DIR$/fmod_editor.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/State/IdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/State/IdleState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/State/MoveState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/State/ReadyState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/State/MoveState.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/State/ReadyState.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/InteractionType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/InteractionType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/StateEnum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/StateEnum.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +24,11 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/KBDMouseControl.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/yongwoo/Documents/Unity Projects/XR-Project/Assets/Scripts/Player/RhythmInputModule.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/yongwoo/Documents/Unity Projects/XR-Project/Assets/Scripts/Player/RhythmInputModule.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/yongwoo/Documents/Unity Projects/XR-Project/Assets/Scripts/Player/RhythmInputModule.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/yongwoo/Documents/Unity Projects/XR-Project/Assets/Scripts/Player/RhythmInputModule.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/yongwoo/Documents/Unity Projects/XR-Project/Assets/Scripts/Player/RhythmInputModule.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Util/HealthModule.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.4.2/InputSystem/Actions/InputAction.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -119,7 +122,7 @@
       <workItem from="1665912094006" duration="3208000" />
       <workItem from="1666059551569" duration="1910000" />
       <workItem from="1666138777834" duration="2784000" />
-      <workItem from="1666176352182" duration="3627000" />
+      <workItem from="1666176352182" duration="3881000" />
     </task>
     <servers />
   </component>

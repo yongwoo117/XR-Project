@@ -14,14 +14,11 @@ namespace Player.State
         {
             switch (interactionType)
             {
-                case InteractionType.DashEnter:
-                    StateMachine.ChangeState(e_PlayerState.Dash);
+                case InteractionType.Ready:
+                    StateMachine.ChangeState(e_PlayerState.Ready);
                     break;
-                case InteractionType.CutEnter:
+                case InteractionType.Cut:
                     StateMachine.ChangeState(e_PlayerState.Cut);
-                    break;
-                default:
-                    StateMachine.Combo = 0;
                     break;
             }
         }

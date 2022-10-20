@@ -1,5 +1,3 @@
-
-using UnityEditor;
 using UnityEngine;
 
 namespace Player.State
@@ -30,10 +28,13 @@ namespace Player.State
         {
             switch (interactionType)
             {
-                case InteractionType.CutEnter:
+                case InteractionType.Cut:
                     Enter();
                     break;
-                case InteractionType.DashEnter:
+                case InteractionType.Ready:
+                    StateMachine.ChangeState(e_PlayerState.Ready);
+                    break;
+                case InteractionType.Dash:
                     StateMachine.ChangeState(e_PlayerState.Dash);
                     break;
                 default:

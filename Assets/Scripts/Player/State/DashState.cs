@@ -47,9 +47,7 @@ namespace Player.State
             dashingTime = dashTime;
             isActivated = false;
             StateMachine.Combo++;
-
-            GameObject ChargedEffect = EffectProfileData.Instance.PopEffect("Eff_CharacterCharge");
-            ChargedEffect.transform.position = StateMachine.transform.GetChild(0).position;
+            Activate();
         }
 
         public override void PhysicsUpdate()
@@ -68,15 +66,11 @@ namespace Player.State
         {
             switch (interactionType)
             {
-                case InteractionType.DashExit:
-                    StateMachine.Combo++;
-                    Activate();
-                    break;
-                case InteractionType.CutEnter when dashingTime < 0: // dashingTime이 음수라면, 대쉬가 끝난 뒤 입력대기상태를 의미합니다.
+                case InteractionType.Cut when dashingTime < 0: // dashingTime이 음수라면, 대쉬가 끝난 뒤 입력대기상태를 의미합니다.
                     StateMachine.ChangeState(e_PlayerState.Cut);
                     break; 
-                case InteractionType.DashEnter when dashingTime < 0:
-                    Enter();
+                case InteractionType.Ready when dashingTime < 0:
+                    StateMachine.ChangeState(e_PlayerState.Ready);
                     break;
                 default:
                     StateMachine.ChangeState(e_PlayerState.Idle);

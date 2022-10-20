@@ -1,8 +1,8 @@
 public enum InteractionType
 {
-    DashEnter,
-    DashExit,
-    CutEnter,
+    Ready,
+    Dash,
+    Cut,
     RhythmEarly,
     RhythmLate
 }
