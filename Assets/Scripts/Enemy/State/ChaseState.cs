@@ -89,10 +89,9 @@ namespace Enemy.State
             rigid.velocity = new Vector3(dir.x,0f,dir.z);
         }
 
-        public override void HealthChanged(float value)
+        public override void OnDamaged(float value)
         {
-            if (value < 0)
-                StateMachine.ChangeState(e_EnemyState.Hit);
+            StateMachine.ChangeState(e_EnemyState.Hit);
         }
     }
 }

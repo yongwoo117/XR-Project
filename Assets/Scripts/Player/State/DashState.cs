@@ -56,8 +56,8 @@ namespace Player.State
             isActivated = false;
             StateMachine.RhythmCombo++;
             StateMachine.ComboList.Add(e_PlayerState.Dash);
-            Activate();
             damagedObjects.Clear();
+            Activate();
         }
 
         public override void PhysicsUpdate()
