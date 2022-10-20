@@ -33,9 +33,7 @@ public abstract class HealthModule : MonoBehaviour
     /// </summary>
     public UnityEvent onDamageCanceled;
     
-    protected abstract HealthProfile healthProfile { get; }
-
-    public float MaximumHealth => healthProfile.f_maximumHealth;
+    protected abstract float MaximumHealth { get; }
     
     public float HealthPoint
     {
@@ -83,6 +81,6 @@ public abstract class HealthModule : MonoBehaviour
     
     protected virtual void Awake()
     {
-        HealthPoint = healthProfile.f_maximumHealth;
+        HealthPoint = MaximumHealth;
     }
 }

@@ -5,17 +5,26 @@ namespace Player.State
     public class CutState : PlayerState
     {
         private float attackRange;
+        private float damage;
+        private float multiplier;
+        
+        private readonly Collider[] collisionBuffer = new Collider[10];
         
         public override PlayerProfile Profile
         {
-            set => attackRange = value.f_cutRange;
+            set
+            {
+                attackRange = value.f_cutRange;
+                damage = value.f_standardDamage;
+                multiplier = value.f_cutMultipier;
+            }
         }
 
         public override void Enter()
         {
             Debug.Log("Cut Enter");
-            StateMachine.Combo++;
-            combatCombo++;
+            StateMachine.RhythmCombo++;
+            StateMachine.ComboList.Add(e_PlayerState.Cut);
             Attack();
         }
 
@@ -48,8 +57,7 @@ namespace Player.State
             Gizmos.color = Color.cyan;
             Gizmos.DrawWireSphere(StateMachine.transform.position, attackRange);
         }
-
-        private readonly Collider[] collisionBuffer = new Collider[10];
+        
         private void Attack()
         {
             var count = Physics.OverlapSphereNonAlloc(StateMachine.transform.position, attackRange, collisionBuffer,
@@ -68,7 +76,7 @@ namespace Player.State
                 nearestSqrDistance = sqrDistance;
             }
 
-            nearestEnemy.GetComponent<HealthModule>().RequestDamage(-1.2f);
+            nearestEnemy.GetComponent<HealthModule>().RequestDamage(damage * multiplier);
         }
     }
 }

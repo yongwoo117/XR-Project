@@ -8,6 +8,8 @@ namespace Player.State
         private float dashingTime;
         private float dashTime;
         private float dashDistance;
+        private float damage;
+        private float multiplier;
 
         private AnimationCurve dashGraph;
         private Rigidbody rigid;
@@ -18,6 +20,8 @@ namespace Player.State
 
         private bool isActivated;
         private GameObject dashEffect;
+        
+        private readonly Collider[] collisionBuffer = new Collider[1];
 
         #region StateFunction
         public override void Initialize()
@@ -35,6 +39,8 @@ namespace Player.State
                 dashTime = value.f_dashTime;
                 dashDistance = value.f_dashDistance;
                 dashAttackRange = value.v3_dashRange;
+                damage = value.f_standardDamage;
+                multiplier = value.f_dashMultiplier;
             }
         }
 
@@ -46,7 +52,8 @@ namespace Player.State
         
             dashingTime = dashTime;
             isActivated = false;
-            StateMachine.Combo++;
+            StateMachine.RhythmCombo++;
+            StateMachine.ComboList.Add(e_PlayerState.Dash);
             Activate();
         }
 
@@ -98,20 +105,20 @@ namespace Player.State
             Gizmos.DrawWireCube(Vector3.right * (direction.magnitude * 0.5f), attackRange);
         }
         #endregion
-
-        private Collider[] results = new Collider[1];
+        
         private void CheckEnemyHit()
         {
             //오버렙 박스 이용해서 플레이어 위치에서 대쉬 공격 범위 만큼 판정 검사
             var size = Physics.OverlapBoxNonAlloc(
                 StateMachine.transform.position + pointDir.normalized *
-                new Vector3(dashAttackRange.x, 0f, dashAttackRange.z).magnitude, dashAttackRange, results,
+                new Vector3(dashAttackRange.x, 0f, dashAttackRange.z).magnitude, dashAttackRange, collisionBuffer,
                 Quaternion.Euler(0f, Mathf.Atan2(pointDir.z, pointDir.x) * -Mathf.Rad2Deg, 0f), GetLayerMasks.Enemy);
 
             if (size == 0) return;
-            foreach (var collider in results)
+            foreach (var collider in collisionBuffer)
             {
-                collider.gameObject.GetComponent<HealthModule>().RequestDamage(1.2f);
+                //TODO: 이미 맞춘 적은 때리지 않도록 수정 필요
+                collider.gameObject.GetComponent<HealthModule>().RequestDamage(damage * multiplier);
             }
         }
 

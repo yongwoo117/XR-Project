@@ -6,7 +6,7 @@ public class EnemyStateMachine : StateMachine<e_EnemyState, EnemyState, EnemySta
 {
     [SerializeField] private EnemyProfile profile;
     protected override e_EnemyState StartState => e_EnemyState.Idle;
-    protected override HealthProfile healthProfile => profile;
+    protected override float MaximumHealth => profile.f_maximumHealth;
 
     public Dictionary<e_EnemyState, EnemyState> States => Dic_States;
 

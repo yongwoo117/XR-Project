@@ -8,7 +8,6 @@ using UnityEngine;
 public abstract class PlayerState : IState<e_PlayerState, PlayerState, PlayerStateMachine>
 {
     public PlayerStateMachine StateMachine { get; set; }
-    protected static int combatCombo = 0;
 
     public virtual PlayerProfile Profile
     {
