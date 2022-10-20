@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Player.State
@@ -22,6 +23,7 @@ namespace Player.State
         private GameObject dashEffect;
         
         private readonly Collider[] collisionBuffer = new Collider[1];
+        private readonly List<GameObject> damagedObjects = new();
 
         #region StateFunction
         public override void Initialize()
@@ -55,6 +57,7 @@ namespace Player.State
             StateMachine.RhythmCombo++;
             StateMachine.ComboList.Add(e_PlayerState.Dash);
             Activate();
+            damagedObjects.Clear();
         }
 
         public override void PhysicsUpdate()
@@ -117,8 +120,10 @@ namespace Player.State
             if (size == 0) return;
             foreach (var collider in collisionBuffer)
             {
-                //TODO: 이미 맞춘 적은 때리지 않도록 수정 필요
-                collider.gameObject.GetComponent<HealthModule>().RequestDamage(damage * multiplier);
+                var enemy = collider.gameObject;
+                if(damagedObjects.Contains(enemy)) continue;
+                enemy.GetComponent<HealthModule>()?.RequestDamage(damage * multiplier);
+                damagedObjects.Add(enemy);
             }
         }
 
