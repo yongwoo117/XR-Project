@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace Player.State
 {
@@ -17,7 +18,6 @@ namespace Player.State
         private Vector3 dashAttackRange;
 
         private bool isActivated;
-        private bool isOnRhythm;
 
         private GameObject dashEffect;
 
@@ -26,6 +26,9 @@ namespace Player.State
         private MaterialPropertyBlock AttackRangeMat;
 
         private LineRenderer lineRender;
+
+        private float activationTime;
+        private float targetTime;
 
         #region StateFunction
         public override void Initialize()
@@ -62,7 +65,6 @@ namespace Player.State
             dashingTime = dashTime;
 
             isActivated = false;
-            isOnRhythm = false;
 
             StateMachine.Combo++;
 
@@ -75,6 +77,9 @@ namespace Player.State
 
             GameObject ChargedEffect = EffectProfileData.Instance.PopEffect("Eff_CharacterCharge");
             ChargedEffect.transform.position = StateMachine.transform.GetChild(0).position;
+            
+            activationTime = Time.realtimeSinceStartup;
+            targetTime = activationTime + (float)RhythmCore.Instance.RemainTime(true);
         }
 
         public override void PhysicsUpdate()
@@ -108,24 +113,12 @@ namespace Player.State
                 case InteractionType.DashEnter when dashingTime < 0:
                     Enter();
                     break;
-                case InteractionType.RhythmEarly:
-                    if (!isOnRhythm)
-                        isOnRhythm = true;
-                    else if(dashingTime<=0f)
-                        StateMachine.ChangeState(e_PlayerState.Idle);
-                    break;
-                case InteractionType.RhythmEnter:
-                    break;
-                case InteractionType.RhythmLate:
-                    if(isOnRhythm&& dashingTime <= 0f)
-                        StateMachine.ChangeState(e_PlayerState.Idle);
-                    break;
                 default:
                     StateMachine.ChangeState(e_PlayerState.Idle);
                     break;
             }
         }
-
+        
         public override void Exit()
         {
             Debug.Log("Dash Exit");
@@ -150,19 +143,11 @@ namespace Player.State
 
         private void FillAttackRange()
         {
-            if (!isOnRhythm)
-            {
-                float JudgeOffset = RhythmCore.Instance.JudgeOffset;
-                float RemainTime = 1f - (float)RhythmCore.Instance.RemainTime;
-
-                float Fill;
-
-                Fill = Mathf.Lerp(0f, 1f, RemainTime / (1f - JudgeOffset));
-
-                AttackRangeMat.SetFloat("Fill", Fill);
-                lineRender.SetPropertyBlock(AttackRangeMat);
-            }
+            AttackRangeMat.SetFloat("Fill",
+                Mathf.InverseLerp(activationTime, targetTime, Time.realtimeSinceStartup));
+            lineRender.SetPropertyBlock(AttackRangeMat);
         }
+
         private void RotationAttackRange()
         {
             if (control.Direction == null) return;
@@ -255,7 +240,7 @@ namespace Player.State
         private void ApplyDashPhysics()
         {
             if (dashingTime <= 0f)
-                Deactivate();
+                StateMachine.ChangeState(e_PlayerState.Idle);
             else
                 rigid.velocity = pointDir / dashTime * ((dashTime / Time.fixedDeltaTime) / physicsCurveArea) *
                                  dashGraph.Evaluate(dashTime - dashingTime); //대쉬 시간이 끝이 아니면 그래프에 값 만큼 물리 적용

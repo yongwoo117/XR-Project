@@ -11,8 +11,12 @@ namespace Player.State
 
         private MaterialPropertyBlock RhythmMat;
         private MaterialPropertyBlock RhythmDirMat;
-
-        private bool isRhythmEarly;
+        
+        private float circleActivationTime;
+        private float circleTargetTime;
+        private float triangleActivationTime;
+        private float triangleTargetTime;
+        
         public override void Initialize()
         {
             control = StateMachine.GetComponent<IControl>();
@@ -25,13 +29,12 @@ namespace Player.State
             RhythmDirMat = new MaterialPropertyBlock();
             RhythmDirMat.SetTexture("_MainTex", RhythmDirSprite.sprite.texture);
         }
+        
         public override void Enter()
         {
             Debug.Log("Idle Enter");
             StateMachine.Combo = 0;
-
-            isRhythmEarly = false;
-
+            
             RhythmDirSprite.gameObject.SetActive(true);
 
             RhythmDirMat.SetFloat("Fill", 0f);
@@ -39,12 +42,11 @@ namespace Player.State
             RhythmMat.SetFloat("Fill", 0f);
             RhythmSprite.SetPropertyBlock(RhythmMat);
 
+            //TODO: 처음 씬이 실행되었을 때 RemainTime에 필요한 변수가 초기화되지 않았기 때문에 동작하지 않습니다.
+            triangleTargetTime = Time.realtimeSinceStartup + (float)RhythmCore.Instance.RemainTime(false);
+            triangleActivationTime = circleTargetTime = triangleTargetTime - (float)RhythmCore.Instance.JudgeOffset * 2;
+            circleActivationTime = triangleTargetTime - (float)RhythmCore.Instance.RhythmDelay;
             FillRhyRange();
-        }
-
-        public override void Exit()
-        {
-            base.Exit();
         }
 
         public override void LogicUpdate()
@@ -55,26 +57,12 @@ namespace Player.State
 
         private void FillRhyRange()
         {
-            float JudgeOffset = RhythmCore.Instance.JudgeOffset;
-            float RemainTime = 1f - (float)RhythmCore.Instance.RemainTime;
-
-            float Fill;
-
-            if (RemainTime > (1f - JudgeOffset))
-            {
-                Fill = Mathf.Lerp(0f, 1f, 1f - (1f - RemainTime) / JudgeOffset);
-                RhythmDirMat.SetFloat("Fill", Fill);
-                RhythmDirSprite.SetPropertyBlock(RhythmDirMat);
-            }
-            
-            if(!isRhythmEarly)
-            {
-                Fill = Mathf.Lerp(0f, 1f, RemainTime / (1f - JudgeOffset));
-
-                Debug.Log(Fill);
-                RhythmMat.SetFloat("Fill", Fill);
-                RhythmSprite.SetPropertyBlock(RhythmMat);
-            }
+            RhythmDirMat.SetFloat("Fill",
+                Mathf.InverseLerp(triangleActivationTime, triangleTargetTime, Time.realtimeSinceStartup));
+            RhythmDirSprite.SetPropertyBlock(RhythmDirMat);
+            RhythmMat.SetFloat("Fill",
+                Mathf.InverseLerp(circleActivationTime, circleTargetTime, Time.realtimeSinceStartup));
+            RhythmSprite.SetPropertyBlock(RhythmMat);
         }
 
         private void RotationRhyRange()
@@ -96,24 +84,27 @@ namespace Player.State
             switch (interactionType)
             {
                 case InteractionType.DashEnter:
-                       RhythmDirSprite.gameObject.SetActive(false);
+                    RhythmDirSprite.gameObject.SetActive(false);
                     StateMachine.ChangeState(e_PlayerState.Dash);
                     break;
                 case InteractionType.CutEnter:
                     StateMachine.ChangeState(e_PlayerState.Cut);
                     break;
-                case InteractionType.RhythmLate:
-                    RhythmDirMat.SetFloat("Fill", 0f);
-                    RhythmDirSprite.SetPropertyBlock(RhythmDirMat);
-                    isRhythmEarly = false;
-                    break;
-                case InteractionType.RhythmEarly:
-                    isRhythmEarly = true;
-                    break;
                 default:
                     StateMachine.Combo = 0;
                     break;
             }
+        }
+        
+        public override void OnRhythmLate()
+        {
+            RhythmDirMat.SetFloat("Fill", 0f);
+            RhythmDirSprite.SetPropertyBlock(RhythmDirMat);
+
+            circleActivationTime = Time.realtimeSinceStartup;
+            triangleActivationTime = circleTargetTime =
+                circleActivationTime + (float)RhythmCore.Instance.RemainTime(earlyLate: true, isFixed: true);
+            triangleTargetTime = triangleActivationTime + (float)RhythmCore.Instance.JudgeOffset * 2;
         }
     }
 }

@@ -18,7 +18,6 @@ public abstract class RhythmInputModule : StateMachine<e_PlayerState, PlayerStat
     /// </summary>
     public UnityEvent onTooLate;
 
-
     protected abstract void OnInteraction(InteractionType type);
 
     protected override void Awake()
@@ -32,57 +31,23 @@ public abstract class RhythmInputModule : StateMachine<e_PlayerState, PlayerStat
         if (rhythmFlag && RhythmCore.Instance.Judge())
         {
             OnInteraction(type);
+            rhythmFlag = false;
         }
         else
         {
-
-            if (RhythmCore.Instance.RemainTime < (1f - RhythmCore.Instance.JudgeOffset))
-            {
-                OnInputEarly();
-            }
-            else
-            {
-                onTooLate?.Invoke();
-                OnInputLate();
-            }
+            onTooEarly?.Invoke();
+            OnInteraction(InteractionType.RhythmEarly);
         }
-
-        rhythmFlag = false;
-
-    }
-
-
-    public void OnInputEnter()
-    {
-        OnInteraction(InteractionType.InputEnter);
-    }
-
-    public void OnInputEarly()
-    {
-        onTooEarly?.Invoke();
-        OnInteraction(InteractionType.InputEarly);
-    }
-
-    public void OnInputLate()
-    {
-        onTooLate?.Invoke();
-        OnInteraction(InteractionType.InputLate);
-    }
-
-
-    public void OnRhythmEnter()
-    {
-        OnInteraction(InteractionType.RhythmEnter);
-    }
-
-    public void OnRhythmEarly()
-    {
-        rhythmFlag = true;
-        OnInteraction(InteractionType.RhythmEarly);
     }
 
     public void OnRhythmLate()
     {
-        OnInteraction(InteractionType.RhythmLate);
+        if (rhythmFlag)
+        {
+            onTooLate?.Invoke();
+            OnInteraction(InteractionType.RhythmLate);
+        }
+
+        rhythmFlag = true;
     }
 }
