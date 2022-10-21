@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Networking;
 
 namespace Player.State
 {
@@ -20,28 +19,12 @@ namespace Player.State
         private bool isActivated;
 
         private GameObject dashEffect;
-
-        private GameObject attackRange;
-
-        private MaterialPropertyBlock AttackRangeMat;
-
-        private LineRenderer lineRender;
-
-        private float activationTime;
-        private float targetTime;
-
+        
         #region StateFunction
         public override void Initialize()
         {
             rigid = StateMachine.GetComponent<Rigidbody>();
             control = StateMachine.GetComponent<IControl>();
-
-            attackRange = StateMachine.transform.GetChild(2).gameObject;
-
-            lineRender = attackRange.GetComponent<LineRenderer>();
-
-            AttackRangeMat = new MaterialPropertyBlock();
-
             SetupIntegralPhysicsGraph(); //물리 그래프 적분 함수
         }
         
@@ -67,19 +50,11 @@ namespace Player.State
             isActivated = false;
 
             StateMachine.Combo++;
-
-            AttackRangeMat.SetFloat("Fill", 0);
-            lineRender.SetPropertyBlock(AttackRangeMat);
-
-            FillAttackRange();
-
-            attackRange.SetActive(true);
-
+            
             GameObject ChargedEffect = EffectProfileData.Instance.PopEffect("Eff_CharacterCharge");
             ChargedEffect.transform.position = StateMachine.transform.GetChild(0).position;
-            
-            activationTime = Time.realtimeSinceStartup;
-            targetTime = activationTime + (float)RhythmCore.Instance.RemainTime(true);
+
+            StateMachine.EffectState = FeedbackState.Direction;
         }
 
         public override void PhysicsUpdate()
@@ -92,11 +67,6 @@ namespace Player.State
         {
             if(isActivated)
                 CheckEnemyHit();
-            else
-            {
-                FillAttackRange();
-                RotationAttackRange();
-            }
         }
 
         public override void HandleInput(InteractionType interactionType)
@@ -140,25 +110,6 @@ namespace Player.State
         #endregion
 
         private Collider[] results = new Collider[1];
-
-        private void FillAttackRange()
-        {
-            AttackRangeMat.SetFloat("Fill",
-                Mathf.InverseLerp(activationTime, targetTime, Time.realtimeSinceStartup));
-            lineRender.SetPropertyBlock(AttackRangeMat);
-        }
-
-        private void RotationAttackRange()
-        {
-            if (control.Direction == null) return;
-            var dashPoint = (Vector3)control.Direction;
-
-            dashPoint = dashPoint.normalized * dashPoint.magnitude;
-
-            lineRender.SetPosition(1, new Vector3(dashPoint.x, dashPoint.z, 0f));
-        }
-
-
         private void CheckEnemyHit()
         {
             //오버렙 박스 이용해서 플레이어 위치에서 대쉬 공격 범위 만큼 판정 검사
@@ -187,8 +138,8 @@ namespace Player.State
 
             isActivated = true;
 
-            attackRange.SetActive(false);
             DashEffect();
+            StateMachine.EffectState = FeedbackState.Idle;
         }
 
         private void DashEffect()
@@ -212,7 +163,6 @@ namespace Player.State
         /// </summary>
         private void Deactivate()
         {
-            attackRange.SetActive(false);
             dashingTime = -1;
             rigid.velocity = Vector3.zero; //대쉬 시간이 끝났으면 플레이어를 멈춰줌
             isActivated = false;

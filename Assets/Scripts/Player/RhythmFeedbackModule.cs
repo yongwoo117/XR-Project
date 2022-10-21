@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public enum FeedbackState
@@ -9,7 +10,7 @@ public enum FeedbackState
 public struct FeedbackStruct
 {
     public GameObject effect;
-    public SpriteRenderer sprite;
+    public Renderer renderer;
     public MaterialPropertyBlock material;
     public float? activationTime;
     public float? targetTime;
@@ -17,7 +18,7 @@ public struct FeedbackStruct
     public FeedbackStruct(GameObject effect)
     {
         this.effect = effect;
-        sprite = effect.GetComponent<SpriteRenderer>();
+        renderer = effect.GetComponent<Renderer>();
         material = new MaterialPropertyBlock();
         activationTime = targetTime = null;
     }
@@ -33,7 +34,14 @@ public struct FeedbackStruct
         var effectValue = EffectValue();
         if (effectValue != null)
             material.SetFloat(name, (float)effectValue);
-        sprite.SetPropertyBlock(material);
+        renderer.SetPropertyBlock(material);
+    }
+
+    public void Clear(string name = "Fill")
+    {
+        if (material == null) return;
+        material.SetFloat(name, 0);
+        renderer.SetPropertyBlock(material);
     }
 }
 
@@ -47,43 +55,72 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
     private FeedbackStruct idleDirectionStruct;
     private FeedbackStruct directionStruct;
 
-    private FeedbackState feedbackState;
+    private FeedbackState effectState;
     private bool effectFlag;
     private IControl control;
+
+    public FeedbackState EffectState
+    {
+        get => effectState;
+        set
+        {
+            effectState = value;
+            switch (effectState)
+            {
+                case FeedbackState.Idle:
+                    ActiveToggle(true);
+                    idleCircleStruct.Clear();
+                    idleDirectionStruct.Clear();
+                    effectFlag = false;
+                    break;
+                case FeedbackState.Direction:
+                    directionStruct.activationTime = Time.realtimeSinceStartup;
+                    directionStruct.targetTime =
+                        directionStruct.activationTime + (float)RhythmCore.Instance.RemainTime(true);
+                    ActiveToggle(false);
+                    effectFlag = true;
+                    break;
+            }
+        }
+    }
+
+    private void ActiveToggle(bool idleActive)
+    {
+        idleEffect.SetActive(idleActive);
+        directionEffect.SetActive(!idleActive);
+    }
     
     protected virtual void Start()
     {
         idleCircleStruct = new FeedbackStruct(idleEffect);
         idleDirectionStruct = new FeedbackStruct(idleDirectionEffect);
-        idleDirectionStruct.material.SetTexture("_MainTex", idleDirectionStruct.sprite.sprite.texture);
+        if (idleDirectionStruct.renderer is SpriteRenderer render)
+            idleDirectionStruct.material.SetTexture("_MainTex", render.sprite.texture);
+        directionStruct = new FeedbackStruct(directionEffect);
 
-        idleDirectionStruct.targetTime = Time.realtimeSinceStartup + (float)RhythmCore.Instance.RemainTime(false);
-        idleDirectionStruct.activationTime = idleCircleStruct.targetTime =
-            idleDirectionStruct.targetTime - (float)RhythmCore.Instance.JudgeOffset * 2;
-        idleCircleStruct.activationTime = idleDirectionStruct.targetTime - (float)RhythmCore.Instance.RhythmDelay;
-        
-        feedbackState = FeedbackState.Idle;
-        effectFlag = false;
         control = GetComponent<IControl>();
+        EffectState = FeedbackState.Idle;
     }
 
     protected override void Update()
     {
         base.Update();
         if (!effectFlag) return;
-        switch (feedbackState)
+        switch (EffectState)
         {
             case FeedbackState.Idle:
                 idleCircleStruct.Synchronize();
                 idleDirectionStruct.Synchronize();
-                RotateIdleDirection();
+                RotateIdle();
                 break;
             case FeedbackState.Direction:
+                directionStruct.Synchronize();
+                RotateDirection();
                 break;
         }
     }
 
-    private void RotateIdleDirection()
+    private void RotateIdle()
     {
         if (control.Direction == null) return;
         var direction = (Vector3)control.Direction;
@@ -94,11 +131,18 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
         idleEffect.transform.eulerAngles = rotation;
     }
 
+    private void RotateDirection()
+    {
+        if (control.Direction == null) return;
+        var direction = (Vector3)control.Direction;
+        if (directionStruct.renderer is LineRenderer render)
+            render.SetPosition(1, new Vector3(direction.x, direction.z, 0));
+    }
+
     public override void OnRhythmLate()
     {
         base.OnRhythmLate();
-        effectFlag = true;
-        switch (feedbackState)
+        switch (EffectState)
         {
             case FeedbackState.Idle:
                 idleCircleStruct.activationTime = Time.realtimeSinceStartup;
@@ -106,14 +150,10 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
                     (float)RhythmCore.Instance.RemainTime(earlyLate: true, isFixed: true);
                 idleDirectionStruct.targetTime =
                     idleDirectionStruct.activationTime + (float)RhythmCore.Instance.JudgeOffset * 2;
+                effectFlag = true;
                 break;
             case FeedbackState.Direction:
                 break;
         }
-    }
-    
-    public void ChangeFeedback(FeedbackState state)
-    {
-        
     }
 }
