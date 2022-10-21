@@ -113,8 +113,8 @@ public class RhythmCore : Singleton<RhythmCore>
         RhythmDelay = 60 / Bpm;
         startTime = Time.realtimeSinceStartupAsDouble + offset;
         currentEventState ??= EventState.OnEarly;
-        prevTime = RemainFormula;
         judgeOffset2 = judgeOffset * 2;
+        earlyRemainTime = earlyFixedRemainTime = prevTime = RemainFormula;
     }
 
     protected virtual void Update()

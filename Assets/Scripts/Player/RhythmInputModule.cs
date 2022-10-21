@@ -40,7 +40,7 @@ public abstract class RhythmInputModule : StateMachine<e_PlayerState, PlayerStat
         }
     }
 
-    public void OnRhythmLate()
+    public virtual void OnRhythmLate()
     {
         if (rhythmFlag)
         {

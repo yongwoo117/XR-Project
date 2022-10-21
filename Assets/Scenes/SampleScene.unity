@@ -2535,7 +2535,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1680146607699291302}
-        m_TargetAssemblyTypeName: RhythmInputModule, Assembly-CSharp
+        m_TargetAssemblyTypeName: PlayerStateMachine, Assembly-CSharp
         m_MethodName: OnRhythmLate
         m_Mode: 1
         m_Arguments:
@@ -3442,10 +3442,6 @@ PrefabInstance:
     - target: {fileID: 1680146609352771339, guid: 57d210aadf8ca364ca469553f372e63f, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 1680146609352771345, guid: 57d210aadf8ca364ca469553f372e63f, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1680146609352771348, guid: 57d210aadf8ca364ca469553f372e63f, type: 3}
       propertyPath: m_RootOrder

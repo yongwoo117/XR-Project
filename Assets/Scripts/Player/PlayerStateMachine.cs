@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStateMachine : RhythmComboModule
+public class PlayerStateMachine : RhythmFeedbackModule
 {
     [SerializeField] private PlayerProfile profile;
 
@@ -10,7 +10,6 @@ public class PlayerStateMachine : RhythmComboModule
         base.OnEnable();
         RhythmCore.Instance.onEarly.AddListener(OnEarly);
         RhythmCore.Instance.onRhythm.AddListener(OnRhythm);
-        RhythmCore.Instance.onLate.AddListener(OnLate);
     }
 
     protected override void OnDisable()
@@ -18,12 +17,15 @@ public class PlayerStateMachine : RhythmComboModule
         base.OnDisable();
         RhythmCore.Instance.onEarly.RemoveListener(OnEarly);
         RhythmCore.Instance.onRhythm.RemoveListener(OnRhythm);
-        RhythmCore.Instance.onLate.RemoveListener(OnLate);
     }
 
     private void OnEarly() => currentState.OnRhythmEarly();
     private void OnRhythm() => currentState.OnRhythm();
-    private void OnLate() => currentState.OnRhythmLate();
+    public override void OnRhythmLate()
+    {
+        base.OnRhythmLate();
+        currentState.OnRhythmLate();
+    }
 
     protected override e_PlayerState StartState => e_PlayerState.Idle;
     protected override HealthProfile healthProfile => profile;
