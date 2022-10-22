@@ -8,8 +8,9 @@ namespace Player.State
         {
             Debug.Log("Idle Enter");
             StateMachine.Combo = 0;
+            StateMachine.EffectState = FeedbackState.Idle;
         }
-
+        
         public override void HandleInput(InteractionType interactionType)
         {
             switch (interactionType)

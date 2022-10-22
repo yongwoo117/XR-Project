@@ -17,24 +17,14 @@ namespace Player.State
         private Vector3 dashAttackRange;
 
         private bool isActivated;
+
         private GameObject dashEffect;
-
-        private GameObject attackRange;
-        private GameObject RythmRange;
-
-        private LineRenderer lineRender;
-
+        
         #region StateFunction
         public override void Initialize()
         {
             rigid = StateMachine.GetComponent<Rigidbody>();
             control = StateMachine.GetComponent<IControl>();
-
-            attackRange = StateMachine.transform.GetChild(2).gameObject;
-            RythmRange = StateMachine.transform.GetChild(1).gameObject;
-
-            lineRender = attackRange.GetComponent<LineRenderer>();
-
             SetupIntegralPhysicsGraph(); //물리 그래프 적분 함수
         }
         
@@ -56,11 +46,15 @@ namespace Player.State
             Debug.Log("Dash Enter");
         
             dashingTime = dashTime;
-            isActivated = false;
-            StateMachine.Combo++;
 
+            isActivated = false;
+
+            StateMachine.Combo++;
+            
             GameObject ChargedEffect = EffectProfileData.Instance.PopEffect("Eff_CharacterCharge");
             ChargedEffect.transform.position = StateMachine.transform.GetChild(0).position;
+
+            StateMachine.EffectState = FeedbackState.Direction;
         }
 
         public override void PhysicsUpdate()
@@ -73,16 +67,6 @@ namespace Player.State
         {
             if(isActivated)
                 CheckEnemyHit();
-            else
-            {
-                if (control.Direction == null) return;
-                var dashPoint = (Vector3)control.Direction;
-
-                dashPoint = dashPoint.normalized* dashPoint.magnitude;
-
-                lineRender.SetPosition(1, new Vector3(dashPoint.x, dashPoint.z,0f));
-
-            }
         }
 
         public override void HandleInput(InteractionType interactionType)
@@ -104,7 +88,7 @@ namespace Player.State
                     break;
             }
         }
-
+        
         public override void Exit()
         {
             Debug.Log("Dash Exit");
@@ -155,6 +139,7 @@ namespace Player.State
             isActivated = true;
 
             DashEffect();
+            StateMachine.EffectState = FeedbackState.Idle;
         }
 
         private void DashEffect()
@@ -205,7 +190,7 @@ namespace Player.State
         private void ApplyDashPhysics()
         {
             if (dashingTime <= 0f)
-                Deactivate();
+                StateMachine.ChangeState(e_PlayerState.Idle);
             else
                 rigid.velocity = pointDir / dashTime * ((dashTime / Time.fixedDeltaTime) / physicsCurveArea) *
                                  dashGraph.Evaluate(dashTime - dashingTime); //대쉬 시간이 끝이 아니면 그래프에 값 만큼 물리 적용

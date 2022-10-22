@@ -38,10 +38,9 @@ public abstract class RhythmInputModule : StateMachine<e_PlayerState, PlayerStat
             onTooEarly?.Invoke();
             OnInteraction(InteractionType.RhythmEarly);
         }
-
     }
 
-    public void OnRhythmLate()
+    public virtual void OnRhythmLate()
     {
         if (rhythmFlag)
         {

@@ -72,4 +72,19 @@ public abstract class PlayerState : IState<e_PlayerState, PlayerState, PlayerSta
     }
 
     public virtual bool AcceptHealthChange(ref float value) => true;
+
+    public virtual void OnRhythmEarly()
+    {
+        
+    }
+
+    public virtual void OnRhythm()
+    {
+        
+    }
+
+    public virtual void OnRhythmLate()
+    {
+        
+    }
 }
