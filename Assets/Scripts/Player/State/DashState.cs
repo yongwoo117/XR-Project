@@ -190,7 +190,7 @@ namespace Player.State
         private void ApplyDashPhysics()
         {
             if (dashingTime <= 0f)
-                StateMachine.ChangeState(e_PlayerState.Idle);
+                Deactivate();
             else
                 rigid.velocity = pointDir / dashTime * ((dashTime / Time.fixedDeltaTime) / physicsCurveArea) *
                                  dashGraph.Evaluate(dashTime - dashingTime); //대쉬 시간이 끝이 아니면 그래프에 값 만큼 물리 적용
