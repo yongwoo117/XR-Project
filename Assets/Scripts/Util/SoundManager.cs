@@ -37,5 +37,5 @@ public class SoundManager : UIManger
         }
     }
 
-    protected void SetSoundPause(bool pause) => eventEmitter.EventInstance.setPaused(pause);
+    protected void PauseSound(bool pause) => eventEmitter.EventInstance.setPaused(pause);
 }
