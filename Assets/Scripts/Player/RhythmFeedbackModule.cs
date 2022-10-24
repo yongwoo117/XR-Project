@@ -58,6 +58,8 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
     private FeedbackState effectState;
     private bool effectFlag;
     private IControl control;
+    private Vector3 direction;
+    private Transform GFX;
 
     public FeedbackState EffectState
     {
@@ -98,6 +100,8 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
             idleDirectionStruct.material.SetTexture("_MainTex", render.sprite.texture);
         directionStruct = new FeedbackStruct(directionEffect);
 
+        GFX = transform.GetChild(0);
+
         control = GetComponent<IControl>();
         EffectState = FeedbackState.Idle;
     }
@@ -105,6 +109,9 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
     protected override void Update()
     {
         base.Update();
+
+        FlipToMouseDir();
+
         if (!effectFlag) return;
         switch (EffectState)
         {
@@ -120,21 +127,25 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
         }
     }
 
-    private void RotateIdle()
+    private void FlipToMouseDir()
     {
         if (control.Direction == null) return;
-        var direction = (Vector3)control.Direction;
-        direction.Normalize();
+        direction = (Vector3)control.Direction;
+        Vector3 GFXScale = GFX.transform.localScale;
+        GFXScale.x = Mathf.Abs(GFXScale.x) * (direction.x > 0 ? -1 : 1);
+        GFX.transform.localScale = GFXScale;
+    }
 
+    private void RotateIdle()
+    {
+        Vector3 NormalDir = direction.normalized;
         var rotation = idleEffect.transform.eulerAngles;
-        rotation.y = Mathf.Atan2(direction.z, direction.x) * -Mathf.Rad2Deg;
+        rotation.y = Mathf.Atan2(NormalDir.z, NormalDir.x) * -Mathf.Rad2Deg;
         idleEffect.transform.eulerAngles = rotation;
     }
 
     private void RotateDirection()
     {
-        if (control.Direction == null) return;
-        var direction = (Vector3)control.Direction;
         if (directionStruct.renderer is LineRenderer render)
             render.SetPosition(1, new Vector3(direction.x, direction.z, 0));
     }

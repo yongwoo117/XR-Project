@@ -4572,10 +4572,6 @@ PrefabInstance:
       propertyPath: onComboChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1659581287}
-    - target: {fileID: 1680146609352771351, guid: 57d210aadf8ca364ca469553f372e63f, type: 3}
-      propertyPath: onComboChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnRhythmComboChanged
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57d210aadf8ca364ca469553f372e63f, type: 3}
 --- !u!114 &1680146607699291302 stripped
