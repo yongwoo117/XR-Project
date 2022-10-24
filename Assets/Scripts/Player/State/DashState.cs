@@ -1,3 +1,4 @@
+using Player.Animation;
 using UnityEngine;
 
 namespace Player.State
@@ -53,6 +54,8 @@ namespace Player.State
             
             GameObject ChargedEffect = EffectProfileData.Instance.PopEffect("Eff_CharacterCharge");
             ChargedEffect.transform.position = StateMachine.transform.GetChild(0).position;
+
+            StateMachine.Anim.SetTrigger(AnimationParameter.Charge);
 
             StateMachine.EffectState = FeedbackState.Direction;
         }
@@ -138,6 +141,8 @@ namespace Player.State
 
             isActivated = true;
 
+
+            StateMachine.Anim.SetTrigger(AnimationParameter.Dash);
             DashEffect();
             StateMachine.EffectState = FeedbackState.Idle;
         }
