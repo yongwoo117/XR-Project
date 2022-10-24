@@ -32,7 +32,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - RenderTexture
   - 
   - 
   - 
@@ -43,4 +43,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1991050251
+    locked: 0
+  - name: RenderTexture
+    uniqueID: 749576393
     locked: 0
