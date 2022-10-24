@@ -4,7 +4,8 @@ using UnityEngine;
 public class PlayerStateMachine : RhythmFeedbackModule
 {
     [SerializeField] private PlayerProfile profile;
-
+    [SerializeField] private Animator AnimationController;
+    public Animator Anim => AnimationController;
     protected override void OnEnable()
     {
         base.OnEnable();
