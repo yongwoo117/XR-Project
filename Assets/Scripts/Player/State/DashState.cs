@@ -1,5 +1,6 @@
 using Player.Animation;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 
 namespace Player.State
@@ -26,6 +27,8 @@ namespace Player.State
         private readonly List<GameObject> damagedObjects = new();
 
         private GameObject dashEffect;
+
+        private EventReference dashSfx;
         
         #region StateFunction
         public override void Initialize()
@@ -45,6 +48,7 @@ namespace Player.State
                 dashAttackRange = value.v3_dashRange;
                 damage = value.f_standardDamage;
                 multiplier = value.f_dashMultiplier;
+                dashSfx = value.SFXDictionary[SFXType.Attack1];
             }
         }
 
@@ -58,6 +62,7 @@ namespace Player.State
             isActivated = false;
             StateMachine.RhythmCombo++;
             StateMachine.AddCombatCombo(e_PlayerState.Dash);
+            dashSfx.PlayOnShot();
             damagedObjects.Clear();
             Activate();
         }

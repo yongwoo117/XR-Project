@@ -1,3 +1,4 @@
+using FMODUnity;
 using UnityEngine;
 
 namespace Player.State
@@ -7,6 +8,8 @@ namespace Player.State
         private float attackRange;
         private float damage;
         private float multiplier;
+
+        private EventReference cutSfx;
         
         private readonly Collider[] collisionBuffer = new Collider[10];
         
@@ -17,6 +20,7 @@ namespace Player.State
                 attackRange = value.f_cutRange;
                 damage = value.f_standardDamage;
                 multiplier = value.f_cutMultipier;
+                cutSfx = value.SFXDictionary[SFXType.Attack2];
             }
         }
 
@@ -25,6 +29,7 @@ namespace Player.State
             Debug.Log("Cut Enter");
             StateMachine.RhythmCombo++;
             StateMachine.AddCombatCombo(e_PlayerState.Cut);
+            cutSfx.PlayOnShot();
             Attack();
         }
 

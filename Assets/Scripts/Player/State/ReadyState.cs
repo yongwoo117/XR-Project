@@ -1,10 +1,17 @@
+using FMODUnity;
 using Player.Animation;
-using UnityEngine;
 
 namespace Player.State
 {
     public class ReadyState : PlayerState
     {
+        private EventReference readySfx;
+
+        public override PlayerProfile Profile
+        {
+            set => readySfx = value.SFXDictionary[SFXType.Charging];
+        }
+
         public override void Enter()
         {
             StateMachine.RhythmCombo++;
@@ -14,6 +21,7 @@ namespace Player.State
             if (chargedEffect is not null) 
                 chargedEffect.transform.position = StateMachine.transform.GetChild(0).position;
             StateMachine.Anim.SetTrigger(AnimationParameter.Charge);
+            readySfx.PlayOnShot();
         }
 
         public override void HandleInput(InteractionType interactionType)
