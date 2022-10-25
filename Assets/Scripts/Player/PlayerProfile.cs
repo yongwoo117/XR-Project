@@ -6,7 +6,7 @@ using UnityEngine;
 /// </summary>
 [CreateAssetMenu(fileName = "PlayerProfile", menuName = "PlayerProfile", order = 1)]
 [Serializable]
-public class PlayerProfile : ScriptableObject
+public class PlayerProfile : SFXProfile
 {
     public float f_maximumHealth;
     public float f_standardDamage; //기준 피해량

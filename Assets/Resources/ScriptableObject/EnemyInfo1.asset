@@ -12,6 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b05264d16cb4e5b48a8c9f2e486489b9, type: 3}
   m_Name: EnemyInfo1
   m_EditorClassIdentifier: 
+  SFXDictionary:
+    keys: 0000000003000000
+    values:
+    - Guid:
+        Data1: 1787427202
+        Data2: 1171760155
+        Data3: -365382259
+        Data4: 1363658236
+      Path: event:/SFX/Creature/SFX_Creature_Attack
+    - Guid:
+        Data1: 754681562
+        Data2: 1200543480
+        Data3: -1014105714
+        Data4: -137687780
+      Path: event:/SFX/Creature/SFX_Creature_Move
   f_CheckRange: 100
   f_AttackRange: 5
   f_ChaseRange: 100

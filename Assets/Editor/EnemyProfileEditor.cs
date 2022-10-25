@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Enemy.Profile
 {
     [CustomEditor(typeof(EnemyProfile))]
-    public class EnemyProfileEditor : Editor
+    public class EnemyProfileEditor : SFXProfileEditor
     {
         public override void OnInspectorGUI()
         {
@@ -25,6 +25,7 @@ namespace Enemy.Profile
 
             ep.f_ChaseSpeed = EditorGUILayout.FloatField("추격 속도", ep.f_ChaseSpeed);
 
+            base.OnInspectorGUI();
             EditorUtility.SetDirty(target);
         }
     }
