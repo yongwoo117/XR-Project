@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{4157a4ea-bc4f-473c-b0f0-41e0fc6f4504}">
+		<property name="assetPath">
+			<value>SFX_Player_Sting_Rush.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.2634013605442177</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{18f8c6cb-2f50-4251-b2ea-e1b24cb642d8}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{e61f51a6-b4b2-45e5-b7dc-d1cfe4dd1172}">
+		<property name="assetPath">
+			<value>SFX_Creature_Move_4.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.50419501133786848</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{18f8c6cb-2f50-4251-b2ea-e1b24cb642d8}</destination>
+		</relationship>
+	</object>
+</objects>
