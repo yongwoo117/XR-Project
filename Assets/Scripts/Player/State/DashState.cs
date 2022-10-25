@@ -55,13 +55,6 @@ namespace Player.State
             Debug.Log("Dash Enter");
         
             dashingTime = dashTime;
-            
-            GameObject ChargedEffect = EffectProfileData.Instance.PopEffect("Eff_CharacterCharge");
-            ChargedEffect.transform.position = StateMachine.transform.GetChild(0).position;
-
-            StateMachine.Anim.SetTrigger(AnimationParameter.Charge);
-
-            StateMachine.EffectState = FeedbackState.Direction;
             isActivated = false;
             StateMachine.RhythmCombo++;
             StateMachine.AddCombatCombo(e_PlayerState.Dash);

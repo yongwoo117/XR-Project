@@ -1,3 +1,4 @@
+using Player.Animation;
 using UnityEngine;
 
 namespace Player.State
@@ -8,9 +9,11 @@ namespace Player.State
         {
             StateMachine.RhythmCombo++;
             StateMachine.AddCombatCombo(e_PlayerState.Ready);
+            StateMachine.EffectState = FeedbackState.Direction;
             var chargedEffect = EffectProfileData.Instance.PopEffect("Eff_CharacterCharge");
             if (chargedEffect is not null) 
                 chargedEffect.transform.position = StateMachine.transform.GetChild(0).position;
+            StateMachine.Anim.SetTrigger(AnimationParameter.Charge);
         }
 
         public override void HandleInput(InteractionType interactionType)
