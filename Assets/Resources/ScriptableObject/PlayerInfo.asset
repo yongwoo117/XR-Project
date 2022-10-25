@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: PlayerInfo
   m_EditorClassIdentifier: 
   f_maximumHealth: 3
+  f_standardDamage: 10
+  i_maximumCombatCombo: 4
+  f_dashMultiplier: 1
   dashPhysicsGraph:
     serializedVersion: 2
     m_Curve:
@@ -83,7 +86,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   f_dashTime: 0.15
+  v3_dashRange: {x: 1, y: 1, z: 1}
   f_dashDistance: 2000
   f_cutTime: 0.15
-  i_cutCount: 2
-  v3_dashRange: {x: 1, y: 1, z: 1}
+  f_cutRange: 40
+  f_cutMultipier: 1

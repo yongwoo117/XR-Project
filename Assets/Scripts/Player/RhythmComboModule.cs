@@ -1,19 +1,18 @@
-using UnityEngine;
 using UnityEngine.Events;
 
 public abstract class RhythmComboModule : RhythmInputModule
 {
-    public UnityEvent<int> onComboChanged;
+    public UnityEvent<int> onRhythmComboChanged;
     
-    public int Combo
+    public int RhythmCombo
     {
-        get => combo;
+        get => rhythmCombo;
         set
         {
-            if (combo == value) return;
-            combo = value;
-            onComboChanged?.Invoke(combo);
+            if (rhythmCombo == value) return;
+            rhythmCombo = value;
+            onRhythmComboChanged?.Invoke(rhythmCombo);
         }
     }
-    private int combo;
+    private int rhythmCombo;
 }

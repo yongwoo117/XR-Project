@@ -8,23 +8,21 @@ namespace Player.State
         public override void Enter()
         {
             Debug.Log("Idle Enter");
-            StateMachine.Combo = 0;
             StateMachine.EffectState = FeedbackState.Idle;
             StateMachine.Anim.SetTrigger(AnimationParameter.Idle);
+            StateMachine.RhythmCombo = 0;
+            StateMachine.CombatComboBreak();
         }
         
         public override void HandleInput(InteractionType interactionType)
         {
             switch (interactionType)
             {
-                case InteractionType.DashEnter:
-                    StateMachine.ChangeState(e_PlayerState.Dash);
+                case InteractionType.Ready:
+                    StateMachine.ChangeState(e_PlayerState.Ready);
                     break;
-                case InteractionType.CutEnter:
+                case InteractionType.Cut:
                     StateMachine.ChangeState(e_PlayerState.Cut);
-                    break;
-                default:
-                    StateMachine.Combo = 0;
                     break;
             }
         }

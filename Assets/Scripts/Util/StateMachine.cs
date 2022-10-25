@@ -53,12 +53,14 @@ public abstract class StateMachine<T1, T2, T3> : HealthModule where T1 : Enum
         onDead.AddListener(OnDead);
         onHealthChanged.AddListener(OnHealthChanged);
         onHealthRatioChanged.AddListener(OnHealthRatioChanged);
+        onDamaged.AddListener(OnDamaged);
     }
 
     private void OnDead() => currentState.Dead();
     private void OnHealthChanged(float value) => currentState.HealthChanged(value);
     private void OnHealthRatioChanged(float value) => currentState.HealthRatioChanged(value);
     protected override bool AcceptHealthChange(ref float value) => currentState.AcceptHealthChange(ref value);
+    private void OnDamaged(float value) => currentState.OnDamaged(value);
     protected virtual void Update() => currentState.LogicUpdate();
     protected virtual void FixedUpdate() => currentState.PhysicsUpdate();
     protected virtual void OnDrawGizmos() => currentState?.OnDrawGizmos();
@@ -70,9 +72,10 @@ public abstract class StateMachine<T1, T2, T3> : HealthModule where T1 : Enum
 
     protected virtual void OnDisable()
     {
-        onDead.AddListener(OnDead);
-        onHealthChanged.AddListener(OnHealthChanged);
-        onHealthRatioChanged.AddListener(OnHealthRatioChanged);
+        onDead.RemoveListener(OnDead);
+        onHealthChanged.RemoveListener(OnHealthChanged);
+        onHealthRatioChanged.RemoveListener(OnHealthRatioChanged);
+        onDamaged.RemoveListener(OnDamaged);
     }
 
     /// <summary>

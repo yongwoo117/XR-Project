@@ -3,12 +3,12 @@ using JetBrains.Annotations;
 
 public enum e_PlayerState
 {
-    Idle,Dash,Move,Cut
+    Idle, Dash, Ready, Cut
 }
 
 public enum e_EnemyState
 {
-    Idle, Chase, Die, Hit
+    Idle, Chase, Die, Hit, Alert, Attack
 }
 
 public enum e_EnemyType
@@ -24,13 +24,15 @@ public static class EnumExtensions
         {
             //Player
             e_PlayerState.Idle => typeof(Player.State.IdleState),
+            e_PlayerState.Ready => typeof(Player.State.ReadyState),
             e_PlayerState.Dash => typeof(Player.State.DashState),
             e_PlayerState.Cut => typeof(Player.State.CutState),
-            e_PlayerState.Move => typeof(Player.State.MoveState),
             
             //Enemy
             e_EnemyState.Idle => typeof(Enemy.State.IdleState),
+            e_EnemyState.Alert => typeof(Enemy.State.AlertState),
             e_EnemyState.Chase => typeof(Enemy.State.ChaseState),
+            e_EnemyState.Attack => typeof(Enemy.State.AttackState),
             e_EnemyState.Hit => typeof(Enemy.State.HitState),
             e_EnemyState.Die => typeof(Enemy.State.DieState),
             

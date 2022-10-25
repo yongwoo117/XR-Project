@@ -50,10 +50,10 @@ public class KBDMouseControl : MonoBehaviour, IControl
         switch (context.action.phase)
         {
             case InputActionPhase.Started:
-                onInteraction?.Invoke(InteractionType.DashEnter);
+                onInteraction?.Invoke(InteractionType.Ready);
                 break;
             case InputActionPhase.Canceled:
-                onInteraction?.Invoke(InteractionType.DashExit);
+                onInteraction?.Invoke(InteractionType.Dash);
                 break;
         }
     }
@@ -64,6 +64,6 @@ public class KBDMouseControl : MonoBehaviour, IControl
     public void OnThirdInteraction(InputAction.CallbackContext context)
     {
         if(!context.started) return;
-        onInteraction?.Invoke(InteractionType.CutEnter);
+        onInteraction?.Invoke(InteractionType.Cut);
     }
 }

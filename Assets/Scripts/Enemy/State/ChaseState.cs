@@ -1,4 +1,3 @@
-using System;
 using Enemy.Profile;
 using UnityEngine;
 
@@ -9,13 +8,16 @@ namespace Enemy.State
         //Profile 변수
         private float chaseRange;
         private float chaseSpeed;
+        private float attackRange;
+        private float damage;
 
         //상태 변수
-        private PlayerStateMachine player;
+        private HealthModule player;
 
         //Machine 변수
         private Rigidbody rigid;
-        private Transform transform;
+
+        private readonly Collider[] collisionBuffer = new Collider[1];
 
         public override EnemyProfile Profile
         {
@@ -23,18 +25,26 @@ namespace Enemy.State
             {
                 chaseSpeed = value.f_ChaseSpeed;
                 chaseRange = value.f_ChaseRange;
+                attackRange = value.f_AttackRange;
+                damage = value.f_damage;
             }
         }
 
         public override void Initialize()
         {
             rigid = StateMachine.GetComponent<Rigidbody>();
-            transform = StateMachine.transform;
         }
 
         public override void Enter()
         {
-            Reset();
+            //추격 범위 안에 들어왔을 경우 추격, 범위 밖일 경우 대기 상태로 변경
+            if (Physics.OverlapSphereNonAlloc(StateMachine.transform.position, chaseRange, collisionBuffer, GetLayerMasks.Player) <= 0)
+            {
+                StateMachine.ChangeState(e_EnemyState.Idle);
+                return;
+            }
+
+            player = collisionBuffer[0].GetComponent<HealthModule>();
         }
 
         public override void Exit()
@@ -49,49 +59,37 @@ namespace Enemy.State
 
         public override void LogicUpdate()
         {
-            //추격 범위 안에 들어왔을 경우 추격, 범위 밖일 경우 대기 상태로 변경
-            Collider[] chaseHit = Physics.OverlapSphere(transform.position,chaseRange,GetLayerMasks.Player);
-
-            if (chaseHit.Length>0)
-            {
-                if (player == null)
-                    player = chaseHit[0].GetComponent<PlayerStateMachine>();
-
-
-            }
-            else
+            var distance = (player.transform.position - StateMachine.transform.position).magnitude;
+            if (distance > chaseRange)
             {
                 StateMachine.ChangeState(e_EnemyState.Idle);
+            }
+            else if (distance <= attackRange)
+            {
+                //TODO: 공격 애니메이션 타이밍에 맞춰서 데미지를 주는 로직을 추가해야 합니다.
+                player.RequestDamage(damage);
+                StateMachine.ChangeState(e_EnemyState.Attack);
             }
         }
 
         public override void OnDrawGizmos()
         {
-            Gizmos.DrawWireSphere(transform.position, chaseRange);
+            var point = StateMachine.transform.position;
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(point, chaseRange);
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(point, attackRange);
         }
 
         private void ApplyPhysics()
         {
-            if(player == null) return;
-            Vector3 Dir = (player.transform.position - StateMachine.transform.position).normalized;
-            Dir *= chaseSpeed;
+            var dir = (player.transform.position - StateMachine.transform.position).normalized;
+            dir *= chaseSpeed;
             
-            rigid.velocity = new Vector3(Dir.x,0f,Dir.z);
-        }
-        
-        /// <summary>
-        /// 상태 변수 초기화
-        /// </summary>
-        private void Reset()
-        {
+            rigid.velocity = new Vector3(dir.x,0f,dir.z);
         }
 
-        public override void OnRhythm()
-        {
-         
-        }
-        
-        public override void HealthChanged(float value)
+        public override void OnDamaged(float value)
         {
             StateMachine.ChangeState(e_EnemyState.Hit);
         }

@@ -1,4 +1,5 @@
 using Player.Animation;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Player.State
@@ -9,6 +10,8 @@ namespace Player.State
         private float dashingTime;
         private float dashTime;
         private float dashDistance;
+        private float damage;
+        private float multiplier;
 
         private AnimationCurve dashGraph;
         private Rigidbody rigid;
@@ -18,6 +21,9 @@ namespace Player.State
         private Vector3 dashAttackRange;
 
         private bool isActivated;
+        
+        private readonly Collider[] collisionBuffer = new Collider[1];
+        private readonly List<GameObject> damagedObjects = new();
 
         private GameObject dashEffect;
         
@@ -37,6 +43,8 @@ namespace Player.State
                 dashTime = value.f_dashTime;
                 dashDistance = value.f_dashDistance;
                 dashAttackRange = value.v3_dashRange;
+                damage = value.f_standardDamage;
+                multiplier = value.f_dashMultiplier;
             }
         }
 
@@ -47,10 +55,6 @@ namespace Player.State
             Debug.Log("Dash Enter");
         
             dashingTime = dashTime;
-
-            isActivated = false;
-
-            StateMachine.Combo++;
             
             GameObject ChargedEffect = EffectProfileData.Instance.PopEffect("Eff_CharacterCharge");
             ChargedEffect.transform.position = StateMachine.transform.GetChild(0).position;
@@ -58,6 +62,11 @@ namespace Player.State
             StateMachine.Anim.SetTrigger(AnimationParameter.Charge);
 
             StateMachine.EffectState = FeedbackState.Direction;
+            isActivated = false;
+            StateMachine.RhythmCombo++;
+            StateMachine.AddCombatCombo(e_PlayerState.Dash);
+            damagedObjects.Clear();
+            Activate();
         }
 
         public override void PhysicsUpdate()
@@ -76,15 +85,11 @@ namespace Player.State
         {
             switch (interactionType)
             {
-                case InteractionType.DashExit:
-                    StateMachine.Combo++;
-                    Activate();
-                    break;
-                case InteractionType.CutEnter when dashingTime < 0: // dashingTime이 음수라면, 대쉬가 끝난 뒤 입력대기상태를 의미합니다.
+                case InteractionType.Cut when dashingTime < 0: // dashingTime이 음수라면, 대쉬가 끝난 뒤 입력대기상태를 의미합니다.
                     StateMachine.ChangeState(e_PlayerState.Cut);
                     break; 
-                case InteractionType.DashEnter when dashingTime < 0:
-                    Enter();
+                case InteractionType.Ready when dashingTime < 0:
+                    StateMachine.ChangeState(e_PlayerState.Ready);
                     break;
                 default:
                     StateMachine.ChangeState(e_PlayerState.Idle);
@@ -105,26 +110,29 @@ namespace Player.State
 
             var attackRange = new Vector3(direction.magnitude, dashAttackRange.y, dashAttackRange.z);
 
+            Gizmos.color = Color.red;
             Gizmos.matrix = Matrix4x4.TRS(rigid.transform.position,
                 Quaternion.Euler(0f, Mathf.Atan2(direction.z, direction.x) * -Mathf.Rad2Deg, 0f),
                 rigid.transform.localScale);
             Gizmos.DrawWireCube(Vector3.right * (direction.magnitude * 0.5f), attackRange);
         }
         #endregion
-
-        private Collider[] results = new Collider[1];
+        
         private void CheckEnemyHit()
         {
             //오버렙 박스 이용해서 플레이어 위치에서 대쉬 공격 범위 만큼 판정 검사
             var size = Physics.OverlapBoxNonAlloc(
                 StateMachine.transform.position + pointDir.normalized *
-                new Vector3(dashAttackRange.x, 0f, dashAttackRange.z).magnitude, dashAttackRange, results,
+                new Vector3(dashAttackRange.x, 0f, dashAttackRange.z).magnitude, dashAttackRange, collisionBuffer,
                 Quaternion.Euler(0f, Mathf.Atan2(pointDir.z, pointDir.x) * -Mathf.Rad2Deg, 0f), GetLayerMasks.Enemy);
 
             if (size == 0) return;
-            foreach (var collider in results)
+            foreach (var collider in collisionBuffer)
             {
-                collider.gameObject.GetComponent<HealthModule>().RequestDamage(1.2f);
+                var enemy = collider.gameObject;
+                if(damagedObjects.Contains(enemy)) continue;
+                enemy.GetComponent<HealthModule>()?.RequestDamage(damage * multiplier);
+                damagedObjects.Add(enemy);
             }
         }
 

@@ -163,7 +163,7 @@ MonoBehaviour:
   onDamageCanceled:
     m_PersistentCalls:
       m_Calls: []
-  List_e_States: 00000000010000000200000003000000
+  List_e_States: 000000000400000001000000050000000300000002000000
   profile: {fileID: 11400000, guid: 4ed5bff6bf4fbed48b3f4c320c21f96b, type: 2}
 --- !u!54 &8248359141127274629
 Rigidbody:
