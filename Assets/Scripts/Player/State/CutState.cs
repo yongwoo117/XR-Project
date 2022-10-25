@@ -24,7 +24,7 @@ namespace Player.State
         {
             Debug.Log("Cut Enter");
             StateMachine.RhythmCombo++;
-            StateMachine.ComboList.Add(e_PlayerState.Cut);
+            StateMachine.AddCombatCombo(e_PlayerState.Cut);
             Attack();
         }
 

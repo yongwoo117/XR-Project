@@ -8,7 +8,7 @@ namespace Player.State
         {
             Debug.Log("Idle Enter");
             StateMachine.RhythmCombo = 0;
-            StateMachine.ComboList.Clear();
+            StateMachine.CombatComboBreak();
         }
 
         public override void HandleInput(InteractionType interactionType)

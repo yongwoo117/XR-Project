@@ -6,9 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="eaa1b3f2-8e36-4531-8cca-a8a38a967539" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.XR-Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.XR-Project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/State/ChaseState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/State/ChaseState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/CombatComboModule.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/CombatComboModule.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/State/CutState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/State/CutState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/State/DashState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/State/DashState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/State/IdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/State/IdleState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/State/ReadyState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/State/ReadyState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fmod_editor.log" beforeDir="false" afterPath="$PROJECT_DIR$/fmod_editor.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +23,10 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/KBDMouseControl.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Util/HealthModule.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Util/SpawnManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.4.2/InputSystem/Actions/InputAction.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5c9c091dd9d54d4a854c4a73d1e71218157a00/de/c2fcab5b/Transform.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5e2d116f98d140d0a76ec8a673a2a4ac469000/e3/41ae1d9d/Nullable`1.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />

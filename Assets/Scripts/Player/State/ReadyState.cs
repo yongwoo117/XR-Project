@@ -7,7 +7,7 @@ namespace Player.State
         public override void Enter()
         {
             StateMachine.RhythmCombo++;
-            StateMachine.ComboList.Add(e_PlayerState.Ready);
+            StateMachine.AddCombatCombo(e_PlayerState.Ready);
             var chargedEffect = EffectProfileData.Instance.PopEffect("Eff_CharacterCharge");
             if (chargedEffect is not null) 
                 chargedEffect.transform.position = StateMachine.transform.GetChild(0).position;

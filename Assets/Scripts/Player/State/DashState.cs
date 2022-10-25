@@ -55,7 +55,7 @@ namespace Player.State
             dashingTime = dashTime;
             isActivated = false;
             StateMachine.RhythmCombo++;
-            StateMachine.ComboList.Add(e_PlayerState.Dash);
+            StateMachine.AddCombatCombo(e_PlayerState.Dash);
             damagedObjects.Clear();
             Activate();
         }
