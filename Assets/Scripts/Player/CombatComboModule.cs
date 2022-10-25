@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-public abstract class CombatComboModule : RhythmComboModule
+public abstract class CombatComboModule : RhythmFeedbackModule
 {
     private List<e_PlayerState> comboList = new();
     protected abstract int CombatComboLimit { get; }
