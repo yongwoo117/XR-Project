@@ -16,11 +16,11 @@ MonoBehaviour:
     keys: 00000000010000000200000004000000
     values:
     - Guid:
-        Data1: 1690116157
-        Data2: 1297344165
-        Data3: 2013130881
-        Data4: -1142517550
-      Path: event:/SFX/Player/SFX_Player_Sting_Attack
+        Data1: -1936190495
+        Data2: 1128878070
+        Data3: 48404624
+        Data4: -647464859
+      Path: event:/SFX/Player/SFX_Player_Sting_Rush
     - Guid:
         Data1: 280684150
         Data2: 1275611332
