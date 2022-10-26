@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EnemyInfo1
   m_EditorClassIdentifier: 
   SFXDictionary:
-    keys: 0000000003000000
+    keys: 00000000030000000400000006000000
     values:
     - Guid:
         Data1: 1489577533
@@ -27,6 +27,18 @@ MonoBehaviour:
         Data3: -1359780433
         Data4: -288189808
       Path: event:/SFX/Creature/SFX_Creature_Move
+    - Guid:
+        Data1: -1748871285
+        Data2: 1091789191
+        Data3: 1898228414
+        Data4: -719431603
+      Path: event:/SFX/Creature/SFX_Creature_Hit
+    - Guid:
+        Data1: 1585166169
+        Data2: 1187770281
+        Data3: -459868241
+        Data4: 1754492615
+      Path: event:/SFX/Creature/SFX_Creature_Dead
   f_CheckRange: 100
   f_AttackRange: 5
   f_ChaseRange: 100

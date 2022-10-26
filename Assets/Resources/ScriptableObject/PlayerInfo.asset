@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerInfo
   m_EditorClassIdentifier: 
   SFXDictionary:
-    keys: 00000000010000000200000004000000
+    keys: 000000000100000002000000060000000400000005000000
     values:
     - Guid:
         Data1: -1153974226
@@ -39,6 +39,18 @@ MonoBehaviour:
         Data3: 1587671964
         Data4: 1487641487
       Path: event:/SFX/Player/SFX_Player_Dead
+    - Guid:
+        Data1: -198836254
+        Data2: 1145072840
+        Data3: 280676997
+        Data4: 1965113
+      Path: event:/SFX/Player/SFX_Player_Hit
+    - Guid:
+        Data1: 899253875
+        Data2: 1276921179
+        Data3: -1382735186
+        Data4: 1668570465
+      Path: event:/SFX/Player/SFX_Player_ThythmFail
   f_maximumHealth: 3
   f_standardDamage: 10
   i_maximumCombatCombo: 4
