@@ -16,28 +16,28 @@ MonoBehaviour:
     keys: 00000000010000000200000004000000
     values:
     - Guid:
-        Data1: -1936190495
-        Data2: 1128878070
-        Data3: 48404624
-        Data4: -647464859
+        Data1: -1153974226
+        Data2: 1243383474
+        Data3: 1502905021
+        Data4: -80026572
       Path: event:/SFX/Player/SFX_Player_Sting_Rush
     - Guid:
-        Data1: 280684150
-        Data2: 1275611332
-        Data3: 1644297393
-        Data4: 1773395129
+        Data1: -877284677
+        Data2: 1165228138
+        Data3: -532511857
+        Data4: 1975871176
       Path: event:/SFX/Player/SFX_Player_Swing_Attack
     - Guid:
-        Data1: 64005739
-        Data2: 1149171650
-        Data3: -1596897097
-        Data4: -788208824
+        Data1: 993285847
+        Data2: 1296293141
+        Data3: 956859572
+        Data4: -1042581343
       Path: event:/SFX/Player/SFX_Player_Pre
     - Guid:
-        Data1: 1353070531
-        Data2: 1089725880
-        Data3: -1625129311
-        Data4: 2091719145
+        Data1: -1833384865
+        Data2: 1236043975
+        Data3: 1587671964
+        Data4: 1487641487
       Path: event:/SFX/Player/SFX_Player_Dead
   f_maximumHealth: 3
   f_standardDamage: 10

@@ -5,7 +5,7 @@ using UnityEngine;
 public static class FMODExtension
 {
     public static void PlayOneShot(this EventReference eventReference) => RuntimeManager.PlayOneShot(eventReference);
-    
+
     public static void AttachedOneShot(this EventReference eventReference, GameObject gameObject) =>
         RuntimeManager.PlayOneShotAttached(eventReference, gameObject);
 
