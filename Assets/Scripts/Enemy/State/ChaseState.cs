@@ -1,3 +1,4 @@
+using Enemy.Animation;
 using Enemy.Profile;
 using UnityEngine;
 
@@ -45,6 +46,8 @@ namespace Enemy.State
             }
 
             player = collisionBuffer[0].GetComponent<HealthModule>();
+
+            StateMachine.Anim.SetTrigger(AnimationParameter.Move);
         }
 
         public override void Exit()
@@ -59,7 +62,9 @@ namespace Enemy.State
 
         public override void LogicUpdate()
         {
-            var distance = (player.transform.position - StateMachine.transform.position).magnitude;
+            var dir = player.transform.position - StateMachine.transform.position;
+            var distance = dir.magnitude;
+
             if (distance > chaseRange)
             {
                 StateMachine.ChangeState(e_EnemyState.Idle);
@@ -69,6 +74,10 @@ namespace Enemy.State
                 //TODO: 공격 애니메이션 타이밍에 맞춰서 데미지를 주는 로직을 추가해야 합니다.
                 player.RequestDamage(damage);
                 StateMachine.ChangeState(e_EnemyState.Attack);
+            }
+            else
+            {
+                FlipToDirection(dir);
             }
         }
 
@@ -92,6 +101,13 @@ namespace Enemy.State
         public override void OnDamaged(float value)
         {
             StateMachine.ChangeState(e_EnemyState.Hit);
+        }
+
+        private void FlipToDirection(Vector3 direction)
+        {
+            Vector3 GFXScale = StateMachine.Anim.transform.localScale;
+            GFXScale.x = Mathf.Abs(GFXScale.x) * (direction.x > 0 ? -1 : 1);
+            StateMachine.Anim.transform.localScale = GFXScale;
         }
     }
 }

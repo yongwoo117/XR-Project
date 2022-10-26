@@ -5,10 +5,15 @@ using UnityEngine;
 public class EnemyStateMachine : StateMachine<e_EnemyState, EnemyState, EnemyStateMachine>
 {
     [SerializeField] private EnemyProfile profile;
+    [SerializeField] private Animator AnimationController;
+
+
     protected override e_EnemyState StartState => e_EnemyState.Idle;
     protected override float MaximumHealth => profile.f_maximumHealth;
 
     public Dictionary<e_EnemyState, EnemyState> States => Dic_States;
+
+    public Animator Anim => AnimationController;
 
     protected override void OnBeforeStateInitialize(EnemyState state)
     {

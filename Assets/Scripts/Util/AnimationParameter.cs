@@ -14,3 +14,13 @@ namespace Player.Animation
         public static readonly int Idle = Animator.StringToHash("Idle");
     }
 }
+
+namespace Enemy.Animation
+{
+    public static class AnimationParameter
+    {
+        public static readonly int Attack = Animator.StringToHash("Attack");
+        public static readonly int Move = Animator.StringToHash("Move");
+        public static readonly int Idle = Animator.StringToHash("Idle");
+    }
+}

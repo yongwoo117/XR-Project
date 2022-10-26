@@ -1,3 +1,4 @@
+using Enemy.Animation;
 using Enemy.Profile;
 using UnityEngine;
 
@@ -15,7 +16,9 @@ namespace Enemy.State
 
         public override void Enter()
         {
+            
             thresholdTime = Time.realtimeSinceStartup + attackTime;
+            StateMachine.Anim.SetTrigger(AnimationParameter.Attack);
         }
 
         public override void LogicUpdate()
