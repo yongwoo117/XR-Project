@@ -1,8 +1,6 @@
 using System.Collections.Generic;
-using FMOD.Studio;
 using FMODUnity;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class SoundManager : UIManger
 {
@@ -37,5 +35,5 @@ public class SoundManager : UIManger
         }
     }
 
-    protected void PauseSound(bool pause) => eventEmitter.EventInstance.setPaused(pause);
+    protected void PauseSound(bool pause) => RuntimeManager.PauseAllEvents(pause);
 }

@@ -24,10 +24,7 @@ public class EnemyStateMachine : StateMachine<e_EnemyState, EnemyState, EnemySta
         RhythmCore.Instance.onRhythm.AddListener(OnRhythm);
     }
 
-    private void OnRhythm()
-    {
-        currentState?.OnRhythm();
-    }
+    private void OnRhythm() => currentState?.OnRhythm();
 
     private void OnDestroy()
     {
