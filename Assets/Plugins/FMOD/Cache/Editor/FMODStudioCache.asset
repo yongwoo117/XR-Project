@@ -89,14 +89,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/SFX/Player/SFX_Player_Sting_Attack
   Guid:
-    Data1: 1690116157
-    Data2: 1297344165
-    Data3: 2013130881
-    Data4: -1142517550
+    Data1: 2010732678
+    Data2: 1146038715
+    Data3: 520879775
+    Data4: -1363613283
   Banks:
   - {fileID: -3967910431338284299}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -143,14 +143,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/SFX/Player/SFX_Player_Dead
   Guid:
-    Data1: 1353070531
-    Data2: 1089725880
-    Data3: -1625129311
-    Data4: 2091719145
+    Data1: -1833384865
+    Data2: 1236043975
+    Data3: 1587671964
+    Data4: 1487641487
   Banks:
   - {fileID: -3967910431338284299}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -170,15 +170,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/SFX/Creature/SFX_Creature_Move
   Guid:
-    Data1: 754681562
-    Data2: 1200543480
-    Data3: -1014105714
-    Data4: -137687780
+    Data1: 713834428
+    Data2: 1321407232
+    Data3: -1359780433
+    Data4: -288189808
   Banks:
   - {fileID: -3967910431338284299}
   IsStream: 0
   Is3D: 1
-  IsOneShot: 0
+  IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
@@ -230,6 +230,33 @@ MonoBehaviour:
   - Name: Desktop
     Value: 92256
   Exists: 1
+--- !u!114 &-4588368388283950484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Creature/SFX_Creature_Dead
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Creature/SFX_Creature_Dead
+  Guid:
+    Data1: 1585166169
+    Data2: 1187770281
+    Data3: -459868241
+    Data4: 1754492615
+  Banks:
+  - {fileID: -3967910431338284299}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1187
 --- !u!114 &-3967910431338284299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,10 +272,10 @@ MonoBehaviour:
   Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638023769826517965
+  lastModified: 638023796839950924
   FileSizes:
   - Name: Desktop
-    Value: 154464
+    Value: 176032
   Exists: 1
 --- !u!114 &-3445322074122783637
 MonoBehaviour:
@@ -278,6 +305,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 46000
+--- !u!114 &-1776548599625920279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Player/SFX_Player_ThythmFail
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Player/SFX_Player_ThythmFail
+  Guid:
+    Data1: 899253875
+    Data2: 1276921179
+    Data3: -1382735186
+    Data4: 1668570465
+  Banks:
+  - {fileID: -3967910431338284299}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 195
 --- !u!114 &-1750186579509521395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,12 +457,14 @@ MonoBehaviour:
   - {fileID: 3126716505352886742}
   - {fileID: 1662321484082909132}
   - {fileID: 4451126634971796779}
+  - {fileID: -4588368388283950484}
+  - {fileID: -1776548599625920279}
   EditorParameters: []
   MasterBanks:
   - {fileID: 6080511240933485941}
   StringsBanks:
   - {fileID: 434875691311170072}
-  cacheTime: 638023769826517965
+  cacheTime: 638023796839950924
   cacheVersion: 131592
 --- !u!114 &434875691311170072
 MonoBehaviour:
@@ -425,10 +481,10 @@ MonoBehaviour:
   Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638023769826180161
+  lastModified: 638023796839429497
   FileSizes:
   - Name: Desktop
-    Value: 1676
+    Value: 1686
   Exists: 1
 --- !u!114 &1662321484082909132
 MonoBehaviour:
@@ -444,14 +500,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/SFX/Player/SFX_Player_Hit
   Guid:
-    Data1: 674307416
-    Data2: 1105070526
-    Data3: -304801635
-    Data4: -1380309658
+    Data1: -198836254
+    Data2: 1145072840
+    Data3: 280676997
+    Data4: 1965113
   Banks:
   - {fileID: -3967910431338284299}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -491,14 +547,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/SFX/Player/SFX_Player_Sting_Rush
   Guid:
-    Data1: -1936190495
-    Data2: 1128878070
-    Data3: 48404624
-    Data4: -647464859
+    Data1: -1153974226
+    Data2: 1243383474
+    Data3: 1502905021
+    Data4: -80026572
   Banks:
   - {fileID: -3967910431338284299}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -519,7 +575,7 @@ MonoBehaviour:
   Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/BGM.bank
   Name: BGM
   StudioPath: bank:/BGM
-  lastModified: 638023769826151682
+  lastModified: 638023796839410270
   FileSizes:
   - Name: Desktop
     Value: 1860512
@@ -565,14 +621,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/SFX/Creature/SFX_Creature_Hit
   Guid:
-    Data1: 1616427698
-    Data2: 1128222625
-    Data3: 1339756986
-    Data4: 471110799
+    Data1: -1748871285
+    Data2: 1091789191
+    Data3: 1898228414
+    Data4: -719431603
   Banks:
   - {fileID: -3967910431338284299}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -593,10 +649,10 @@ MonoBehaviour:
   Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638023769826170607
+  lastModified: 638023796839423279
   FileSizes:
   - Name: Desktop
-    Value: 1604
+    Value: 1318
   Exists: 1
 --- !u!114 &7252982465105005398
 MonoBehaviour:
@@ -639,14 +695,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/SFX/Player/SFX_Player_Swing_Attack
   Guid:
-    Data1: 280684150
-    Data2: 1275611332
-    Data3: 1644297393
-    Data4: 1773395129
+    Data1: -877284677
+    Data2: 1165228138
+    Data3: -532511857
+    Data4: 1975871176
   Banks:
   - {fileID: -3967910431338284299}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -666,14 +722,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/SFX/Creature/SFX_Creature_Attack
   Guid:
-    Data1: 1787427202
-    Data2: 1171760155
-    Data3: -365382259
-    Data4: 1363658236
+    Data1: 1489577533
+    Data2: 1170344078
+    Data3: 759061390
+    Data4: 847786320
   Banks:
   - {fileID: -3967910431338284299}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -693,14 +749,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/SFX/Player/SFX_Player_Pre
   Guid:
-    Data1: 64005739
-    Data2: 1149171650
-    Data3: -1596897097
-    Data4: -788208824
+    Data1: 993285847
+    Data2: 1296293141
+    Data3: 956859572
+    Data4: -1042581343
   Banks:
   - {fileID: -3967910431338284299}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
