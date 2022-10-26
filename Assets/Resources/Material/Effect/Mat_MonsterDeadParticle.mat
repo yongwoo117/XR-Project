@@ -53,11 +53,11 @@ Material:
     - _QueueControl: 1
     - _QueueOffset: 0
     - _control: 0
-    - _intencity: 30
-    - _interval: 0.05
+    - _intencity: 15
+    - _interval: 0.07
     - _noise: 0.7391768
     m_Colors:
-    - _Color: {r: 0, g: 0.48017597, b: 1, a: 0}
+    - _Color: {r: 0, g: 0.04080534, b: 1, a: 1}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _Main_color: {r: 0.10980389, g: 0.5370403, b: 1, a: 0}
   m_BuildTextureStacks: []

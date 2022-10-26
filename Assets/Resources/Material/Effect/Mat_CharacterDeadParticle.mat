@@ -140,7 +140,7 @@ Material:
     - _noise: 0.7391768
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 0.08363296, b: 0, a: 1}
+    - _Color: {r: 0.18431368, g: 0.29886517, b: 1, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Main_color: {r: 1, g: 0.24121624, b: 0.089622594, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
