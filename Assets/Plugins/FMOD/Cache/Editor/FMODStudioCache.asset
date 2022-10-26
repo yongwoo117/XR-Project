@@ -245,10 +245,10 @@ MonoBehaviour:
   Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638023755964134144
+  lastModified: 638023763555536738
   FileSizes:
   - Name: Desktop
-    Value: 148192
+    Value: 152064
   Exists: 1
 --- !u!114 &-3445322074122783637
 MonoBehaviour:
@@ -408,7 +408,7 @@ MonoBehaviour:
   - {fileID: 6080511240933485941}
   StringsBanks:
   - {fileID: 434875691311170072}
-  cacheTime: 638023755964134144
+  cacheTime: 638023763555536738
   cacheVersion: 131592
 --- !u!114 &434875691311170072
 MonoBehaviour:
@@ -425,7 +425,7 @@ MonoBehaviour:
   Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638023755963559986
+  lastModified: 638023763554988995
   FileSizes:
   - Name: Desktop
     Value: 1610
@@ -519,10 +519,10 @@ MonoBehaviour:
   Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/BGM.bank
   Name: BGM
   StudioPath: bank:/BGM
-  lastModified: 638023755963535677
+  lastModified: 638023763554963017
   FileSizes:
   - Name: Desktop
-    Value: 1186976
+    Value: 1860512
   Exists: 1
 --- !u!114 &4057241386163705996
 MonoBehaviour:
@@ -550,7 +550,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 48000
+  Length: 96000
 --- !u!114 &4451126634971796779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -593,7 +593,7 @@ MonoBehaviour:
   Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638023755963550008
+  lastModified: 638023763554977891
   FileSizes:
   - Name: Desktop
     Value: 1604
@@ -678,7 +678,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 571
+  Length: 754
 --- !u!114 &8871760529994082103
 MonoBehaviour:
   m_ObjectHideFlags: 0
