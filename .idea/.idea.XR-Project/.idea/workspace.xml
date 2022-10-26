@@ -6,9 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="eaa1b3f2-8e36-4531-8cca-a8a38a967539" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.XR-Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.XR-Project/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/State/AttackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/State/AttackState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/State/CutState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/State/CutState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/State/DashState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/State/DashState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/State/ReadyState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/State/ReadyState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/FMODExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/FMODExtension.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fmod_editor.log" beforeDir="false" afterPath="$PROJECT_DIR$/fmod_editor.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,6 +122,7 @@
       <workItem from="1666342923449" duration="11209000" />
       <workItem from="1666364848096" duration="10461000" />
       <workItem from="1666673874985" duration="4539000" />
+      <workItem from="1666743418467" duration="78000" />
     </task>
     <servers />
   </component>

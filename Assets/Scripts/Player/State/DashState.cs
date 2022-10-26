@@ -62,7 +62,7 @@ namespace Player.State
             isActivated = false;
             StateMachine.RhythmCombo++;
             StateMachine.AddCombatCombo(e_PlayerState.Dash);
-            dashSfx.PlayOnShot();
+            dashSfx.PlayOneShot();
             damagedObjects.Clear();
             Activate();
         }
