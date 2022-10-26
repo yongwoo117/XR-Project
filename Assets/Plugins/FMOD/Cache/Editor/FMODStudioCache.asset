@@ -245,7 +245,7 @@ MonoBehaviour:
   Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638023770499361710
+  lastModified: 638023769826517965
   FileSizes:
   - Name: Desktop
     Value: 154464
@@ -401,14 +401,14 @@ MonoBehaviour:
   - {fileID: -5931376900347134356}
   - {fileID: -5816239471945486006}
   - {fileID: 3126716505352886742}
-  - {fileID: 5799595120608232947}
-  - {fileID: 3359398356550149615}
+  - {fileID: 1662321484082909132}
+  - {fileID: 4451126634971796779}
   EditorParameters: []
   MasterBanks:
   - {fileID: 6080511240933485941}
   StringsBanks:
   - {fileID: 434875691311170072}
-  cacheTime: 638023770499361710
+  cacheTime: 638023769826517965
   cacheVersion: 131592
 --- !u!114 &434875691311170072
 MonoBehaviour:
@@ -425,7 +425,7 @@ MonoBehaviour:
   Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638023770499345091
+  lastModified: 638023769826180161
   FileSizes:
   - Name: Desktop
     Value: 1676
@@ -504,33 +504,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 758
---- !u!114 &3359398356550149615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Creature/SFX_Creature_Hit
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Creature/SFX_Creature_Hit
-  Guid:
-    Data1: 1616427698
-    Data2: 1128222625
-    Data3: 1339756986
-    Data4: 471110799
-  Banks:
-  - {fileID: -3967910431338284299}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 968
 --- !u!114 &3931912377779641040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -546,7 +519,7 @@ MonoBehaviour:
   Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/BGM.bank
   Name: BGM
   StudioPath: bank:/BGM
-  lastModified: 638023768032928771
+  lastModified: 638023769826151682
   FileSizes:
   - Name: Desktop
     Value: 1860512
@@ -605,33 +578,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 968
---- !u!114 &5799595120608232947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Player/SFX_Player_Hit
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Player/SFX_Player_Hit
-  Guid:
-    Data1: 674307416
-    Data2: 1105070526
-    Data3: -304801635
-    Data4: -1380309658
-  Banks:
-  - {fileID: -3967910431338284299}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 620
 --- !u!114 &6080511240933485941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -647,7 +593,7 @@ MonoBehaviour:
   Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638022973079975772
+  lastModified: 638023769826170607
   FileSizes:
   - Name: Desktop
     Value: 1604
