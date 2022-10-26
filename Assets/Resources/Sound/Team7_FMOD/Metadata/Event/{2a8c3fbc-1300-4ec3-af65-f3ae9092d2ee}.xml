@@ -96,7 +96,7 @@
 			<value>0.50419501133786848</value>
 		</property>
 		<property name="volume">
-			<value>-10</value>
+			<value>-16</value>
 		</property>
 		<relationship name="modulators">
 			<destination>{fd9ecd06-21e6-4d3a-97ba-1b56536a413e}</destination>
@@ -191,6 +191,13 @@
 	</object>
 	<object class="MixerBusPanner" id="{677b6c19-bd73-4370-9ebe-762bbaac5740}" />
 	<object class="MixerBusFader" id="{d5ad6da6-9e05-4ac5-8e6a-5ae96e01ece5}" />
-	<object class="SpatialiserEffect" id="{70e26a65-5325-445c-b6e4-0f6d3966804a}" />
+	<object class="SpatialiserEffect" id="{70e26a65-5325-445c-b6e4-0f6d3966804a}">
+		<property name="maximumDistance">
+			<value>10000</value>
+		</property>
+		<property name="overrideRange">
+			<value>true</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{1072f9c7-2dad-4d8b-b5b4-a8865ccc4df3}" />
 </objects>
