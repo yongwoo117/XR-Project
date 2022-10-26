@@ -1,5 +1,8 @@
 using Enemy.Profile;
+using FMOD.Studio;
+using FMODUnity;
 using UnityEngine;
+using STOP_MODE = FMOD.Studio.STOP_MODE;
 
 namespace Enemy.State
 {
@@ -9,13 +12,15 @@ namespace Enemy.State
         private float chaseRange;
         private float chaseSpeed;
         private float attackRange;
-        private float damage;
+        private EventReference moveSfx;
 
         //상태 변수
         private HealthModule player;
 
         //Machine 변수
         private Rigidbody rigid;
+
+        private EventInstance moveInstance;
 
         private readonly Collider[] collisionBuffer = new Collider[1];
 
@@ -26,7 +31,8 @@ namespace Enemy.State
                 chaseSpeed = value.f_ChaseSpeed;
                 chaseRange = value.f_ChaseRange;
                 attackRange = value.f_AttackRange;
-                damage = value.f_damage;
+                moveSfx = value.SFXDictionary[SFXType.Move];
+                moveInstance = RuntimeManager.CreateInstance(moveSfx);
             }
         }
 
@@ -45,11 +51,13 @@ namespace Enemy.State
             }
 
             player = collisionBuffer[0].GetComponent<HealthModule>();
+            moveInstance.start();
         }
 
         public override void Exit()
         {
             rigid.velocity = Vector3.zero;
+            moveInstance.stop(STOP_MODE.IMMEDIATE);
         }
 
         public override void PhysicsUpdate()
@@ -60,16 +68,8 @@ namespace Enemy.State
         public override void LogicUpdate()
         {
             var distance = (player.transform.position - StateMachine.transform.position).magnitude;
-            if (distance > chaseRange)
-            {
-                StateMachine.ChangeState(e_EnemyState.Idle);
-            }
-            else if (distance <= attackRange)
-            {
-                //TODO: 공격 애니메이션 타이밍에 맞춰서 데미지를 주는 로직을 추가해야 합니다.
-                player.RequestDamage(damage);
-                StateMachine.ChangeState(e_EnemyState.Attack);
-            }
+            if (distance > chaseRange) StateMachine.ChangeState(e_EnemyState.Idle);
+            else if (distance <= attackRange) StateMachine.ChangeState(e_EnemyState.Attack);
         }
 
         public override void OnDrawGizmos()
@@ -93,5 +93,7 @@ namespace Enemy.State
         {
             StateMachine.ChangeState(e_EnemyState.Hit);
         }
+
+        ~ChaseState() => moveInstance.release();
     }
 }
