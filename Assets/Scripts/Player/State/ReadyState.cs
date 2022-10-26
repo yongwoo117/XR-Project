@@ -21,7 +21,7 @@ namespace Player.State
             if (chargedEffect is not null) 
                 chargedEffect.transform.position = StateMachine.transform.GetChild(0).position;
             StateMachine.Anim.SetTrigger(AnimationParameter.Charge);
-            readySfx.PlayOneShot();
+            readySfx.AttachedOneShot(StateMachine.gameObject);
         }
 
         public override void HandleInput(InteractionType interactionType)

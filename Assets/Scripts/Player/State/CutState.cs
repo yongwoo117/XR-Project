@@ -29,7 +29,7 @@ namespace Player.State
             Debug.Log("Cut Enter");
             StateMachine.RhythmCombo++;
             StateMachine.AddCombatCombo(e_PlayerState.Cut);
-            cutSfx.PlayOneShot();
+            cutSfx.AttachedOneShot(StateMachine.gameObject);
             Attack();
         }
 
