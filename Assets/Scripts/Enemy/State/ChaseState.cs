@@ -1,6 +1,5 @@
 using Enemy.Profile;
 using FMOD.Studio;
-using FMODUnity;
 using UnityEngine;
 using STOP_MODE = FMOD.Studio.STOP_MODE;
 
@@ -12,7 +11,6 @@ namespace Enemy.State
         private float chaseRange;
         private float chaseSpeed;
         private float attackRange;
-        private EventReference moveSfx;
 
         //상태 변수
         private HealthModule player;
@@ -31,8 +29,7 @@ namespace Enemy.State
                 chaseSpeed = value.f_ChaseSpeed;
                 chaseRange = value.f_ChaseRange;
                 attackRange = value.f_AttackRange;
-                moveSfx = value.SFXDictionary[SFXType.Move];
-                moveInstance = RuntimeManager.CreateInstance(moveSfx);
+                moveInstance = value.SFXDictionary[SFXType.Move].CreateAttach(StateMachine.transform);
             }
         }
 

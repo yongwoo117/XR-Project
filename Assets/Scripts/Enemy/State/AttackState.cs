@@ -22,7 +22,7 @@ namespace Enemy.State
         public override void Enter()
         {
             thresholdTime = Time.realtimeSinceStartup + attackTime;
-            attackSfx.PlayOneShot();
+            attackSfx.AttachedOneShot(StateMachine.gameObject);
         }
 
         public override void LogicUpdate()
