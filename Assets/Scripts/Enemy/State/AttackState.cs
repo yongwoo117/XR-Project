@@ -1,4 +1,5 @@
 using Enemy.Profile;
+using FMODUnity;
 using UnityEngine;
 
 namespace Enemy.State
@@ -7,15 +8,21 @@ namespace Enemy.State
     {
         private float attackTime;
         private float thresholdTime;
+        private EventReference attackSfx;
 
         public override EnemyProfile Profile
         {
-            set => attackTime = value.f_attackTime;
+            set
+            {
+                attackTime = value.f_attackTime;
+                attackSfx = value.SFXDictionary[SFXType.Attack1];
+            }
         }
 
         public override void Enter()
         {
             thresholdTime = Time.realtimeSinceStartup + attackTime;
+            attackSfx.PlayOneShot();
         }
 
         public override void LogicUpdate()
