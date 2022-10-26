@@ -91,6 +91,8 @@ namespace Enemy.State
             StateMachine.ChangeState(e_EnemyState.Hit);
         }
 
+        public override void OnPause(bool isPaused) => moveInstance.setPaused(isPaused);
+
         ~ChaseState() => moveInstance.release();
     }
 }

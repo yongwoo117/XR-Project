@@ -3419,6 +3419,20 @@ MonoBehaviour:
   pauseInterface: {fileID: 2114241537}
   settingInterface: {fileID: 477068652}
   rhythmTrigger: 0a00000014000000
+  buttonDownSound:
+    Guid:
+      Data1: 1802553109
+      Data2: 1213208544
+      Data3: 1259383951
+      Data4: 318712341
+    Path: event:/SFX/UI/SFX_UI_Button
+  pauseSound:
+    Guid:
+      Data1: 1169723198
+      Data2: 1196240005
+      Data3: 602309541
+      Data4: 714535223
+    Path: event:/SFX/UI/SFX_UI_Stop
   playerInput: {fileID: 1680146607699291306}
 --- !u!1 &1672992296
 GameObject:

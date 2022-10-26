@@ -22,12 +22,15 @@ public class EnemyStateMachine : StateMachine<e_EnemyState, EnemyState, EnemySta
         if (profile.f_maximumHealth <= 0) ChangeState(e_EnemyState.Die);
 
         RhythmCore.Instance.onRhythm.AddListener(OnRhythm);
+        GameManager.OnPause.AddListener(OnPause);
     }
 
+    private void OnPause(bool isPaused) => currentState?.OnPause(isPaused);
     private void OnRhythm() => currentState?.OnRhythm();
 
     private void OnDestroy()
     {
         RhythmCore.Instance.onRhythm.RemoveListener(OnRhythm);
+        GameManager.OnPause.RemoveListener(OnPause);
     }
 }
