@@ -28,7 +28,7 @@ MonoBehaviour:
         Data4: -137687780
       Path: event:/SFX/Creature/SFX_Creature_Move
   f_CheckRange: 100
-  f_AttackRange: 5
+  f_AttackRange: 10
   f_ChaseRange: 100
   f_ChaseSpeed: 5
   f_maximumHealth: 15
