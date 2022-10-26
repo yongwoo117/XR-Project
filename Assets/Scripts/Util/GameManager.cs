@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : SoundManager
 {
     [SerializeField] private PlayerInput playerInput;
-    
     private bool IsPaused
     {
         get => isPaused;
