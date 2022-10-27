@@ -15,6 +15,8 @@ namespace Enemy.Profile
         public float f_maximumHealth;
         public float f_hitTime;
         public float f_damage;
-        public float f_attackTime;
+        public float f_attackPreDelay;
+        public float f_attackPostDelay;
+        public Vector3 v3_attackBox;
     }
 }

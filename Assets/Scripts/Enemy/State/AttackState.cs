@@ -6,29 +6,60 @@ namespace Enemy.State
 {
     public class AttackState : EnemyState
     {
-        private float attackTime;
-        private float thresholdTime;
+        private float preDelay;
+        private float postDelay;
+        private float attackRange;
+        private Vector3 attackBox;
+        private float damage;
         private EventReference attackSfx;
+        
+        private float thresholdTime;
+        private bool isAttacked;
+        private Vector3 playerPosition;
 
         public override EnemyProfile Profile
         {
             set
             {
-                attackTime = value.f_attackTime;
+                preDelay = value.f_attackPreDelay;
+                postDelay = value.f_attackPostDelay;
                 attackSfx = value.SFXDictionary[SFXType.Attack1];
+                attackBox = value.v3_attackBox;
+                damage = value.f_damage;
+                attackRange = value.f_AttackRange;
             }
         }
 
         public override void Enter()
         {
-            thresholdTime = Time.realtimeSinceStartup + attackTime;
-            attackSfx.AttachedOneShot(StateMachine.gameObject);
+            var colliders = Physics.OverlapSphere(StateMachine.transform.position, attackRange, GetLayerMasks.Player);
+            if (colliders.Length <= 0)
+            {
+                StateMachine.ChangeState(e_EnemyState.Idle);
+                return;
+            }
+
+            playerPosition = colliders[0].transform.position;
+            thresholdTime = Time.realtimeSinceStartup + preDelay;
+            isAttacked = false;
         }
 
         public override void LogicUpdate()
         {
-            if (Time.realtimeSinceStartup > thresholdTime)
-                StateMachine.ChangeState(e_EnemyState.Idle);
+            if (Time.realtimeSinceStartup < thresholdTime) return;
+            
+            if (isAttacked) StateMachine.ChangeState(e_EnemyState.Idle);
+            else
+            {
+                var currentPosition = StateMachine.transform.position;
+                var direction = (playerPosition - currentPosition).normalized;
+                var colliders = Physics.OverlapBox(currentPosition + direction * attackBox.z, attackBox / 2,
+                    Quaternion.LookRotation(direction), GetLayerMasks.Player);
+                if (colliders.Length > 0) colliders[0].GetComponent<HealthModule>().RequestDamage(damage);
+                attackSfx.AttachedOneShot(StateMachine.gameObject);
+                thresholdTime = Time.realtimeSinceStartup + postDelay;
+                isAttacked = true;
+            }
         }
         
         public override void OnDamaged(float value)

@@ -46,4 +46,6 @@ MonoBehaviour:
   f_maximumHealth: 15
   f_hitTime: 1
   f_damage: 1
-  f_attackTime: 1
+  f_attackPreDelay: 1
+  f_attackPostDelay: 1
+  v3_attackBox: {x: 10, y: 10, z: 10}
