@@ -1,3 +1,4 @@
+using Player.Animation;
 using UnityEngine;
 
 namespace Player.State
@@ -25,6 +26,8 @@ namespace Player.State
             Debug.Log("Cut Enter");
             StateMachine.RhythmCombo++;
             StateMachine.AddCombatCombo(e_PlayerState.Cut);
+            StateMachine.Anim.SetTrigger(AnimationParameter.Cut);
+
             Attack();
         }
 
