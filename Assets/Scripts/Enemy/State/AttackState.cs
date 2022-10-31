@@ -43,7 +43,7 @@ namespace Enemy.State
             playerPosition = colliders[0].transform.position;
             thresholdTime = Time.realtimeSinceStartup + preDelay;
             isAttacked = false;
-            StateMachine.Anim.SetTrigger(AnimationParameter.Attack);
+            StateMachine.Anim.SetTrigger(AnimationParameter.Ready);
         }
 
         public override void LogicUpdate()
@@ -53,6 +53,7 @@ namespace Enemy.State
             if (isAttacked) StateMachine.ChangeState(e_EnemyState.Idle);
             else
             {
+                StateMachine.Anim.SetTrigger(AnimationParameter.Attack);
                 var currentPosition = StateMachine.transform.position;
                 var direction = (playerPosition - currentPosition).normalized;
                 var colliders = Physics.OverlapBox(currentPosition + direction * attackBox.z, attackBox / 2,
