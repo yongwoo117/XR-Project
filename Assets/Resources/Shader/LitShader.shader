@@ -5,6 +5,7 @@ Shader "Custom/Lit_ZWriteOn"
         _MainTex("Diffuse", 2D) = "white" {}
         _MaskTex("Mask", 2D) = "white" {}
         _NormalMap("Normal Map", 2D) = "bump" {}
+        _Radius("Radius", Range(0.001, 500)) = 10
 
         // Legacy properties. They're here so that materials using this shader can gracefully fallback to the legacy sprite shader.
         [HideInInspector] _Color("Tint", Color) = (1,1,1,1)
@@ -33,6 +34,7 @@ Shader "Custom/Lit_ZWriteOn"
                 #pragma fragment CombinedShapeLightFragment
                 
 
+
                 #pragma multi_compile USE_SHAPE_LIGHT_TYPE_0 __
                 #pragma multi_compile USE_SHAPE_LIGHT_TYPE_1 __
                 #pragma multi_compile USE_SHAPE_LIGHT_TYPE_2 __
@@ -53,9 +55,8 @@ Shader "Custom/Lit_ZWriteOn"
                     half4   color       : COLOR;
                     float2  uv          : TEXCOORD0;
                     half2   lightingUV  : TEXCOORD1;
-                    #if defined(DEBUG_DISPLAY)
                     float3  positionWS  : TEXCOORD2;
-                    #endif
+
                     UNITY_VERTEX_OUTPUT_STEREO
                 };
 
@@ -92,9 +93,7 @@ Shader "Custom/Lit_ZWriteOn"
                     UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
 
                     o.positionCS = TransformObjectToHClip(v.positionOS);
-                    #if defined(DEBUG_DISPLAY)
                     o.positionWS = TransformObjectToWorld(v.positionOS);
-                    #endif
                     o.uv = TRANSFORM_TEX(v.uv, _MainTex);
 
                     o.lightingUV = half2(ComputeScreenPos(o.positionCS / o.positionCS.w).xy);
@@ -105,9 +104,16 @@ Shader "Custom/Lit_ZWriteOn"
 
                 #include "Packages/com.unity.render-pipelines.universal/Shaders/2D/Include/CombinedShapeLightShared.hlsl"
 
+                float _Radius;
+
                 half4 CombinedShapeLightFragment(Varyings i) : SV_Target
                 {
-                    const half4 main = i.color * SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.uv);
+                    half4 main = i.color * SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.uv);
+
+                    float dist = distance(i.positionWS, _WorldSpaceCameraPos);
+                    float alpha = smoothstep(0,1,saturate(dist / _Radius));
+                    main.a = alpha;
+
                     const half4 mask = SAMPLE_TEXTURE2D(_MaskTex, sampler_MaskTex, i.uv);
                     SurfaceData2D surfaceData;
                     InputData2D inputData;
@@ -244,6 +250,7 @@ Shader "Custom/Lit_ZWriteOn"
                     SurfaceData2D surfaceData;
                     InputData2D inputData;
                     half4 debugColor = 0;
+
 
                     InitializeSurfaceData(mainTex.rgb, mainTex.a, surfaceData);
                     InitializeInputData(i.uv, inputData);

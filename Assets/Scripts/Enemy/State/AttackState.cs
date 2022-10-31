@@ -1,3 +1,4 @@
+using Enemy.Animation;
 using Enemy.Profile;
 using FMODUnity;
 using UnityEngine;
@@ -42,6 +43,7 @@ namespace Enemy.State
             playerPosition = colliders[0].transform.position;
             thresholdTime = Time.realtimeSinceStartup + preDelay;
             isAttacked = false;
+            StateMachine.Anim.SetTrigger(AnimationParameter.Attack);
         }
 
         public override void LogicUpdate()

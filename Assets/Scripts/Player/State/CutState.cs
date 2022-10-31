@@ -1,4 +1,5 @@
 using FMODUnity;
+using Player.Animation;
 using UnityEngine;
 
 namespace Player.State
@@ -29,7 +30,7 @@ namespace Player.State
             Debug.Log("Cut Enter");
             StateMachine.RhythmCombo++;
             StateMachine.AddCombatCombo(e_PlayerState.Cut);
-            cutSfx.AttachedOneShot(StateMachine.gameObject);
+            StateMachine.Anim.SetTrigger(AnimationParameter.Cut);
             Attack();
         }
 
@@ -65,6 +66,7 @@ namespace Player.State
         
         private void Attack()
         {
+            cutSfx.AttachedOneShot(StateMachine.gameObject);
             var count = Physics.OverlapSphereNonAlloc(StateMachine.transform.position, attackRange, collisionBuffer,
                 GetLayerMasks.Enemy);
             if (count == 0) return;

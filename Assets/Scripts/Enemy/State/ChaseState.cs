@@ -1,3 +1,4 @@
+using Enemy.Animation;
 using Enemy.Profile;
 using FMOD.Studio;
 using UnityEngine;
@@ -49,6 +50,7 @@ namespace Enemy.State
 
             player = collisionBuffer[0].GetComponent<HealthModule>();
             moveInstance.start();
+            StateMachine.Anim.SetTrigger(AnimationParameter.Move);
         }
 
         public override void Exit()
@@ -64,7 +66,9 @@ namespace Enemy.State
 
         public override void LogicUpdate()
         {
-            var distance = (player.transform.position - StateMachine.transform.position).magnitude;
+            var dir = player.transform.position - StateMachine.transform.position;
+            var distance = dir.magnitude;
+            FlipToDirection(dir);
             if (distance > chaseRange) StateMachine.ChangeState(e_EnemyState.Idle);
             else if (distance <= attackRange) StateMachine.ChangeState(e_EnemyState.Attack);
         }
@@ -94,5 +98,12 @@ namespace Enemy.State
         public override void OnPause(bool isPaused) => moveInstance.setPaused(isPaused);
 
         ~ChaseState() => moveInstance.release();
+        
+        private void FlipToDirection(Vector3 direction)
+        {
+            Vector3 GFXScale = StateMachine.Anim.transform.localScale;
+            GFXScale.x = Mathf.Abs(GFXScale.x) * (direction.x > 0 ? -1 : 1);
+            StateMachine.Anim.transform.localScale = GFXScale;
+        }
     }
 }

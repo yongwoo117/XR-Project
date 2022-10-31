@@ -171,7 +171,7 @@ public class SpawnManager : MonoBehaviour
         if (poolDictionary.ContainsKey(key))
         {
             CurrentSpawnCount++; //CurrentSpawnCount 증가
-            return poolDictionary[key].Get();
+            return poolDictionary[key].Get();       
         }
 
         Debug.LogError("존재 하지 않는 스폰 타입 호출" + key);

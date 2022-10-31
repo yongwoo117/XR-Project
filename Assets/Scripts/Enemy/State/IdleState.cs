@@ -1,3 +1,4 @@
+using Enemy.Animation;
 using Enemy.Profile;
 using UnityEngine;
 
@@ -18,6 +19,12 @@ namespace Enemy.State
         public override void Initialize()
         {
             transform = StateMachine.transform;
+        }
+
+        public override void Enter()
+        {
+            base.Enter();
+            StateMachine.Anim.SetTrigger(AnimationParameter.Idle);
         }
 
         public override void LogicUpdate()

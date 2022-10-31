@@ -1,6 +1,53 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8687467550503612404
+--- !u!114 &-8130003446193360048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638028217920621113
+  FileSizes:
+  - Name: Desktop
+    Value: 1318
+  Exists: 1
+--- !u!114 &-7119729453622463087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Player/SFX_Player_Sting_Attack
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Player/SFX_Player_Sting_Attack
+  Guid:
+    Data1: 2010732678
+    Data2: 1146038715
+    Data3: 520879775
+    Data4: -1363613283
+  Banks:
+  - {fileID: 4648303083651565258}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 839
+--- !u!114 &-7112181297843187857
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -19,110 +66,16 @@ MonoBehaviour:
     Data3: -1708895574
     Data4: -950846002
   Banks:
-  - {fileID: 3931912377779641040}
+  - {fileID: 5767655556717326999}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -860009342637998328}
+  - {fileID: 2143660785408407756}
   MinDistance: 1
   MaxDistance: 20
   Length: 46000
---- !u!114 &-7354761647375008314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Player/SFX_Player_Pre
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Player/SFX_Player_Pre
-  Guid:
-    Data1: 993285847
-    Data2: 1296293141
-    Data3: 956859572
-    Data4: -1042581343
-  Banks:
-  - {fileID: -1614505624603269090}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 1000
---- !u!114 &-7333067095267342699
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Player/SFX_Player_ThythmFail
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Player/SFX_Player_ThythmFail
-  Guid:
-    Data1: 899253875
-    Data2: 1276921179
-    Data3: -1382735186
-    Data4: 1668570465
-  Banks:
-  - {fileID: -3967910431338284299}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 195
---- !u!114 &-6919665049675429880
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/Master.strings.bank
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-  lastModified: 638023950483774038
-  FileSizes:
-  - Name: Desktop
-    Value: 1686
-  Exists: 1
---- !u!114 &-6814344020887448383
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/SFX.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/SFX.bank
-  Name: SFX
-  StudioPath: bank:/SFX
-  lastModified: 638005912454762983
-  FileSizes:
-  - Name: Desktop
-    Value: 494
-  Exists: 1
---- !u!114 &-6317618563347637287
+--- !u!114 &-6666401489056121259
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,15 +94,15 @@ MonoBehaviour:
     Data3: 621063842
     Data4: 106413399
   Banks:
-  - {fileID: 3931912377779641040}
+  - {fileID: 5767655556717326999}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 48000
---- !u!114 &-6182423424703406661
+  Length: 96000
+--- !u!114 &-4998385583505043420
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -159,51 +112,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Player/SFX_Player_Sting_Attack
+  m_Name: event:/SFX/Player/SFX_Player_Hit
   m_EditorClassIdentifier: 
-  Path: event:/SFX/Player/SFX_Player_Sting_Attack
+  Path: event:/SFX/Player/SFX_Player_Hit
   Guid:
-    Data1: 2010732678
-    Data2: 1146038715
-    Data3: 520879775
-    Data4: -1363613283
+    Data1: -198836254
+    Data2: 1145072840
+    Data3: 280676997
+    Data4: 1965113
   Banks:
-  - {fileID: -3967910431338284299}
+  - {fileID: 4648303083651565258}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 839
---- !u!114 &-6092585539029297446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Battle/Battle
-  m_EditorClassIdentifier: 
-  Name: Battle
-  StudioPath: 
-  Min: 0
-  Max: 2
-  Default: 0
-  ID:
-    data1: 3528270425
-    data2: 1201231348
-  Type: 2
-  IsGlobal: 0
-  Labels:
-  - A
-  - B
-  - C
-  Exists: 1
---- !u!114 &-5931376900347134356
+  Length: 620
+--- !u!114 &-3802217006900555097
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -213,132 +139,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Player/SFX_Player_Dead
+  m_Name: event:/SFX/Creature/SFX_Creature_Dead
   m_EditorClassIdentifier: 
-  Path: event:/SFX/Player/SFX_Player_Dead
+  Path: event:/SFX/Creature/SFX_Creature_Dead
   Guid:
-    Data1: -1833384865
-    Data2: 1236043975
-    Data3: 1587671964
-    Data4: 1487641487
+    Data1: 1585166169
+    Data2: 1187770281
+    Data3: -459868241
+    Data4: 1754492615
   Banks:
-  - {fileID: -3967910431338284299}
+  - {fileID: 4648303083651565258}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1638
---- !u!114 &-5911885938923233327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Player/SFX_Player_Sting_Attack
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Player/SFX_Player_Sting_Attack
-  Guid:
-    Data1: 2010732678
-    Data2: 1146038715
-    Data3: 520879775
-    Data4: -1363613283
-  Banks:
-  - {fileID: -1614505624603269090}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 839
---- !u!114 &-5861759845657852018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Player/SFX_Player_Swing_Attack
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Player/SFX_Player_Swing_Attack
-  Guid:
-    Data1: -877284677
-    Data2: 1165228138
-    Data3: -532511857
-    Data4: 1975871176
-  Banks:
-  - {fileID: -1614505624603269090}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 1308
---- !u!114 &-5816239471945486006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Creature/SFX_Creature_Move
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Creature/SFX_Creature_Move
-  Guid:
-    Data1: 713834428
-    Data2: 1321407232
-    Data3: -1359780433
-    Data4: -288189808
-  Banks:
-  - {fileID: -3967910431338284299}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 504
---- !u!114 &-4932518199332460754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Battle/Battle
-  m_EditorClassIdentifier: 
-  Name: Battle
-  StudioPath: 
-  Min: 0
-  Max: 2
-  Default: 0
-  ID:
-    data1: 3528270425
-    data2: 1201231348
-  Type: 2
-  IsGlobal: 0
-  Labels:
-  - A
-  - B
-  - C
-  Exists: 1
---- !u!114 &-4766820863910034048
+  Length: 1187
+--- !u!114 &-3179277246914605643
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -357,7 +175,7 @@ MonoBehaviour:
     Data3: 602309541
     Data4: 714535223
   Banks:
-  - {fileID: -3967910431338284299}
+  - {fileID: 4648303083651565258}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -365,211 +183,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 535
---- !u!114 &-4656456861428990800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/BGM.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/BGM.bank
-  Name: BGM
-  StudioPath: bank:/BGM
-  lastModified: 638005912453302658
-  FileSizes:
-  - Name: Desktop
-    Value: 92256
-  Exists: 1
---- !u!114 &-4640375458853795085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Creature/SFX_Creature_Move
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Creature/SFX_Creature_Move
-  Guid:
-    Data1: 713834428
-    Data2: 1321407232
-    Data3: -1359780433
-    Data4: -288189808
-  Banks:
-  - {fileID: -1614505624603269090}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 504
---- !u!114 &-4588368388283950484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Creature/SFX_Creature_Dead
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Creature/SFX_Creature_Dead
-  Guid:
-    Data1: 1585166169
-    Data2: 1187770281
-    Data3: -459868241
-    Data4: 1754492615
-  Banks:
-  - {fileID: -3967910431338284299}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 1187
---- !u!114 &-4328906164107984883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Player/SFX_Player_Sting_Rush
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Player/SFX_Player_Sting_Rush
-  Guid:
-    Data1: -1153974226
-    Data2: 1243383474
-    Data3: 1502905021
-    Data4: -80026572
-  Banks:
-  - {fileID: -1614505624603269090}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 758
---- !u!114 &-4203764040954352203
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/BGM/Battle
-  m_EditorClassIdentifier: 
-  Path: event:/BGM/Battle
-  Guid:
-    Data1: -1314278806
-    Data2: 1245105814
-    Data3: -1708895574
-    Data4: -950846002
-  Banks:
-  - {fileID: -51430399983125900}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters:
-  - {fileID: -4932518199332460754}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 46000
---- !u!114 &-3967910431338284299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/SFX.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/SFX.bank
-  Name: SFX
-  StudioPath: bank:/SFX
-  lastModified: 638023900032860611
-  FileSizes:
-  - Name: Desktop
-    Value: 176160
-  Exists: 1
---- !u!114 &-3445322074122783637
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/BGM/Battle
-  m_EditorClassIdentifier: 
-  Path: event:/BGM/Battle
-  Guid:
-    Data1: -1314278806
-    Data2: 1245105814
-    Data3: -1708895574
-    Data4: -950846002
-  Banks:
-  - {fileID: 3931912377779641040}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters:
-  - {fileID: -6092585539029297446}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 46000
---- !u!114 &-3331355244701263795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Player/SFX_Player_Dead
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Player/SFX_Player_Dead
-  Guid:
-    Data1: -1833384865
-    Data2: 1236043975
-    Data3: 1587671964
-    Data4: 1487641487
-  Banks:
-  - {fileID: -1614505624603269090}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 1638
---- !u!114 &-2786785629833982567
+--- !u!114 &-1654573307188579444
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -588,7 +202,7 @@ MonoBehaviour:
     Data3: -1382735186
     Data4: 1668570465
   Banks:
-  - {fileID: -1614505624603269090}
+  - {fileID: 4648303083651565258}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -596,241 +210,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 195
---- !u!114 &-1776548599625920279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Player/SFX_Player_ThythmFail
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Player/SFX_Player_ThythmFail
-  Guid:
-    Data1: 899253875
-    Data2: 1276921179
-    Data3: -1382735186
-    Data4: 1668570465
-  Banks:
-  - {fileID: -3967910431338284299}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 195
---- !u!114 &-1750186579509521395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/Master.strings.bank
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-  lastModified: 638005912454752981
-  FileSizes:
-  - Name: Desktop
-    Value: 870
-  Exists: 1
---- !u!114 &-1614505624603269090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/SFX.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/SFX.bank
-  Name: SFX
-  StudioPath: bank:/SFX
-  lastModified: 638023950483799682
-  FileSizes:
-  - Name: Desktop
-    Value: 176160
-  Exists: 1
---- !u!114 &-1478754177293771917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Creature/SFX_Creature_Dead
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Creature/SFX_Creature_Dead
-  Guid:
-    Data1: 1585166169
-    Data2: 1187770281
-    Data3: -459868241
-    Data4: 1754492615
-  Banks:
-  - {fileID: -3967910431338284299}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 1187
---- !u!114 &-1196362384913171503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Battle
-  m_EditorClassIdentifier: 
-  Path: event:/Battle
-  Guid:
-    Data1: 1108825099
-    Data2: 1155193423
-    Data3: 282107271
-    Data4: 1131801011
-  Banks:
-  - {fileID: -4656456861428990800}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 8000
---- !u!114 &-908155622944403397
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/Master.bank
-  Name: Master
-  StudioPath: bank:/Master
-  lastModified: 638023950483756748
-  FileSizes:
-  - Name: Desktop
-    Value: 1318
-  Exists: 1
---- !u!114 &-860009342637998328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Battle/Battle
-  m_EditorClassIdentifier: 
-  Name: Battle
-  StudioPath: 
-  Min: 0
-  Max: 2
-  Default: 0
-  ID:
-    data1: 3528270425
-    data2: 1201231348
-  Type: 2
-  IsGlobal: 0
-  Labels:
-  - A
-  - B
-  - C
-  Exists: 1
---- !u!114 &-763598408223639613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/AMB.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/AMB.bank
-  Name: AMB
-  StudioPath: bank:/AMB
-  lastModified: 638005912453292655
-  FileSizes:
-  - Name: Desktop
-    Value: 494
-  Exists: 1
---- !u!114 &-212616839681672651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Creature/SFX_Creature_Attack
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Creature/SFX_Creature_Attack
-  Guid:
-    Data1: 1489577533
-    Data2: 1170344078
-    Data3: 759061390
-    Data4: 847786320
-  Banks:
-  - {fileID: -1614505624603269090}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 754
---- !u!114 &-51430399983125900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/BGM.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/BGM.bank
-  Name: BGM
-  StudioPath: bank:/BGM
-  lastModified: 638023950483751884
-  FileSizes:
-  - Name: Desktop
-    Value: 1860512
-  Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -844,34 +223,34 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: -6919665049675429880}
-  - {fileID: -51430399983125900}
-  - {fileID: -908155622944403397}
-  - {fileID: -1614505624603269090}
+  - {fileID: 588961260353031328}
+  - {fileID: 5767655556717326999}
+  - {fileID: -8130003446193360048}
+  - {fileID: 4648303083651565258}
   EditorEvents:
-  - {fileID: -4203764040954352203}
-  - {fileID: 2167131492997095256}
-  - {fileID: 1240973480528599357}
-  - {fileID: -4328906164107984883}
-  - {fileID: -212616839681672651}
-  - {fileID: 557670990219503869}
-  - {fileID: 8450791493527382830}
-  - {fileID: -3331355244701263795}
-  - {fileID: -2786785629833982567}
-  - {fileID: -5911885938923233327}
-  - {fileID: 2880958781499226559}
-  - {fileID: -5861759845657852018}
-  - {fileID: -4640375458853795085}
-  - {fileID: -7354761647375008314}
-  - {fileID: 6685788673350454345}
+  - {fileID: -7112181297843187857}
+  - {fileID: -6666401489056121259}
+  - {fileID: 3021234713946205746}
+  - {fileID: 2727227139106431788}
+  - {fileID: 8799115349008482696}
+  - {fileID: -3179277246914605643}
+  - {fileID: -3802217006900555097}
+  - {fileID: 4731970476721793462}
+  - {fileID: -1654573307188579444}
+  - {fileID: -7119729453622463087}
+  - {fileID: 8270006467323602394}
+  - {fileID: 6203945032745641780}
+  - {fileID: 5842499952473902435}
+  - {fileID: 3327823917502591439}
+  - {fileID: -4998385583505043420}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -908155622944403397}
+  - {fileID: -8130003446193360048}
   StringsBanks:
-  - {fileID: -6919665049675429880}
-  cacheTime: 638023950483799682
+  - {fileID: 588961260353031328}
+  cacheTime: 638028217920675539
   cacheVersion: 131592
---- !u!114 &434875691311170072
+--- !u!114 &588961260353031328
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -886,12 +265,12 @@ MonoBehaviour:
   Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638023900032471713
+  lastModified: 638028217920649752
   FileSizes:
   - Name: Desktop
     Value: 1686
   Exists: 1
---- !u!114 &557670990219503869
+--- !u!114 &2143660785408407756
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -900,153 +279,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/UI/SFX_UI_Stop
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Battle/Battle
   m_EditorClassIdentifier: 
-  Path: event:/SFX/UI/SFX_UI_Stop
-  Guid:
-    Data1: 1169723198
-    Data2: 1196240005
-    Data3: 602309541
-    Data4: 714535223
-  Banks:
-  - {fileID: -1614505624603269090}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 535
---- !u!114 &1240973480528599357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/UI/SFX_UI_Button
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/UI/SFX_UI_Button
-  Guid:
-    Data1: 1802553109
-    Data2: 1213208544
-    Data3: 1259383951
-    Data4: 318712341
-  Banks:
-  - {fileID: -1614505624603269090}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 375
---- !u!114 &1662321484082909132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Player/SFX_Player_Hit
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Player/SFX_Player_Hit
-  Guid:
-    Data1: -198836254
-    Data2: 1145072840
-    Data3: 280676997
-    Data4: 1965113
-  Banks:
-  - {fileID: -3967910431338284299}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 620
---- !u!114 &2167131492997095256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/BGM/Robby
-  m_EditorClassIdentifier: 
-  Path: event:/BGM/Robby
-  Guid:
-    Data1: -840325727
-    Data2: 1261852986
-    Data3: 621063842
-    Data4: 106413399
-  Banks:
-  - {fileID: -51430399983125900}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 96000
---- !u!114 &2279607781597253664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/Master.bank
-  Name: Master
-  StudioPath: bank:/Master
-  lastModified: 638005912454742981
-  FileSizes:
-  - Name: Desktop
-    Value: 1036
+  Name: Battle
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 3528270425
+    data2: 1201231348
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - A
+  - B
+  - C
   Exists: 1
---- !u!114 &2880958781499226559
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Creature/SFX_Creature_Hit
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Creature/SFX_Creature_Hit
-  Guid:
-    Data1: -1748871285
-    Data2: 1091789191
-    Data3: 1898228414
-    Data4: -719431603
-  Banks:
-  - {fileID: -1614505624603269090}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 968
---- !u!114 &3126716505352886742
+--- !u!114 &2727227139106431788
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1065,7 +316,7 @@ MonoBehaviour:
     Data3: 1502905021
     Data4: -80026572
   Banks:
-  - {fileID: -3967910431338284299}
+  - {fileID: 4648303083651565258}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1073,182 +324,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 758
---- !u!114 &3359398356550149615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Creature/SFX_Creature_Hit
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Creature/SFX_Creature_Hit
-  Guid:
-    Data1: -1748871285
-    Data2: 1091789191
-    Data3: 1898228414
-    Data4: -719431603
-  Banks:
-  - {fileID: -3967910431338284299}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 968
---- !u!114 &3931912377779641040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/BGM.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/BGM.bank
-  Name: BGM
-  StudioPath: bank:/BGM
-  lastModified: 638023900032452982
-  FileSizes:
-  - Name: Desktop
-    Value: 1860512
-  Exists: 1
---- !u!114 &4057241386163705996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/BGM/Robby
-  m_EditorClassIdentifier: 
-  Path: event:/BGM/Robby
-  Guid:
-    Data1: -840325727
-    Data2: 1261852986
-    Data3: 621063842
-    Data4: 106413399
-  Banks:
-  - {fileID: 3931912377779641040}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 96000
---- !u!114 &4451126634971796779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Creature/SFX_Creature_Hit
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Creature/SFX_Creature_Hit
-  Guid:
-    Data1: -1748871285
-    Data2: 1091789191
-    Data3: 1898228414
-    Data4: -719431603
-  Banks:
-  - {fileID: -3967910431338284299}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 968
---- !u!114 &5799595120608232947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Player/SFX_Player_Hit
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Player/SFX_Player_Hit
-  Guid:
-    Data1: -198836254
-    Data2: 1145072840
-    Data3: 280676997
-    Data4: 1965113
-  Banks:
-  - {fileID: -3967910431338284299}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 620
---- !u!114 &6080511240933485941
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/Master.bank
-  Name: Master
-  StudioPath: bank:/Master
-  lastModified: 638023900032466575
-  FileSizes:
-  - Name: Desktop
-    Value: 1318
-  Exists: 1
---- !u!114 &6685788673350454345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Player/SFX_Player_Hit
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Player/SFX_Player_Hit
-  Guid:
-    Data1: -198836254
-    Data2: 1145072840
-    Data3: 280676997
-    Data4: 1965113
-  Banks:
-  - {fileID: -1614505624603269090}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 620
---- !u!114 &7252982465105005398
+--- !u!114 &3021234713946205746
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1267,7 +343,7 @@ MonoBehaviour:
     Data3: 1259383951
     Data4: 318712341
   Banks:
-  - {fileID: -3967910431338284299}
+  - {fileID: 4648303083651565258}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1275,88 +351,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 375
---- !u!114 &7590636022813509086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Player/SFX_Player_Swing_Attack
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Player/SFX_Player_Swing_Attack
-  Guid:
-    Data1: -877284677
-    Data2: 1165228138
-    Data3: -532511857
-    Data4: 1975871176
-  Banks:
-  - {fileID: -3967910431338284299}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 1308
---- !u!114 &8143424618007840114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Creature/SFX_Creature_Attack
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Creature/SFX_Creature_Attack
-  Guid:
-    Data1: 1489577533
-    Data2: 1170344078
-    Data3: 759061390
-    Data4: 847786320
-  Banks:
-  - {fileID: -3967910431338284299}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 754
---- !u!114 &8450791493527382830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Creature/SFX_Creature_Dead
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Creature/SFX_Creature_Dead
-  Guid:
-    Data1: 1585166169
-    Data2: 1187770281
-    Data3: -459868241
-    Data4: 1754492615
-  Banks:
-  - {fileID: -1614505624603269090}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 1187
---- !u!114 &8871760529994082103
+--- !u!114 &3327823917502591439
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1375,7 +370,7 @@ MonoBehaviour:
     Data3: 956859572
     Data4: -1042581343
   Banks:
-  - {fileID: -3967910431338284299}
+  - {fileID: 4648303083651565258}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1383,3 +378,178 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1000
+--- !u!114 &4648303083651565258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SFX.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/SFX.bank
+  Name: SFX
+  StudioPath: bank:/SFX
+  lastModified: 638028217920675539
+  FileSizes:
+  - Name: Desktop
+    Value: 176160
+  Exists: 1
+--- !u!114 &4731970476721793462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Player/SFX_Player_Dead
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Player/SFX_Player_Dead
+  Guid:
+    Data1: -1833384865
+    Data2: 1236043975
+    Data3: 1587671964
+    Data4: 1487641487
+  Banks:
+  - {fileID: 4648303083651565258}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1638
+--- !u!114 &5767655556717326999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/BGM.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/BGM.bank
+  Name: BGM
+  StudioPath: bank:/BGM
+  lastModified: 638028217920616004
+  FileSizes:
+  - Name: Desktop
+    Value: 1860512
+  Exists: 1
+--- !u!114 &5842499952473902435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Creature/SFX_Creature_Move
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Creature/SFX_Creature_Move
+  Guid:
+    Data1: 713834428
+    Data2: 1321407232
+    Data3: -1359780433
+    Data4: -288189808
+  Banks:
+  - {fileID: 4648303083651565258}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 504
+--- !u!114 &6203945032745641780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Player/SFX_Player_Swing_Attack
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Player/SFX_Player_Swing_Attack
+  Guid:
+    Data1: -877284677
+    Data2: 1165228138
+    Data3: -532511857
+    Data4: 1975871176
+  Banks:
+  - {fileID: 4648303083651565258}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1308
+--- !u!114 &8270006467323602394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Creature/SFX_Creature_Hit
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Creature/SFX_Creature_Hit
+  Guid:
+    Data1: -1748871285
+    Data2: 1091789191
+    Data3: 1898228414
+    Data4: -719431603
+  Banks:
+  - {fileID: 4648303083651565258}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 968
+--- !u!114 &8799115349008482696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Creature/SFX_Creature_Attack
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Creature/SFX_Creature_Attack
+  Guid:
+    Data1: 1489577533
+    Data2: 1170344078
+    Data3: 759061390
+    Data4: 847786320
+  Banks:
+  - {fileID: 4648303083651565258}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 754
