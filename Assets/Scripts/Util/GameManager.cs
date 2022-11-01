@@ -19,7 +19,26 @@ public class GameManager : SoundManager
             PauseUI(IsPaused);
         }
     }
+
+    private bool IsDialogue
+    {
+        get => isDialogue;
+        set
+        {
+            isDialogue = value;
+            playerInput.enabled = !IsDialogue;
+            PauseRhythm(IsDialogue);
+            PauseSound(IsDialogue);
+
+            if (IsDialogue)
+                TimeLineManager.Instance.PlayTimeLine();
+            else
+                TimeLineManager.Instance.isDialogueSkip = false;
+        }
+    }
+
     private bool isPaused;
+    private bool isDialogue;
 
     protected override void Start()
     {
@@ -39,8 +58,18 @@ public class GameManager : SoundManager
         IsPaused = !IsPaused;
     }
 
+    public void OnDialogueInteraction(InputAction.CallbackContext context)
+    {
+        if (!context.started) return;
+        IsDialogue = true;
+    }
+
     public void OnResumeButtonDown() => IsPaused = false;
 
+    public void OnDialgoue(bool isActive)
+    {
+        IsDialogue = isActive;
+    }
     public void OnOptionButtonDown()
     {
         DisplaySettingMenu();

@@ -64,6 +64,6 @@ public class KBDMouseControl : MonoBehaviour, IControl
     public void OnThirdInteraction(InputAction.CallbackContext context)
     {
         if(!context.started) return;
-        onInteraction?.Invoke(InteractionType.Cut);
+            onInteraction?.Invoke(InteractionType.Cut);
     }
 }
