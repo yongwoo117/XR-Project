@@ -18,6 +18,11 @@ namespace Enemy.State
         //Machine 변수
         private Rigidbody rigid;
 
+        private AnimationCurve chaseGraph;
+        private float chaseGraphCurveArea;
+        private float chaseTime;
+        private float chasingTime;
+
         private readonly Collider[] collisionBuffer = new Collider[1];
 
         public override EnemyProfile Profile
@@ -26,6 +31,9 @@ namespace Enemy.State
             {
                 chaseSpeed = value.f_ChaseSpeed;
                 chaseRange = value.f_ChaseRange;
+                chaseTime = value.f_ChaseTime;
+                chaseGraph = value.chasePhysicsGraph;
+
                 attackRange = value.f_AttackRange;
                 damage = value.f_damage;
             }
@@ -47,6 +55,7 @@ namespace Enemy.State
 
             player = collisionBuffer[0].GetComponent<HealthModule>();
 
+            SetupIntegralPhysicsGraph();
             StateMachine.Anim.SetTrigger(AnimationParameter.Move);
         }
 
@@ -81,6 +90,11 @@ namespace Enemy.State
             }
         }
 
+        public override void OnRhythm()
+        {
+            chasingTime = chaseTime;
+        }
+
         public override void OnDrawGizmos()
         {
             var point = StateMachine.transform.position;
@@ -94,7 +108,17 @@ namespace Enemy.State
         {
             var dir = (player.transform.position - StateMachine.transform.position).normalized;
             dir *= chaseSpeed;
-            
+
+            if (chasingTime > 0f)
+            {
+                dir = dir / chaseTime * ((chaseTime / Time.fixedDeltaTime) / chaseGraphCurveArea) *
+                                     chaseGraph.Evaluate((chaseTime - chasingTime) / chaseTime); //대쉬 시간이 끝이 아니면 그래프에 값 만큼 물리 적용
+
+                chasingTime -= Time.fixedDeltaTime;
+            }
+
+
+
             rigid.velocity = new Vector3(dir.x,0f,dir.z);
         }
 
@@ -108,6 +132,19 @@ namespace Enemy.State
             Vector3 GFXScale = StateMachine.Anim.transform.localScale;
             GFXScale.x = Mathf.Abs(GFXScale.x) * (direction.x > 0 ? -1 : 1);
             StateMachine.Anim.transform.localScale = GFXScale;
+        }
+
+
+        /// <summary>
+        /// 초기에 애니메이션 그래프를 fixedDeltaTime 주기에 맞게 적분하여 그래프 전체 영역을 구함
+        /// </summary>
+        private void SetupIntegralPhysicsGraph()
+        {
+            chaseGraphCurveArea = 0f;
+            float reciprocal = 1f / chaseTime; //역수
+
+            for (float i = 0; i < chaseTime; i += Time.fixedDeltaTime)
+                chaseGraphCurveArea += chaseGraph.Evaluate(i * reciprocal);
         }
     }
 }

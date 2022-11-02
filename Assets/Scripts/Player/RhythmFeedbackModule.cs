@@ -132,7 +132,7 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
 
     private void FlipToMouseDir()
     {
-        if (control.Direction == null) return;
+        if (control.Direction == null||!control.IsActive) return;
         direction = (Vector3)control.Direction;
         Vector3 GFXScale = GFX.transform.localScale;
         GFXScale.x = Mathf.Abs(GFXScale.x) * (direction.x > 0 ? -1 : 1);
