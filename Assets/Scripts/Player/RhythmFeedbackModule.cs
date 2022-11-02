@@ -92,8 +92,9 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
         directionEffect.SetActive(!idleActive);
     }
     
-    protected virtual void Start()
+    protected override void Start()
     {
+        base.Start();
         idleCircleStruct = new FeedbackStruct(idleEffect);
         idleDirectionStruct = new FeedbackStruct(idleDirectionEffect);
         if (idleDirectionStruct.renderer is SpriteRenderer render)
