@@ -3878,6 +3878,7 @@ GameObject:
   - component: {fileID: 1659581283}
   - component: {fileID: 1659581286}
   - component: {fileID: 1659581287}
+  - component: {fileID: 1659581288}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -4086,6 +4087,31 @@ MonoBehaviour:
   settingInterface: {fileID: 477068652}
   rhythmTrigger: 0a00000014000000
   playerInput: {fileID: 1680146607699291306}
+--- !u!114 &1659581288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659581279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f479ee25b6c7643e79583ceca2b41fee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageList:
+  - maximumExistEnemy: 5
+    spawnAreaList:
+    - SpawnTransform: {fileID: 975941269}
+      AreaSize: {x: 10, y: 10}
+      List_EnemyType: 00000000
+      ReSpawnCount: 5
+      isCanSpawn: 1
+    - SpawnTransform: {fileID: 680279321}
+      AreaSize: {x: 10, y: 10}
+      List_EnemyType: 00000000
+      ReSpawnCount: 7
+      isCanSpawn: 1
 --- !u!1 &1672992296
 GameObject:
   m_ObjectHideFlags: 0
