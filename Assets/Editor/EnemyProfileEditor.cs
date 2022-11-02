@@ -23,7 +23,9 @@ namespace Enemy.Profile
 
             GUILayout.Space(15);
 
+            ep.chasePhysicsGraph = EditorGUILayout.CurveField("추격 물리 그래프", ep.chasePhysicsGraph);
             ep.f_ChaseSpeed = EditorGUILayout.FloatField("추격 속도", ep.f_ChaseSpeed);
+            ep.f_ChaseTime = EditorGUILayout.FloatField("추격 속도 증가 시간", ep.f_ChaseTime);
 
             EditorUtility.SetDirty(target);
         }

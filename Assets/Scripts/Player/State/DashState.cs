@@ -181,7 +181,7 @@ namespace Player.State
         {
             physicsCurveArea = 0f;
             for (float i = 0; i < dashTime; i += Time.fixedDeltaTime)
-                physicsCurveArea += dashGraph.Evaluate(i);
+                physicsCurveArea += dashGraph.Evaluate(i/dashTime);
         }
         
         /// <summary>
@@ -199,7 +199,7 @@ namespace Player.State
                 Deactivate();
             else
                 rigid.velocity = pointDir / dashTime * ((dashTime / Time.fixedDeltaTime) / physicsCurveArea) *
-                                 dashGraph.Evaluate(dashTime - dashingTime); //대쉬 시간이 끝이 아니면 그래프에 값 만큼 물리 적용
+                                 dashGraph.Evaluate((dashTime - dashingTime)/dashTime); //대쉬 시간이 끝이 아니면 그래프에 값 만큼 물리 적용
 
 
             dashingTime -= Time.fixedDeltaTime; 
