@@ -1,3 +1,4 @@
+using UnityEngine;
 using UnityEngine.Events;
 
 /// <summary>
@@ -7,6 +8,7 @@ public abstract class RhythmInputModule : StateMachine<e_PlayerState, PlayerStat
 {
     //true일 때만 노트를 칠 수 있습니다.
     private bool rhythmFlag;
+    private double initializeTime;
     
     /// <summary>
     /// 너무 일찍 노트를 친 경우 호출됩니다.
@@ -20,10 +22,26 @@ public abstract class RhythmInputModule : StateMachine<e_PlayerState, PlayerStat
 
     protected abstract void OnInteraction(InteractionType type);
 
-    protected override void Awake()
+    protected virtual void Start()
     {
-        base.Awake();
-        rhythmFlag = true;
+        initializeTime = Time.realtimeSinceStartup + RhythmCore.Instance.RemainTime() -
+                         RhythmCore.Instance.RhythmDelay / 2;
+        UpdateFlag();
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+        UpdateFlag();
+    }
+
+    private void UpdateFlag()
+    {
+        if (Time.realtimeSinceStartup > initializeTime)
+        {
+            rhythmFlag = true;
+            initializeTime += RhythmCore.Instance.RhythmDelay;
+        }
     }
 
     public void InteractionCallback(InteractionType type)
@@ -31,15 +49,16 @@ public abstract class RhythmInputModule : StateMachine<e_PlayerState, PlayerStat
         if (rhythmFlag && RhythmCore.Instance.Judge())
         {
             OnInteraction(type);
-            rhythmFlag = false;
         }
         else
         {
             onTooEarly?.Invoke();
             OnInteraction(InteractionType.RhythmEarly);
         }
-    }
 
+        rhythmFlag = false;
+    }
+    
     public virtual void OnRhythmLate()
     {
         if (rhythmFlag)
@@ -47,7 +66,5 @@ public abstract class RhythmInputModule : StateMachine<e_PlayerState, PlayerStat
             onTooLate?.Invoke();
             OnInteraction(InteractionType.RhythmLate);
         }
-
-        rhythmFlag = true;
     }
 }

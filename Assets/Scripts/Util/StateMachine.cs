@@ -20,9 +20,8 @@ public abstract class StateMachine<T1, T2, T3> : HealthModule where T1 : Enum
     /// <summary>
     /// 오버라이딩하는 경우 하위 클래스에서 반드시 base.Awake()를 호출해야 합니다.
     /// </summary>
-    protected override void Awake()
+    protected virtual void Awake()
     {
-        base.Awake();
         if (List_e_States.Count <= 0) return;
 
         //Inspector에서 받아온 상태들을 추가합니다.
@@ -42,14 +41,15 @@ public abstract class StateMachine<T1, T2, T3> : HealthModule where T1 : Enum
             state.Initialize();
             Dic_States.Add(e_state, state);
         }
-        
+    }
+
+    protected override void OnEnable()
+    {
+        base.OnEnable();
         //기본 상태를 Idle로 지정합니다.
         if (Dic_States.ContainsKey(StartState))
             ChangeState(StartState);
-    }
-
-    protected virtual void OnEnable()
-    {
+        
         onDead.AddListener(OnDead);
         onHealthChanged.AddListener(OnHealthChanged);
         onHealthRatioChanged.AddListener(OnHealthRatioChanged);

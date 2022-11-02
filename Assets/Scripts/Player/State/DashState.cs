@@ -141,7 +141,7 @@ namespace Player.State
             pointDir = dashPoint.magnitude > dashDistance ? dashPoint.normalized * dashDistance : dashPoint;
 
             isActivated = true;
-
+            control.IsActive = false;
 
             StateMachine.Anim.SetTrigger(AnimationParameter.Dash);
             DashEffect();
@@ -172,6 +172,7 @@ namespace Player.State
             dashingTime = -1;
             rigid.velocity = Vector3.zero; //대쉬 시간이 끝났으면 플레이어를 멈춰줌
             isActivated = false;
+            control.IsActive=true;
         }
 
         /// <summary>
@@ -180,8 +181,11 @@ namespace Player.State
         private void SetupIntegralPhysicsGraph()
         {
             physicsCurveArea = 0f;
+
+            float reciprocal = 1f / dashTime; //역수
+
             for (float i = 0; i < dashTime; i += Time.fixedDeltaTime)
-                physicsCurveArea += dashGraph.Evaluate(i);
+                physicsCurveArea += dashGraph.Evaluate(i*reciprocal);
         }
         
         /// <summary>
@@ -199,7 +203,7 @@ namespace Player.State
                 Deactivate();
             else
                 rigid.velocity = pointDir / dashTime * ((dashTime / Time.fixedDeltaTime) / physicsCurveArea) *
-                                 dashGraph.Evaluate(dashTime - dashingTime); //대쉬 시간이 끝이 아니면 그래프에 값 만큼 물리 적용
+                                 dashGraph.Evaluate((dashTime - dashingTime)/dashTime); //대쉬 시간이 끝이 아니면 그래프에 값 만큼 물리 적용
 
 
             dashingTime -= Time.fixedDeltaTime; 

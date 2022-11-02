@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -79,7 +80,7 @@ public abstract class HealthModule : MonoBehaviour
     /// <returns>true가 반환되면 체력에 반영됩니다.</returns>
     protected abstract bool AcceptHealthChange(ref float value);
     
-    protected virtual void Awake()
+    protected virtual void OnEnable()
     {
         HealthPoint = MaximumHealth;
     }

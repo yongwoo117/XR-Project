@@ -5,7 +5,6 @@ namespace Enemy.State
 {
     public class DieState : EnemyState
     {
-        public Action<GameObject> DieAction;
         public override void Enter()
         {
             var deadEffect = EffectProfileData.Instance.PopEffect("Eff_MonsterDead");
@@ -16,7 +15,7 @@ namespace Enemy.State
                 deadEffect.transform.localScale = transform.localScale;
             }
 
-            StateMachine.gameObject.SetActive(false);
+            StateMachine.GetComponent<SpawnCallback>()?.Return();
         }
     }
 }
