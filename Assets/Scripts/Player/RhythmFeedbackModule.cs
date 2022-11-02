@@ -112,16 +112,19 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
 
         FlipToMouseDir();
 
-        if (!effectFlag) return;
         switch (EffectState)
         {
             case FeedbackState.Idle:
-                idleCircleStruct.Synchronize();
-                idleDirectionStruct.Synchronize();
+                if (effectFlag)
+                {
+                    idleCircleStruct.Synchronize();
+                    idleDirectionStruct.Synchronize();
+                }
                 RotateIdle();
                 break;
             case FeedbackState.Direction:
-                directionStruct.Synchronize();
+                if (effectFlag)
+                    directionStruct.Synchronize();
                 RotateDirection();
                 break;
         }

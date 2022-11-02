@@ -1,5 +1,3 @@
-using Enemy.State;
-using JetBrains.Annotations;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,8 +24,6 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private int SpawnCount;
 
     private Dictionary<e_EnemyType, ObjectPool<GameObject>> poolDictionary;
-    private int CurrentSpawnCount;
-
 
     private void OnDrawGizmos()
     {
@@ -39,16 +35,12 @@ public class SpawnManager : MonoBehaviour
             }
         }
     }
-
-    private void Awake()
+    
+    private void Start()
     {
         CreateEnemyClone();
-        SpawnObject();
-    }
-
-    private void FixedUpdate()
-    {
-        SpawnObject();
+        for (int count = 0; count < SpawnCount; count++)
+            SpawnObject();
     }
 
     /// <summary>
@@ -58,39 +50,34 @@ public class SpawnManager : MonoBehaviour
     /// </summary>
     private void SpawnObject()
     {
+        if (RandomAreaIndex() is not { } randIndex) return;
+        SpawnArea area = List_SpawnArea[randIndex];
 
-        if (CurrentSpawnCount < SpawnCount)
-        {
-            int randIndex = RandomAreaIndex();
-            SpawnArea area = List_SpawnArea[randIndex];
+        var spawnObj = poolDictionary[area.List_EnemyType[UnityEngine.Random.Range(0, area.List_EnemyType.Count)]]
+            .Get();
 
-            GameObject spawnObj = PopEnemy(area.List_EnemyType[UnityEngine.Random.Range(0, area.List_EnemyType.Count)]);
+        float randX = UnityEngine.Random.Range(area.AreaSize.x * -0.5f, area.AreaSize.x * 0.5f);
+        float randZ = UnityEngine.Random.Range(area.AreaSize.y * -0.5f, area.AreaSize.y * 0.5f);
 
-            float randX = UnityEngine.Random.Range(area.AreaSize.x * -0.5f, area.AreaSize.x * 0.5f);
-            float randZ = UnityEngine.Random.Range(area.AreaSize.y * -0.5f, area.AreaSize.y * 0.5f);
+        spawnObj.transform.position = area.SpawnTransform.position + new Vector3(randX, 0f, randZ);
 
-            spawnObj.transform.position = area.SpawnTransform.position + new Vector3(randX, 0f, randZ);
+        if (--area.ReSpawnCount <= 0) area.isCanSpawn = false;
 
-            if (--area.ReSpawnCount <= 0)
-            {
-                area.isCanSpawn = false;
-            }
-
-            List_SpawnArea[randIndex] = area;
-        }
+        List_SpawnArea[randIndex] = area;
     }
 
-    private int RandomAreaIndex()
+    private int? RandomAreaIndex()
     {
         List<int> RandIndexPool = new List<int>();
-        bool isPlayerInArea = false;
-        int PlayerAreaIndex = 0;
+        int? PlayerAreaIndex = null;
 
         for (int i = 0; i < List_SpawnArea.Count; i++)
         {
             SpawnArea area = List_SpawnArea[i];
 
-            if (!Physics.CheckBox(area.SpawnTransform.position, new Vector3(area.AreaSize.x * 0.5f, 10f, area.AreaSize.y * 0.5f), Quaternion.identity, GetLayerMasks.Player))
+            if (!Physics.CheckBox(area.SpawnTransform.position,
+                    new Vector3(area.AreaSize.x * 0.5f, 10f, area.AreaSize.y * 0.5f), Quaternion.identity,
+                    GetLayerMasks.Player))
             {
                 if (area.isCanSpawn)
                 {
@@ -99,7 +86,6 @@ public class SpawnManager : MonoBehaviour
             }
             else
             {
-                isPlayerInArea = true;
                 PlayerAreaIndex = i;
             }
 
@@ -108,20 +94,19 @@ public class SpawnManager : MonoBehaviour
 
         if (RandIndexPool.Count == 0)
         {
-            if(isPlayerInArea)
+            if (PlayerAreaIndex != null)
             {
-                for(int i=0;i<List_SpawnArea.Count;i++)
+                for (int i = 0; i < List_SpawnArea.Count; i++)
                 {
-                    if(i!=PlayerAreaIndex)
+                    if (i != PlayerAreaIndex)
                         RandIndexPool.Add(i);
                 }
             }
 
             if (RandIndexPool.Count == 0)
-                return 0;
+                return null;
         }
-
-
+        
         return RandIndexPool[UnityEngine.Random.Range(0, RandIndexPool.Count)];
     }
 
@@ -131,10 +116,11 @@ public class SpawnManager : MonoBehaviour
         poolDictionary = new Dictionary<e_EnemyType, ObjectPool<GameObject>>();
         foreach (var obj in enemySpawnProfile.Dic_Spawn)
         {
+            if (poolDictionary.ContainsKey(obj.Key)) continue;
             var pool = new ObjectPool<GameObject>(
                 () => InstantiatePrefab(obj),
-                instance => instance.SetActive(true),
-                instance => instance.SetActive(false),
+                instance => instance.SetActive(true), 
+                OnRelease,
                 null, true, SpawnCount);
             poolDictionary.Add(obj.Key, pool);
         }
@@ -149,40 +135,14 @@ public class SpawnManager : MonoBehaviour
     private GameObject InstantiatePrefab(KeyValuePair<e_EnemyType, GameObject> pair)
     {
         var instance = Instantiate(pair.Value,transform);
-
-        DieState dieState = instance.GetComponent<EnemyStateMachine>().States[e_EnemyState.Die] as DieState;
-
-        if(dieState==null)
-        {
-            Debug.LogError("적에 DieState가 없어 Pooling CallBack 추가 X");
-        }
-        else
-        {
-            dieState.DieAction = value => PushEnemy(pair.Key, value);
-        }
-
+        instance.AddComponent<SpawnCallback>().ReturnAction = value => poolDictionary[pair.Key].Release(value);
         instance.SetActive(false);
         return instance;
     }
 
-    [CanBeNull]
-    public GameObject PopEnemy(e_EnemyType key)
+    private void OnRelease(GameObject instance)
     {
-        if (poolDictionary.ContainsKey(key))
-        {
-            CurrentSpawnCount++; //CurrentSpawnCount 증가
-            return poolDictionary[key].Get();       
-        }
-
-        Debug.LogError("존재 하지 않는 스폰 타입 호출" + key);
-        return null;
-    }
-
-    //사용된 오브젝트들은 Push해서 다시 넣어줌 (콜백) 후 CurrentSpawnCount 감소
-    private void PushEnemy(e_EnemyType key, GameObject obj)
-    {
-        if (!poolDictionary.ContainsKey(key)) return;
-        poolDictionary[key].Release(obj);
-        CurrentSpawnCount--; //CurrentSpawnCount 감소
+        instance.SetActive(false);
+        SpawnObject();
     }
 }
