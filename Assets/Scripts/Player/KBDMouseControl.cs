@@ -23,18 +23,21 @@ public class KBDMouseControl : MonoBehaviour, IControl
         private set => position = value;
     }
     private Vector3? position;
-    
     /// <summary>
     /// 현재 오브젝트에서 Position까지의 방향벡터입니다.
     /// </summary>
     public Vector3? Direction => Position - transform.position;
 
     public UnityEvent<InteractionType> OnInteraction => onInteraction;
+
+    public bool IsActive { get; set; }
+
     [SerializeField] private UnityEvent<InteractionType> onInteraction;
     
     private void Start()
     {
         rayCastPlane = new Plane(Vector3.up, -transform.position.y);
+        IsActive = true;
     }
 
     private void LateUpdate()

@@ -110,26 +110,29 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
     {
         base.Update();
 
-        FlipToMouseDir();
-
-        if (!effectFlag) return;
         switch (EffectState)
         {
             case FeedbackState.Idle:
-                idleCircleStruct.Synchronize();
-                idleDirectionStruct.Synchronize();
+                if (effectFlag)
+                {
+                    idleCircleStruct.Synchronize();
+                    idleDirectionStruct.Synchronize();
+                }
                 RotateIdle();
                 break;
             case FeedbackState.Direction:
-                directionStruct.Synchronize();
+                if (effectFlag)
+                    directionStruct.Synchronize();
                 RotateDirection();
                 break;
         }
+
+        FlipToMouseDir();
     }
 
     private void FlipToMouseDir()
     {
-        if (control.Direction == null) return;
+        if (control.Direction == null||!control.IsActive) return;
         direction = (Vector3)control.Direction;
         Vector3 GFXScale = GFX.transform.localScale;
         GFXScale.x = Mathf.Abs(GFXScale.x) * (direction.x > 0 ? -1 : 1);

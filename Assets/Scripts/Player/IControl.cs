@@ -14,6 +14,8 @@ public interface IControl
     /// </summary>
     Vector3? Direction { get; }
 
+    bool IsActive { get; set; }
+
     /// <summary>
     /// 사용자의 입력에 대한 콜백입니다.
     /// </summary>

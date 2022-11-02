@@ -12,10 +12,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b05264d16cb4e5b48a8c9f2e486489b9, type: 3}
   m_Name: EnemyInfo0
   m_EditorClassIdentifier: 
+  chasePhysicsGraph:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.49362832
+      value: 0.11566061
+      inSlope: -1.2427518
+      outSlope: -1.2427518
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.11507231
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.83222985
+      value: 0.77934456
+      inSlope: 0.59871155
+      outSlope: 0.59871155
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.121622615
+    - serializedVersion: 3
+      time: 0.9874878
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   f_CheckRange: 100
   f_AttackRange: 5
   f_ChaseRange: 100
   f_ChaseSpeed: 5
+  f_ChaseTime: 0.2
   f_maximumHealth: 15
   f_hitTime: 1
   f_damage: 1

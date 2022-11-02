@@ -21,6 +21,7 @@ namespace Enemy.State
         private AnimationCurve chaseGraph;
         private float chaseGraphCurveArea;
         private float chaseTime;
+        private float chasingTime;
 
         private readonly Collider[] collisionBuffer = new Collider[1];
 
@@ -89,6 +90,11 @@ namespace Enemy.State
             }
         }
 
+        public override void OnRhythm()
+        {
+            chasingTime = chaseTime;
+        }
+
         public override void OnDrawGizmos()
         {
             var point = StateMachine.transform.position;
@@ -102,7 +108,15 @@ namespace Enemy.State
         {
             var dir = (player.transform.position - StateMachine.transform.position).normalized;
             dir *= chaseSpeed;
-            
+
+            if (chasingTime > 0f)
+            {
+                dir = dir / chaseTime * ((chaseTime / Time.fixedDeltaTime) / chaseGraphCurveArea) *
+                                     chaseGraph.Evaluate((chaseTime - chasingTime) / chaseTime); //대쉬 시간이 끝이 아니면 그래프에 값 만큼 물리 적용
+
+                chasingTime -= Time.fixedDeltaTime;
+            }
+
 
 
             rigid.velocity = new Vector3(dir.x,0f,dir.z);
@@ -127,8 +141,10 @@ namespace Enemy.State
         private void SetupIntegralPhysicsGraph()
         {
             chaseGraphCurveArea = 0f;
+            float reciprocal = 1f / chaseTime; //역수
+
             for (float i = 0; i < chaseTime; i += Time.fixedDeltaTime)
-                chaseGraphCurveArea += chaseGraph.Evaluate(i);
+                chaseGraphCurveArea += chaseGraph.Evaluate(i * reciprocal);
         }
     }
 }
