@@ -112,7 +112,7 @@ Shader "Custom/Lit_ZWriteOn"
 
                     float dist = distance(i.positionWS, _WorldSpaceCameraPos);
                     float alpha = smoothstep(0,1,saturate(dist / _Radius));
-                    main.a = alpha;
+                    main.a *= alpha;
 
                     const half4 mask = SAMPLE_TEXTURE2D(_MaskTex, sampler_MaskTex, i.uv);
                     SurfaceData2D surfaceData;
