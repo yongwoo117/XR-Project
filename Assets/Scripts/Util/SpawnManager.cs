@@ -75,39 +75,21 @@ public class SpawnManager : MonoBehaviour
         {
             SpawnArea area = List_SpawnArea[i];
 
-            if (!Physics.CheckBox(area.SpawnTransform.position,
-                    new Vector3(area.AreaSize.x * 0.5f, 10f, area.AreaSize.y * 0.5f), Quaternion.identity,
-                    GetLayerMasks.Player))
-            {
-                if (area.isCanSpawn)
-                {
-                    RandIndexPool.Add(i);
-                }
-            }
-            else
-            {
+            if (Physics.CheckBox(area.SpawnTransform.position,
+                    new Vector3(area.AreaSize.x * 0.5f, 10f, area.AreaSize.y * 0.5f),
+                    Quaternion.identity, GetLayerMasks.Player))
                 PlayerAreaIndex = i;
-            }
-
-          
+            else if (area.isCanSpawn) RandIndexPool.Add(i);
         }
 
-        if (RandIndexPool.Count == 0)
-        {
-            if (PlayerAreaIndex != null)
-            {
-                for (int i = 0; i < List_SpawnArea.Count; i++)
-                {
-                    if (i != PlayerAreaIndex)
-                        RandIndexPool.Add(i);
-                }
-            }
-
-            if (RandIndexPool.Count == 0)
-                return null;
-        }
+        if (RandIndexPool.Count != 0) return RandIndexPool[UnityEngine.Random.Range(0, RandIndexPool.Count)];
         
-        return RandIndexPool[UnityEngine.Random.Range(0, RandIndexPool.Count)];
+        if (PlayerAreaIndex is not null)
+        {
+            if (List_SpawnArea[(int)PlayerAreaIndex].isCanSpawn)
+                return PlayerAreaIndex;
+        }
+        return null;
     }
 
     //오브젝트 풀링
