@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: DialogueClip
   m_EditorClassIdentifier: 
   template:
-    NameText: "\u3141\u3134\u3147\u3139"
-    NameColor: {r: 1, g: 1, b: 1, a: 1}
-    DialogueText: "\uAC00\uB098\uB2E4\uB77C\uB9C8\uBC14\uC0AC"
+    NameText: "\uC8FC\uC778\uACF5"
+    NameColor: {r: 0, g: 0, b: 0, a: 1}
+    DialogueText: "\uC624\uB298\uB3C4 \uD558\uB8E8\uB97C \uC2DC\uC791\uD574\uBCFC\uAE4C\xB7\xB7\xB7
+      ?"
     Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
     PlayerSprite: {fileID: -1657986156, guid: bac4ccb0e56cf374281480ef1ac52290, type: 3}
     NpcSprite: {fileID: -1167134950, guid: 8182fd6e3ef108d4095e7df93a998a1e, type: 3}
@@ -93,7 +94,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: DialogueClip
   - m_Version: 1
-    m_Start: 2.15
+    m_Start: 4.216666666666667
     m_ClipIn: 0
     m_Asset: {fileID: 1842611223906185062}
     m_Duration: 2.066666666666667
@@ -143,8 +144,61 @@ MonoBehaviour:
     m_PostExtrapolationTime: 0
     m_PreExtrapolationTime: 0
     m_DisplayName: DialogueClip
+  - m_Version: 1
+    m_Start: 2.15
+    m_ClipIn: 0
+    m_Asset: {fileID: -4227021114678024816}
+    m_Duration: 2.066666666666667
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: -4304503150389808141}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: DialogueClip
   m_Markers:
     m_Objects: []
+--- !u!114 &-4227021114678024816
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1081b9528c1240c40a6e4e15a03c26e8, type: 3}
+  m_Name: DialogueClip(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  template:
+    NameText: "\u314B\u314C\u314A\u314D"
+    NameColor: {r: 1, g: 1, b: 1, a: 1}
+    DialogueText: "\u3141\u3134\u3147\u313A\u3137\u3148\u3142\u3141"
+    Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
+    PlayerSprite: {fileID: -1657986156, guid: bac4ccb0e56cf374281480ef1ac52290, type: 3}
+    NpcSprite: {fileID: -1167134950, guid: 8182fd6e3ef108d4095e7df93a998a1e, type: 3}
+    isCanInteractive: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
