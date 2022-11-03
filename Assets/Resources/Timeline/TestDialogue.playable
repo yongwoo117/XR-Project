@@ -1,5 +1,26 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7664004580581674027
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1081b9528c1240c40a6e4e15a03c26e8, type: 3}
+  m_Name: DialogueClip(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  template:
+    NameText: "\uC8FC\uC778\uACF5"
+    NameColor: {r: 0, g: 0, b: 0, a: 1}
+    DialogueText: "\uC800 \uC0AC\uB78C\uB4E4\uC740\xB7\xB7\xB7 ? \uC5EC\uC655\uC758
+      \uBCD1\uC815\uB4E4\uC774\uC796\uC544??"
+    Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
+    PlayerSprite: {fileID: -1657986156, guid: bac4ccb0e56cf374281480ef1ac52290, type: 3}
+    NpcSprite: {fileID: -1167134950, guid: 8182fd6e3ef108d4095e7df93a998a1e, type: 3}
+    isCanInteractive: 0
 --- !u!114 &-5263793355648584650
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -43,9 +64,141 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 0
+    m_Start: 2.15
     m_ClipIn: 0
     m_Asset: {fileID: -5263793355648584650}
+    m_Duration: 2.15
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: -4304503150389808141}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: DialogueClip
+  - m_Version: 1
+    m_Start: 6.366666666666658
+    m_ClipIn: 0
+    m_Asset: {fileID: 5786206871704259163}
+    m_Duration: 2.066666666666667
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: -4304503150389808141}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: 0
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: DialogueClip
+  - m_Version: 1
+    m_Start: 8.433333333333325
+    m_ClipIn: 0
+    m_Asset: {fileID: 1842611223906185062}
+    m_Duration: 2.066666666666667
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: -4304503150389808141}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: DialogueClip
+  - m_Version: 1
+    m_Start: 4.300000000000001
+    m_ClipIn: 0
+    m_Asset: {fileID: -4227021114678024816}
+    m_Duration: 2.0666666666666607
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: -4304503150389808141}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: -1
+    m_BlendOutDuration: 0
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: DialogueClip
+  - m_Version: 1
+    m_Start: 0
+    m_ClipIn: 0
+    m_Asset: {fileID: -104220584589117834}
     m_Duration: 2.15
     m_TimeScale: 1
     m_ParentTrack: {fileID: -4304503150389808141}
@@ -94,9 +247,9 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: DialogueClip
   - m_Version: 1
-    m_Start: 4.216666666666667
+    m_Start: 10.5
     m_ClipIn: 0
-    m_Asset: {fileID: 1842611223906185062}
+    m_Asset: {fileID: -7664004580581674027}
     m_Duration: 2.066666666666667
     m_TimeScale: 1
     m_ParentTrack: {fileID: -4304503150389808141}
@@ -112,25 +265,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     m_MixOutCurve:
       serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+      m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -145,9 +280,9 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: DialogueClip
   - m_Version: 1
-    m_Start: 2.15
+    m_Start: 12.566666666666666
     m_ClipIn: 0
-    m_Asset: {fileID: -4227021114678024816}
+    m_Asset: {fileID: -2939311729760774602}
     m_Duration: 2.066666666666667
     m_TimeScale: 1
     m_ParentTrack: {fileID: -4304503150389808141}
@@ -192,9 +327,51 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   template:
-    NameText: "\u314B\u314C\u314A\u314D"
-    NameColor: {r: 1, g: 1, b: 1, a: 1}
-    DialogueText: "\u3141\u3134\u3147\u313A\u3137\u3148\u3142\u3141"
+    NameText: "\uB9C8\uC744\uC8FC\uBBFC\uB4E4"
+    NameColor: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 1}
+    DialogueText: "\uAE84\uC544\uC544\uC544\uC545!!!"
+    Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
+    PlayerSprite: {fileID: -1657986156, guid: bac4ccb0e56cf374281480ef1ac52290, type: 3}
+    NpcSprite: {fileID: -1167134950, guid: 8182fd6e3ef108d4095e7df93a998a1e, type: 3}
+    isCanInteractive: 0
+--- !u!114 &-2939311729760774602
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1081b9528c1240c40a6e4e15a03c26e8, type: 3}
+  m_Name: DialogueClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  template:
+    NameText: "\uC8FC\uC778\uACF5"
+    NameColor: {r: 0, g: 0, b: 0, a: 1}
+    DialogueText: "\uBCD1\uC815\uB4E4\uC774 \uC65C \uB9C8\uC744\uC5D0 \uC788\uC9C0\xB7\xB7\xB7
+      ?"
+    Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
+    PlayerSprite: {fileID: -1657986156, guid: bac4ccb0e56cf374281480ef1ac52290, type: 3}
+    NpcSprite: {fileID: -1167134950, guid: 8182fd6e3ef108d4095e7df93a998a1e, type: 3}
+    isCanInteractive: 0
+--- !u!114 &-104220584589117834
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1081b9528c1240c40a6e4e15a03c26e8, type: 3}
+  m_Name: DialogueClip(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  template:
+    NameText: "\uB098\uB808\uC774\uC158"
+    NameColor: {r: 0, g: 0, b: 0, a: 1}
+    DialogueText: "\uD3C9\uD654\uB86D\uB358 '\uC774\uC0C1\uD55C \uB098\uB77C'\uC758
+      \uC5B4\uB290 \uB0A0"
     Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
     PlayerSprite: {fileID: -1657986156, guid: bac4ccb0e56cf374281480ef1ac52290, type: 3}
     NpcSprite: {fileID: -1167134950, guid: 8182fd6e3ef108d4095e7df93a998a1e, type: 3}
@@ -233,9 +410,29 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)
   m_EditorClassIdentifier: 
   template:
-    NameText: "\u314B\u314C\u314A\u314D"
-    NameColor: {r: 1, g: 1, b: 1, a: 1}
-    DialogueText: "\u3141\u3134\u3147\u313A\u3137\u3148\u3142\u3141"
+    NameText: "\uD3ED\uC8FC\uD55C \uBCD1\uC815"
+    NameColor: {r: 0, g: 0, b: 0, a: 1}
+    DialogueText: "\uCFE0\uC624\uC624\uC624\uC624\uC624!!!"
+    Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
+    PlayerSprite: {fileID: -1657986156, guid: bac4ccb0e56cf374281480ef1ac52290, type: 3}
+    NpcSprite: {fileID: -1167134950, guid: 8182fd6e3ef108d4095e7df93a998a1e, type: 3}
+    isCanInteractive: 0
+--- !u!114 &5786206871704259163
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1081b9528c1240c40a6e4e15a03c26e8, type: 3}
+  m_Name: DialogueClip(Clone)(Clone)(Clone)(Clone)
+  m_EditorClassIdentifier: 
+  template:
+    NameText: "\uC8FC\uC778\uACF5"
+    NameColor: {r: 0, g: 0, b: 0, a: 1}
+    DialogueText: "\uC73C\uC74C? \uBB34\uC2A8 \uC77C\uC774\uC9C0??"
     Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
     PlayerSprite: {fileID: -1657986156, guid: bac4ccb0e56cf374281480ef1ac52290, type: 3}
     NpcSprite: {fileID: -1167134950, guid: 8182fd6e3ef108d4095e7df93a998a1e, type: 3}
