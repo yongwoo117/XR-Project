@@ -13,6 +13,7 @@ namespace Player.Animation
         public static readonly int Charge = Animator.StringToHash("Charge");
         public static readonly int Idle = Animator.StringToHash("Idle");
         public static readonly int Cut = Animator.StringToHash("Cut");
+        public static readonly int Miss = Animator.StringToHash("Miss");
     }
 }
 

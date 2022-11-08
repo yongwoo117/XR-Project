@@ -27,9 +27,10 @@ namespace Player.State
                     StateMachine.ChangeState(e_PlayerState.Dash);
                     break;
                 default:
-                    StateMachine.ChangeState(e_PlayerState.Idle);
+                    StateMachine.ChangeState(e_PlayerState.Miss);
                     break;
             }
         }
+
     }
 }

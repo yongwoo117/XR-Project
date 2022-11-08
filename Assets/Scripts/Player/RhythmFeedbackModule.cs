@@ -4,7 +4,8 @@ using UnityEngine;
 public enum FeedbackState
 {
     Idle, //일반 이펙트
-    Direction //화살표 이펙트
+    Direction, //화살표 이펙트
+    Miss//이펙트 꺼짐
 }
 
 public struct FeedbackStruct
@@ -82,8 +83,21 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
                     ActiveToggle(false);
                     effectFlag = true;
                     break;
+                case FeedbackState.Miss:
+                    ResetFeedBack();
+                    effectFlag = true;
+                    break;
             }
         }
+    }
+
+    private void ResetFeedBack()
+    {
+        ActiveToggle(true);
+
+        idleCircleStruct.Clear();
+        idleDirectionStruct.Clear();
+        directionStruct.Clear();
     }
 
     private void ActiveToggle(bool idleActive)

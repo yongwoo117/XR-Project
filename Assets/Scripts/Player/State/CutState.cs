@@ -50,9 +50,15 @@ namespace Player.State
                     StateMachine.ChangeState(e_PlayerState.Dash);
                     break;
                 default:
-                    StateMachine.ChangeState(e_PlayerState.Idle);
+                    StateMachine.ChangeState(e_PlayerState.Miss);
                     break;
             }
+        }
+
+        public override void OnRhythmLate()
+        {
+            base.OnRhythmLate();
+            StateMachine.Anim.SetTrigger(AnimationParameter.Miss);
         }
 
         public override void OnDrawGizmos()

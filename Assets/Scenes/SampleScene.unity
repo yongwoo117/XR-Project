@@ -9125,6 +9125,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1680146609352771351, guid: 57d210aadf8ca364ca469553f372e63f, type: 3}
+      propertyPath: List_e_States.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1680146609352771351, guid: 57d210aadf8ca364ca469553f372e63f, type: 3}
+      propertyPath: List_e_States.Array.data[4]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1680146609352771351, guid: 57d210aadf8ca364ca469553f372e63f, type: 3}
       propertyPath: onRhythmComboChanged.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}

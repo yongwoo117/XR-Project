@@ -90,7 +90,7 @@ public abstract class StateMachine<T1, T2, T3> : HealthModule where T1 : Enum
         var state = Dic_States[e_state];
 
         //같은 상태로의 변경인 경우
-        if (currentState?.GetType() == state.GetType()) return;
+        //if (currentState?.GetType() == state.GetType()) return;
 
         currentState?.Exit();
         currentState = state;
