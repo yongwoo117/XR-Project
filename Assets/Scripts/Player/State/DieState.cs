@@ -1,5 +1,6 @@
 using FMODUnity;
 using UnityEngine;
+using Player.Animation;
 
 namespace Player.State
 {
@@ -16,6 +17,7 @@ namespace Player.State
         {
             dieSfx.PlayOneShot();
             StateMachine.GetComponent<Collider>().enabled = false;
+            StateMachine.Anim.SetTrigger(AnimationParameter.Dead);
         }
     }
 }
