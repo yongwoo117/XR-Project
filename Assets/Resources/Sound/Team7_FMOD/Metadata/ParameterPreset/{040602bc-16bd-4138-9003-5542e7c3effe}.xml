@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{040602bc-16bd-4138-9003-5542e7c3effe}">
+		<property name="name">
+			<value>Creature_Move_Distance</value>
+		</property>
+		<relationship name="folder">
+			<destination>{29539c5f-7b08-4ffc-8e85-89fa0ee20c4d}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{f2f384b8-1690-4964-bc7a-1a005059caca}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{f2f384b8-1690-4964-bc7a-1a005059caca}">
+		<property name="parameterType">
+			<value>3</value>
+		</property>
+		<property name="maximum">
+			<value>20</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="isExposedRecursively">
+			<value>false</value>
+		</property>
+	</object>
+</objects>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{4cae044e-49c9-481e-9ce7-77839ea332f4}">
+		<property name="assetPath">
+			<value>SFX_Creature_Attack_3.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.75446712018140594</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{18f8c6cb-2f50-4251-b2ea-e1b24cb642d8}</destination>
+		</relationship>
+	</object>
+</objects>

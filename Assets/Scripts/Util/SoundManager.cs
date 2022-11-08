@@ -1,12 +1,12 @@
 using System.Collections.Generic;
-using FMOD.Studio;
 using FMODUnity;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class SoundManager : UIManger
 {
     [SerializeField] private List<int> rhythmTrigger;
+    [SerializeField] private EventReference buttonDownSound;
+    [SerializeField] private EventReference pauseSound;
     private StudioEventEmitter eventEmitter;
     private int rhythmIndex;
     
@@ -37,5 +37,11 @@ public class SoundManager : UIManger
         }
     }
 
-    protected void PauseSound(bool pause) => eventEmitter.EventInstance.setPaused(pause);
+    protected void ButtonDownSound() => buttonDownSound.PlayOneShot();
+    
+    protected void PauseSound(bool pause)
+    {
+        pauseSound.PlayOneShot();
+        eventEmitter.EventInstance.setPaused(pause);
+    }
 }

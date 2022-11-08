@@ -18,12 +18,41 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  SFXDictionary:
+    keys: 00000000030000000400000006000000
+    values:
+    - Guid:
+        Data1: 1489577533
+        Data2: 1170344078
+        Data3: 759061390
+        Data4: 847786320
+      Path: event:/SFX/Creature/SFX_Creature_Attack
+    - Guid:
+        Data1: 713834428
+        Data2: 1321407232
+        Data3: -1359780433
+        Data4: -288189808
+      Path: event:/SFX/Creature/SFX_Creature_Move
+    - Guid:
+        Data1: -1748871285
+        Data2: 1091789191
+        Data3: 1898228414
+        Data4: -719431603
+      Path: event:/SFX/Creature/SFX_Creature_Hit
+    - Guid:
+        Data1: 1585166169
+        Data2: 1187770281
+        Data3: -459868241
+        Data4: 1754492615
+      Path: event:/SFX/Creature/SFX_Creature_Dead
   f_CheckRange: 100
-  f_AttackRange: 5
+  f_AttackRange: 10
   f_ChaseRange: 100
   f_ChaseSpeed: 5
   f_ChaseTime: 0
   f_maximumHealth: 15
   f_hitTime: 1
   f_damage: 1
-  f_attackTime: 1
+  f_attackPreDelay: 1
+  f_attackPostDelay: 1
+  v3_attackBox: {x: 10, y: 10, z: 10}
