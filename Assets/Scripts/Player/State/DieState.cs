@@ -18,6 +18,7 @@ namespace Player.State
             dieSfx.PlayOneShot();
             StateMachine.GetComponent<Collider>().enabled = false;
             StateMachine.Anim.SetTrigger(AnimationParameter.Dead);
+            StateMachine.EffectState = FeedbackState.Off;
         }
     }
 }

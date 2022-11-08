@@ -1,11 +1,10 @@
-using System;
 using UnityEngine;
 
 public enum FeedbackState
 {
     Idle, //일반 이펙트
     Direction, //화살표 이펙트
-    Miss//이펙트 꺼짐
+    Off
 }
 
 public struct FeedbackStruct
@@ -83,23 +82,15 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
                     ActiveToggle(false);
                     effectFlag = true;
                     break;
-                case FeedbackState.Miss:
-                    ResetFeedBack();
-                    effectFlag = true;
+                case FeedbackState.Off:
+                    idleEffect.SetActive(false);
+                    idleDirectionEffect.SetActive(false);
+                    directionEffect.SetActive(false);
                     break;
             }
         }
     }
-
-    private void ResetFeedBack()
-    {
-        ActiveToggle(true);
-
-        idleCircleStruct.Clear();
-        idleDirectionStruct.Clear();
-        directionStruct.Clear();
-    }
-
+    
     private void ActiveToggle(bool idleActive)
     {
         idleEffect.SetActive(idleActive);
@@ -124,9 +115,7 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
     protected override void Update()
     {
         base.Update();
-
-        FlipToMouseDir();
-
+        
         switch (EffectState)
         {
             case FeedbackState.Idle:
@@ -142,7 +131,11 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
                     directionStruct.Synchronize();
                 RotateDirection();
                 break;
+            default:
+                return;
         }
+        
+        FlipToMouseDir();
     }
 
     private void FlipToMouseDir()
