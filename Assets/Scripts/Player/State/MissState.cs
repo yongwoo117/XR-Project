@@ -8,23 +8,23 @@ namespace Player.State
         public override void Enter()
         {
             Debug.Log("Miss Enter");
-            StateMachine.EffectState = FeedbackState.Miss;
+            StateMachine.EffectState = FeedbackState.Idle;
             StateMachine.Anim.SetTrigger(AnimationParameter.Miss);
+            StateMachine.RhythmCombo = 0;
+            StateMachine.CombatComboBreak();
         }
 
         public override void HandleInput(InteractionType interactionType)
         {
             switch (interactionType)
             {
-                case InteractionType.RhythmLate:
-                    StateMachine.ChangeState(e_PlayerState.Idle);
+                case InteractionType.Ready:
+                    StateMachine.ChangeState(e_PlayerState.Ready);
                     break;
-                default:
-                    StateMachine.ChangeState(e_PlayerState.Miss);
+                case InteractionType.Cut:
+                    StateMachine.ChangeState(e_PlayerState.Cut);
                     break;
             }
         }
-
-
     }
 }

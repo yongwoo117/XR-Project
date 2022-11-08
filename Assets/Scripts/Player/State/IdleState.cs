@@ -24,12 +24,7 @@ namespace Player.State
                 case InteractionType.Cut:
                     StateMachine.ChangeState(e_PlayerState.Cut);
                     break;
-                case InteractionType.RhythmLate:
-                    StateMachine.ChangeState(e_PlayerState.Miss);
-                    break;
             }
         }
-
-    
     }
 }

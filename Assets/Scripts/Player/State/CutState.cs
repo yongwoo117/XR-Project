@@ -57,13 +57,7 @@ namespace Player.State
                     break;
             }
         }
-
-        public override void OnRhythmLate()
-        {
-            base.OnRhythmLate();
-            StateMachine.Anim.SetTrigger(AnimationParameter.Miss);
-        }
-
+        
         public override void OnDrawGizmos()
         {
             Gizmos.color = Color.cyan;

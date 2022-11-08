@@ -5,184 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eaa1b3f2-8e36-4531-8cca-a8a38a967539" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animation/Enemy/Anim_Enemy_Ready.anim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animation/Enemy/Anim_Enemy_Ready.anim.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/fsbcache/Desktop/1E36349B.fobj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/fsbcache/Desktop/4BB6A213.fobj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/fsbcache/Desktop/5C2BE052.fobj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/fsbcache/Desktop/5D8A8BB0.fobj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/fsbcache/Desktop/7FF6D831.fobj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/fsbcache/Desktop/83BA1B29.fobj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/fsbcache/Desktop/890C64C8.fobj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/fsbcache/Desktop/90A5C1D3.fobj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/fsbcache/Desktop/BC2B8C41.fobj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/fsbcache/Desktop/FCE566D0.fobj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/{06c73a4d-9856-4680-b273-abd0f534c628}.pdc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/{06cfb653-3f21-4f47-af95-80e3051cdd5d}.pdc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/{11731ac4-73a4-48c3-914f-4b07a3615b0e}.pdc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/{1b7b5116-e85f-4271-b9ae-d54626bc8b47}.pdc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/{44c18f15-9f5c-44e5-86ca-3d31ce39520b}.pdc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/{4a70f816-d22c-44d1-b4b0-ce160eb3f446}.pdc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/{4cae044e-49c9-481e-9ce7-77839ea332f4}.pdc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/{81f3522d-b681-4af4-b17e-60d41adeaaf0}.pdc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/{b304148f-f63c-4b1c-be48-715363f4ec32}.pdc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/{ddf1a281-1210-4cd7-9a42-7e5be6108198}.pdc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Assets/Battle_D.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Assets/Battle_D.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Assets/Robby_Master.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Assets/Robby_Master.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Assets/SFX_Creature_Attack_1.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Assets/SFX_Creature_Attack_1.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Assets/SFX_Creature_Attack_2.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Assets/SFX_Creature_Attack_2.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Assets/SFX_Creature_Attack_3.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Assets/SFX_Creature_Attack_3.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Assets/SFX_Creature_Dead.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Assets/SFX_Creature_Dead.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Assets/SFX_Creature_Hit.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Assets/SFX_Creature_Hit.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Assets/SFX_Player_Hit.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Assets/SFX_Player_Hit.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Assets/SFX_Player_ThythmFail.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Assets/SFX_Player_ThythmFail.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Assets/Sting.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/AudioFile/{06c73a4d-9856-4680-b273-abd0f534c628}.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/AudioFile/{06cfb653-3f21-4f47-af95-80e3051cdd5d}.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/AudioFile/{11731ac4-73a4-48c3-914f-4b07a3615b0e}.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/AudioFile/{1b7b5116-e85f-4271-b9ae-d54626bc8b47}.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/AudioFile/{44c18f15-9f5c-44e5-86ca-3d31ce39520b}.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/AudioFile/{44c18f15-9f5c-44e5-86ca-3d31ce39520b}.xml.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/AudioFile/{4a70f816-d22c-44d1-b4b0-ce160eb3f446}.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/AudioFile/{4cae044e-49c9-481e-9ce7-77839ea332f4}.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/AudioFile/{4cae044e-49c9-481e-9ce7-77839ea332f4}.xml.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/AudioFile/{81f3522d-b681-4af4-b17e-60d41adeaaf0}.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/AudioFile/{81f3522d-b681-4af4-b17e-60d41adeaaf0}.xml.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/AudioFile/{b304148f-f63c-4b1c-be48-715363f4ec32}.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/AudioFile/{b304148f-f63c-4b1c-be48-715363f4ec32}.xml.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/AudioFile/{ddf1a281-1210-4cd7-9a42-7e5be6108198}.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/AudioFile/{ddf1a281-1210-4cd7-9a42-7e5be6108198}.xml.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/DAWAsset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/DAWProject.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/DataFile.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/EffectPreset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{2a8c3fbc-1300-4ec3-af65-f3ae9092d2ee}.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{2a8c3fbc-1300-4ec3-af65-f3ae9092d2ee}.xml.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{35998673-455b-4c1c-ae22-95ad615d7463}.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{35998673-455b-4c1c-ae22-95ad615d7463}.xml.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{3b3456d7-dd15-4d43-b484-0839a178dbc1}.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{3b3456d7-dd15-4d43-b484-0839a178dbc1}.xml.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{58c9263d-088e-45c2-8e5b-3e2d50318832}.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{58c9263d-088e-45c2-8e5b-3e2d50318832}.xml.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{5e7bb759-efa9-46cb-aff7-96e4c76e9368}.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{5e7bb759-efa9-46cb-aff7-96e4c76e9368}.xml.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{77d95886-29bb-444f-9ffe-0b1f9de9b8ae}.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{77d95886-29bb-444f-9ffe-0b1f9de9b8ae}.xml.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{92b8c45f-88c7-49ac-9cf3-a15e8f9bab58}.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{92b8c45f-88c7-49ac-9cf3-a15e8f9bab58}.xml.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{97c2578b-6187-4113-beaa-24714d581ed5}.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{97c2578b-6187-4113-beaa-24714d581ed5}.xml.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{bb37c02e-86b2-4a1c-bd82-945934e43afb}.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{bb37c02e-86b2-4a1c-bd82-945934e43afb}.xml.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{cbb5b2bb-f86a-4573-8f83-42e0c866c575}.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{cbb5b2bb-f86a-4573-8f83-42e0c866c575}.xml.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{f425ffe2-6cc8-4440-85ca-ba1039fc1d00}.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{f425ffe2-6cc8-4440-85ca-ba1039fc1d00}.xml.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Locale.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/MixerView.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/ParameterPreset/{040602bc-16bd-4138-9003-5542e7c3effe}.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/ParameterPreset/{040602bc-16bd-4138-9003-5542e7c3effe}.xml.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Port.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/ProfilerSession.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/SandboxScene.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Snapshot.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Player/State/DieState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Player/State/DieState.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Editor/EnemyProfileEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/EnemyProfileEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Editor/PlayerProfileEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/PlayerProfileEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Editor/SFXProfileEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/SFXProfileEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.XR-Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.XR-Project/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/FMOD/Resources/FMODStudioSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FMOD/Resources/FMODStudioSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/Enemy/AnimController_Enemy.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animation/Enemy/AnimController_Enemy.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/Enemy/Anim_Enemy_Attack.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animation/Enemy/Anim_Enemy_Attack.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefab/SettingsPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefab/SettingsPanel.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptableObject/EnemyInfo0.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/ScriptableObject/EnemyInfo0.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptableObject/EnemyInfo1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/ScriptableObject/EnemyInfo1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptableObject/PlayerInfo.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/ScriptableObject/PlayerInfo.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/fsbcache/Desktop/29DD83FB.fobj" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/fsbcache/Desktop/29DD83FB.fobj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/fsbcache/Desktop/3F4137B5.fobj" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/fsbcache/Desktop/3F4137B5.fobj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/fsbcache/Desktop/4599D678.fobj" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/fsbcache/Desktop/4599D678.fobj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/fsbcache/Desktop/609C03EB.fobj" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/fsbcache/Desktop/609C03EB.fobj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/fsbcache/Desktop/754F6BA2.fobj" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/fsbcache/Desktop/754F6BA2.fobj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/fsbcache/Desktop/B785CC62.fobj" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/fsbcache/Desktop/B785CC62.fobj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/fsbcache/Desktop/CE46C858.fobj" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/fsbcache/Desktop/CE46C858.fobj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/{1a81ed37-ec42-4eaa-a416-cedd769ef619}.pdc" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/{1a81ed37-ec42-4eaa-a416-cedd769ef619}.pdc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/{1ae1dee8-4751-4065-9b2f-e6deb9c1e315}.pdc" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/{1ae1dee8-4751-4065-9b2f-e6deb9c1e315}.pdc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/{2a435d29-c703-4731-b857-838125f2809b}.pdc" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/{2a435d29-c703-4731-b857-838125f2809b}.pdc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/{367bcc25-4546-41ea-b446-cae0a3fe120c}.pdc" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/{367bcc25-4546-41ea-b446-cae0a3fe120c}.pdc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/{4157a4ea-bc4f-473c-b0f0-41e0fc6f4504}.pdc" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/{4157a4ea-bc4f-473c-b0f0-41e0fc6f4504}.pdc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/{995f604a-b5d7-4f80-be5e-186f79ef3e45}.pdc" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/{995f604a-b5d7-4f80-be5e-186f79ef3e45}.pdc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/{c509292f-35e6-42ba-8e09-59a1246a3067}.pdc" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/{c509292f-35e6-42ba-8e09-59a1246a3067}.pdc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/{dcf97a5b-8275-4055-9ecd-31a9690cb19b}.pdc" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/{dcf97a5b-8275-4055-9ecd-31a9690cb19b}.pdc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/{e7600349-7b63-4781-b55b-d874e3910ed6}.pdc" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/.cache/{e7600349-7b63-4781-b55b-d874e3910ed6}.pdc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Assets/Battle_A.wav" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Assets/Battle_A.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Assets/Battle_B.wav" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Assets/Battle_B.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Assets/Battle_C.wav" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Assets/Battle_C.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Assets/SFX_Player_Pre.wav" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Assets/SFX_Player_Pre.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Assets/SFX_Player_Sting_Attack.wav" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Assets/SFX_Player_Sting_Attack.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Assets/SFX_Player_Sting_Rush.wav" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Assets/SFX_Player_Sting_Rush.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Assets/SFX_Player_Swing_Attack.wav" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Assets/SFX_Player_Swing_Attack.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Build/Desktop/BGM.bank" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Build/Desktop/BGM.bank" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Build/Desktop/Master.bank" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Build/Desktop/Master.bank" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Build/Desktop/Master.strings.bank" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Build/Desktop/Master.strings.bank" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Build/Desktop/SFX.bank" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Build/Desktop/SFX.bank" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/AudioFile/{1ae1dee8-4751-4065-9b2f-e6deb9c1e315}.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/AudioFile/{1ae1dee8-4751-4065-9b2f-e6deb9c1e315}.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/AudioFile/{367bcc25-4546-41ea-b446-cae0a3fe120c}.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/AudioFile/{367bcc25-4546-41ea-b446-cae0a3fe120c}.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/AudioFile/{4157a4ea-bc4f-473c-b0f0-41e0fc6f4504}.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/AudioFile/{4157a4ea-bc4f-473c-b0f0-41e0fc6f4504}.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/AudioFile/{c509292f-35e6-42ba-8e09-59a1246a3067}.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/AudioFile/{c509292f-35e6-42ba-8e09-59a1246a3067}.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{03d0a66b-f7c2-447e-b748-d1a048e304d1}.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{03d0a66b-f7c2-447e-b748-d1a048e304d1}.xml.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/AudioFile/{06cfb653-3f21-4f47-af95-80e3051cdd5d}.xml.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{10bae676-48c4-4c08-b1fc-0162b9dcb369}.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{10bae676-48c4-4c08-b1fc-0162b9dcb369}.xml.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/AudioFile/{1b7b5116-e85f-4271-b9ae-d54626bc8b47}.xml.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{2cfb86da-d6f8-478e-8ef9-8dc31c0dcbf7}.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{2cfb86da-d6f8-478e-8ef9-8dc31c0dcbf7}.xml.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/AudioFile/{06c73a4d-9856-4680-b273-abd0f534c628}.xml.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{45b88f3e-2c85-474d-a583-e62337f1962a}.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{45b88f3e-2c85-474d-a583-e62337f1962a}.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{50a637c3-e5b8-40f3-a17e-229fe919ad7c}.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{50a637c3-e5b8-40f3-a17e-229fe919ad7c}.xml.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/AudioFile/{11731ac4-73a4-48c3-914f-4b07a3615b0e}.xml.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{64bd203d-e6a5-4d53-81f0-fd77d290e6bb}.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{64bd203d-e6a5-4d53-81f0-fd77d290e6bb}.xml.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{6a89f982-a41b-45d7-8db5-38eafcc54751}.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{6a89f982-a41b-45d7-8db5-38eafcc54751}.xml.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{6b70c715-17e0-4850-8fac-104b152aff12}.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{6b70c715-17e0-4850-8fac-104b152aff12}.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{8c9813e1-4ff6-4349-9098-e202657868d9}.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{8c9813e1-4ff6-4349-9098-e202657868d9}.xml.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{b1a9b26a-ce96-4a36-aa52-249ace3d53c7}.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{b1a9b26a-ce96-4a36-aa52-249ace3d53c7}.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{cde9a5a1-593a-4b36-a2ae-042557bd5706}.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/Event/{cde9a5a1-593a-4b36-a2ae-042557bd5706}.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/ParameterPreset/{1da37f0d-06c8-4738-a9cf-f1d4cca4191e}.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sound/Team7_FMOD/Metadata/ParameterPreset/{1da37f0d-06c8-4738-a9cf-f1d4cca4191e}.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/StartScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/StartScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyStateMachine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/State/AttackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/State/AttackState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/State/ChaseState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/State/ChaseState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerStateMachine.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/State/CutState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/State/CutState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/State/DashState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/State/DashState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/State/ReadyState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/State/ReadyState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/AnimationParameter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/AnimationParameter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/FMODExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/FMODExtension.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/SFXProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/SFXProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/SFXType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/SFXType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/SettingComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/SettingComponent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/SoundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/SoundManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/StartManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/StartManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/StateEnum.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/StateEnum.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/StateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/StateMachine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/UIManger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/UIManger.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/State/IdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/State/IdleState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/State/MissState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/State/MissState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fmod_editor.log" beforeDir="false" afterPath="$PROJECT_DIR$/fmod_editor.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -191,6 +20,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/KBDMouseControl.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Util/HealthModule.cs" root0="FORCE_HIGHLIGHTING" />
