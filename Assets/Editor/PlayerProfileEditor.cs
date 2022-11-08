@@ -2,7 +2,7 @@ using UnityEditor;
 using UnityEngine;
 
 [CustomEditor(typeof(PlayerProfile))]
-public class PlayerProfileEditor : Editor
+public class PlayerProfileEditor : SFXProfileEditor
 {
     public override void OnInspectorGUI()
     {
@@ -24,6 +24,7 @@ public class PlayerProfileEditor : Editor
         pmf.f_cutRange = EditorGUILayout.FloatField("베기 거리", pmf.f_cutRange);
         pmf.v3_dashRange = EditorGUILayout.Vector3Field("대쉬 공격 범위", pmf.v3_dashRange);
         
+        base.OnInspectorGUI();
         EditorUtility.SetDirty(target);
     }
 }

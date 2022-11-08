@@ -1,4 +1,5 @@
 using System;
+using FMODUnity;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +11,7 @@ public class SettingComponent : MonoBehaviour
     [SerializeField] private Slider masterVolumeSlider;
     [SerializeField] private Slider bgmVolumeSlider;
     [SerializeField] private Slider sfxVolumeSlider;
+    [SerializeField] private EventReference buttonDownSound;
 
     private void Start()
     {
@@ -73,10 +75,11 @@ public class SettingComponent : MonoBehaviour
             Prefs.SetFloat(prefsKey, value);
             bus.setVolume(value);
         });
-
     }
 
     private void SetupMasterVolumeSlider() => SetupSlider("bus:/MasterBus", masterVolumeSlider, PrefsKey.MasterVolume);
     private void SetupBGMVolumeSlier() => SetupSlider("bus:/MasterBus/BGM", bgmVolumeSlider, PrefsKey.BGMVolume);
     private void SetupSFXVolumeSlider() => SetupSlider("bus:/MasterBus/SFX", sfxVolumeSlider, PrefsKey.SFXVolume);
+
+    public void OnButtonDown() => buttonDownSound.PlayOneShot();
 }

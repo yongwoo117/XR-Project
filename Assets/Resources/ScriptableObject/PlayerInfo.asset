@@ -12,6 +12,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3abb9ee536dbb1a40a4da23c96a78564, type: 3}
   m_Name: PlayerInfo
   m_EditorClassIdentifier: 
+  SFXDictionary:
+    keys: 000000000100000002000000060000000400000005000000
+    values:
+    - Guid:
+        Data1: -1153974226
+        Data2: 1243383474
+        Data3: 1502905021
+        Data4: -80026572
+      Path: event:/SFX/Player/SFX_Player_Sting_Rush
+    - Guid:
+        Data1: -877284677
+        Data2: 1165228138
+        Data3: -532511857
+        Data4: 1975871176
+      Path: event:/SFX/Player/SFX_Player_Swing_Attack
+    - Guid:
+        Data1: 993285847
+        Data2: 1296293141
+        Data3: 956859572
+        Data4: -1042581343
+      Path: event:/SFX/Player/SFX_Player_Pre
+    - Guid:
+        Data1: -1833384865
+        Data2: 1236043975
+        Data3: 1587671964
+        Data4: 1487641487
+      Path: event:/SFX/Player/SFX_Player_Dead
+    - Guid:
+        Data1: -198836254
+        Data2: 1145072840
+        Data3: 280676997
+        Data4: 1965113
+      Path: event:/SFX/Player/SFX_Player_Hit
+    - Guid:
+        Data1: 899253875
+        Data2: 1276921179
+        Data3: -1382735186
+        Data4: 1668570465
+      Path: event:/SFX/Player/SFX_Player_ThythmFail
   f_maximumHealth: 3
   f_standardDamage: 10
   i_maximumCombatCombo: 4
@@ -60,7 +99,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   f_dashTime: 0.3
   v3_dashRange: {x: 1, y: 1, z: 1}
-  f_dashDistance: 2000
+  f_dashDistance: 200
   f_cutTime: 0.15
   f_cutRange: 40
   f_cutMultipier: 1

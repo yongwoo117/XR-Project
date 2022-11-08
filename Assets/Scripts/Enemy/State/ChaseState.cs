@@ -1,6 +1,8 @@
 using Enemy.Animation;
 using Enemy.Profile;
+using FMOD.Studio;
 using UnityEngine;
+using STOP_MODE = FMOD.Studio.STOP_MODE;
 
 namespace Enemy.State
 {
@@ -10,7 +12,6 @@ namespace Enemy.State
         private float chaseRange;
         private float chaseSpeed;
         private float attackRange;
-        private float damage;
 
         //상태 변수
         private HealthModule player;
@@ -22,6 +23,8 @@ namespace Enemy.State
         private float chaseGraphCurveArea;
         private float chaseTime;
         private float chasingTime;
+        
+        private EventInstance moveInstance;
 
         private readonly Collider[] collisionBuffer = new Collider[1];
 
@@ -35,7 +38,7 @@ namespace Enemy.State
                 chaseGraph = value.chasePhysicsGraph;
 
                 attackRange = value.f_AttackRange;
-                damage = value.f_damage;
+                moveInstance = value.SFXDictionary[SFXType.Move].CreateAttach(StateMachine.transform);
             }
         }
 
@@ -56,12 +59,15 @@ namespace Enemy.State
             player = collisionBuffer[0].GetComponent<HealthModule>();
 
             SetupIntegralPhysicsGraph();
+            
+            moveInstance.start();
             StateMachine.Anim.SetTrigger(AnimationParameter.Move);
         }
 
         public override void Exit()
         {
             rigid.velocity = Vector3.zero;
+            moveInstance.stop(STOP_MODE.IMMEDIATE);
         }
 
         public override void PhysicsUpdate()
@@ -73,21 +79,9 @@ namespace Enemy.State
         {
             var dir = player.transform.position - StateMachine.transform.position;
             var distance = dir.magnitude;
-
-            if (distance > chaseRange)
-            {
-                StateMachine.ChangeState(e_EnemyState.Idle);
-            }
-            else if (distance <= attackRange)
-            {
-                //TODO: 공격 애니메이션 타이밍에 맞춰서 데미지를 주는 로직을 추가해야 합니다.
-                player.RequestDamage(damage);
-                StateMachine.ChangeState(e_EnemyState.Attack);
-            }
-            else
-            {
-                FlipToDirection(dir);
-            }
+            FlipToDirection(dir);
+            if (distance > chaseRange) StateMachine.ChangeState(e_EnemyState.Idle);
+            else if (distance <= attackRange) StateMachine.ChangeState(e_EnemyState.Attack);
         }
 
         public override void OnRhythm()
@@ -127,6 +121,10 @@ namespace Enemy.State
             StateMachine.ChangeState(e_EnemyState.Hit);
         }
 
+        public override void OnPause(bool isPaused) => moveInstance.setPaused(isPaused);
+
+        ~ChaseState() => moveInstance.release();
+        
         private void FlipToDirection(Vector3 direction)
         {
             Vector3 GFXScale = StateMachine.Anim.transform.localScale;
