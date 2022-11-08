@@ -39,6 +39,8 @@ public class GameManager : SoundManager
         IsPaused = !IsPaused;
     }
 
+    public void OnPauseButtonDown() => IsPaused = true;
+
     public void OnResumeButtonDown() => IsPaused = false;
 
     public void OnOptionButtonDown()
