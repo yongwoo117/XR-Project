@@ -29,7 +29,8 @@ public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private List<EnemyPoolingInfo> poolingList;
     private Dictionary<e_EnemyType, ObjectPool<GameObject>> poolDictionary;
-
+    private int objectCount;
+    
     public UnityEvent stageCleared;
     
     private StageInfo currentStage;
@@ -38,9 +39,9 @@ public class SpawnManager : MonoBehaviour
         get => currentStage;
         set
         {
+            currentStage = value;
             for (int count = 0; count < currentStage.maximumExistEnemy; count++)
                 SpawnObject();
-            currentStage = value;
         }
     }
     
@@ -62,9 +63,11 @@ public class SpawnManager : MonoBehaviour
     {
         if (RandomAreaIndex() is not { } randIndex)
         {
-            stageCleared?.Invoke();
+            if (objectCount == 0)
+                stageCleared?.Invoke();
             return;
         }
+
         SpawnArea area = CurrentStage.spawnAreaList[randIndex];
 
         var spawnObj = poolDictionary[area.List_EnemyType[UnityEngine.Random.Range(0, area.List_EnemyType.Count)]]
@@ -76,6 +79,7 @@ public class SpawnManager : MonoBehaviour
         spawnObj.transform.position = area.SpawnTransform.position + new Vector3(randX, 0f, randZ);
         area.ReSpawnCount--;
         CurrentStage.spawnAreaList[randIndex] = area;
+        objectCount++;
     }
 
     private int? RandomAreaIndex()
@@ -140,6 +144,7 @@ public class SpawnManager : MonoBehaviour
     private void OnRelease(GameObject instance)
     {
         instance.SetActive(false);
+        objectCount--;
         StartCoroutine(DelaySpawn(currentStage.respawnDelay));
     }
 }
