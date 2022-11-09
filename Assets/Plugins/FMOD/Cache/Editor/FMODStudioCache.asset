@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638035884844298435
+  lastModified: 638036003702291422
   FileSizes:
   - Name: Desktop
     Value: 1318
@@ -47,7 +47,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 839
---- !u!114 &-7112181297843187857
+--- !u!114 &-6732243734751251610
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,9 +57,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/BGM/Battle
+  m_Name: event:/BGM/Stage_1
   m_EditorClassIdentifier: 
-  Path: event:/BGM/Battle
+  Path: event:/BGM/Stage_1
   Guid:
     Data1: -1314278806
     Data2: 1245105814
@@ -71,7 +71,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 2143660785408407756}
+  - {fileID: 2589400095347926693}
   MinDistance: 1
   MaxDistance: 20
   Length: 76000
@@ -228,7 +228,6 @@ MonoBehaviour:
   - {fileID: -8130003446193360048}
   - {fileID: 4648303083651565258}
   EditorEvents:
-  - {fileID: -7112181297843187857}
   - {fileID: -6666401489056121259}
   - {fileID: 3021234713946205746}
   - {fileID: 2727227139106431788}
@@ -243,12 +242,13 @@ MonoBehaviour:
   - {fileID: 5842499952473902435}
   - {fileID: 3327823917502591439}
   - {fileID: -4998385583505043420}
+  - {fileID: -6732243734751251610}
   EditorParameters: []
   MasterBanks:
   - {fileID: -8130003446193360048}
   StringsBanks:
   - {fileID: 588961260353031328}
-  cacheTime: 638035884844304561
+  cacheTime: 638036003703333284
   cacheVersion: 131592
 --- !u!114 &588961260353031328
 MonoBehaviour:
@@ -265,12 +265,12 @@ MonoBehaviour:
   Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638035884844299965
+  lastModified: 638036003702295941
   FileSizes:
   - Name: Desktop
-    Value: 1686
+    Value: 1688
   Exists: 1
---- !u!114 &2143660785408407756
+--- !u!114 &2589400095347926693
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -280,7 +280,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Battle/Battle
+  m_Name: parameter:/Stage_1/Battle
   m_EditorClassIdentifier: 
   Name: Battle
   StudioPath: 
@@ -394,7 +394,7 @@ MonoBehaviour:
   Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638035884844304561
+  lastModified: 638036003703333284
   FileSizes:
   - Name: Desktop
     Value: 181568
@@ -441,10 +441,10 @@ MonoBehaviour:
   Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/BGM.bank
   Name: BGM
   StudioPath: bank:/BGM
-  lastModified: 638035884844295618
+  lastModified: 638036003702264627
   FileSizes:
   - Name: Desktop
-    Value: 2210976
+    Value: 2217280
   Exists: 1
 --- !u!114 &5842499952473902435
 MonoBehaviour:
