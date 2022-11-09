@@ -5871,7 +5871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageList:
-  - maximumExistEnemy: 5
+  - maximumExistEnemy: 2
     respawnDelay: 2
     spawnAreaList:
     - SpawnTransform: {fileID: 975941269}
@@ -5890,7 +5890,7 @@ MonoBehaviour:
       AreaSize: {x: 5, y: 5}
       List_EnemyType: 00000000
       ReSpawnCount: 1
-  - maximumExistEnemy: 5
+  - maximumExistEnemy: 4
     respawnDelay: 2
     spawnAreaList:
     - SpawnTransform: {fileID: 975941269}
@@ -5909,7 +5909,7 @@ MonoBehaviour:
       AreaSize: {x: 5, y: 5}
       List_EnemyType: 00000000
       ReSpawnCount: 2
-  startDelay: 0
+  startDelay: 1
   beforeStageStart:
     m_PersistentCalls:
       m_Calls: []

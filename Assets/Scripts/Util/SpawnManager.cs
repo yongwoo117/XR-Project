@@ -40,6 +40,7 @@ public class SpawnManager : MonoBehaviour
         set
         {
             currentStage = value;
+            objectCount = 0;
             for (int count = 0; count < currentStage.maximumExistEnemy; count++)
                 SpawnObject();
         }
@@ -64,7 +65,10 @@ public class SpawnManager : MonoBehaviour
         if (RandomAreaIndex() is not { } randIndex)
         {
             if (objectCount == 0)
+            {
                 stageCleared?.Invoke();
+                objectCount = -1;
+            }
             return;
         }
 
