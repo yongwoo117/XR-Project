@@ -21,7 +21,10 @@ namespace Enemy.State
             var hitEffect = EffectProfileData.Instance.PopEffect("Eff_MonsterHit");
 
             if (hitEffect is not null)
+            {
                 hitEffect.transform.position = StateMachine.transform.GetChild(0).position;
+                hitEffect.transform.localScale = StateMachine.transform.localScale;
+            }
         }
 
         public override void LogicUpdate()
