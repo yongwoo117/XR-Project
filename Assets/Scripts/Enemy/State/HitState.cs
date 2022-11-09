@@ -23,7 +23,7 @@ namespace Enemy.State
             if (hitEffect is not null)
             {
                 hitEffect.transform.position = StateMachine.transform.GetChild(0).position;
-                hitEffect.transform.localScale = StateMachine.transform.localScale;
+                hitEffect.transform.localScale = Vector3.one;
             }
         }
 
