@@ -22,6 +22,8 @@ public abstract class RhythmInputModule : StateMachine<e_PlayerState, PlayerStat
 
     protected abstract void OnInteraction(InteractionType type);
 
+    public bool RhythmFlag => rhythmFlag;
+    
     protected virtual void Start()
     {
         initializeTime = Time.realtimeSinceStartup + RhythmCore.Instance.RemainTime() -
@@ -53,7 +55,7 @@ public abstract class RhythmInputModule : StateMachine<e_PlayerState, PlayerStat
         else
         {
             onTooEarly?.Invoke();
-            OnInteraction(InteractionType.RhythmEarly);
+            OnInteraction(InteractionType.RhythmMiss);
         }
 
         rhythmFlag = false;
@@ -64,7 +66,7 @@ public abstract class RhythmInputModule : StateMachine<e_PlayerState, PlayerStat
         if (rhythmFlag)
         {
             onTooLate?.Invoke();
-            OnInteraction(InteractionType.RhythmLate);
+            OnInteraction(InteractionType.RhythmLost);
         }
     }
 }
