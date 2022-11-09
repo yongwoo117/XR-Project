@@ -66,7 +66,7 @@ public class DialogueController : PlayableBehaviour
                         if (index < Length)
                             nowText += dialogueBehaviour.DialogueText[index];
 
-                        if (index == (Length - 1)||TimeLineManager.Instance.isDialogueSkip)
+                        if (index == Length||TimeLineManager.Instance.isDialogueSkip)
                         {
                             if (TimeLineManager.Instance.isDialogueSkip)
                             {
