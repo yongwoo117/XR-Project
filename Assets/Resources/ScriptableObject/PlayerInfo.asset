@@ -59,47 +59,38 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0.013755798
-      value: -0.097595215
-      inSlope: 0
-      outSlope: 0
+      time: 0
+      value: 0
+      inSlope: 7.9808345
+      outSlope: 7.9808345
       tangentMode: 0
-      weightedMode: 0
+      weightedMode: 2
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.22290945
     - serializedVersion: 3
-      time: 0.3065151
-      value: -0.026686966
-      inSlope: 0.7382377
-      outSlope: 0.7382377
+      time: 0.2554596
+      value: 0.94381016
+      inSlope: -2.8584187
+      outSlope: -2.8584187
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0.7994939
+      outWeight: 0.06688245
     - serializedVersion: 3
-      time: 0.62902325
-      value: 0.8899522
-      inSlope: 4.076707
-      outSlope: 4.076707
+      time: 1.002594
+      value: -0.009090424
+      inSlope: 0.0038657784
+      outSlope: 0.0038657784
       tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.10209222
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.99432623
-      value: -0.0065621026
-      inSlope: 0.664924
-      outSlope: 0.664924
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.57040656
+      weightedMode: 1
+      inWeight: 0.55707693
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   f_dashTime: 0.3
   v3_dashRange: {x: 1, y: 1, z: 1}
-  f_dashDistance: 200
+  f_dashDistance: 180
   f_cutTime: 0.15
   f_cutRange: 40
   f_cutMultipier: 1
