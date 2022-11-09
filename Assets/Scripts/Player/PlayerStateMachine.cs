@@ -7,7 +7,6 @@ public class PlayerStateMachine : CombatComboModule
     [SerializeField] private PlayerProfile profile;
     [SerializeField] private Animator AnimationController;
 
-    private EventReference hitSound;
     
     public Animator Anim => AnimationController;
     protected override void OnEnable()
@@ -35,7 +34,7 @@ public class PlayerStateMachine : CombatComboModule
     protected override void Start()
     {
         base.Start();
-        hitSound = profile.SFXDictionary[SFXType.Hit];
+       
     }
 
     protected override e_PlayerState StartState => e_PlayerState.Idle;
@@ -51,7 +50,7 @@ public class PlayerStateMachine : CombatComboModule
     protected override void OnDamaged(float value)
     {
         base.OnDamaged(value);
-        hitSound.PlayOneShot();
+        ChangeState(e_PlayerState.Hit);
     }
 
     protected override void OnDead()

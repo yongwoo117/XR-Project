@@ -3,7 +3,7 @@ using JetBrains.Annotations;
 
 public enum e_PlayerState
 {
-    Idle, Dash, Ready, Cut, Die, Miss
+    Idle, Dash, Ready, Cut, Die, Miss, Hit
 }
 
 public enum e_EnemyState
@@ -29,6 +29,7 @@ public static class EnumExtensions
             e_PlayerState.Cut => typeof(Player.State.CutState),
             e_PlayerState.Die => typeof(Player.State.DieState),
             e_PlayerState.Miss => typeof(Player.State.MissState),
+            e_PlayerState.Hit => typeof(Player.State.HitState),
 
             //Enemy
             e_EnemyState.Idle => typeof(Enemy.State.IdleState),

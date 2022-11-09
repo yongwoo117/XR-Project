@@ -17,7 +17,9 @@ namespace Enemy.State
         {
             thresholdTime = Time.realtimeSinceStartup + hitTime;
             Debug.Log("Hit!");
+
             var hitEffect = EffectProfileData.Instance.PopEffect("Eff_MonsterHit");
+
             if (hitEffect is not null)
                 hitEffect.transform.position = StateMachine.transform.GetChild(0).position;
         }
