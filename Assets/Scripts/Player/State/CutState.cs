@@ -1,3 +1,4 @@
+using FMODUnity;
 using Player.Animation;
 using UnityEngine;
 
@@ -8,6 +9,8 @@ namespace Player.State
         private float attackRange;
         private float damage;
         private float multiplier;
+
+        private EventReference cutSfx;
         
         private readonly Collider[] collisionBuffer = new Collider[10];
         
@@ -18,6 +21,7 @@ namespace Player.State
                 attackRange = value.f_cutRange;
                 damage = value.f_standardDamage;
                 multiplier = value.f_cutMultipier;
+                cutSfx = value.SFXDictionary[SFXType.Attack2];
             }
         }
 
@@ -27,6 +31,16 @@ namespace Player.State
             StateMachine.RhythmCombo++;
             StateMachine.AddCombatCombo(e_PlayerState.Cut);
             StateMachine.Anim.SetTrigger(AnimationParameter.Cut);
+
+            var cutEffect = EffectProfileData.Instance.PopEffect("Eff_SlashDown");
+            if (cutEffect is not null)
+                cutEffect.transform.parent = StateMachine.transform.GetChild(0);
+            cutEffect.transform.localPosition = Vector3.zero;
+            Vector3 cutScale = cutEffect.transform.localScale;
+            cutScale.x = Mathf.Abs(cutScale.x);
+
+            cutEffect.transform.localScale = cutScale;
+
 
             Attack();
         }
@@ -50,11 +64,11 @@ namespace Player.State
                     StateMachine.ChangeState(e_PlayerState.Dash);
                     break;
                 default:
-                    StateMachine.ChangeState(e_PlayerState.Idle);
+                    StateMachine.ChangeState(e_PlayerState.Miss);
                     break;
             }
         }
-
+        
         public override void OnDrawGizmos()
         {
             Gizmos.color = Color.cyan;
@@ -63,6 +77,7 @@ namespace Player.State
         
         private void Attack()
         {
+            cutSfx.AttachedOneShot(StateMachine.gameObject);
             var count = Physics.OverlapSphereNonAlloc(StateMachine.transform.position, attackRange, collisionBuffer,
                 GetLayerMasks.Enemy);
             if (count == 0) return;

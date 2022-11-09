@@ -1,11 +1,14 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class GameManager : SoundManager
 {
     [SerializeField] private PlayerInput playerInput;
-    
+
+    public static UnityEvent<bool> OnPause = new();
+
     private bool IsPaused
     {
         get => isPaused;
@@ -13,10 +16,11 @@ public class GameManager : SoundManager
         {
             isPaused = value;
             Time.timeScale = IsPaused ? 0 : 1.0f;
-            playerInput.enabled = !isPaused;
+            playerInput.enabled = !IsPaused;
             PauseRhythm(IsPaused);
             PauseSound(IsPaused);
             PauseUI(IsPaused);
+            OnPause?.Invoke(IsPaused);
         }
     }
     private bool isPaused;
@@ -39,15 +43,27 @@ public class GameManager : SoundManager
         IsPaused = !IsPaused;
     }
 
-    public void OnResumeButtonDown() => IsPaused = false;
+    public void OnPauseButtonDown()
+    {
+        ButtonDownSound();
+        IsPaused = true;
+    }
+
+    public void OnResumeButtonDown()
+    {
+        ButtonDownSound();
+        IsPaused = false;
+    }
 
     public void OnOptionButtonDown()
     {
+        ButtonDownSound();
         DisplaySettingMenu();
     }
 
     public void OnExitButtonDown()
     {
+        ButtonDownSound();
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("StartScene");
     }

@@ -15,6 +15,7 @@ public class UIManger : RhythmCore
     }
     
     protected void UpdateComboUI(int combo) => rhythmStreakText.text = combo.ToString();
+    
     protected void PauseUI(bool isPaused)
     {
         pauseInterface.SetActive(isPaused);

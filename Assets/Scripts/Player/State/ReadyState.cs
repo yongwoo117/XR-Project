@@ -1,10 +1,22 @@
+using FMODUnity;
 using Player.Animation;
-using UnityEngine;
 
 namespace Player.State
 {
     public class ReadyState : PlayerState
     {
+        private EventReference readySfx;
+        private EventReference hitSfx;
+
+        public override PlayerProfile Profile
+        {
+            set
+            {
+                readySfx = value.SFXDictionary[SFXType.Charging];
+                hitSfx = value.SFXDictionary[SFXType.Hit];
+            }
+        }
+
         public override void Enter()
         {
             StateMachine.RhythmCombo++;
@@ -14,6 +26,12 @@ namespace Player.State
             if (chargedEffect is not null) 
                 chargedEffect.transform.position = StateMachine.transform.GetChild(0).position;
             StateMachine.Anim.SetTrigger(AnimationParameter.Charge);
+            readySfx.AttachedOneShot(StateMachine.gameObject);
+        }
+        
+        public override void OnDamaged(float value)
+        {
+            hitSfx.AttachedOneShot(StateMachine.gameObject);
         }
 
         public override void HandleInput(InteractionType interactionType)
@@ -27,9 +45,10 @@ namespace Player.State
                     StateMachine.ChangeState(e_PlayerState.Dash);
                     break;
                 default:
-                    StateMachine.ChangeState(e_PlayerState.Idle);
+                    StateMachine.ChangeState(e_PlayerState.Miss);
                     break;
             }
         }
+
     }
 }

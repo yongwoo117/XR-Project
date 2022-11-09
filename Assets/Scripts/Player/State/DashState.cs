@@ -1,5 +1,6 @@
 using Player.Animation;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 
 namespace Player.State
@@ -26,6 +27,9 @@ namespace Player.State
         private readonly List<GameObject> damagedObjects = new();
 
         private GameObject dashEffect;
+
+        private EventReference dashSfx;
+        private EventReference hitSfx;
         
         #region StateFunction
         public override void Initialize()
@@ -45,6 +49,8 @@ namespace Player.State
                 dashAttackRange = value.v3_dashRange;
                 damage = value.f_standardDamage;
                 multiplier = value.f_dashMultiplier;
+                dashSfx = value.SFXDictionary[SFXType.Attack1];
+                hitSfx = value.SFXDictionary[SFXType.Hit];
             }
         }
 
@@ -58,8 +64,15 @@ namespace Player.State
             isActivated = false;
             StateMachine.RhythmCombo++;
             StateMachine.AddCombatCombo(e_PlayerState.Dash);
+            dashSfx.AttachedOneShot(StateMachine.gameObject);
             damagedObjects.Clear();
             Activate();
+        }
+        
+        public override void OnDamaged(float value)
+        {
+            hitSfx.AttachedOneShot(StateMachine.gameObject);
+            StateMachine.Anim.SetTrigger(AnimationParameter.Hit);
         }
 
         public override void PhysicsUpdate()
@@ -84,18 +97,19 @@ namespace Player.State
                 case InteractionType.Ready when dashingTime < 0:
                     StateMachine.ChangeState(e_PlayerState.Ready);
                     break;
-                default:
-                    StateMachine.ChangeState(e_PlayerState.Idle);
+                default :
+                    StateMachine.ChangeState(e_PlayerState.Miss);
                     break;
             }
         }
-        
+
+
         public override void Exit()
         {
             Debug.Log("Dash Exit");
             Deactivate();
         }
-
+        #endregion
         public override void OnDrawGizmos()
         {
             if (control.Direction == null) return;
@@ -109,7 +123,6 @@ namespace Player.State
                 rigid.transform.localScale);
             Gizmos.DrawWireCube(Vector3.right * (direction.magnitude * 0.5f), attackRange);
         }
-        #endregion
         
         private void CheckEnemyHit()
         {

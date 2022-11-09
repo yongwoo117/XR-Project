@@ -1,10 +1,10 @@
-using System;
 using UnityEngine;
 
 public enum FeedbackState
 {
     Idle, //일반 이펙트
-    Direction //화살표 이펙트
+    Direction, //화살표 이펙트
+    Off
 }
 
 public struct FeedbackStruct
@@ -14,7 +14,7 @@ public struct FeedbackStruct
     public MaterialPropertyBlock material;
     public float? activationTime;
     public float? targetTime;
-
+    
     public FeedbackStruct(GameObject effect)
     {
         this.effect = effect;
@@ -61,6 +61,8 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
     private Vector3 direction;
     private Transform GFX;
 
+    protected bool isFlip;
+
     public FeedbackState EffectState
     {
         get => effectState;
@@ -82,10 +84,15 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
                     ActiveToggle(false);
                     effectFlag = true;
                     break;
+                case FeedbackState.Off:
+                    idleEffect.SetActive(false);
+                    idleDirectionEffect.SetActive(false);
+                    directionEffect.SetActive(false);
+                    break;
             }
         }
     }
-
+    
     private void ActiveToggle(bool idleActive)
     {
         idleEffect.SetActive(idleActive);
@@ -110,9 +117,7 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
     protected override void Update()
     {
         base.Update();
-
-        FlipToMouseDir();
-
+        
         switch (EffectState)
         {
             case FeedbackState.Idle:
@@ -128,7 +133,11 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
                     directionStruct.Synchronize();
                 RotateDirection();
                 break;
+            default:
+                return;
         }
+        
+        FlipToMouseDir();
     }
 
     private void FlipToMouseDir()
@@ -136,7 +145,10 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
         if (control.Direction == null||!control.IsActive) return;
         direction = (Vector3)control.Direction;
         Vector3 GFXScale = GFX.transform.localScale;
-        GFXScale.x = Mathf.Abs(GFXScale.x) * (direction.x > 0 ? -1 : 1);
+
+        isFlip = direction.x > 0;
+        GFXScale.x = Mathf.Abs(GFXScale.x) * (isFlip ? -1 : 1);
+
         GFX.transform.localScale = GFXScale;
     }
 

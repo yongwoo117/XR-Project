@@ -56,11 +56,11 @@ public abstract class StateMachine<T1, T2, T3> : HealthModule where T1 : Enum
         onDamaged.AddListener(OnDamaged);
     }
 
-    private void OnDead() => currentState.Dead();
+    protected virtual void OnDead() => currentState.Dead();
     private void OnHealthChanged(float value) => currentState.HealthChanged(value);
     private void OnHealthRatioChanged(float value) => currentState.HealthRatioChanged(value);
     protected override bool AcceptHealthChange(ref float value) => currentState.AcceptHealthChange(ref value);
-    private void OnDamaged(float value) => currentState.OnDamaged(value);
+    protected virtual void OnDamaged(float value) => currentState.OnDamaged(value);
     protected virtual void Update() => currentState.LogicUpdate();
     protected virtual void FixedUpdate() => currentState.PhysicsUpdate();
     protected virtual void OnDrawGizmos() => currentState?.OnDrawGizmos();
@@ -90,7 +90,7 @@ public abstract class StateMachine<T1, T2, T3> : HealthModule where T1 : Enum
         var state = Dic_States[e_state];
 
         //같은 상태로의 변경인 경우
-        if (currentState?.GetType() == state.GetType()) return;
+        //if (currentState?.GetType() == state.GetType()) return;
 
         currentState?.Exit();
         currentState = state;

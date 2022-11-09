@@ -62,6 +62,11 @@ public class EnemyState : IState<e_EnemyState, EnemyState, EnemyStateMachine>
 
     }
 
+    public virtual void OnPause(bool isPaused)
+    {
+        
+    }
+    
     /// <summary>
     /// 적 상태 범위를 보기 위한 기즈모 추가
     /// </summary>
