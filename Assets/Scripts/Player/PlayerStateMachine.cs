@@ -1,14 +1,13 @@
 using FMODUnity;
 using UnityEngine;
-using Player.Animation;
 
 public class PlayerStateMachine : CombatComboModule
 {
     [SerializeField] private PlayerProfile profile;
     [SerializeField] private Animator AnimationController;
-
     
     public Animator Anim => AnimationController;
+    
     protected override void OnEnable()
     {
         base.OnEnable();
@@ -30,13 +29,7 @@ public class PlayerStateMachine : CombatComboModule
         base.OnRhythmLate();
         currentState.OnRhythmLate();
     }
-
-    protected override void Start()
-    {
-        base.Start();
-       
-    }
-
+    
     protected override e_PlayerState StartState => e_PlayerState.Idle;
     protected override float MaximumHealth => profile.f_maximumHealth;
     protected override int CombatComboLimit => profile.i_maximumCombatCombo;
@@ -46,13 +39,7 @@ public class PlayerStateMachine : CombatComboModule
         base.OnBeforeStateInitialize(state);
         state.Profile = profile;
     }
-
-    protected override void OnDamaged(float value)
-    {
-        base.OnDamaged(value);
-        ChangeState(e_PlayerState.Hit);
-    }
-
+    
     protected override void OnDead()
     {
         base.OnDead();

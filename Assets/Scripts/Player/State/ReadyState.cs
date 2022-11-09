@@ -6,10 +6,15 @@ namespace Player.State
     public class ReadyState : PlayerState
     {
         private EventReference readySfx;
+        private EventReference hitSfx;
 
         public override PlayerProfile Profile
         {
-            set => readySfx = value.SFXDictionary[SFXType.Charging];
+            set
+            {
+                readySfx = value.SFXDictionary[SFXType.Charging];
+                hitSfx = value.SFXDictionary[SFXType.Hit];
+            }
         }
 
         public override void Enter()
@@ -22,6 +27,11 @@ namespace Player.State
                 chargedEffect.transform.position = StateMachine.transform.GetChild(0).position;
             StateMachine.Anim.SetTrigger(AnimationParameter.Charge);
             readySfx.AttachedOneShot(StateMachine.gameObject);
+        }
+        
+        public override void OnDamaged(float value)
+        {
+            hitSfx.AttachedOneShot(StateMachine.gameObject);
         }
 
         public override void HandleInput(InteractionType interactionType)

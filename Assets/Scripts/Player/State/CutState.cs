@@ -11,6 +11,7 @@ namespace Player.State
         private float multiplier;
 
         private EventReference cutSfx;
+        private EventReference hitSfx;
         
         private readonly Collider[] collisionBuffer = new Collider[10];
         
@@ -22,7 +23,14 @@ namespace Player.State
                 damage = value.f_standardDamage;
                 multiplier = value.f_cutMultipier;
                 cutSfx = value.SFXDictionary[SFXType.Attack2];
+                hitSfx = value.SFXDictionary[SFXType.Hit];
             }
+        }
+        
+        public override void OnDamaged(float value)
+        {
+            hitSfx.AttachedOneShot(StateMachine.gameObject);
+            StateMachine.Anim.SetTrigger(AnimationParameter.Hit);
         }
 
         public override void Enter()
