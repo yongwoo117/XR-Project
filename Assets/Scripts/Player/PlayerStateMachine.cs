@@ -9,6 +9,7 @@ public class PlayerStateMachine : CombatComboModule
 
     
     public Animator Anim => AnimationController;
+    public bool IsFlip => isFlip;
     protected override void OnEnable()
     {
         base.OnEnable();

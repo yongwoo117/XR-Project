@@ -31,6 +31,17 @@ namespace Player.State
             StateMachine.RhythmCombo++;
             StateMachine.AddCombatCombo(e_PlayerState.Cut);
             StateMachine.Anim.SetTrigger(AnimationParameter.Cut);
+
+            var cutEffect = EffectProfileData.Instance.PopEffect("Eff_SlashDown");
+            if (cutEffect is not null)
+                cutEffect.transform.parent = StateMachine.transform.GetChild(0);
+            cutEffect.transform.localPosition = Vector3.zero;
+            Vector3 cutScale = cutEffect.transform.localScale;
+            cutScale.x = Mathf.Abs(cutScale.x);
+
+            cutEffect.transform.localScale = cutScale;
+
+
             Attack();
         }
 

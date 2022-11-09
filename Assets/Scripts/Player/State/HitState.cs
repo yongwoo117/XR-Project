@@ -1,5 +1,6 @@
 using FMODUnity;
 using Player.Animation;
+using UnityEngine;
 
 namespace Player.State
 {
@@ -17,8 +18,13 @@ namespace Player.State
             hitSfx.PlayOneShot();
             StateMachine.EffectState = FeedbackState.Idle;
             StateMachine.Anim.SetTrigger(AnimationParameter.Hit);
-            StateMachine.RhythmCombo = 0;
-            StateMachine.CombatComboBreak();
+
+            var hitEffect = EffectProfileData.Instance.PopEffect("Eff_CharacterHit");
+            if (hitEffect is not null)
+                hitEffect.transform.parent = StateMachine.transform.GetChild(0);
+
+            hitEffect.transform.localPosition = Vector3.zero;
+            hitEffect.transform.localScale = Vector3.one;
         }
 
         public override void HandleInput(InteractionType interactionType)

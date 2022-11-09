@@ -14,7 +14,7 @@ public struct FeedbackStruct
     public MaterialPropertyBlock material;
     public float? activationTime;
     public float? targetTime;
-
+    
     public FeedbackStruct(GameObject effect)
     {
         this.effect = effect;
@@ -60,6 +60,8 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
     private IControl control;
     private Vector3 direction;
     private Transform GFX;
+
+    protected bool isFlip;
 
     public FeedbackState EffectState
     {
@@ -143,7 +145,10 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
         if (control.Direction == null||!control.IsActive) return;
         direction = (Vector3)control.Direction;
         Vector3 GFXScale = GFX.transform.localScale;
-        GFXScale.x = Mathf.Abs(GFXScale.x) * (direction.x > 0 ? -1 : 1);
+
+        isFlip = direction.x > 0;
+        GFXScale.x = Mathf.Abs(GFXScale.x) * (isFlip ? -1 : 1);
+
         GFX.transform.localScale = GFXScale;
     }
 

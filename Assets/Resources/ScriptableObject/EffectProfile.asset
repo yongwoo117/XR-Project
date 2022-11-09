@@ -21,6 +21,7 @@ MonoBehaviour:
     - Eff_CharacterCharge
     - Eff_CharacterAttack
     - Eff_Trail
+    - Eff_SlashDown
     values:
     - {fileID: 7379835623210154396, guid: 4b2c702adee2188499d2c59ecf940b78, type: 3}
     - {fileID: 1554671603398015269, guid: f386edd851b401f4f8e398ab9651456e, type: 3}
@@ -29,3 +30,4 @@ MonoBehaviour:
     - {fileID: 917005785034365037, guid: 0d7f3d4166e45ed4d947f1a87fb81464, type: 3}
     - {fileID: 452999729648205897, guid: c7aa10a7724b4c84f8d9f6eb13242de0, type: 3}
     - {fileID: 5685028583324914395, guid: 7bfbe6e50aa5d9e40887e646a2b19cae, type: 3}
+    - {fileID: 13961301811692932, guid: 824a4dfe17c0b464985b040ff4ee704c, type: 3}
