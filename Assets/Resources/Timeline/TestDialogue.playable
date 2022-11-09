@@ -17,8 +17,8 @@ MonoBehaviour:
     NameColor: {r: 0, g: 0, b: 0, a: 1}
     DialogueText: "\uCFE0\uC624\uC624\uC624\uC624\uC624\uC624!!!"
     Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
-    PlayerSprite: {fileID: -1657986156, guid: bac4ccb0e56cf374281480ef1ac52290, type: 3}
-    NpcSprite: {fileID: -1167134950, guid: 8182fd6e3ef108d4095e7df93a998a1e, type: 3}
+    PlayerSprite: {fileID: 21300000, guid: c2a6863cea0c8f94394192714c303059, type: 3}
+    NpcSprite: {fileID: 21300000, guid: 4f4bae578f559a8499959e256c85e229, type: 3}
     isCanInteractive: 0
 --- !u!114 &-8156874734590690323
 MonoBehaviour:
@@ -37,8 +37,8 @@ MonoBehaviour:
     NameColor: {r: 0, g: 0, b: 0, a: 1}
     DialogueText: "\uC9C0\uAE08 \uADF8\uB7F0 \uB9D0 \uD560 \uB54C\uC5D0\uC694?!"
     Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
-    PlayerSprite: {fileID: -1657986156, guid: bac4ccb0e56cf374281480ef1ac52290, type: 3}
-    NpcSprite: {fileID: -1167134950, guid: 8182fd6e3ef108d4095e7df93a998a1e, type: 3}
+    PlayerSprite: {fileID: 21300000, guid: 0e0e5501926781547b991f74d3790f86, type: 3}
+    NpcSprite: {fileID: 21300000, guid: b0d36cabab24a154c9d9d7af4718e49a, type: 3}
     isCanInteractive: 0
 --- !u!114 &-7664004580581674027
 MonoBehaviour:
@@ -77,8 +77,8 @@ MonoBehaviour:
     NameColor: {r: 0, g: 0, b: 0, a: 1}
     DialogueText: "\uC774\uB7F0\xB7\xB7\xB7! \uBCD1\uC815\uB4E4\uC774 \uB610 \uC624\uACE0\uC788\uC796\uC544\xB7\xB7\xB7?!"
     Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
-    PlayerSprite: {fileID: -1657986156, guid: bac4ccb0e56cf374281480ef1ac52290, type: 3}
-    NpcSprite: {fileID: -1167134950, guid: 8182fd6e3ef108d4095e7df93a998a1e, type: 3}
+    PlayerSprite: {fileID: 21300000, guid: 2666a0f314462e8468d22da6bc77bf96, type: 3}
+    NpcSprite: {fileID: 21300000, guid: 0b48df97611e3f84392b972ea1c3ef3d, type: 3}
     isCanInteractive: 0
 --- !u!114 &-6244395286273915542
 MonoBehaviour:
@@ -1493,11 +1493,10 @@ MonoBehaviour:
   template:
     NameText: "Mr.\uD1A0\uB07C"
     NameColor: {r: 0, g: 0, b: 0, a: 1}
-    DialogueText: "\uADF8\xB7\xB7 \uADF8\uAC74\xB7\xB7\xB7 \uB0B4\uAC00 \uBBF8\uC548\uD558\uAC8C
-      \uB410\uB124\xB7\xB7\xB7 "
+    DialogueText: "\uADF8, \uADF8\uAC74\xB7\xB7\xB7 \uBA74\uBAA9\uC774 \uC5C6\uB124\xB7\xB7\xB7 "
     Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
-    PlayerSprite: {fileID: -1657986156, guid: bac4ccb0e56cf374281480ef1ac52290, type: 3}
-    NpcSprite: {fileID: -1167134950, guid: 8182fd6e3ef108d4095e7df93a998a1e, type: 3}
+    PlayerSprite: {fileID: 21300000, guid: e905f1844d8710b4d9e4e52a1fc4c8a3, type: 3}
+    NpcSprite: {fileID: 21300000, guid: eb32134bb3ba5a84a999045734b0fd09, type: 3}
     isCanInteractive: 0
 --- !u!114 &-3308483276518003463
 MonoBehaviour:
@@ -1517,8 +1516,8 @@ MonoBehaviour:
     DialogueText: "\uB098\uC911\uC5D0 \uAF2D \uC81C\uB300\uB85C \uC124\uBA85 \uD574\uC8FC\uC154\uC57C
       \uD574\uC694\xB7\xB7\xB7"
     Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
-    PlayerSprite: {fileID: -1657986156, guid: bac4ccb0e56cf374281480ef1ac52290, type: 3}
-    NpcSprite: {fileID: -1167134950, guid: 8182fd6e3ef108d4095e7df93a998a1e, type: 3}
+    PlayerSprite: {fileID: 21300000, guid: f9aad1916bad11e48ab98b7044007920, type: 3}
+    NpcSprite: {fileID: 21300000, guid: b0d36cabab24a154c9d9d7af4718e49a, type: 3}
     isCanInteractive: 0
 --- !u!114 &-2939311729760774602
 MonoBehaviour:
@@ -1558,8 +1557,8 @@ MonoBehaviour:
     NameColor: {r: 0, g: 0, b: 0, a: 1}
     DialogueText: "\xB7\xB7\xB7 \uC804\uBD80 \uC4F0\uB7EC\uD2B8\uB9B0\xB7\xB7 \uAC74\uAC00\xB7\xB7\xB7?"
     Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
-    PlayerSprite: {fileID: -1657986156, guid: bac4ccb0e56cf374281480ef1ac52290, type: 3}
-    NpcSprite: {fileID: -1167134950, guid: 8182fd6e3ef108d4095e7df93a998a1e, type: 3}
+    PlayerSprite: {fileID: 21300000, guid: 0e0e5501926781547b991f74d3790f86, type: 3}
+    NpcSprite: {fileID: 21300000, guid: 48594907db60c3f4687703721c2051fe, type: 3}
     isCanInteractive: 0
 --- !u!114 &-2096442982816158417
 MonoBehaviour:
@@ -1578,8 +1577,8 @@ MonoBehaviour:
     NameColor: {r: 0, g: 0, b: 0, a: 1}
     DialogueText: "\uC800\uCABD\uC740\xB7\xB7\xB7? \uC131 \uC788\uB294 \uBC29\uD5A5\uC778\uB370\xB7\xB7\xB7"
     Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
-    PlayerSprite: {fileID: -1657986156, guid: bac4ccb0e56cf374281480ef1ac52290, type: 3}
-    NpcSprite: {fileID: -1167134950, guid: 8182fd6e3ef108d4095e7df93a998a1e, type: 3}
+    PlayerSprite: {fileID: 21300000, guid: abdcec40140ffaf41a59e77e26a79d08, type: 3}
+    NpcSprite: {fileID: 21300000, guid: 48594907db60c3f4687703721c2051fe, type: 3}
     isCanInteractive: 0
 --- !u!114 &-1856056306682106859
 MonoBehaviour:
@@ -1620,8 +1619,8 @@ MonoBehaviour:
     DialogueText: "\uC77C\uB2E8 \uB098\uC911\uC5D0 \uC0DD\uAC01\uD558\uC790\xB7\xB7\xB7
       !"
     Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
-    PlayerSprite: {fileID: -1657986156, guid: bac4ccb0e56cf374281480ef1ac52290, type: 3}
-    NpcSprite: {fileID: -1167134950, guid: 8182fd6e3ef108d4095e7df93a998a1e, type: 3}
+    PlayerSprite: {fileID: 21300000, guid: 0e0e5501926781547b991f74d3790f86, type: 3}
+    NpcSprite: {fileID: 21300000, guid: 0b48df97611e3f84392b972ea1c3ef3d, type: 3}
     isCanInteractive: 0
 --- !u!114 &-1552756861301779804
 MonoBehaviour:
@@ -1640,8 +1639,8 @@ MonoBehaviour:
     NameColor: {r: 0, g: 0, b: 0, a: 1}
     DialogueText: "\uC6B0\uC544\uC544\uC545!?!?! \uBB34, \uBB34\uC2A8 \uC18C\uB9AC\uC9C0??!!!"
     Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
-    PlayerSprite: {fileID: -1657986156, guid: bac4ccb0e56cf374281480ef1ac52290, type: 3}
-    NpcSprite: {fileID: -1167134950, guid: 8182fd6e3ef108d4095e7df93a998a1e, type: 3}
+    PlayerSprite: {fileID: 21300000, guid: 2666a0f314462e8468d22da6bc77bf96, type: 3}
+    NpcSprite: {fileID: 21300000, guid: 48594907db60c3f4687703721c2051fe, type: 3}
     isCanInteractive: 0
 --- !u!114 &-104220584589117834
 MonoBehaviour:
@@ -1680,10 +1679,10 @@ MonoBehaviour:
     NameText: "Mr.\uD1A0\uB07C"
     NameColor: {r: 0, g: 0, b: 0, a: 1}
     DialogueText: "\uC9C0\uAE08 \uC798 \uC0B4\uC544 \uC788\uC73C\uB2C8 \uB41C \uAC70
-      \uC544\uB2C8\uACA0\uB098! \uD5C8\uD5C8\xB7\xB7\xB7"
+      \uC544\uB2C8\uACA0\uB098~"
     Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
-    PlayerSprite: {fileID: -1657986156, guid: bac4ccb0e56cf374281480ef1ac52290, type: 3}
-    NpcSprite: {fileID: -1167134950, guid: 8182fd6e3ef108d4095e7df93a998a1e, type: 3}
+    PlayerSprite: {fileID: 21300000, guid: e905f1844d8710b4d9e4e52a1fc4c8a3, type: 3}
+    NpcSprite: {fileID: 21300000, guid: eb32134bb3ba5a84a999045734b0fd09, type: 3}
     isCanInteractive: 0
 --- !u!114 &11400000
 MonoBehaviour:
@@ -1765,8 +1764,8 @@ MonoBehaviour:
       \uB3C4\uC6B0\uB7EC \uAC00\uBCF4\uACA0\uB124!                   \uB2E4\uC74C\uC5D0
       \uB610 \uBCF4\uAC8C\uB098!"
     Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
-    PlayerSprite: {fileID: -1657986156, guid: bac4ccb0e56cf374281480ef1ac52290, type: 3}
-    NpcSprite: {fileID: -1167134950, guid: 8182fd6e3ef108d4095e7df93a998a1e, type: 3}
+    PlayerSprite: {fileID: 21300000, guid: b365a8341d4bcbe4abffdde544669334, type: 3}
+    NpcSprite: {fileID: 21300000, guid: eb32134bb3ba5a84a999045734b0fd09, type: 3}
     isCanInteractive: 0
 --- !u!114 &3410340514058184550
 MonoBehaviour:
@@ -1781,12 +1780,12 @@ MonoBehaviour:
   m_Name: DialogueClip(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   template:
-    NameText: 
+    NameText: "\uD070 \uCDA9\uACA9\uC74C"
     NameColor: {r: 0, g: 0, b: 0, a: 1}
     DialogueText: "\uCFE0\uC6B0\uC6B0\uC6B0\uC6B0\uC6C5!!"
     Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
-    PlayerSprite: {fileID: -1657986156, guid: bac4ccb0e56cf374281480ef1ac52290, type: 3}
-    NpcSprite: {fileID: -1167134950, guid: 8182fd6e3ef108d4095e7df93a998a1e, type: 3}
+    PlayerSprite: {fileID: 21300000, guid: 48594907db60c3f4687703721c2051fe, type: 3}
+    NpcSprite: {fileID: 21300000, guid: 48594907db60c3f4687703721c2051fe, type: 3}
     isCanInteractive: 0
 --- !u!114 &3966937761746586363
 MonoBehaviour:
@@ -1805,8 +1804,8 @@ MonoBehaviour:
     NameColor: {r: 0, g: 0, b: 0, a: 1}
     DialogueText: "\uD5C9\xB7\xB7\xB7 \uD5C8\uC5B5\xB7\xB7\xB7 \uB108\uBB34 \uD798\uB4E4\uB2E4\xB7\xB7\xB7"
     Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
-    PlayerSprite: {fileID: -1657986156, guid: bac4ccb0e56cf374281480ef1ac52290, type: 3}
-    NpcSprite: {fileID: -1167134950, guid: 8182fd6e3ef108d4095e7df93a998a1e, type: 3}
+    PlayerSprite: {fileID: 21300000, guid: 2666a0f314462e8468d22da6bc77bf96, type: 3}
+    NpcSprite: {fileID: 21300000, guid: 48594907db60c3f4687703721c2051fe, type: 3}
     isCanInteractive: 0
 --- !u!114 &4128909351582008038
 MonoBehaviour:
@@ -1826,8 +1825,8 @@ MonoBehaviour:
     DialogueText: "\uD750\uC544\xB7\xB7\xB7 \uB108\uBB34 \uC9C0\uCCD0\uBC84\uB838\uC5B4\xB7\xB7\xB7
       \uC880 \uC26C\uC5B4\uC57C\uC9C0\xB7\xB7\xB7"
     Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
-    PlayerSprite: {fileID: -1657986156, guid: bac4ccb0e56cf374281480ef1ac52290, type: 3}
-    NpcSprite: {fileID: -1167134950, guid: 8182fd6e3ef108d4095e7df93a998a1e, type: 3}
+    PlayerSprite: {fileID: 21300000, guid: abdcec40140ffaf41a59e77e26a79d08, type: 3}
+    NpcSprite: {fileID: 21300000, guid: 48594907db60c3f4687703721c2051fe, type: 3}
     isCanInteractive: 0
 --- !u!114 &4412830408460310484
 MonoBehaviour:
@@ -1847,8 +1846,8 @@ MonoBehaviour:
     DialogueText: "\uC800\uB7EC\uACE0 \uAC00\uBC84\uB9AC\uC2E0 \uAC70\uC57C\xB7\xB7\xB7
       ? \uB300\uCCB4 \uBB50\uAC00 \uC5B4\uB5BB\uAC8C \uB418\uB294 \uAC74\uC9C0\xB7\xB7\xB7"
     Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
-    PlayerSprite: {fileID: -1657986156, guid: bac4ccb0e56cf374281480ef1ac52290, type: 3}
-    NpcSprite: {fileID: -1167134950, guid: 8182fd6e3ef108d4095e7df93a998a1e, type: 3}
+    PlayerSprite: {fileID: 21300000, guid: abdcec40140ffaf41a59e77e26a79d08, type: 3}
+    NpcSprite: {fileID: 21300000, guid: 48594907db60c3f4687703721c2051fe, type: 3}
     isCanInteractive: 0
 --- !u!114 &4450616329703667008
 MonoBehaviour:
@@ -1867,8 +1866,8 @@ MonoBehaviour:
     NameColor: {r: 0, g: 0, b: 0, a: 1}
     DialogueText: "\xB7\xB7\xB7 \uB354 \uC624\uC9C4 \uC54A\uB294 \uAD6C\uB098\xB7\xB7\xB7"
     Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
-    PlayerSprite: {fileID: -1657986156, guid: bac4ccb0e56cf374281480ef1ac52290, type: 3}
-    NpcSprite: {fileID: -1167134950, guid: 8182fd6e3ef108d4095e7df93a998a1e, type: 3}
+    PlayerSprite: {fileID: 21300000, guid: f9aad1916bad11e48ab98b7044007920, type: 3}
+    NpcSprite: {fileID: 21300000, guid: 48594907db60c3f4687703721c2051fe, type: 3}
     isCanInteractive: 0
 --- !u!114 &4747729300168689302
 MonoBehaviour:
@@ -1888,8 +1887,8 @@ MonoBehaviour:
     DialogueText: "\uC131\uC5D0\uC11C \uBB34\uC2A8 \uC77C\uC774 \uBC8C\uC5B4\uC9C0\uACE0
       \uC788\uB294 \uAC74\uAC00\xB7\xB7\xB7?"
     Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
-    PlayerSprite: {fileID: -1657986156, guid: bac4ccb0e56cf374281480ef1ac52290, type: 3}
-    NpcSprite: {fileID: -1167134950, guid: 8182fd6e3ef108d4095e7df93a998a1e, type: 3}
+    PlayerSprite: {fileID: 21300000, guid: abdcec40140ffaf41a59e77e26a79d08, type: 3}
+    NpcSprite: {fileID: 21300000, guid: 48594907db60c3f4687703721c2051fe, type: 3}
     isCanInteractive: 0
 --- !u!114 &4887080844440238307
 MonoBehaviour:
@@ -1911,8 +1910,8 @@ MonoBehaviour:
       \uC55E\uC73C\uB85C \uC5B4\uB5A4 \uBAA8\uD5D8\uC774 \uD3BC\uCC98\uC9C8\uC9C0
       \uC54C\uC9C0 \uBABB\uD55C \uCC44\xB7\xB7\xB7"
     Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
-    PlayerSprite: {fileID: -1657986156, guid: bac4ccb0e56cf374281480ef1ac52290, type: 3}
-    NpcSprite: {fileID: -1167134950, guid: 8182fd6e3ef108d4095e7df93a998a1e, type: 3}
+    PlayerSprite: {fileID: 21300000, guid: 48594907db60c3f4687703721c2051fe, type: 3}
+    NpcSprite: {fileID: 21300000, guid: 48594907db60c3f4687703721c2051fe, type: 3}
     isCanInteractive: 0
 --- !u!114 &4927389340871312123
 MonoBehaviour:
@@ -1929,10 +1928,10 @@ MonoBehaviour:
   template:
     NameText: "\uC8FC\uC778\uACF5"
     NameColor: {r: 0, g: 0, b: 0, a: 1}
-    DialogueText: "\uD55C\uBC88 \uAC00 \uBD10\uC57C \uACA0\uC5B4\xB7\xB7\xB7!"
+    DialogueText: "\uD55C\uBC88 \uAC00\uBD10\uC57C\uACA0\uC5B4\xB7\xB7\xB7!"
     Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
-    PlayerSprite: {fileID: -1657986156, guid: bac4ccb0e56cf374281480ef1ac52290, type: 3}
-    NpcSprite: {fileID: -1167134950, guid: 8182fd6e3ef108d4095e7df93a998a1e, type: 3}
+    PlayerSprite: {fileID: 21300000, guid: 0e0e5501926781547b991f74d3790f86, type: 3}
+    NpcSprite: {fileID: 21300000, guid: 48594907db60c3f4687703721c2051fe, type: 3}
     isCanInteractive: 0
 --- !u!114 &5110053385698479033
 MonoBehaviour:
@@ -1972,8 +1971,8 @@ MonoBehaviour:
     NameColor: {r: 0, g: 0, b: 0, a: 1}
     DialogueText: "\uB2F9\uC2E0 \uB54C\uBB38\uC5D0 \uBC8C\uC5B4\uC9C4 \uC77C\uC774\uB77C\uBA74\uC11C\uC694!!"
     Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
-    PlayerSprite: {fileID: -1657986156, guid: bac4ccb0e56cf374281480ef1ac52290, type: 3}
-    NpcSprite: {fileID: -1167134950, guid: 8182fd6e3ef108d4095e7df93a998a1e, type: 3}
+    PlayerSprite: {fileID: 21300000, guid: 0e0e5501926781547b991f74d3790f86, type: 3}
+    NpcSprite: {fileID: 21300000, guid: b0d36cabab24a154c9d9d7af4718e49a, type: 3}
     isCanInteractive: 0
 --- !u!114 &5786206871704259163
 MonoBehaviour:
@@ -2012,8 +2011,8 @@ MonoBehaviour:
     NameColor: {r: 0, g: 0, b: 0, a: 1}
     DialogueText: "\uB108\uBB34 \uC798\uD574\uC8FC\uC5C8\uB124!"
     Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
-    PlayerSprite: {fileID: -1657986156, guid: bac4ccb0e56cf374281480ef1ac52290, type: 3}
-    NpcSprite: {fileID: -1167134950, guid: 8182fd6e3ef108d4095e7df93a998a1e, type: 3}
+    PlayerSprite: {fileID: 21300000, guid: 6f28da167cc9fb543ae35778034d5e09, type: 3}
+    NpcSprite: {fileID: 21300000, guid: b0d36cabab24a154c9d9d7af4718e49a, type: 3}
     isCanInteractive: 0
 --- !u!114 &7577752687484720976
 MonoBehaviour:
@@ -2035,8 +2034,8 @@ MonoBehaviour:
       \uC774\uC81C \uB0B4\uAC00 \uC5C6\uC5B4\uB3C4 \uC2A4\uC2A4\uB85C\uB97C \uC9C0\uD0AC
       \uC218 \uC788\uC744 \uD14C\uC9C0?"
     Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
-    PlayerSprite: {fileID: -1657986156, guid: bac4ccb0e56cf374281480ef1ac52290, type: 3}
-    NpcSprite: {fileID: -1167134950, guid: 8182fd6e3ef108d4095e7df93a998a1e, type: 3}
+    PlayerSprite: {fileID: 21300000, guid: b365a8341d4bcbe4abffdde544669334, type: 3}
+    NpcSprite: {fileID: 21300000, guid: eb32134bb3ba5a84a999045734b0fd09, type: 3}
     isCanInteractive: 0
 --- !u!114 &8120839748003083132
 MonoBehaviour:
