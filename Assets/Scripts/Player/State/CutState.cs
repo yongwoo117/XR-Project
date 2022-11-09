@@ -31,6 +31,7 @@ namespace Player.State
             StateMachine.RhythmCombo++;
             StateMachine.AddCombatCombo(e_PlayerState.Cut);
             StateMachine.Anim.SetTrigger(AnimationParameter.Cut);
+            StateMachine.EffectState = FeedbackState.Idle;
             Attack();
         }
 
