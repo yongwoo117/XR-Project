@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b05264d16cb4e5b48a8c9f2e486489b9, type: 3}
+  m_Name: Enemy_Speed
+  m_EditorClassIdentifier: 
+  SFXDictionary:
+    keys: 00000000030000000400000006000000
+    values:
+    - Guid:
+        Data1: 1489577533
+        Data2: 1170344078
+        Data3: 759061390
+        Data4: 847786320
+      Path: event:/SFX/Creature/SFX_Creature_Attack
+    - Guid:
+        Data1: 713834428
+        Data2: 1321407232
+        Data3: -1359780433
+        Data4: -288189808
+      Path: event:/SFX/Creature/SFX_Creature_Move
+    - Guid:
+        Data1: -1748871285
+        Data2: 1091789191
+        Data3: 1898228414
+        Data4: -719431603
+      Path: event:/SFX/Creature/SFX_Creature_Hit
+    - Guid:
+        Data1: 1585166169
+        Data2: 1187770281
+        Data3: -459868241
+        Data4: 1754492615
+      Path: event:/SFX/Creature/SFX_Creature_Dead
+  f_CheckRange: 100
+  f_AttackRange: 10
+  f_ChaseRange: 100
+  f_ChaseSpeed: 5
+  f_maximumHealth: 15
+  f_hitTime: 1
+  f_damage: 1
+  f_attackPreDelay: 1
+  f_attackPostDelay: 1
+  v3_attackBox: {x: 10, y: 10, z: 10}
