@@ -1,3 +1,4 @@
+using FMODUnity;
 using Player.Animation;
 using UnityEngine;
 
@@ -5,6 +6,19 @@ namespace Player.State
 {
     public class MissState : PlayerState
     {
+        private EventReference hitSfx;
+
+        public override PlayerProfile Profile
+        {
+            set => hitSfx = value.SFXDictionary[SFXType.Hit];
+        }
+
+        public override void OnDamaged(float value)
+        {
+            hitSfx.AttachedOneShot(StateMachine.gameObject);
+            StateMachine.Anim.SetTrigger(AnimationParameter.Hit);
+        }
+        
         public override void Enter()
         {
             Debug.Log("Miss Enter");
@@ -23,6 +37,10 @@ namespace Player.State
                     break;
                 case InteractionType.Cut:
                     StateMachine.ChangeState(e_PlayerState.Cut);
+                    break;
+                case InteractionType.RhythmMiss:
+                    if (StateMachine.RhythmFlag)
+                        Enter();
                     break;
             }
         }

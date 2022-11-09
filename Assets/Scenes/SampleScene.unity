@@ -8974,7 +8974,7 @@ MonoBehaviour:
     ReSpawnCount: 10
     isCanSpawn: 1
   enemySpawnProfile: {fileID: 11400000, guid: 4aef58d977e40754ab80f444469df511, type: 2}
-  SpawnCount: 10
+  SpawnCount: 1
 --- !u!1001 &1680146607699291301
 PrefabInstance:
   m_ObjectHideFlags: 0

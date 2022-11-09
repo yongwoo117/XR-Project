@@ -1,3 +1,4 @@
+using FMODUnity;
 using UnityEngine;
 using Player.Animation;
 
@@ -5,6 +6,19 @@ namespace Player.State
 {
     public class IdleState : PlayerState
     {
+        private EventReference hitSfx;
+
+        public override PlayerProfile Profile
+        {
+            set => hitSfx = value.SFXDictionary[SFXType.Hit];
+        }
+
+        public override void OnDamaged(float value)
+        {
+            hitSfx.AttachedOneShot(StateMachine.gameObject);
+            StateMachine.Anim.SetTrigger(AnimationParameter.Hit);
+        }
+
         public override void Enter()
         {
             Debug.Log("Idle Enter");
