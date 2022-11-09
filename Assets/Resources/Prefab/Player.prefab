@@ -306,7 +306,7 @@ MonoBehaviour:
   onDamageCanceled:
     m_PersistentCalls:
       m_Calls: []
-  List_e_States: 00000000010000000300000002000000000000000500000006000000
+  List_e_States: 00000000010000000300000002000000040000000500000006000000
   onTooEarly:
     m_PersistentCalls:
       m_Calls: []
