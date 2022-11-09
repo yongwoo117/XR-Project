@@ -6066,6 +6066,19 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1633477617}
     m_Modifications:
+    - target: {fileID: 522281279627955473, guid: e3067a7c2b10dc342aa9761ae583b53a, type: 3}
+      propertyPath: m_text
+      value: "\uC6B0\uC120\uC740 \uC0B4\uACE0 \uBD10\uC57C\uACA0\uC5B4\xB7\xB7\xB7
+        ! \uB9CC\uC0B4\uACE0\uBD10"
+      objectReference: {fileID: 0}
+    - target: {fileID: 522281279627955473, guid: e3067a7c2b10dc342aa9761ae583b53a, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
+    - target: {fileID: 522281279627955473, guid: e3067a7c2b10dc342aa9761ae583b53a, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 1055991166950110774, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
     - target: {fileID: 522281279840906236, guid: e3067a7c2b10dc342aa9761ae583b53a, type: 3}
       propertyPath: m_Name
       value: TextBoard
