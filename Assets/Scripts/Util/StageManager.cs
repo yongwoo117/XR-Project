@@ -19,7 +19,7 @@ public class StageManager : MonoBehaviour
     [SerializeField] private float startDelay;
 
     public UnityEvent<int> beforeStageStart;
-    public UnityEvent gameEnded;
+    public UnityEvent onGameCleared;
 
     private int stageIndex;
     private SpawnManager spawnManager;
@@ -42,7 +42,7 @@ public class StageManager : MonoBehaviour
 
     public void OnStageClear()
     {
-        if (++stageIndex == stageList.Count) gameEnded?.Invoke();
+        if (++stageIndex == stageList.Count) onGameCleared?.Invoke();
         else StartCoroutine(DelayStart());
     }
 }

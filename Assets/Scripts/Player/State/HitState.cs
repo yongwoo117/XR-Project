@@ -15,7 +15,7 @@ namespace Player.State
 
         public override void Enter()
         {
-            hitSfx.PlayOneShot();
+            hitSfx.AttachedOneShot(StateMachine.gameObject);
             StateMachine.EffectState = FeedbackState.Idle;
             StateMachine.Anim.SetTrigger(AnimationParameter.Hit);
 

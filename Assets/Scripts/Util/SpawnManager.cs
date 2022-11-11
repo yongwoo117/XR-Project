@@ -31,7 +31,7 @@ public class SpawnManager : MonoBehaviour
     private Dictionary<e_EnemyType, ObjectPool<GameObject>> poolDictionary;
     private int objectCount;
     
-    public UnityEvent stageCleared;
+    public UnityEvent onStageCleared;
     
     private StageInfo currentStage;
     public StageInfo CurrentStage
@@ -66,7 +66,7 @@ public class SpawnManager : MonoBehaviour
         {
             if (objectCount == 0)
             {
-                stageCleared?.Invoke();
+                onStageCleared?.Invoke();
                 objectCount = -1;
             }
             return;
