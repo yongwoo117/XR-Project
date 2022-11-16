@@ -55,7 +55,7 @@ MonoBehaviour:
   template:
     NameText: "\uC8FC\uC778\uACF5"
     NameColor: {r: 0, g: 0, b: 0, a: 1}
-    DialogueText: "\uC5B4\uB77C\xB7\xB7\xB7? \uC5EC\uC655 \uD3D0\uD558\uC758 \uBCD1\uC815\uB4E4\uC774\uC796\uC544?"
+    DialogueText: "\uC800\uBD84\uB4E4\uC740\xB7\xB7\xB7? \uC5EC\uC655\uC758 \uBCD1\uC815\uB4E4\uC774\uC796\uC544??"
     Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
     PlayerSprite: {fileID: 21300000, guid: 04e79281ee15b71499d82db1304e9da3, type: 3}
     NpcSprite: {fileID: 21300000, guid: 0b48df97611e3f84392b972ea1c3ef3d, type: 3}
@@ -96,7 +96,7 @@ MonoBehaviour:
   template:
     NameText: ???
     NameColor: {r: 0, g: 0, b: 0, a: 1}
-    DialogueText: "\uC790\uB124!! \uBC15\uC790\uC5D0 \uB9DE\uCDB0\uC57C \uC6C0\uC9C1\uC77C
+    DialogueText: "\uC774\uBCF4\uAC8C!! \uBC15\uC790\uC5D0 \uB9DE\uCDB0\uC57C \uC6C0\uC9C1\uC77C
       \uC218 \uC788\uC5B4!!"
     Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
     PlayerSprite: {fileID: 21300000, guid: 6f28da167cc9fb543ae35778034d5e09, type: 3}
@@ -138,7 +138,7 @@ MonoBehaviour:
   template:
     NameText: "\uC8FC\uC778\uACF5"
     NameColor: {r: 0, g: 0, b: 0, a: 1}
-    DialogueText: "\uC73C\uC74C\xB7\xB7\xB7 \uD55C\uAC00\uD55C\uAC78\xB7\xB7\xB7"
+    DialogueText: "\uC624\uB298\uB3C4 \uD558\uB8E8\uB97C \uC2DC\uC791\uD574 \uBCFC\uAE4C~"
     Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
     PlayerSprite: {fileID: 21300000, guid: f9aad1916bad11e48ab98b7044007920, type: 3}
     NpcSprite: {fileID: 21300000, guid: 48594907db60c3f4687703721c2051fe, type: 3}
@@ -602,7 +602,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: "\uB3C4\uC785\uBD8012"
   - m_Version: 1
-    m_Start: 14.3
+    m_Start: 13.883333333333333
     m_ClipIn: 0
     m_Asset: {fileID: 8678645510631534371}
     m_Duration: 1.4166666666666679
@@ -620,7 +620,25 @@ MonoBehaviour:
       m_RotationOrder: 4
     m_MixOutCurve:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -638,7 +656,7 @@ MonoBehaviour:
     m_Start: 12.8
     m_ClipIn: 0
     m_Asset: {fileID: 5110053385698479033}
-    m_Duration: 1.5
+    m_Duration: 1.0833333333333321
     m_TimeScale: 1
     m_ParentTrack: {fileID: -4304503150389808141}
     m_EaseInDuration: 0
@@ -686,7 +704,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: "\uB3C4\uC785\uBD8013"
   - m_Version: 1
-    m_Start: 15.716666666666669
+    m_Start: 15.3
     m_ClipIn: 0
     m_Asset: {fileID: -5374191254811856003}
     m_Duration: 1.5166666666666675
@@ -719,10 +737,10 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: "\uB3C4\uC785\uBD8015"
   - m_Version: 1
-    m_Start: 17.233333333333334
+    m_Start: 16.81666666666667
     m_ClipIn: 0
     m_Asset: {fileID: 8426368803276526985}
-    m_Duration: 0.9999999999999964
+    m_Duration: 1
     m_TimeScale: 1
     m_ParentTrack: {fileID: -4304503150389808141}
     m_EaseInDuration: 0
@@ -1532,7 +1550,7 @@ MonoBehaviour:
     NameColor: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 1}
     DialogueText: "\uAE84\uC544\uC544\uC544\uC545!!!"
     Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
-    PlayerSprite: {fileID: 21300000, guid: b365a8341d4bcbe4abffdde544669334, type: 3}
+    PlayerSprite: {fileID: 21300000, guid: 48594907db60c3f4687703721c2051fe, type: 3}
     NpcSprite: {fileID: 21300000, guid: 48594907db60c3f4687703721c2051fe, type: 3}
     isCanInteractive: 0
 --- !u!114 &-3928259535268751057
@@ -1570,7 +1588,7 @@ MonoBehaviour:
   template:
     NameText: "\uC8FC\uC778\uACF5"
     NameColor: {r: 0, g: 0, b: 0, a: 1}
-    DialogueText: "\uBCD1\uC815\uB4E4\uC774 \uC65C \uC774\uB7F0 \uB9C8\uC744\uC5D0\xB7\xB7\xB7"
+    DialogueText: "\uBCD1\uC815\uB4E4\uC774 \uC65C \uB9C8\uC744\uC5D0 \uC788\uC9C0\xB7\xB7\xB7?"
     Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
     PlayerSprite: {fileID: 21300000, guid: 04e79281ee15b71499d82db1304e9da3, type: 3}
     NpcSprite: {fileID: 21300000, guid: 0b48df97611e3f84392b972ea1c3ef3d, type: 3}
@@ -1690,8 +1708,8 @@ MonoBehaviour:
   template:
     NameText: "\uB098\uB808\uC774\uC158"
     NameColor: {r: 0, g: 0, b: 0, a: 1}
-    DialogueText: "\uD3C9\uD654\uB86D\uB358 '\uC774\uC0C1\uD55C \uB098\uB77C'\uC758
-      \uC5B4\uB290 \uB0A0"
+    DialogueText: "\uD3C9\uD654\uB86D\uB358 \uC774\uC0C1\uD55C \uB098\uB77C\uC758
+      \uC5B4\uB290 \uD558\uB8E8"
     Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
     PlayerSprite: {fileID: 21300000, guid: 48594907db60c3f4687703721c2051fe, type: 3}
     NpcSprite: {fileID: 21300000, guid: 48594907db60c3f4687703721c2051fe, type: 3}
@@ -1784,7 +1802,7 @@ MonoBehaviour:
     m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: 9207417529763560218}
-    m_Duration: 18.23333333333333
+    m_Duration: 17.816666666666666
     m_TimeScale: 1
     m_ParentTrack: {fileID: 84329215786672964}
     m_EaseInDuration: 0
@@ -1848,7 +1866,7 @@ MonoBehaviour:
     m_PreExtrapolationMode: 1
     m_PostExtrapolationTime: Infinity
     m_PreExtrapolationTime: 0
-    m_DisplayName: Anim_Playerscripts_Start
+    m_DisplayName: Anim_Playerscripts
   m_Markers:
     m_Objects: []
   m_InfiniteClipPreExtrapolation: 0
@@ -1894,7 +1912,7 @@ MonoBehaviour:
     m_Start: 0.000000000000002831068712794149
     m_ClipIn: 0
     m_Asset: {fileID: 8791512646926149433}
-    m_Duration: 18.233333333333327
+    m_Duration: 17.816666666666666
     m_TimeScale: 1
     m_ParentTrack: {fileID: 1212227901233092525}
     m_EaseInDuration: 0
@@ -1958,7 +1976,7 @@ MonoBehaviour:
     m_PreExtrapolationMode: 1
     m_PostExtrapolationTime: Infinity
     m_PreExtrapolationTime: 0.000000000000002831068712794149
-    m_DisplayName: Anim_NPCscripts_Start
+    m_DisplayName: Anim_NPCscripts
   m_Markers:
     m_Objects: []
   m_InfiniteClipPreExtrapolation: 0
@@ -2202,9 +2220,8 @@ MonoBehaviour:
   template:
     NameText: "Mr.\uD1A0\uB07C"
     NameColor: {r: 0, g: 0, b: 0, a: 1}
-    DialogueText: "\uC568\uB9AC\uC2A4\uB97C \uB370\uB824\uC624\uB294 \uAC8C \uC544\uB2C8\uC5C8\uB294\uB370...!
-      \uB0B4\uAC00 \uC5B4\uB9AC\uC11D\uC5C8\uC5B4,            \uD3D0\uD558\uAED8\uC11C
-      \uC800\uB9AC \uB178\uD558\uC2E4 \uC904\uC740\xB7\xB7\xB7"
+    DialogueText: "\uC568\uB9AC\uC2A4\uB97C \uB370\uB824\uC628 \uAC74 \uB0B4 \uC2E4\uC218\uC600\uB2E4\uB124!
+      \uC5EC\uC655 \uD3D0\uD558\uAED8\uC11C \uB178\uD558\uC168\uB2E4!"
     Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
     PlayerSprite: {fileID: 21300000, guid: c2a6863cea0c8f94394192714c303059, type: 3}
     NpcSprite: {fileID: 21300000, guid: eb32134bb3ba5a84a999045734b0fd09, type: 3}
@@ -2347,8 +2364,8 @@ MonoBehaviour:
   template:
     NameText: "Mr.\uD1A0\uB07C"
     NameColor: {r: 0, g: 0, b: 0, a: 1}
-    DialogueText: "\uC774\uBC88 \uC77C\uC740 \uC815\uB9D0 \uBA74\uBAA9\uC774 \uC5C6\uB124\xB7\xB7\xB7
-      \uB098\uC911\uC5D0\uB2E4 \uC124\uBA85\uD574 \uC904 \uD14C\uB2C8 \uC6B0\uC120\uC740     
+    DialogueText: "\uC774\uBC88 \uC77C\uC740 \uC815\uB9D0 \uBA74\uBAA9\uC774 \uC5C6\uB124\xB7\xB7\xB7\uC8D7\uAC12\uC740
+      \uB098\uC911\uC5D0 \uCE58\uB97C \uD14C\uB2C8            \uC6B0\uC120\uC740
       \uB098\uC758 \uC9C0\uC2DC\uC5D0 \uB530\uB77C\uC8FC\uC9C0 \uC54A\uACA0\uB098?!"
     Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
     PlayerSprite: {fileID: 21300000, guid: c2a6863cea0c8f94394192714c303059, type: 3}
