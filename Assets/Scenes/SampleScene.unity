@@ -9341,7 +9341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageList:
-  - maximumExistEnemy: 2
+  - maximumExistEnemy: 3
     respawnDelay: 2
     spawnAreaList:
     - SpawnTransform: {fileID: 975941269}
@@ -9351,34 +9351,15 @@ MonoBehaviour:
     - SpawnTransform: {fileID: 1981732381}
       AreaSize: {x: 5, y: 5}
       List_EnemyType: 00000000
-      ReSpawnCount: 2
+      ReSpawnCount: 4
     - SpawnTransform: {fileID: 680279321}
       AreaSize: {x: 5, y: 5}
       List_EnemyType: 00000000
       ReSpawnCount: 0
     - SpawnTransform: {fileID: 867981073}
       AreaSize: {x: 5, y: 5}
-      List_EnemyType: 00000000
-      ReSpawnCount: 2
-  - maximumExistEnemy: 4
-    respawnDelay: 2
-    spawnAreaList:
-    - SpawnTransform: {fileID: 975941269}
-      AreaSize: {x: 5, y: 5}
-      List_EnemyType: 0000000001000000
-      ReSpawnCount: 2
-    - SpawnTransform: {fileID: 1981732381}
-      AreaSize: {x: 5, y: 5}
-      List_EnemyType: 0000000001000000
-      ReSpawnCount: 2
-    - SpawnTransform: {fileID: 680279321}
-      AreaSize: {x: 5, y: 5}
-      List_EnemyType: 0000000001000000
-      ReSpawnCount: 2
-    - SpawnTransform: {fileID: 867981073}
-      AreaSize: {x: 5, y: 5}
-      List_EnemyType: 0000000001000000
-      ReSpawnCount: 2
+      List_EnemyType: 01000000
+      ReSpawnCount: 3
   - maximumExistEnemy: 5
     respawnDelay: 2
     spawnAreaList:
@@ -9389,7 +9370,7 @@ MonoBehaviour:
     - SpawnTransform: {fileID: 1981732381}
       AreaSize: {x: 5, y: 5}
       List_EnemyType: 0000000001000000
-      ReSpawnCount: 5
+      ReSpawnCount: 6
     - SpawnTransform: {fileID: 680279321}
       AreaSize: {x: 5, y: 5}
       List_EnemyType: 02000000
@@ -9397,7 +9378,7 @@ MonoBehaviour:
     - SpawnTransform: {fileID: 867981073}
       AreaSize: {x: 5, y: 5}
       List_EnemyType: 0000000001000000
-      ReSpawnCount: 5
+      ReSpawnCount: 6
   - maximumExistEnemy: 6
     respawnDelay: 2
     spawnAreaList:
@@ -9408,7 +9389,7 @@ MonoBehaviour:
     - SpawnTransform: {fileID: 1981732381}
       AreaSize: {x: 5, y: 5}
       List_EnemyType: 0000000001000000
-      ReSpawnCount: 6
+      ReSpawnCount: 8
     - SpawnTransform: {fileID: 680279321}
       AreaSize: {x: 5, y: 5}
       List_EnemyType: 02000000
@@ -9416,7 +9397,7 @@ MonoBehaviour:
     - SpawnTransform: {fileID: 867981073}
       AreaSize: {x: 5, y: 5}
       List_EnemyType: 0000000001000000
-      ReSpawnCount: 6
+      ReSpawnCount: 8
   startDelay: 3
   beforeStageStart:
     m_PersistentCalls:
