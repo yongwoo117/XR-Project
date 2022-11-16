@@ -11,6 +11,7 @@ namespace Player.Animation
         public static readonly int Miss = Animator.StringToHash("Miss");
         public static readonly int Dead = Animator.StringToHash("Dead");
         public static readonly int Hit = Animator.StringToHash("Hit");
+        public static readonly int CutIndex = Animator.StringToHash("CutIndex");
     }
 }
 

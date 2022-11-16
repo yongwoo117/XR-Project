@@ -9,6 +9,7 @@ namespace Player.State
         private float attackRange;
         private float damage;
         private float multiplier;
+        private int cutIndex=0;
 
         private EventReference cutSfx;
         
@@ -28,16 +29,26 @@ namespace Player.State
         public override void Enter()
         {
             Debug.Log("Cut Enter");
+            GameObject cutEffect;
+
+            if (cutIndex == 0)
+                cutEffect = EffectProfileData.Instance.PopEffect("Eff_SlashDown");
+            else
+                cutEffect = EffectProfileData.Instance.PopEffect("Eff_SlashUp");
+
             StateMachine.RhythmCombo++;
             StateMachine.AddCombatCombo(e_PlayerState.Cut);
             StateMachine.Anim.SetTrigger(AnimationParameter.Cut);
+            StateMachine.Anim.SetFloat(AnimationParameter.CutIndex, cutIndex++);
 
-            var cutEffect = EffectProfileData.Instance.PopEffect("Eff_SlashDown");
+            if (cutIndex >= 2)
+                cutIndex = 0;
+
+            Vector3 cutScale = cutEffect.transform.localScale;
+            cutScale.x = Mathf.Abs(cutScale.x);
             if (cutEffect is not null)
                 cutEffect.transform.parent = StateMachine.transform.GetChild(0);
             cutEffect.transform.localPosition = Vector3.zero;
-            Vector3 cutScale = cutEffect.transform.localScale;
-            cutScale.x = Mathf.Abs(cutScale.x);
 
             cutEffect.transform.localScale = cutScale;
 
@@ -48,6 +59,7 @@ namespace Player.State
         public override void Exit()
         {
             Debug.Log("Cut Exit");
+            cutIndex = 0;
         }
         
         public override void HandleInput(InteractionType interactionType)
