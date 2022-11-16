@@ -30,7 +30,7 @@ public class KBDMouseControl : MonoBehaviour, IControl
     public Vector3? Direction => Position - transform.position;
 
     public UnityEvent<InteractionType> OnInteraction => onInteraction;
-    [SerializeField] private UnityEvent<InteractionType> onInteraction;
+    public UnityEvent<InteractionType> onInteraction;
     
     private void Start()
     {
@@ -66,4 +66,6 @@ public class KBDMouseControl : MonoBehaviour, IControl
         if(!context.started) return;
             onInteraction?.Invoke(InteractionType.Cut);
     }
+
+   
 }

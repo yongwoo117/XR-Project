@@ -13,7 +13,7 @@ public class TimeLineManager : Singleton<TimeLineManager>
     private double StartTime;
     public bool isDialogueSkip { get; set; }
 
-    private void Start()
+    protected virtual void Start()
     {
         if (playableDirector == null)
             playableDirector = GetComponent<PlayableDirector>();

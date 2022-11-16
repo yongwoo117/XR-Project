@@ -18,7 +18,10 @@ public abstract class RhythmInputModule : StateMachine<e_PlayerState, PlayerStat
     /// </summary>
     public UnityEvent onTooLate;
 
+
+    public UnityEvent<InteractionType> onRhythm;
     protected abstract void OnInteraction(InteractionType type);
+
 
     protected override void Awake()
     {
@@ -31,6 +34,7 @@ public abstract class RhythmInputModule : StateMachine<e_PlayerState, PlayerStat
         if (rhythmFlag && RhythmCore.Instance.Judge())
         {
             OnInteraction(type);
+            onRhythm?.Invoke(type);
             rhythmFlag = false;
         }
         else

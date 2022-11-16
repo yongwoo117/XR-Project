@@ -95,7 +95,7 @@ public class DialogueController : PlayableBehaviour
     public override void OnPlayableDestroy(Playable playable)
     {
         if(dialogueManager!=null)
-            dialogueManager.SetActive(false);
+            dialogueManager.EndDialogue();
     }
 
 }

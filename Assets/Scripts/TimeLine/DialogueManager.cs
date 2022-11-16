@@ -37,4 +37,10 @@ public class DialogueManager : MonoBehaviour
 
     }
 
+    public void EndDialogue()
+    {
+        SetActive(false);
+        TimeLineManager.Instance.EndTimeLine();
+    }
+
 }
