@@ -51,7 +51,7 @@ MonoBehaviour:
         Data3: -1382735186
         Data4: 1668570465
       Path: event:/SFX/Player/SFX_Player_ThythmFail
-  f_maximumHealth: 25
+  f_maximumHealth: 40
   f_standardDamage: 5
   i_maximumCombatCombo: 4
   f_dashMultiplier: 1
@@ -59,22 +59,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0.013755798
-      value: -0.097595215
-      inSlope: 0
-      outSlope: 0
+      time: 0.0014986675
+      value: 0.000069752336
+      inSlope: -0.07075138
+      outSlope: -0.07075138
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 1
     - serializedVersion: 3
       time: 0.3065151
       value: -0.026686966
-      inSlope: 0.7382377
-      outSlope: 0.7382377
+      inSlope: 2.9058886
+      outSlope: 2.9058886
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0.25406334
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 0.62902325
@@ -86,20 +86,20 @@ MonoBehaviour:
       inWeight: 0.10209222
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.99432623
-      value: -0.0065621026
-      inSlope: 0.664924
-      outSlope: 0.664924
+      time: 0.99017334
+      value: -0.14045247
+      inSlope: -3.4843714
+      outSlope: -3.4843714
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.57040656
+      inWeight: 0.26876554
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   f_dashTime: 0.3
   v3_dashRange: {x: 1, y: 1, z: 1}
-  f_dashDistance: 200
+  f_dashDistance: 110
   f_cutTime: 0.15
-  f_cutRange: 40
+  f_cutRange: 20
   f_cutMultipier: 1
