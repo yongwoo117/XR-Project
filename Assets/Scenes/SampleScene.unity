@@ -9172,25 +9172,25 @@ MonoBehaviour:
   - SpawnTransform: {fileID: 975941269}
     AreaSize: {x: 50, y: 50}
     List_EnemyType: 00000000
-    ReSpawnCount: 10
+    ReSpawnCount: 4
     isCanSpawn: 1
   - SpawnTransform: {fileID: 1981732381}
     AreaSize: {x: 50, y: 50}
     List_EnemyType: 00000000
-    ReSpawnCount: 10
+    ReSpawnCount: 4
     isCanSpawn: 1
   - SpawnTransform: {fileID: 680279321}
     AreaSize: {x: 50, y: 50}
     List_EnemyType: 00000000
-    ReSpawnCount: 10
+    ReSpawnCount: 4
     isCanSpawn: 1
   - SpawnTransform: {fileID: 867981073}
     AreaSize: {x: 50, y: 50}
     List_EnemyType: 00000000
-    ReSpawnCount: 10
+    ReSpawnCount: 4
     isCanSpawn: 1
   enemySpawnProfile: {fileID: 11400000, guid: 4aef58d977e40754ab80f444469df511, type: 2}
-  SpawnCount: 1
+  SpawnCount: 4
 --- !u!1001 &1680146607699291301
 PrefabInstance:
   m_ObjectHideFlags: 0
