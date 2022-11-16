@@ -6634,7 +6634,7 @@ MonoBehaviour:
       Data2: 1245105814
       Data3: -1708895574
       Data4: -950846002
-    Path: event:/BGM/Battle
+    Path: event:/BGM/Stage_1
   Event: 
   PlayEvent: 1
   StopEvent: 0
