@@ -1,5 +1,32 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9029592833845295987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BGM/Stage_2
+  m_EditorClassIdentifier: 
+  Path: event:/BGM/Stage_2
+  Guid:
+    Data1: 1529450376
+    Data2: 1108412734
+    Data3: -1283145323
+    Data4: -1747832793
+  Banks:
+  - {fileID: 5767655556717326999}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3000
 --- !u!114 &-8130003446193360048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,7 +42,7 @@ MonoBehaviour:
   Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638036003702291422
+  lastModified: 638039828711375474
   FileSizes:
   - Name: Desktop
     Value: 1318
@@ -243,12 +270,14 @@ MonoBehaviour:
   - {fileID: 3327823917502591439}
   - {fileID: -4998385583505043420}
   - {fileID: -6732243734751251610}
+  - {fileID: -9029592833845295987}
+  - {fileID: 8213466685381439726}
   EditorParameters: []
   MasterBanks:
   - {fileID: -8130003446193360048}
   StringsBanks:
   - {fileID: 588961260353031328}
-  cacheTime: 638036003703333284
+  cacheTime: 638042057310925979
   cacheVersion: 131592
 --- !u!114 &588961260353031328
 MonoBehaviour:
@@ -265,10 +294,10 @@ MonoBehaviour:
   Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638036003702295941
+  lastModified: 638042057310925979
   FileSizes:
   - Name: Desktop
-    Value: 1688
+    Value: 1764
   Exists: 1
 --- !u!114 &2589400095347926693
 MonoBehaviour:
@@ -394,7 +423,7 @@ MonoBehaviour:
   Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638036003703333284
+  lastModified: 638039828711384979
   FileSizes:
   - Name: Desktop
     Value: 181568
@@ -441,10 +470,10 @@ MonoBehaviour:
   Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/BGM.bank
   Name: BGM
   StudioPath: bank:/BGM
-  lastModified: 638036003702264627
+  lastModified: 638042057310922394
   FileSizes:
   - Name: Desktop
-    Value: 2217280
+    Value: 2372320
   Exists: 1
 --- !u!114 &5842499952473902435
 MonoBehaviour:
@@ -500,6 +529,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1308
+--- !u!114 &8213466685381439726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BGM/Stage_3
+  m_EditorClassIdentifier: 
+  Path: event:/BGM/Stage_3
+  Guid:
+    Data1: 1790474135
+    Data2: 1227423572
+    Data3: 431524517
+    Data4: -147980240
+  Banks:
+  - {fileID: 5767655556717326999}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 9600
 --- !u!114 &8270006467323602394
 MonoBehaviour:
   m_ObjectHideFlags: 0
