@@ -9,7 +9,7 @@ public class UIManger : RhythmCore
     [SerializeField] private TMP_Text rhythmStreakText;
     [SerializeField] private GameObject pauseInterface;
     [SerializeField] private GameObject settingInterface;
-    [SerializeField] private GameObject stagePanel;
+    [SerializeField] private Animator stageAnimator;
     [SerializeField] private Image stageImage;
     [SerializeField] private List<Sprite> stageSpriteList;
 
@@ -31,8 +31,7 @@ public class UIManger : RhythmCore
 
     public void BeforeStageStart(int stage)
     {
-        stagePanel.SetActive(true);
-        stagePanel.GetComponent<Animator>().SetTrigger(AnimationParameter.Active);
+        stageAnimator.SetTrigger(AnimationParameter.Active);
         stageImage.sprite = stageSpriteList[stage - 1];
     }
 
