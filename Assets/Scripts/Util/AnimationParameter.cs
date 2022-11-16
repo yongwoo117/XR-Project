@@ -24,3 +24,11 @@ namespace Enemy.Animation
         public static readonly int Idle = Animator.StringToHash("Idle");
     }
 }
+
+namespace UI
+{
+    public static class AnimationParameter
+    {
+        public static readonly int Active = Animator.StringToHash("Active");
+    }
+}

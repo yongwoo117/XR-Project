@@ -64,11 +64,9 @@ public class SpawnManager : MonoBehaviour
     {
         if (RandomAreaIndex() is not { } randIndex)
         {
-            if (objectCount == 0)
-            {
-                onStageCleared?.Invoke();
-                objectCount = -1;
-            }
+            if (objectCount != 0) return;
+            onStageCleared?.Invoke();
+            objectCount = -1;
             return;
         }
 

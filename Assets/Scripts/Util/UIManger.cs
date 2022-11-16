@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UI;
 
 public class UIManger : RhythmCore
 {
@@ -11,7 +12,6 @@ public class UIManger : RhythmCore
     [SerializeField] private GameObject stagePanel;
     [SerializeField] private Image stageImage;
     [SerializeField] private List<Sprite> stageSpriteList;
-    [SerializeField] private float stageTransitionTime;
 
     protected override void Start()
     {
@@ -32,6 +32,7 @@ public class UIManger : RhythmCore
     public void BeforeStageStart(int stage)
     {
         stagePanel.SetActive(true);
+        stagePanel.GetComponent<Animator>().SetTrigger(AnimationParameter.Active);
         stageImage.sprite = stageSpriteList[stage - 1];
     }
 
