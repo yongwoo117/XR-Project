@@ -1,5 +1,6 @@
 using FMODUnity;
 using Player.Animation;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Player.State
@@ -12,6 +13,7 @@ namespace Player.State
         private int cutIndex=0;
 
         private EventReference cutSfx;
+        private IControl control;
         
         private readonly Collider[] collisionBuffer = new Collider[10];
         
@@ -26,32 +28,31 @@ namespace Player.State
             }
         }
 
+        public override void Initialize()
+        {
+            control = StateMachine.GetComponent<IControl>();
+        }
+
         public override void Enter()
         {
             Debug.Log("Cut Enter");
-            GameObject cutEffect;
-
-            if (cutIndex == 0)
-                cutEffect = EffectProfileData.Instance.PopEffect("Eff_SlashDown");
-            else
-                cutEffect = EffectProfileData.Instance.PopEffect("Eff_SlashUp");
+            var cutEffect = EffectProfileData.Instance.PopEffect(cutIndex == 0 ? "Eff_SlashDown" : "Eff_SlashUp");
 
             StateMachine.RhythmCombo++;
             StateMachine.AddCombatCombo(e_PlayerState.Cut);
             StateMachine.Anim.SetTrigger(AnimationParameter.Cut);
             StateMachine.Anim.SetFloat(AnimationParameter.CutIndex, cutIndex++);
 
-            if (cutIndex >= 2)
-                cutIndex = 0;
-
-            Vector3 cutScale = cutEffect.transform.localScale;
-            cutScale.x = Mathf.Abs(cutScale.x);
-            if (cutEffect is not null)
+            control.IsActive = false;
+            if (cutIndex >= 2) cutIndex = 0;
+            if (cutEffect != null)
+            {
+                var cutScale = cutEffect.transform.localScale;
+                cutScale.x = Mathf.Abs(cutScale.x);
                 cutEffect.transform.parent = StateMachine.transform.GetChild(0);
-            cutEffect.transform.localPosition = Vector3.zero;
-
-            cutEffect.transform.localScale = cutScale;
-
+                cutEffect.transform.localPosition = Vector3.zero;
+                cutEffect.transform.localScale = cutScale;
+            }
 
             Attack();
         }
@@ -60,6 +61,7 @@ namespace Player.State
         {
             Debug.Log("Cut Exit");
             cutIndex = 0;
+            control.IsActive = true;
         }
         
         public override void HandleInput(InteractionType interactionType)
@@ -105,6 +107,12 @@ namespace Player.State
                 nearestEnemy = collisionBuffer[index].gameObject;
                 nearestSqrDistance = sqrDistance;
             }
+            
+            var gfx = StateMachine.transform.GetChild(0);
+            var scale = gfx.localScale;
+            scale.x = Mathf.Abs(scale.x);
+            if ((nearestEnemy.transform.position - StateMachine.transform.position).x > 0) scale.x *= -1; 
+            gfx.localScale = scale;
 
             nearestEnemy.GetComponent<HealthModule>().RequestDamage(damage * multiplier);
         }

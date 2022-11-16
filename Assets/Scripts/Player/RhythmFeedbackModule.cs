@@ -117,6 +117,8 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
     protected override void Update()
     {
         base.Update();
+
+        if (control.Direction is { } dir) direction = dir;
         
         switch (EffectState)
         {
@@ -129,8 +131,7 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
                 RotateIdle();
                 break;
             case FeedbackState.Direction:
-                if (effectFlag)
-                    directionStruct.Synchronize();
+                if (effectFlag) directionStruct.Synchronize();
                 RotateDirection();
                 break;
             default:
@@ -143,7 +144,6 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
     private void FlipToMouseDir()
     {
         if (control.Direction == null||!control.IsActive) return;
-        direction = (Vector3)control.Direction;
         Vector3 GFXScale = GFX.transform.localScale;
 
         isFlip = direction.x > 0;
@@ -169,18 +169,13 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
     public override void OnRhythmLate()
     {
         base.OnRhythmLate();
-        switch (EffectState)
-        {
-            case FeedbackState.Idle:
-                idleCircleStruct.activationTime = Time.realtimeSinceStartup;
-                idleDirectionStruct.activationTime = idleCircleStruct.targetTime = idleCircleStruct.activationTime +
-                    (float)RhythmCore.Instance.RemainTime(earlyLate: true, isFixed: true);
-                idleDirectionStruct.targetTime =
-                    idleDirectionStruct.activationTime + (float)RhythmCore.Instance.JudgeOffset * 2;
-                effectFlag = true;
-                break;
-            case FeedbackState.Direction:
-                break;
-        }
+
+        if (EffectState != FeedbackState.Idle) return;
+        idleCircleStruct.activationTime = Time.realtimeSinceStartup;
+        idleDirectionStruct.activationTime = idleCircleStruct.targetTime
+            = idleCircleStruct.activationTime + (float)RhythmCore.Instance.RemainTime(earlyLate: true, isFixed: true);
+        idleDirectionStruct.targetTime
+            = idleDirectionStruct.activationTime + (float)RhythmCore.Instance.JudgeOffset * 2;
+        effectFlag = true;
     }
 }
