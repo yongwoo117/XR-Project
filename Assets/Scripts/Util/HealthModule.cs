@@ -42,15 +42,12 @@ public abstract class HealthModule : MonoBehaviour
         private set
         {
             var difference = healthPoint - value;
-            healthPoint = value;
-            if (difference > 0)
-                onDamaged?.Invoke(difference);
-            else
-                onHealed?.Invoke(-difference);
+            healthPoint = value < 0 ? 0 : value;
+            if (difference > 0) onDamaged?.Invoke(difference);
+            else onHealed?.Invoke(-difference);
+            if (healthPoint <= 0) onDead?.Invoke();
             onHealthChanged?.Invoke(healthPoint);
             onHealthRatioChanged?.Invoke(HealthRatio);
-            if (healthPoint <= 0)
-                onDead?.Invoke();
         }
     }
     private float healthPoint;
