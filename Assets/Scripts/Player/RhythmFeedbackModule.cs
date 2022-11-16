@@ -60,6 +60,7 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
     private IControl control;
     private Vector3 direction;
     private Transform GFX;
+    private GameManager gameManager;
 
     public FeedbackState EffectState
     {
@@ -104,26 +105,30 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
 
         control = GetComponent<IControl>();
         EffectState = FeedbackState.Idle;
+        gameManager = (GameManager)GameManager.Instance;
     }
 
     protected override void Update()
     {
         base.Update();
 
-        FlipToMouseDir();
-
-        if (!effectFlag) return;
-        switch (EffectState)
+        if (!gameManager.IsDialogue&&!gameManager.IsPaused)
         {
-            case FeedbackState.Idle:
-                idleCircleStruct.Synchronize();
-                idleDirectionStruct.Synchronize();
-                RotateIdle();
-                break;
-            case FeedbackState.Direction:
-                directionStruct.Synchronize();
-                RotateDirection();
-                break;
+            FlipToMouseDir();
+
+            if (!effectFlag) return;
+            switch (EffectState)
+            {
+                case FeedbackState.Idle:
+                    idleCircleStruct.Synchronize();
+                    idleDirectionStruct.Synchronize();
+                    RotateIdle();
+                    break;
+                case FeedbackState.Direction:
+                    directionStruct.Synchronize();
+                    RotateDirection();
+                    break;
+            }
         }
     }
 

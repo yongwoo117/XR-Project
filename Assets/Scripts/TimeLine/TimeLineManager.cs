@@ -25,11 +25,18 @@ public class TimeLineManager : Singleton<TimeLineManager>
     {
         playableDirector.playOnAwake = true;
         playableDirector.Play(timeline);
+        OnDialogue(true);
     }
 
-    public void OnDialogue()
+    public void EndTimeLine()
     {
-        gameManager.OnDialgoue(true);
+        playableDirector.playOnAwake = false;
+        OnDialogue(false);
+    }
+
+    public void OnDialogue(bool isDialogue)
+    {
+        gameManager.OnDialgoue(isDialogue);
     }
 
     public void PlayTimeLine()

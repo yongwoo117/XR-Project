@@ -6,7 +6,7 @@ public class GameManager : SoundManager
 {
     [SerializeField] private PlayerInput playerInput;
     
-    private bool IsPaused
+    public bool IsPaused
     {
         get => isPaused;
         set
@@ -20,7 +20,7 @@ public class GameManager : SoundManager
         }
     }
 
-    private bool IsDialogue
+    public bool IsDialogue
     {
         get => isDialogue;
         set
