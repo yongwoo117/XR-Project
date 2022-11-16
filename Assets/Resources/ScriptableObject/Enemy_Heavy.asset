@@ -10,7 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b05264d16cb4e5b48a8c9f2e486489b9, type: 3}
+<<<<<<<< HEAD:Assets/Resources/ScriptableObject/Enemy_Heavy.asset
   m_Name: Enemy_Heavy
+========
+  m_Name: Enemy_Basic
+>>>>>>>> SFXFeature:Assets/Resources/ScriptableObject/Enemy_Basic.asset
   m_EditorClassIdentifier: 
   SFXDictionary:
     keys: 00000000030000000400000006000000
