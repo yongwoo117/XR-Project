@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 8248359141127274628}
   - component: {fileID: 8248359141127274629}
   m_Layer: 8
-  m_Name: Enemy
+  m_Name: Enemy_speed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -185,7 +185,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   List_e_States: 000000000400000001000000050000000300000002000000
-  profile: {fileID: 11400000, guid: 4ed5bff6bf4fbed48b3f4c320c21f96b, type: 2}
+  profile: {fileID: 11400000, guid: c3ef1e3f79ff94e56a2b45b881174b3a, type: 2}
   AnimationController: {fileID: 916405489}
 --- !u!54 &8248359141127274629
 Rigidbody:

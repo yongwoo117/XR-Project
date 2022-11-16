@@ -6589,7 +6589,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1659581280}
-  - component: {fileID: 1659581283}
   - component: {fileID: 1659581286}
   - component: {fileID: 1659581287}
   - component: {fileID: 1659581288}
@@ -6615,38 +6614,6 @@ Transform:
   m_Father: {fileID: 1724471789}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1659581283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1659581279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -1314278806
-      Data2: 1245105814
-      Data3: -1708895574
-      Data4: -950846002
-    Path: event:/BGM/Stage_1
-  Event: 
-  PlayEvent: 1
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params:
-  - Name: Battle
-    Value: 0
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!114 &1659581286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6745,7 +6712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f5375e9e56949ec8c4beeb00245139, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bpm: 60
+  bpm: 200
   judgeOffset: 0.2
   startOffset: 0
   onBpmChanged:
@@ -6797,7 +6764,30 @@ MonoBehaviour:
       Data3: 602309541
       Data4: 714535223
     Path: event:/SFX/UI/SFX_UI_Stop
+  stageBgmList:
+  - Guid:
+      Data1: -1314278806
+      Data2: 1245105814
+      Data3: -1708895574
+      Data4: -950846002
+    Path: event:/BGM/Stage_1
+  - Guid:
+      Data1: 1529450376
+      Data2: 1108412734
+      Data3: -1283145323
+      Data4: -1747832793
+    Path: event:/BGM/Stage_2
+  - Guid:
+      Data1: 1790474135
+      Data2: 1227423572
+      Data3: 431524517
+      Data4: -147980240
+    Path: event:/BGM/Stage_3
   playerInput: {fileID: 1680146607699291306}
+  stageBpmList:
+  - 60
+  - 80
+  - 100
 --- !u!114 &1659581288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9589,13 +9579,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolingList:
   - enemyType: 0
-    prefab: {fileID: 8248359141127274625, guid: 992d79ed020fb2642b71f585636aff89, type: 3}
+    prefab: {fileID: 8248359141127274625, guid: 7ac9f2e32e76e4668808bcd222a8f1fa, type: 3}
     poolingCount: 10
   - enemyType: 1
     prefab: {fileID: 8248359141127274625, guid: 992d79ed020fb2642b71f585636aff89, type: 3}
     poolingCount: 10
   - enemyType: 2
-    prefab: {fileID: 8248359141127274625, guid: 992d79ed020fb2642b71f585636aff89, type: 3}
+    prefab: {fileID: 8248359141127274625, guid: 11fade3b35bb7435bbe6bb69840e99a0, type: 3}
     poolingCount: 10
   onStageCleared:
     m_PersistentCalls:
@@ -9689,6 +9679,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1659581287}
         m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
         m_MethodName: BeforeStageStart
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1659581287}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: OnBeforeStageChange
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
