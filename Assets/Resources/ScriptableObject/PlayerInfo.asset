@@ -99,7 +99,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   f_dashTime: 0.3
   v3_dashRange: {x: 1, y: 1, z: 1}
-  f_dashDistance: 200
+  f_dashDistance: 110
   f_cutTime: 0.15
-  f_cutRange: 40
+  f_cutRange: 20
   f_cutMultipier: 1
