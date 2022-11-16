@@ -51,8 +51,8 @@ MonoBehaviour:
         Data3: -1382735186
         Data4: 1668570465
       Path: event:/SFX/Player/SFX_Player_ThythmFail
-  f_maximumHealth: 25
-  f_standardDamage: 5
+  f_maximumHealth: 3
+  f_standardDamage: 10
   i_maximumCombatCombo: 4
   f_dashMultiplier: 1
   dashPhysicsGraph:

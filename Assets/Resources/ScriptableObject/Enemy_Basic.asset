@@ -86,9 +86,9 @@ MonoBehaviour:
   f_ChaseRange: 100
   f_ChaseSpeed: 5
   f_ChaseTime: 0.2
-  f_maximumHealth: 25
+  f_maximumHealth: 15
   f_hitTime: 1
-  f_damage: 5
+  f_damage: 1
   f_attackPreDelay: 1
   f_attackPostDelay: 1
   v3_attackBox: {x: 10, y: 10, z: 10}
