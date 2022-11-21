@@ -6516,7 +6516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bpm: 60
-  judgeOffset: 0.2
+  judgeOffsetRatio: 0.3499999940395355
   startOffset: 0
   onBpmChanged:
     m_PersistentCalls:

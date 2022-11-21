@@ -4,13 +4,14 @@ using UnityEngine.Events;
 public class RhythmCore : Singleton<RhythmCore>
 {
     [SerializeField] private double bpm;
-    [SerializeField] private double judgeOffset;
+    [SerializeField] [Range(0.0f, 0.5f)] private double judgeOffsetRatio;
     [SerializeField] private double startOffset;
     
     private double startTime;
     private EventState? currentEventState;
     private double earlyRemainTime;
     private double earlyFixedRemainTime;
+    private double judgeOffset;
     private double judgeOffset2;
 
     /// <summary>
@@ -111,9 +112,10 @@ public class RhythmCore : Singleton<RhythmCore>
     private void RhythmStart(double offset)
     {
         RhythmDelay = 60 / Bpm;
+        judgeOffset = judgeOffsetRatio * RhythmDelay;
+        judgeOffset2 = judgeOffset * 2;
         startTime = Time.realtimeSinceStartupAsDouble + offset;
         currentEventState ??= EventState.OnEarly;
-        judgeOffset2 = judgeOffset * 2;
         earlyRemainTime = earlyFixedRemainTime = prevTime = RemainFormula;
     }
 
