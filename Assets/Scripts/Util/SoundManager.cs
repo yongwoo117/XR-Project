@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using FMOD.Studio;
 using FMODUnity;
 using UnityEngine;
 
@@ -7,14 +8,18 @@ public class SoundManager : UIManger
     [SerializeField] private List<int> rhythmTrigger;
     [SerializeField] private EventReference buttonDownSound;
     [SerializeField] private EventReference pauseSound;
-    private StudioEventEmitter eventEmitter;
+    [SerializeField] private List<EventReference> stageBgmList = new();
+    private PARAMETER_ID eventParameter;
+
     private int rhythmIndex;
+    private EventInstance currentBgm;
     
     protected override void Start()
     {
         base.Start();
-        eventEmitter = GetComponent<StudioEventEmitter>();
         rhythmIndex = 0;
+        currentBgm = RuntimeManager.CreateInstance(stageBgmList[0]);
+        currentBgm.start();
     }
     
     protected void UpdateSound(int combo)
@@ -22,7 +27,7 @@ public class SoundManager : UIManger
         if (rhythmIndex < rhythmTrigger.Count && combo >= rhythmTrigger[rhythmIndex])
         {
             rhythmIndex++;
-            eventEmitter.SetParameter("Battle", rhythmIndex);
+            currentBgm.setParameterByName("Battle", rhythmIndex);
         }
         else if (rhythmIndex > 0)
         {
@@ -33,7 +38,7 @@ public class SoundManager : UIManger
                 rhythmIndex = index;
                 break;
             }
-            eventEmitter.SetParameter("Battle", rhythmIndex);
+            currentBgm.setParameterByName("Battle", rhythmIndex);
         }
     }
 
@@ -42,6 +47,14 @@ public class SoundManager : UIManger
     protected void PauseSound(bool pause)
     {
         pauseSound.PlayOneShot();
-        eventEmitter.EventInstance.setPaused(pause);
+        currentBgm.setPaused(pause);
+    }
+
+    protected void ChangeBgm(int stage)
+    {
+        currentBgm.release();
+        currentBgm = RuntimeManager.CreateInstance(stageBgmList[stage]);
+        currentBgm.start();
+        currentBgm.setParameterByName("Battle", rhythmIndex);
     }
 }

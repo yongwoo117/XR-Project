@@ -31,13 +31,7 @@ public class PlayerStateMachine : CombatComboModule
         base.OnRhythmLate();
         currentState.OnRhythmLate();
     }
-
-    protected override void Start()
-    {
-        base.Start();
-       
-    }
-
+    
     protected override e_PlayerState StartState => e_PlayerState.Idle;
     protected override float MaximumHealth => profile.f_maximumHealth;
     protected override int CombatComboLimit => profile.i_maximumCombatCombo;

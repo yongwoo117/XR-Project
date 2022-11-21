@@ -1,6 +1,8 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Pool;
 
 /// <summary>
@@ -13,35 +15,45 @@ public struct SpawnArea
     public Vector2 AreaSize; //스폰 영역의 크기
     public List<e_EnemyType> List_EnemyType; //스폰 영역 내 스폰 가능한 적 타입
     public int ReSpawnCount; //스폰 영역 내 리스폰 횟수
-    public bool isCanSpawn; //스폰 영역을 사용할지
 }
 
+[Serializable]
+public struct EnemyPoolingInfo
+{
+    public e_EnemyType enemyType;
+    public GameObject prefab;
+    public int poolingCount;
+}
 
 public class SpawnManager : MonoBehaviour
-{ 
-    [SerializeField] private List<SpawnArea> List_SpawnArea = new List<SpawnArea>();
-    [SerializeField] private EnemySpawnProfile enemySpawnProfile;
-    [SerializeField] private int SpawnCount;
-
+{
+    [SerializeField] private List<EnemyPoolingInfo> poolingList;
     private Dictionary<e_EnemyType, ObjectPool<GameObject>> poolDictionary;
-
-    private void OnDrawGizmos()
+    private int objectCount;
+    
+    public UnityEvent onStageCleared;
+    
+    private StageInfo currentStage;
+    public StageInfo CurrentStage
     {
-        if (List_SpawnArea.Count > 0)
+        get => currentStage;
+        set
         {
-            foreach (var point in List_SpawnArea)
-            {
-                Gizmos.DrawWireCube(point.SpawnTransform.position, new Vector3(point.AreaSize.x,0f, point.AreaSize.y));
-            }
+            currentStage = value;
+            objectCount = 0;
+            for (int count = 0; count < currentStage.maximumExistEnemy; count++)
+                SpawnObject();
         }
     }
     
-    private void Start()
+    private void OnDrawGizmos()
     {
-        CreateEnemyClone();
-        for (int count = 0; count < SpawnCount; count++)
-            SpawnObject();
+        if (CurrentStage.spawnAreaList is null) return;
+        foreach (var point in CurrentStage.spawnAreaList)
+            Gizmos.DrawWireCube(point.SpawnTransform.position, new Vector3(point.AreaSize.x, 0f, point.AreaSize.y));
     }
+    
+    private void Start() => CreateEnemyClone();
 
     /// <summary>
     /// 스폰 영역을 렌덤으로 받아온 후 스폰하는 적 타입을 랜덤으로 풀링
@@ -50,8 +62,15 @@ public class SpawnManager : MonoBehaviour
     /// </summary>
     private void SpawnObject()
     {
-        if (RandomAreaIndex() is not { } randIndex) return;
-        SpawnArea area = List_SpawnArea[randIndex];
+        if (RandomAreaIndex() is not { } randIndex)
+        {
+            if (objectCount != 0) return;
+            onStageCleared?.Invoke();
+            objectCount = -1;
+            return;
+        }
+
+        SpawnArea area = CurrentStage.spawnAreaList[randIndex];
 
         var spawnObj = poolDictionary[area.List_EnemyType[UnityEngine.Random.Range(0, area.List_EnemyType.Count)]]
             .Get();
@@ -60,10 +79,9 @@ public class SpawnManager : MonoBehaviour
         float randZ = UnityEngine.Random.Range(area.AreaSize.y * -0.5f, area.AreaSize.y * 0.5f);
 
         spawnObj.transform.position = area.SpawnTransform.position + new Vector3(randX, 0f, randZ);
-
-        if (--area.ReSpawnCount <= 0) area.isCanSpawn = false;
-
-        List_SpawnArea[randIndex] = area;
+        area.ReSpawnCount--;
+        CurrentStage.spawnAreaList[randIndex] = area;
+        objectCount++;
     }
 
     private int? RandomAreaIndex()
@@ -71,22 +89,22 @@ public class SpawnManager : MonoBehaviour
         List<int> RandIndexPool = new List<int>();
         int? PlayerAreaIndex = null;
 
-        for (int i = 0; i < List_SpawnArea.Count; i++)
+        for (int i = 0; i < CurrentStage.spawnAreaList.Count; i++)
         {
-            SpawnArea area = List_SpawnArea[i];
+            SpawnArea area = CurrentStage.spawnAreaList[i];
 
             if (Physics.CheckBox(area.SpawnTransform.position,
                     new Vector3(area.AreaSize.x * 0.5f, 10f, area.AreaSize.y * 0.5f),
                     Quaternion.identity, GetLayerMasks.Player))
                 PlayerAreaIndex = i;
-            else if (area.isCanSpawn) RandIndexPool.Add(i);
+            else if (area.ReSpawnCount > 0) RandIndexPool.Add(i);
         }
 
         if (RandIndexPool.Count != 0) return RandIndexPool[UnityEngine.Random.Range(0, RandIndexPool.Count)];
         
         if (PlayerAreaIndex is not null)
         {
-            if (List_SpawnArea[(int)PlayerAreaIndex].isCanSpawn)
+            if (CurrentStage.spawnAreaList[(int)PlayerAreaIndex].ReSpawnCount > 0)
                 return PlayerAreaIndex;
         }
         return null;
@@ -96,15 +114,14 @@ public class SpawnManager : MonoBehaviour
     private void CreateEnemyClone()
     {
         poolDictionary = new Dictionary<e_EnemyType, ObjectPool<GameObject>>();
-        foreach (var obj in enemySpawnProfile.Dic_Spawn)
+        foreach (var obj in poolingList)
         {
-            if (poolDictionary.ContainsKey(obj.Key)) continue;
+            if (poolDictionary.ContainsKey(obj.enemyType)) continue;
             var pool = new ObjectPool<GameObject>(
-                () => InstantiatePrefab(obj),
+                () => InstantiatePrefab(obj.enemyType, obj.prefab), 
                 instance => instance.SetActive(true), 
-                OnRelease,
-                null, true, SpawnCount);
-            poolDictionary.Add(obj.Key, pool);
+                OnRelease, null, true, obj.poolingCount);
+            poolDictionary.Add(obj.enemyType, pool);
         }
     }
 
@@ -112,19 +129,24 @@ public class SpawnManager : MonoBehaviour
     /// 적 생성 후 DieState에 CallBack을 추가해줌 
     /// DieState.Enter()일때 CallBack 호출
     /// </summary>
-    /// <param name="pair">적 타입(e_EnemyType)을 통해 Prefab으로 만들어 놓은 적을 받아와서 사용 할 수 있도록 함</param>
-    /// <returns></returns>
-    private GameObject InstantiatePrefab(KeyValuePair<e_EnemyType, GameObject> pair)
+    private GameObject InstantiatePrefab(e_EnemyType key, GameObject prefab)
     {
-        var instance = Instantiate(pair.Value,transform);
-        instance.AddComponent<SpawnCallback>().ReturnAction = value => poolDictionary[pair.Key].Release(value);
+        var instance = Instantiate(prefab,transform);
+        instance.AddComponent<SpawnCallback>().ReturnAction = value => poolDictionary[key].Release(value);
         instance.SetActive(false);
         return instance;
+    }
+
+    private IEnumerator DelaySpawn(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SpawnObject();
     }
 
     private void OnRelease(GameObject instance)
     {
         instance.SetActive(false);
-        SpawnObject();
+        objectCount--;
+        StartCoroutine(DelaySpawn(currentStage.respawnDelay));
     }
 }

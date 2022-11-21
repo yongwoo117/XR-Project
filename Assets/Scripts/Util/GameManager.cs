@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -6,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : SoundManager
 {
     [SerializeField] private PlayerInput playerInput;
+    [SerializeField] private List<float> stageBpmList;
 
     public static UnityEvent<bool> OnPause = new();
 
@@ -66,5 +68,11 @@ public class GameManager : SoundManager
         ButtonDownSound();
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("StartScene");
+    }
+
+    public void OnBeforeStageChange(int stage)
+    {
+        ChangeBgm(stage);
+        Bpm = stageBpmList[stage - 1];
     }
 }

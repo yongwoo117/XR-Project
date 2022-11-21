@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="AudioFile" id="{4a70f816-d22c-44d1-b4b0-ce160eb3f446}">
+	<object class="AudioFile" id="{b8952cc5-f9b7-4962-835c-8091ede12723}">
 		<property name="assetPath">
-			<value>Sting.wav</value>
+			<value>Stage_2.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>
@@ -11,7 +11,7 @@
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>4</value>
+			<value>3</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{18f8c6cb-2f50-4251-b2ea-e1b24cb642d8}</destination>
