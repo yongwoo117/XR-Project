@@ -48,7 +48,7 @@ public class UIManger : RhythmCore
 
     public void OnGameEnded()
     {
-        
+        Debug.Log("끝");
     }
 
     protected void DisplaySettingMenu() => settingInterface.SetActive(true);

@@ -53,7 +53,7 @@ public class SoundManager : UIManger
     protected void ChangeBgm(int stage)
     {
         currentBgm.release();
-        currentBgm = RuntimeManager.CreateInstance(stageBgmList[stage]);
+        currentBgm = RuntimeManager.CreateInstance(stageBgmList[stage - 1]);
         currentBgm.start();
         currentBgm.setParameterByName("Battle", rhythmIndex);
     }
