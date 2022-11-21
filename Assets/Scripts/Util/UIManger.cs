@@ -19,6 +19,7 @@ public class UIManger : RhythmCore
         base.Start();
         rhythmStreakText.text = "0";
         pauseInterface.SetActive(false);
+        onRhythm.AddListener(() => rhythmComboAnimator.SetTrigger(AnimationParameter.idle));
     }
     
     protected void UpdateComboUI(int combo)
@@ -31,8 +32,7 @@ public class UIManger : RhythmCore
     protected void PauseUI(bool isPaused)
     {
         pauseInterface.SetActive(isPaused);
-        if (!isPaused)
-            settingInterface.SetActive(false);
+        if (!isPaused) settingInterface.SetActive(false);
     }
 
     public void BeforeStageStart(int stage)

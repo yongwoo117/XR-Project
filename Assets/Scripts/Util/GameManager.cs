@@ -9,7 +9,7 @@ public class GameManager : SoundManager
     [SerializeField] private PlayerInput playerInput;
     [SerializeField] private List<float> stageBpmList;
 
-    public static UnityEvent<bool> OnPause = new();
+    public static readonly UnityEvent<bool> OnPause = new();
 
     private bool IsPaused
     {

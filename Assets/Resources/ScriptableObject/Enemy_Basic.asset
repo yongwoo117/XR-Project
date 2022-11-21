@@ -41,9 +41,6 @@ MonoBehaviour:
       Path: event:/SFX/Creature/SFX_Creature_Dead
   chasePhysicsGraph:
     serializedVersion: 2
-<<<<<<<< HEAD:Assets/Resources/ScriptableObject/EnemyInfo1.asset
-    m_Curve: []
-========
     m_Curve:
     - serializedVersion: 3
       time: 0
@@ -81,7 +78,6 @@ MonoBehaviour:
       weightedMode: 0
       inWeight: 0
       outWeight: 0
->>>>>>>> StageFeature:Assets/Resources/ScriptableObject/Enemy_Basic.asset
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
