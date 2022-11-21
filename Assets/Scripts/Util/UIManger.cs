@@ -10,9 +10,9 @@ public class UIManger : RhythmCore
     [SerializeField] private GameObject pauseInterface;
     [SerializeField] private GameObject settingInterface;
     [SerializeField] private Animator stageAnimator;
+    [SerializeField] private Animator rhythmComboAnimator;
     [SerializeField] private Image stageImage;
     [SerializeField] private List<Sprite> stageSpriteList;
-    [SerializeField] private List<Animator> rhythmComboAnimators;
 
     protected override void Start()
     {
@@ -25,7 +25,7 @@ public class UIManger : RhythmCore
     { 
         rhythmStreakText.text = combo.ToString();
         if (combo != 0) return;
-        foreach (var animator in rhythmComboAnimators) animator.SetTrigger(AnimationParameter.fail);
+        rhythmComboAnimator.SetTrigger(AnimationParameter.fail);
     }
 
     protected void PauseUI(bool isPaused)
@@ -43,7 +43,7 @@ public class UIManger : RhythmCore
 
     public void OnTooEarly()
     {
-        foreach (var animator in rhythmComboAnimators) animator.SetTrigger(AnimationParameter.fail);
+        rhythmComboAnimator.SetTrigger(AnimationParameter.fail);
     }
 
     public void OnGameEnded()

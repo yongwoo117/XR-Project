@@ -6375,14 +6375,13 @@ MonoBehaviour:
   pauseInterface: {fileID: 2114241537}
   settingInterface: {fileID: 477068652}
   stageAnimator: {fileID: 143749270}
+  rhythmComboAnimator: {fileID: 1747911640}
   stageImage: {fileID: 1293043585}
   stageSpriteList:
   - {fileID: 21300000, guid: 8d1dff27bb6024c0d84b02034272b5c9, type: 3}
   - {fileID: 21300000, guid: 9c0c21490e6ca4d38a5e6b2dac1c2da1, type: 3}
   - {fileID: 21300000, guid: fd668640c19504d30b4931b88ebd28f4, type: 3}
   - {fileID: 21300000, guid: a672ab892b2a547a9a965be5e2612856, type: 3}
-  rhythmComboAnimators:
-  - {fileID: 1747911640}
   rhythmTrigger: 0a00000014000000
   buttonDownSound:
     Guid:
