@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using FMOD.Studio;
 using FMODUnity;
 using UnityEngine;
+using STOP_MODE = FMOD.Studio.STOP_MODE;
 
 public class SoundManager : UIManger
 {
@@ -9,7 +10,6 @@ public class SoundManager : UIManger
     [SerializeField] private EventReference buttonDownSound;
     [SerializeField] private EventReference pauseSound;
     [SerializeField] private List<EventReference> stageBgmList = new();
-    private PARAMETER_ID eventParameter;
 
     private int rhythmIndex;
     private EventInstance currentBgm;
@@ -52,9 +52,15 @@ public class SoundManager : UIManger
 
     protected void ChangeBgm(int stage)
     {
+        currentBgm.stop(STOP_MODE.ALLOWFADEOUT);
         currentBgm.release();
         currentBgm = RuntimeManager.CreateInstance(stageBgmList[stage - 1]);
         currentBgm.start();
         currentBgm.setParameterByName("Battle", rhythmIndex);
+    }
+
+    protected virtual void OnDestroy()
+    {
+        currentBgm.release();
     }
 }
