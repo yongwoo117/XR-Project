@@ -1,5 +1,14 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
+
+public enum EventState
+{
+    OnHalf,     //리듬과 리듬 사이 중간
+    OnEarly,    //리듬 판정시 true가 되는 시점
+    OnRhythm,   //노트의 목표 시간
+    OnLate      //리듬 판정시 false가 되는 시점
+}
 
 public class RhythmCore : Singleton<RhythmCore>
 {
@@ -7,17 +16,20 @@ public class RhythmCore : Singleton<RhythmCore>
     [SerializeField] [Range(0.0f, 0.5f)] private double judgeOffsetRatio;
     [SerializeField] private double startOffset;
     
-    private double startTime;
     private EventState? currentEventState;
-    private double earlyRemainTime;
-    private double earlyFixedRemainTime;
-    private double judgeOffset;
-    private double judgeOffset2;
+    private double eventActivateTime;
+    private bool pauseFlag;
+    private double pausedTime;
 
     /// <summary>
     /// Bpm이 변경되면 Callback됩니다.
     /// </summary>
     public UnityEvent onBpmChanged;
+
+    /// <summary>
+    /// 노트와 노트 사이에 발생합니다.
+    /// </summary>
+    public UnityEvent onHalf;
     
     /// <summary>
     /// 노트를 친 것으로 판정이 가능해지는 시점에 Callback됩니다.
@@ -25,7 +37,7 @@ public class RhythmCore : Singleton<RhythmCore>
     public UnityEvent onEarly;
     
     /// <summary>
-    /// 노트가 목표로 하던 아주 정확한 시점에 Callback됩니다.
+    /// 노트가 목표로 하는 시점에 Callback됩니다.
     /// </summary>
     public UnityEvent onRhythm;
     
@@ -33,26 +45,6 @@ public class RhythmCore : Singleton<RhythmCore>
     /// 노트를 놓쳤다고 판정이 가능해지는 시점에 Callback됩니다.
     /// </summary>
     public UnityEvent onLate;
-
-    /// <summary>
-    /// 다음 리듬까지 남은 시간에 관한 정보를 반환합니다.
-    /// </summary>
-    /// <param name="earlyLate">true이면 Judge()가 true가 되는 시점, null이면 리듬 시점, false이면 Judge()가 false가 되는 시점까지 남은 시간을 반환합니다.</param>
-    /// <param name="isInverse">true를 넘겨서 남은 시간이 아닌 이전 이벤트로부터 지난 시간을 얻을 수 있습니다.</param>
-    /// <param name="normalizeOption">true를 넘겨서 BPM에 독립적인 시간 정보를 얻을 수 있습니다.</param>
-    /// <param name="isFixed">true를 넘겨서 FixedUpdate()에서 사용하는 시간 정보를 얻을 수 있습니다.</param>
-    /// <returns></returns>
-    public double RemainTime(bool? earlyLate = null, bool isInverse = false, bool normalizeOption = false,
-        bool isFixed = false)
-    {
-        var time = isFixed ? earlyFixedRemainTime : earlyRemainTime;
-        var isBig = time > RhythmDelay;
-        time += judgeOffset * earlyLate switch { true => 0, null => 1, false => 2 };
-        if (!isBig) time %= RhythmDelay;
-        if (isInverse) time = isBig ? 0 : RhythmDelay - time;
-        if (normalizeOption) time /= RhythmDelay;
-        return time;
-    }
 
     /// <summary>
     /// RhythmCore가 시작하는 시점을 초단위로 조정합니다. 음수면 더 늦게 시작되며, 양수면 더 빨리 시작됩니다.
@@ -67,29 +59,22 @@ public class RhythmCore : Singleton<RhythmCore>
     /// 노트 간격 시간입니다.
     /// </summary>
     public double RhythmDelay { get; private set; }
+    
+    /// <summary>
+    /// Half부터 Early까지의 시간 간격입니다.
+    /// </summary>
+    public double HalfToEarly { get; private set; }
 
     /// <summary>
     /// 판정 범위를 나타냅니다. 이 값 만큼 위, 아래에 범위를 적용하여 노트를 판정합니다.
     /// </summary>
-    public double JudgeOffset => judgeOffset;
+    public double JudgeOffset { get; private set; }
 
     /// <summary>
     /// 판정 범위를 노트 간격 시간에 대한 비례로 나타냅니다.
     /// </summary>
-    public double JudgeOffsetRatio => judgeOffset / RhythmDelay;
-
-    /// <summary>
-    /// earlyRemainTime, earlyFixedRemainTime을 갱신하는 데에 사용되는 수식입니다.
-    /// </summary>
-    private double RemainFormula
-    {
-        get
-        {
-            var difference = Time.realtimeSinceStartupAsDouble - startTime;
-            return RhythmDelay - (difference < 0 ? difference : difference % RhythmDelay);
-        }
-    }
-
+    public double JudgeOffsetRatio => judgeOffsetRatio;
+    
     /// <summary>
     /// 분당 노트의 출현 횟수를 의미합니다.
     /// </summary>
@@ -99,6 +84,7 @@ public class RhythmCore : Singleton<RhythmCore>
         set
         {
             bpm = value;
+            Initialize();
             RhythmStart(0);
             onBpmChanged?.Invoke();
         }
@@ -107,78 +93,86 @@ public class RhythmCore : Singleton<RhythmCore>
     /// <summary>
     /// 현재 시점을 기준으로 노트를 판정합니다.
     /// </summary>
-    public bool Judge() => currentEventState != EventState.OnEarly;
+    public bool Judge() => currentEventState is EventState.OnRhythm or EventState.OnLate;
+    
+    /// <summary>
+    /// 다음 리듬까지 남은 시간에 관한 정보를 반환합니다.
+    /// </summary>
+    public double? RemainTime(EventState destinationState)
+    {
+        if (currentEventState is not { } currentState || pauseFlag) return null;
+        var nextRemain = eventActivateTime - Time.realtimeSinceStartupAsDouble;
+        while (currentState != destinationState)
+        {
+            nextRemain += destinationState switch
+            {
+                EventState.OnHalf or EventState.OnEarly => HalfToEarly,
+                EventState.OnLate or EventState.OnRhythm => JudgeOffset,
+                _ => throw new ArgumentOutOfRangeException()
+            };
+            destinationState = destinationState != EventState.OnHalf ? destinationState - 1 : EventState.OnLate;
+        }
 
-    private void RhythmStart(double offset)
+        return nextRemain;
+    }
+
+    private void Initialize()
     {
         RhythmDelay = 60 / Bpm;
-        judgeOffset = judgeOffsetRatio * RhythmDelay;
-        judgeOffset2 = judgeOffset * 2;
-        startTime = Time.realtimeSinceStartupAsDouble + offset;
-        currentEventState ??= EventState.OnEarly;
-        earlyRemainTime = earlyFixedRemainTime = prevTime = RemainFormula;
+        JudgeOffset = judgeOffsetRatio * RhythmDelay;
+        HalfToEarly = RhythmDelay / 2 - JudgeOffset;
+        currentEventState = EventState.OnHalf;
     }
-
-    protected virtual void Update()
+    
+    private void RhythmStart(double offset)
     {
-        //RemainTime Update
-        earlyRemainTime = RemainFormula;
+        eventActivateTime = Time.realtimeSinceStartupAsDouble + offset + currentEventState switch
+        {
+            EventState.OnHalf or EventState.OnLate => HalfToEarly,
+            EventState.OnEarly or EventState.OnRhythm => JudgeOffset,
+            _ => throw new ArgumentOutOfRangeException()
+        };
     }
 
-    private double prevTime;
     protected virtual void FixedUpdate()
     {
-        //FixedRaminTime Update
-        earlyFixedRemainTime = RemainFormula;
-
-        //이벤트 콜백을 위한 로직입니다.
+        if (eventActivateTime > Time.realtimeSinceStartupAsDouble || pauseFlag) return;
         switch (currentEventState)
         {
+            case EventState.OnHalf:
+                eventActivateTime += HalfToEarly;
+                currentEventState++;
+                onHalf?.Invoke();
+                break;
             case EventState.OnEarly:
-                if (earlyFixedRemainTime > prevTime)
-                {
-                    onEarly?.Invoke();
-                    currentEventState++;
-                }
-                else
-                    prevTime = earlyFixedRemainTime;
+                eventActivateTime += JudgeOffset;
+                currentEventState++;
+                onEarly?.Invoke();
                 break;
             case EventState.OnRhythm:
-                if (earlyFixedRemainTime < RhythmDelay - judgeOffset)
-                {
-                    onRhythm?.Invoke();
-                    currentEventState++;
-                }
+                eventActivateTime += JudgeOffset;
+                currentEventState++;
+                onRhythm?.Invoke();
                 break;
             case EventState.OnLate:
-                if (earlyFixedRemainTime < RhythmDelay - judgeOffset2)
-                {
-                    onLate?.Invoke();
-                    currentEventState = EventState.OnEarly;
-                    prevTime = earlyFixedRemainTime;
-                }
+                eventActivateTime += HalfToEarly;
+                currentEventState = EventState.OnHalf;
+                onLate?.Invoke();
                 break;
         }
     }
 
     protected virtual void Start()
     {
-        RhythmStart(startOffset);
+        pauseFlag = false;
+        Initialize();
+        RhythmStart(StartOffset);
     }
-
-    private double pausedTime;
+    
     protected void PauseRhythm(bool isPaused)
     {
-        if (isPaused)
-            pausedTime = RemainFormula;
-        else
-            RhythmStart(pausedTime - RhythmDelay);
-    }
-
-    private enum EventState
-    {
-        OnEarly,
-        OnRhythm,
-        OnLate
+        pauseFlag = isPaused;
+        if (isPaused) pausedTime = eventActivateTime - Time.realtimeSinceStartupAsDouble;
+        else RhythmStart(pausedTime);
     }
 }

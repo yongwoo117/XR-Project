@@ -60,6 +60,7 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
     private IControl control;
     private Vector3 direction;
     private Transform GFX;
+    private RhythmCore rhythmCore;
 
     protected bool isFlip;
 
@@ -78,9 +79,10 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
                     effectFlag = false;
                     break;
                 case FeedbackState.Direction:
+                    if (rhythmCore.RemainTime(EventState.OnEarly) is not { } remainTime) return;
                     directionStruct.activationTime = Time.realtimeSinceStartup;
                     directionStruct.targetTime =
-                        directionStruct.activationTime + (float)RhythmCore.Instance.RemainTime(true);
+                        directionStruct.activationTime + (float)remainTime;
                     ActiveToggle(false);
                     effectFlag = true;
                     break;
@@ -99,9 +101,8 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
         directionEffect.SetActive(!idleActive);
     }
     
-    protected override void Start()
+    protected virtual void Start()
     {
-        base.Start();
         idleCircleStruct = new FeedbackStruct(idleEffect);
         idleDirectionStruct = new FeedbackStruct(idleDirectionEffect);
         if (idleDirectionStruct.renderer is SpriteRenderer render)
@@ -110,6 +111,7 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
 
         GFX = transform.GetChild(0);
 
+        rhythmCore = RhythmCore.Instance;
         control = GetComponent<IControl>();
         EffectState = FeedbackState.Idle;
     }
@@ -162,8 +164,8 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
 
     private void RotateDirection()
     {
-        if (directionStruct.renderer is LineRenderer render)
-            render.SetPosition(1, new Vector3(direction.x, direction.z, 0));
+        if (directionStruct.renderer is not LineRenderer render) return;
+        render.SetPosition(1, new Vector3(direction.x, direction.z, 0));
     }
 
     public override void OnRhythmLate()
@@ -171,11 +173,12 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
         base.OnRhythmLate();
 
         if (EffectState != FeedbackState.Idle) return;
+        if (rhythmCore.RemainTime(EventState.OnEarly) is not { } remainTime) return;
         idleCircleStruct.activationTime = Time.realtimeSinceStartup;
         idleDirectionStruct.activationTime = idleCircleStruct.targetTime
-            = idleCircleStruct.activationTime + (float)RhythmCore.Instance.RemainTime(earlyLate: true, isFixed: true);
+            = idleCircleStruct.activationTime + (float)remainTime;
         idleDirectionStruct.targetTime
-            = idleDirectionStruct.activationTime + (float)RhythmCore.Instance.JudgeOffset * 2;
+            = idleDirectionStruct.activationTime + (float)rhythmCore.JudgeOffset * 2;
         effectFlag = true;
     }
 }

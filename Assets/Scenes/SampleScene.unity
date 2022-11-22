@@ -6521,6 +6521,21 @@ MonoBehaviour:
   onBpmChanged:
     m_PersistentCalls:
       m_Calls: []
+  onHalf:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1680146607699291302}
+        m_TargetAssemblyTypeName: RhythmInputModule, Assembly-CSharp
+        m_MethodName: OnRhythmHalf
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onEarly:
     m_PersistentCalls:
       m_Calls: []
@@ -9766,6 +9781,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1680146609352771351, guid: 57d210aadf8ca364ca469553f372e63f, type: 3}
+      propertyPath: onRhythmMissed.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1680146609352771351, guid: 57d210aadf8ca364ca469553f372e63f, type: 3}
       propertyPath: onTooLate.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
@@ -9790,6 +9809,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1659581287}
     - target: {fileID: 1680146609352771351, guid: 57d210aadf8ca364ca469553f372e63f, type: 3}
+      propertyPath: onRhythmMissed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1680146609352771351, guid: 57d210aadf8ca364ca469553f372e63f, type: 3}
       propertyPath: onTooLate.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
@@ -9806,12 +9829,24 @@ PrefabInstance:
       value: OnRhythmFailed
       objectReference: {fileID: 0}
     - target: {fileID: 1680146609352771351, guid: 57d210aadf8ca364ca469553f372e63f, type: 3}
+      propertyPath: onRhythmMissed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1659581287}
+    - target: {fileID: 1680146609352771351, guid: 57d210aadf8ca364ca469553f372e63f, type: 3}
       propertyPath: onTooEarly.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnTooEarly
       objectReference: {fileID: 0}
     - target: {fileID: 1680146609352771351, guid: 57d210aadf8ca364ca469553f372e63f, type: 3}
+      propertyPath: onRhythmMissed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1680146609352771351, guid: 57d210aadf8ca364ca469553f372e63f, type: 3}
       propertyPath: onHealthRatioChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1680146609352771351, guid: 57d210aadf8ca364ca469553f372e63f, type: 3}
+      propertyPath: onRhythmMissed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnRhythmMissed
       objectReference: {fileID: 0}
     - target: {fileID: 1680146609352771351, guid: 57d210aadf8ca364ca469553f372e63f, type: 3}
       propertyPath: onHealthRatioChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -9838,6 +9873,10 @@ PrefabInstance:
       value: UIManger, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1680146609352771351, guid: 57d210aadf8ca364ca469553f372e63f, type: 3}
+      propertyPath: onRhythmMissed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIManger, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1680146609352771351, guid: 57d210aadf8ca364ca469553f372e63f, type: 3}
       propertyPath: onHealthRatioChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PlayerHPUI, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -9847,6 +9886,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1680146609352771351, guid: 57d210aadf8ca364ca469553f372e63f, type: 3}
       propertyPath: onTooEarly.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1680146609352771351, guid: 57d210aadf8ca364ca469553f372e63f, type: 3}
+      propertyPath: onRhythmMissed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1680146609352771351, guid: 57d210aadf8ca364ca469553f372e63f, type: 3}

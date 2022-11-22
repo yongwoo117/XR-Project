@@ -41,7 +41,7 @@ public class UIManger : RhythmCore
         stageImage.sprite = stageSpriteList[stage - 1];
     }
 
-    public void OnTooEarly()
+    public void OnRhythmMissed()
     {
         rhythmComboAnimator.SetTrigger(AnimationParameter.fail);
     }

@@ -1,4 +1,3 @@
-using UnityEngine;
 using UnityEngine.Events;
 
 /// <summary>
@@ -6,68 +5,39 @@ using UnityEngine.Events;
 /// </summary>
 public abstract class RhythmInputModule : StateMachine<e_PlayerState, PlayerState, PlayerStateMachine>
 {
-    //true일 때만 노트를 칠 수 있습니다.
-    private double initializeTime;
-    
     /// <summary>
-    /// 너무 일찍 노트를 친 경우 호출됩니다.
+    /// 노트를 잘 못 친 경우 호출됩니다.
     /// </summary>
-    public UnityEvent onTooEarly;
+    public UnityEvent onRhythmMissed;
 
     /// <summary>
-    /// 노트를 놓쳐버린 경우 호출됩니다.
+    /// 노트를 놓친 경우 호출됩니다.
     /// </summary>
-    public UnityEvent onTooLate;
+    public UnityEvent onRhythmLost;
 
     protected abstract void OnInteraction(InteractionType type);
 
+    //true일 때만 노트를 칠 수 있습니다.
     public bool RhythmFlag { get; private set; }
-
-    protected virtual void Start()
-    {
-        Setup();
-        RhythmCore.Instance.onBpmChanged.AddListener(Setup);
-    }
-
-    private void Setup()
-    {
-        initializeTime = Time.realtimeSinceStartup + RhythmCore.Instance.RemainTime() -
-                         RhythmCore.Instance.RhythmDelay / 2;
-        UpdateFlag();
-    }
     
-    protected override void Update()
-    {
-        base.Update();
-        UpdateFlag();
-    }
-
-    private void UpdateFlag()
-    {
-        if (Time.realtimeSinceStartup < initializeTime) return;
-        RhythmFlag = true;
-        initializeTime += RhythmCore.Instance.RhythmDelay;
-    }
-
     public void InteractionCallback(InteractionType type)
     {
-        if (RhythmFlag && RhythmCore.Instance.Judge())
-        {
-            OnInteraction(type);
-        }
+        if (RhythmFlag && RhythmCore.Instance.Judge()) OnInteraction(type);
         else
         {
-            onTooEarly?.Invoke();
+            onRhythmMissed?.Invoke();
             OnInteraction(InteractionType.RhythmMiss);
         }
 
         RhythmFlag = false;
     }
-    
+
+    public virtual void OnRhythmHalf() => RhythmFlag = true;
+
     public virtual void OnRhythmLate()
     {
         if (!RhythmFlag) return;
-        onTooLate?.Invoke();
+        onRhythmLost?.Invoke();
         OnInteraction(InteractionType.RhythmLost);
     }
 }
