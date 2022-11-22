@@ -19,7 +19,7 @@ public class UIManger : RhythmCore
         base.Start();
         rhythmStreakText.text = "0";
         pauseInterface.SetActive(false);
-        onRhythm.AddListener(() => rhythmComboAnimator.SetTrigger(AnimationParameter.idle));
+        onHalf.AddListener(() => rhythmComboAnimator.SetTrigger(AnimationParameter.idle));
     }
     
     protected void UpdateComboUI(int combo)

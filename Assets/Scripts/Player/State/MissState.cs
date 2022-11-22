@@ -25,7 +25,6 @@ namespace Player.State
             StateMachine.EffectState = FeedbackState.Idle;
             StateMachine.Anim.SetTrigger(AnimationParameter.Miss);
             StateMachine.RhythmCombo = 0;
-            StateMachine.CombatComboBreak();
         }
 
         public override void HandleInput(InteractionType interactionType)

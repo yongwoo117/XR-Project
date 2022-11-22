@@ -39,9 +39,9 @@ namespace Player.State
             var cutEffect = EffectProfileData.Instance.PopEffect(cutIndex == 0 ? "Eff_SlashDown" : "Eff_SlashUp");
 
             StateMachine.RhythmCombo++;
-            StateMachine.AddCombatCombo(e_PlayerState.Cut);
             StateMachine.Anim.SetTrigger(AnimationParameter.Cut);
             StateMachine.Anim.SetFloat(AnimationParameter.CutIndex, cutIndex++);
+            StateMachine.EffectState = FeedbackState.Idle;
 
             control.IsActive = false;
             if (cutIndex >= 2) cutIndex = 0;

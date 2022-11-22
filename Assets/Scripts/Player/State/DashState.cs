@@ -63,7 +63,6 @@ namespace Player.State
             dashingTime = dashTime;
             isActivated = false;
             StateMachine.RhythmCombo++;
-            StateMachine.AddCombatCombo(e_PlayerState.Dash);
             dashSfx.AttachedOneShot(StateMachine.gameObject);
             damagedObjects.Clear();
             Activate();

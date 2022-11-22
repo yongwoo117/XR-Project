@@ -2,11 +2,10 @@ using FMODUnity;
 using UnityEngine;
 using Player.Animation;
 
-public class PlayerStateMachine : CombatComboModule
+public class PlayerStateMachine : RhythmFeedbackModule
 {
     [SerializeField] private PlayerProfile profile;
     [SerializeField] private Animator AnimationController;
-
     
     public Animator Anim => AnimationController;
     public bool IsFlip => isFlip;
@@ -34,7 +33,6 @@ public class PlayerStateMachine : CombatComboModule
     
     protected override e_PlayerState StartState => e_PlayerState.Idle;
     protected override float MaximumHealth => profile.f_maximumHealth;
-    protected override int CombatComboLimit => profile.i_maximumCombatCombo;
     protected override void OnInteraction(InteractionType type) => currentState?.HandleInput(type);
     protected override void OnBeforeStateInitialize(PlayerState state)
     {
