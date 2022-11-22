@@ -4,7 +4,7 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class GameManager : SoundManager
+public sealed class GameManager : SoundManager
 {
     [SerializeField] private PlayerInput playerInput;
     [SerializeField] private List<float> stageBpmList;
@@ -70,9 +70,10 @@ public class GameManager : SoundManager
         SceneManager.LoadScene("StartScene");
     }
 
-    public void OnBeforeStageChange(int stage)
+    public void OnBeforeStageStart(int stage)
     {
         ChangeBgm(stage);
         Bpm = stageBpmList[stage - 1];
+        ShowStageTransition(stage);
     }
 }

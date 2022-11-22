@@ -19,14 +19,16 @@ public class UIManger : RhythmCore
         base.Start();
         rhythmStreakText.text = "0";
         pauseInterface.SetActive(false);
-        onHalf.AddListener(() => rhythmComboAnimator.SetTrigger(AnimationParameter.idle));
+        onHalf.AddListener(() => rhythmComboAnimator.SetTrigger(AnimationParameter.Idle));
+        onBpmChanged.AddListener(() => 
+            rhythmComboAnimator.SetFloat(AnimationParameter.Rhythm, (float)Bpm / 60.0f));
     }
     
     protected void UpdateComboUI(int combo)
     { 
         rhythmStreakText.text = combo.ToString();
         if (combo != 0) return;
-        rhythmComboAnimator.SetTrigger(AnimationParameter.fail);
+        rhythmComboAnimator.SetTrigger(AnimationParameter.Fail);
     }
 
     protected void PauseUI(bool isPaused)
@@ -35,7 +37,7 @@ public class UIManger : RhythmCore
         if (!isPaused) settingInterface.SetActive(false);
     }
 
-    public void BeforeStageStart(int stage)
+    protected void ShowStageTransition(int stage)
     {
         stageAnimator.SetTrigger(AnimationParameter.Active);
         stageImage.sprite = stageSpriteList[stage - 1];
@@ -43,7 +45,7 @@ public class UIManger : RhythmCore
 
     public void OnRhythmMissed()
     {
-        rhythmComboAnimator.SetTrigger(AnimationParameter.fail);
+        rhythmComboAnimator.SetTrigger(AnimationParameter.Fail);
     }
 
     public void OnGameEnded()

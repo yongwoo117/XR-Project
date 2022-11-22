@@ -6516,7 +6516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bpm: 60
-  judgeOffsetRatio: 0.36399999260902405
+  judgeOffsetRatio: 0.30000001192092896
   startOffset: 0
   onBpmChanged:
     m_PersistentCalls:
@@ -9612,7 +9612,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1659581287}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: OnBeforeStageChange
+        m_MethodName: OnBeforeStageStart
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
