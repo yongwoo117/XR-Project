@@ -4,7 +4,7 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public sealed class GameManager : SoundManager
+public class GameManager : SoundManager
 {
     [SerializeField] private PlayerInput playerInput;
     [SerializeField] private List<float> stageBpmList;

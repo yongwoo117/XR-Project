@@ -12,7 +12,7 @@ public class SoundManager : UIManger
     [SerializeField] private List<EventReference> stageBgmList = new();
 
     private int rhythmIndex;
-    private EventInstance currentBgm;
+    private EventInstance? currentBgm;
     
     protected override void Start()
     {
@@ -25,7 +25,7 @@ public class SoundManager : UIManger
         if (rhythmIndex < rhythmTrigger.Count && combo >= rhythmTrigger[rhythmIndex])
         {
             rhythmIndex++;
-            currentBgm.setParameterByName("Battle", rhythmIndex);
+            currentBgm?.setParameterByName("Battle", rhythmIndex);
         }
         else if (rhythmIndex > 0)
         {
@@ -36,7 +36,7 @@ public class SoundManager : UIManger
                 rhythmIndex = index;
                 break;
             }
-            currentBgm.setParameterByName("Battle", rhythmIndex);
+            currentBgm?.setParameterByName("Battle", rhythmIndex);
         }
     }
 
@@ -45,20 +45,21 @@ public class SoundManager : UIManger
     protected void PauseSound(bool pause)
     {
         pauseSound.PlayOneShot();
-        currentBgm.setPaused(pause);
+        currentBgm?.setPaused(pause);
     }
 
     protected void ChangeBgm(int stage)
     {
-        currentBgm.stop(STOP_MODE.IMMEDIATE);
-        currentBgm.release();
+        currentBgm?.stop(STOP_MODE.ALLOWFADEOUT);
+        currentBgm?.release();
         currentBgm = RuntimeManager.CreateInstance(stageBgmList[stage - 1]);
-        currentBgm.start();
-        currentBgm.setParameterByName("Battle", rhythmIndex);
+        currentBgm.Value.start();
+        currentBgm.Value.setParameterByName("Battle", rhythmIndex);
     }
 
     protected virtual void OnDestroy()
     {
-        currentBgm.release();
+        currentBgm?.stop(STOP_MODE.IMMEDIATE);
+        currentBgm?.release();
     }
 }

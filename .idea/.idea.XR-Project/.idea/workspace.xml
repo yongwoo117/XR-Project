@@ -5,19 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd5c365d-8355-4ae6-899e-47c3b63c3a77" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animation/UI/EndingPanel_Dead.anim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animation/UI/EndingPanel_Dead.anim.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.XR-Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.XR-Project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/UI/EndingMenu.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animation/UI/EndingMenu.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/UI/EndingPanel_Active.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animation/UI/EndingPanel_Clear.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Animation/UI/EndingPanel_Active.anim.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Animation/UI/EndingPanel_Clear.anim.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/AnimationParameter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/AnimationParameter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/UIManger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/UIManger.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/Nanumsongeulssi Galmaetgeul SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/Nanumsongeulssi Galmaetgeul SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fmod_editor.log" beforeDir="false" afterPath="$PROJECT_DIR$/fmod_editor.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/SoundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/SoundManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Util/StageManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Util/StageManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
