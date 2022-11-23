@@ -30,7 +30,7 @@ Shader "Team777/Hitsplash01"
 		
 		Tags { "RenderPipeline"="UniversalPipeline" "RenderType"="Transparent" "Queue"="Transparent" }
 		
-		Cull Back
+		Cull Off
 		AlphaToMask Off
 		
 		HLSLINCLUDE
