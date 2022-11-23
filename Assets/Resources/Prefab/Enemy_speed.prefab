@@ -296,7 +296,7 @@ MonoBehaviour:
       m_Calls: []
   List_e_States: 000000000400000001000000050000000300000002000000
   profile: {fileID: 11400000, guid: c3ef1e3f79ff94e56a2b45b881174b3a, type: 2}
-  AnimationController: {fileID: 916405489}
+  animator: {fileID: 916405489}
 --- !u!54 &8248359141127274629
 Rigidbody:
   m_ObjectHideFlags: 0

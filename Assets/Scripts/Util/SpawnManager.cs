@@ -31,6 +31,8 @@ public class SpawnManager : MonoBehaviour
     private Dictionary<e_EnemyType, ObjectPool<GameObject>> poolDictionary;
     private int objectCount;
 
+    public static Dictionary<e_EnemyType, int> KilledDictionary { get; private set; } = new();
+
     public UnityEvent onStageCleared;
     
     private StageInfo currentStage;
@@ -41,8 +43,7 @@ public class SpawnManager : MonoBehaviour
         {
             currentStage = value;
             objectCount = 0;
-            for (int count = 0; count < currentStage.maximumExistEnemy; count++)
-                SpawnObject();
+            for (var count = 0; count < currentStage.maximumExistEnemy; count++) SpawnObject();
         }
     }
     
@@ -70,13 +71,13 @@ public class SpawnManager : MonoBehaviour
             return;
         }
 
-        SpawnArea area = CurrentStage.spawnAreaList[randIndex];
+        var area = CurrentStage.spawnAreaList[randIndex];
 
         var spawnObj = poolDictionary[area.List_EnemyType[UnityEngine.Random.Range(0, area.List_EnemyType.Count)]]
             .Get();
 
-        float randX = UnityEngine.Random.Range(area.AreaSize.x * -0.5f, area.AreaSize.x * 0.5f);
-        float randZ = UnityEngine.Random.Range(area.AreaSize.y * -0.5f, area.AreaSize.y * 0.5f);
+        var randX = UnityEngine.Random.Range(area.AreaSize.x * -0.5f, area.AreaSize.x * 0.5f);
+        var randZ = UnityEngine.Random.Range(area.AreaSize.y * -0.5f, area.AreaSize.y * 0.5f);
 
         spawnObj.transform.position = area.SpawnTransform.position + new Vector3(randX, 0f, randZ);
         area.ReSpawnCount--;
@@ -86,12 +87,12 @@ public class SpawnManager : MonoBehaviour
 
     private int? RandomAreaIndex()
     {
-        List<int> RandIndexPool = new List<int>();
+        var RandIndexPool = new List<int>();
         int? PlayerAreaIndex = null;
 
-        for (int i = 0; i < CurrentStage.spawnAreaList.Count; i++)
+        for (var i = 0; i < CurrentStage.spawnAreaList.Count; i++)
         {
-            SpawnArea area = CurrentStage.spawnAreaList[i];
+            var area = CurrentStage.spawnAreaList[i];
 
             if (Physics.CheckBox(area.SpawnTransform.position,
                     new Vector3(area.AreaSize.x * 0.5f, 10f, area.AreaSize.y * 0.5f),
@@ -132,7 +133,11 @@ public class SpawnManager : MonoBehaviour
     private GameObject InstantiatePrefab(e_EnemyType key, GameObject prefab)
     {
         var instance = Instantiate(prefab,transform);
-        instance.AddComponent<SpawnCallback>().ReturnAction = value => poolDictionary[key].Release(value);
+        instance.AddComponent<SpawnCallback>().ReturnAction = value =>
+        {
+            poolDictionary[key].Release(value);
+            ++KilledDictionary[key];
+        };
         instance.SetActive(false);
         return instance;
     }
