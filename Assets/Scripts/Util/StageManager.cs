@@ -20,14 +20,15 @@ public class StageManager : MonoBehaviour
 
     private static double startTime;
     
-    public UnityEvent<int> beforeStageStart;
-    public UnityEvent<int> onStageCleared;
+    public UnityEvent beforeStageStart;
+    public UnityEvent onStageCleared;
     public UnityEvent onGameEnded;
 
     private static int stageIndex;
     private SpawnManager spawnManager;
 
     public static double ElapsedTime => startTime - Time.realtimeSinceStartupAsDouble;
+    public static int Stage => stageIndex + 1;
 
     private StageInfo CurrentStage => stageList[stageIndex];
     
@@ -39,7 +40,7 @@ public class StageManager : MonoBehaviour
 
     private IEnumerator DelayStart()
     {
-        beforeStageStart?.Invoke(stageIndex + 1);
+        beforeStageStart?.Invoke();
         yield return new WaitForSeconds(startDelay);
         spawnManager.CurrentStage = CurrentStage;
         startTime = Time.realtimeSinceStartupAsDouble;
@@ -47,7 +48,7 @@ public class StageManager : MonoBehaviour
 
     public void OnStageClear()
     {
-        onStageCleared?.Invoke(stageIndex++);
+        onStageCleared?.Invoke();
         if (stageIndex == stageList.Count) onGameEnded?.Invoke();
     }
 }
