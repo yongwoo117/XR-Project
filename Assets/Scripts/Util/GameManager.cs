@@ -97,6 +97,6 @@ public class GameManager : SoundManager
 
     public void OnGameEnded()
     {
-        
+        DisableRestartButton();
     }
 }

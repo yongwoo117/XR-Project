@@ -49,6 +49,8 @@ public class StageManager : MonoBehaviour
     public void OnStageClear()
     {
         onStageCleared?.Invoke();
-        if (++stageIndex == stageList.Count) onGameEnded?.Invoke();
+        if (++stageIndex != stageList.Count) return;
+        onGameEnded?.Invoke();
+        stageIndex = 0;
     }
 }
