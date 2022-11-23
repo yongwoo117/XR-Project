@@ -36,14 +36,22 @@ public class UIManger : RhythmCore
         if (!isPaused) settingInterface.SetActive(false);
     }
 
-    protected void ShowStageTransition(int stage)
+    protected void ShowStageTransition()
     {
         stageTransitionAnimator.SetTrigger(AnimationParameter.Active);
-        stageImage.sprite = stageSpriteList[stage - 1];
+        stageImage.sprite = stageSpriteList[StageManager.Stage - 1];
     }
 
-    protected void ShowGameClearMenu() => stageEndingAnimator.SetTrigger(AnimationParameter.Clear);
-    protected void ShowPlayerDeadMenu() => stageEndingAnimator.SetTrigger(AnimationParameter.Dead);
+    protected void ShowGameClearMenu()
+    {
+        stageEndingAnimator.SetTrigger(AnimationParameter.Clear);
+    }
+
+    protected void ShowPlayerDeadMenu()
+    {
+        stageEndingAnimator.SetTrigger(AnimationParameter.Dead);
+    }
+
     public void OnRhythmMissed() => rhythmComboAnimator.SetTrigger(AnimationParameter.Fail);
     protected void DisplaySettingMenu() => settingInterface.SetActive(true);
 }
