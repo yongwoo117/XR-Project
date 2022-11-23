@@ -1,4 +1,5 @@
 using Enemy.Profile;
+using FMODUnity;
 using UnityEngine;
 
 namespace Enemy.State
@@ -7,10 +8,15 @@ namespace Enemy.State
     {
         private float hitTime;
         private float thresholdTime;
+        private EventReference hitSfx;
 
         public override EnemyProfile Profile
         {
-            set => hitTime = value.f_hitTime;
+            set
+            {
+                hitTime = value.f_hitTime;
+                hitSfx = value.SFXDictionary[SFXType.Hit];
+            }
         }
 
         public override void Enter()
@@ -19,12 +25,11 @@ namespace Enemy.State
             Debug.Log("Hit!");
 
             var hitEffect = EffectProfileData.Instance.PopEffect("Eff_MonsterHit");
+            hitSfx.AttachedOneShot(StateMachine.gameObject);
 
-            if (hitEffect is not null)
-            {
-                hitEffect.transform.position = StateMachine.transform.GetChild(0).position;
-                hitEffect.transform.localScale = Vector3.one;
-            }
+            if (hitEffect is null) return;
+            hitEffect.transform.position = StateMachine.transform.GetChild(0).position;
+            hitEffect.transform.localScale = Vector3.one;
         }
 
         public override void LogicUpdate()
