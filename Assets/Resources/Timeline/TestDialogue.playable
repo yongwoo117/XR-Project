@@ -1590,7 +1590,8 @@ MonoBehaviour:
   template:
     NameText: "Mr.\uD1A0\uB07C"
     NameColor: {r: 0, g: 0, b: 0, a: 1}
-    DialogueText: "\uADF8, \uADF8\uAC74\xB7\xB7\xB7 \uD06C\uD760\xB7\xB7\xB7"
+    DialogueText: "\uC9C4\uC815\uD558\uAC8C\xB7\xB7\xB7 \uC774\uBBF8 \uC5CE\uC9C8\uB7EC\uC9C4
+      \uAC70 \uBCC4 \uC218 \uC788\uACA0\uB098\xB7\xB7\xB7"
     Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
     PlayerSprite: {fileID: 21300000, guid: e905f1844d8710b4d9e4e52a1fc4c8a3, type: 3}
     NpcSprite: {fileID: 21300000, guid: eb32134bb3ba5a84a999045734b0fd09, type: 3}
@@ -2493,7 +2494,8 @@ MonoBehaviour:
   template:
     NameText: "\uC8FC\uC778\uACF5"
     NameColor: {r: 0, g: 0, b: 0, a: 1}
-    DialogueText: "\uC880 \uC804\uC5D4 \uB2F9\uC2E0 \uD0D3\uC774\uB77C\uBA74\uC11C\uC694!"
+    DialogueText: "\uB300\uCCB4 \uBB34\uC2A8 \uC9D3\uC744 \uD588\uAE38\uB798 \uBCD1\uC815\uB4E4\uC774
+      \uC800\uB7EC\uB294 \uAC70\uB0D0\uACE0\uC694\xB7\xB7\xB7!"
     Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
     PlayerSprite: {fileID: 21300000, guid: 0e0e5501926781547b991f74d3790f86, type: 3}
     NpcSprite: {fileID: 21300000, guid: b0d36cabab24a154c9d9d7af4718e49a, type: 3}
@@ -2555,7 +2557,8 @@ MonoBehaviour:
   template:
     NameText: "Mr.\uD1A0\uB07C"
     NameColor: {r: 0, g: 0, b: 0, a: 1}
-    DialogueText: "\uB108\uBB34 \uC798\uD574\uC8FC\uC5C8\uB124!"
+    DialogueText: "\uC798\uD588\uB124! \uC774\uC81C \uC2A4\uC2A4\uB85C\uB97C \uC9C0\uD0A4\uB294
+      \uB370\uC5D4 \uBB38\uC81C\uC5C6\uACA0\uAD70\xB7\xB7\xB7"
     Font: {fileID: 11400000, guid: 6acf1a5d1d8ff40d08460b949571535a, type: 2}
     PlayerSprite: {fileID: 21300000, guid: 6f28da167cc9fb543ae35778034d5e09, type: 3}
     NpcSprite: {fileID: 21300000, guid: eb32134bb3ba5a84a999045734b0fd09, type: 3}
