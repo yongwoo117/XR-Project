@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : SoundManager
 {
     [SerializeField] private PlayerInput playerInput;
+    private bool IsTimeLine;
     
     public bool IsPaused
     {
@@ -61,13 +62,16 @@ public class GameManager : SoundManager
     public void OnDialogueInteraction(InputAction.CallbackContext context)
     {
         if (!context.started) return;
-        IsDialogue = true;
+
+        if(IsTimeLine)
+            IsDialogue = true;
     }
 
     public void OnResumeButtonDown() => IsPaused = false;
 
     public void OnDialgoue(bool isActive)
     {
+        IsTimeLine = isActive;
         IsDialogue = isActive;
     }
     public void OnOptionButtonDown()
