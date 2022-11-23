@@ -31,6 +31,8 @@ namespace UI
     public static class AnimationParameter
     {
         public static readonly int Active = Animator.StringToHash("Active");
+        public static readonly int Clear = Animator.StringToHash("Clear");
+        public static readonly int Dead = Animator.StringToHash("Dead");
         public static readonly int Idle = Animator.StringToHash("Idle");
         public static readonly int Highlighted = Animator.StringToHash("Highlighted");
         public static readonly int Fail = Animator.StringToHash("Fail");
