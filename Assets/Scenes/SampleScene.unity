@@ -4137,7 +4137,7 @@ PlayableDirector:
   m_GameObject: {fileID: 1659581279}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 7b9216a77a70ed24896de6199705c140, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 05042a522af093245a8b2117d6354823, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -4161,6 +4161,14 @@ PlayableDirector:
     value: {fileID: 1692549520480688879}
   - key: {fileID: -1084208260039575546, guid: 7b9216a77a70ed24896de6199705c140, type: 2}
     value: {fileID: 1692549520480688878}
+  - key: {fileID: -4304503150389808141, guid: d3963ca66dde37b4ca3530744e96ab50, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 5477155655483585856, guid: d3963ca66dde37b4ca3530744e96ab50, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -4304503150389808141, guid: babd9ab0643e04f499f6df2a51fc4431, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 5477155655483585856, guid: babd9ab0643e04f499f6df2a51fc4431, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &1659581289
@@ -6172,6 +6180,10 @@ PrefabInstance:
     - target: {fileID: 522281279840906236, guid: e3067a7c2b10dc342aa9761ae583b53a, type: 3}
       propertyPath: m_Name
       value: TextBoard
+      objectReference: {fileID: 0}
+    - target: {fileID: 522281279840906236, guid: e3067a7c2b10dc342aa9761ae583b53a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 522281279840906237, guid: e3067a7c2b10dc342aa9761ae583b53a, type: 3}
       propertyPath: m_Pivot.x
