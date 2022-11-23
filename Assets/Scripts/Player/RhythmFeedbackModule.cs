@@ -63,6 +63,7 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
     private RhythmCore rhythmCore;
 
     protected bool isFlip;
+    protected bool isSettingPaused;
 
     public FeedbackState EffectState
     {
@@ -114,10 +115,14 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
         rhythmCore = RhythmCore.Instance;
         control = GetComponent<IControl>();
         EffectState = FeedbackState.Idle;
+        GameManager.OnPause.AddListener(OnSettingPaused);
     }
 
     protected override void Update()
     {
+        if (isSettingPaused)
+            return;
+
         base.Update();
 
         if (control.Direction is { } dir) direction = dir;
@@ -180,5 +185,10 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
         idleDirectionStruct.targetTime
             = idleDirectionStruct.activationTime + (float)rhythmCore.JudgeOffset * 2;
         effectFlag = true;
+    }
+
+    protected virtual void OnSettingPaused(bool isPause)
+    {
+        isSettingPaused = isPause;
     }
 }
