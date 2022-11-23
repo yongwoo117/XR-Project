@@ -30,7 +30,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private List<EnemyPoolingInfo> poolingList;
     private Dictionary<e_EnemyType, ObjectPool<GameObject>> poolDictionary;
     private int objectCount;
-    
+
     public UnityEvent onStageCleared;
     
     private StageInfo currentStage;

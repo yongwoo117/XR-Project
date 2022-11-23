@@ -9,8 +9,9 @@ public class UIManger : RhythmCore
     [SerializeField] private TMP_Text rhythmStreakText;
     [SerializeField] private GameObject pauseInterface;
     [SerializeField] private GameObject settingInterface;
-    [SerializeField] private Animator stageAnimator;
+    [SerializeField] private Animator stageTransitionAnimator;
     [SerializeField] private Animator rhythmComboAnimator;
+    [SerializeField] private Animator stageEndingAnimator;
     [SerializeField] private Image stageImage;
     [SerializeField] private List<Sprite> stageSpriteList;
 
@@ -20,8 +21,6 @@ public class UIManger : RhythmCore
         rhythmStreakText.text = "0";
         pauseInterface.SetActive(false);
         onHalf.AddListener(() => rhythmComboAnimator.SetTrigger(AnimationParameter.Idle));
-        onBpmChanged.AddListener(() => 
-            rhythmComboAnimator.SetFloat(AnimationParameter.Rhythm, (float)Bpm / 60.0f));
     }
     
     protected void UpdateComboUI(int combo)
@@ -39,19 +38,11 @@ public class UIManger : RhythmCore
 
     protected void ShowStageTransition(int stage)
     {
-        stageAnimator.SetTrigger(AnimationParameter.Active);
+        stageTransitionAnimator.SetTrigger(AnimationParameter.Active);
         stageImage.sprite = stageSpriteList[stage - 1];
     }
 
-    public void OnRhythmMissed()
-    {
-        rhythmComboAnimator.SetTrigger(AnimationParameter.Fail);
-    }
-
-    public void OnGameEnded()
-    {
-        Debug.Log("끝");
-    }
-
+    protected void ActiveGameEndingMenu() => stageEndingAnimator.SetTrigger(AnimationParameter.Active);
+    public void OnRhythmMissed() => rhythmComboAnimator.SetTrigger(AnimationParameter.Fail);
     protected void DisplaySettingMenu() => settingInterface.SetActive(true);
 }

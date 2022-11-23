@@ -34,6 +34,5 @@ namespace UI
         public static readonly int Idle = Animator.StringToHash("Idle");
         public static readonly int Highlighted = Animator.StringToHash("Highlighted");
         public static readonly int Fail = Animator.StringToHash("Fail");
-        public static readonly int Rhythm = Animator.StringToHash("Rhythm");
     }
 }

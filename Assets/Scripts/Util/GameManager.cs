@@ -75,5 +75,18 @@ public sealed class GameManager : SoundManager
         ChangeBgm(stage);
         Bpm = stageBpmList[stage - 1];
         ShowStageTransition(stage);
+        Time.timeScale = (float)(Bpm / 60.0);
+    }
+
+    public void OnStageCleared(int stage)
+    {
+        ActiveGameEndingMenu();
+    }
+
+    public void OnNextStageButtonDown()
+    {
+        ButtonDownSound();
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene("Scenes/SampleScene");
     }
 }
