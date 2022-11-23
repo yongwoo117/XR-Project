@@ -18,12 +18,16 @@ public class StageManager : MonoBehaviour
     [SerializeField] private List<StageInfo> stageList = new();
     [SerializeField] private float startDelay;
 
+    private static double startTime;
+    
     public UnityEvent<int> beforeStageStart;
     public UnityEvent<int> onStageCleared;
     public UnityEvent onGameEnded;
 
     private static int stageIndex;
     private SpawnManager spawnManager;
+
+    public static double ElapsedTime => startTime - Time.realtimeSinceStartupAsDouble;
 
     private StageInfo CurrentStage => stageList[stageIndex];
     
@@ -38,6 +42,7 @@ public class StageManager : MonoBehaviour
         beforeStageStart?.Invoke(stageIndex + 1);
         yield return new WaitForSeconds(startDelay);
         spawnManager.CurrentStage = CurrentStage;
+        startTime = Time.realtimeSinceStartupAsDouble;
     }
 
     public void OnStageClear()

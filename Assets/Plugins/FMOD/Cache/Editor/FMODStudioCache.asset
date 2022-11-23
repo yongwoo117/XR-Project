@@ -190,33 +190,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1000
---- !u!114 &-6170657070106210292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/EX/SFX_Thorn
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/EX/SFX_Thorn
-  Guid:
-    Data1: -508803040
-    Data2: 1252674903
-    Data3: -1353765705
-    Data4: 1420443896
-  Banks:
-  - {fileID: 9038951436755084139}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 758
 --- !u!114 &-5068784406860851296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -489,14 +462,14 @@ MonoBehaviour:
   - {fileID: -6510170363237729584}
   - {fileID: -1454306105607235158}
   - {fileID: -5068784406860851296}
-  - {fileID: -6170657070106210292}
-  - {fileID: 6258376284356682954}
+  - {fileID: 8104925155588917035}
+  - {fileID: 4217294321517839162}
   EditorParameters: []
   MasterBanks:
   - {fileID: 2068330611387846578}
   StringsBanks:
   - {fileID: 890441174365130708}
-  cacheTime: 638048067553139217
+  cacheTime: 638048101392659790
   cacheVersion: 131592
 --- !u!114 &233107040631169585
 MonoBehaviour:
@@ -567,7 +540,7 @@ MonoBehaviour:
   Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638048067553136016
+  lastModified: 638048101392641661
   FileSizes:
   - Name: Desktop
     Value: 1908
@@ -647,6 +620,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 76000
+--- !u!114 &4217294321517839162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Ex/SFX_SceneChange
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Ex/SFX_SceneChange
+  Guid:
+    Data1: -1154074121
+    Data2: 1225744521
+    Data3: 463756417
+    Data4: -1317979096
+  Banks:
+  - {fileID: 9038951436755084139}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2138
 --- !u!114 &4762522780818757808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -674,7 +674,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 375
---- !u!114 &6258376284356682954
+--- !u!114 &8104925155588917035
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -684,14 +684,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/EX/SFX_SceneChange
+  m_Name: event:/SFX/Ex/SFX_Thorn
   m_EditorClassIdentifier: 
-  Path: event:/SFX/EX/SFX_SceneChange
+  Path: event:/SFX/Ex/SFX_Thorn
   Guid:
-    Data1: -1154074121
-    Data2: 1225744521
-    Data3: 463756417
-    Data4: -1317979096
+    Data1: -508803040
+    Data2: 1252674903
+    Data3: -1353765705
+    Data4: 1420443896
   Banks:
   - {fileID: 9038951436755084139}
   IsStream: 0
@@ -700,7 +700,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 2138
+  Length: 848
 --- !u!114 &9038951436755084139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -716,10 +716,10 @@ MonoBehaviour:
   Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638048067553139217
+  lastModified: 638048101392659790
   FileSizes:
   - Name: Desktop
-    Value: 228128
+    Value: 230176
   Exists: 1
 --- !u!114 &9061318102381543862
 MonoBehaviour:
