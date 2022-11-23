@@ -18,8 +18,6 @@ public class SoundManager : UIManger
     {
         base.Start();
         rhythmIndex = 0;
-        currentBgm = RuntimeManager.CreateInstance(stageBgmList[0]);
-        currentBgm.start();
     }
     
     protected void UpdateSound(int combo)
@@ -52,7 +50,7 @@ public class SoundManager : UIManger
 
     protected void ChangeBgm(int stage)
     {
-        currentBgm.stop(STOP_MODE.ALLOWFADEOUT);
+        currentBgm.stop(STOP_MODE.IMMEDIATE);
         currentBgm.release();
         currentBgm = RuntimeManager.CreateInstance(stageBgmList[stage - 1]);
         currentBgm.start();
