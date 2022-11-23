@@ -27,7 +27,7 @@ public class StageManager : MonoBehaviour
     private static int stageIndex;
     private SpawnManager spawnManager;
 
-    public static double ElapsedTime => startTime - Time.realtimeSinceStartupAsDouble;
+    public static double ElapsedTime => Time.realtimeSinceStartupAsDouble - startTime;
     public static int Stage => stageIndex + 1;
 
     private StageInfo CurrentStage => stageList[stageIndex];
@@ -49,6 +49,6 @@ public class StageManager : MonoBehaviour
     public void OnStageClear()
     {
         onStageCleared?.Invoke();
-        if (stageIndex == stageList.Count) onGameEnded?.Invoke();
+        if (++stageIndex == stageList.Count) onGameEnded?.Invoke();
     }
 }

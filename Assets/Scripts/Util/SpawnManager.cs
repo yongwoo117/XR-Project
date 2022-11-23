@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Pool;
@@ -115,9 +116,9 @@ public class SpawnManager : MonoBehaviour
     private void CreateEnemyClone()
     {
         poolDictionary = new Dictionary<e_EnemyType, ObjectPool<GameObject>>();
-        foreach (var obj in poolingList)
+        foreach (var obj in poolingList.Where(obj => !poolDictionary.ContainsKey(obj.enemyType)))
         {
-            if (poolDictionary.ContainsKey(obj.enemyType)) continue;
+            KilledDictionary[obj.enemyType] = 0;
             var pool = new ObjectPool<GameObject>(
                 () => InstantiatePrefab(obj.enemyType, obj.prefab), 
                 instance => instance.SetActive(true), 

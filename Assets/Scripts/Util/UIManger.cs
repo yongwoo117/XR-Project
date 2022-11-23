@@ -42,14 +42,27 @@ public class UIManger : RhythmCore
         stageImage.sprite = stageSpriteList[StageManager.Stage - 1];
     }
 
+    private void SetupEndingStats(Component menuPanel)
+    {
+        var texts = menuPanel.GetComponentsInChildren<TextMeshProUGUI>();
+        texts[1].text = $"S      {StageManager.Stage}";
+        texts[5].text = $"{StageManager.ElapsedTime:F}초";
+        texts[6].text = RhythmComboModule.MaximumCombo.ToString();
+        texts[7].text = SpawnManager.KilledDictionary[e_EnemyType.Heavy].ToString();
+        texts[8].text = SpawnManager.KilledDictionary[e_EnemyType.Basic].ToString();
+        texts[9].text = SpawnManager.KilledDictionary[e_EnemyType.Speed].ToString();
+    }
+    
     protected void ShowGameClearMenu()
     {
         stageEndingAnimator.SetTrigger(AnimationParameter.Clear);
+        SetupEndingStats(stageEndingAnimator.transform.GetChild(0));
     }
 
     protected void ShowPlayerDeadMenu()
     {
         stageEndingAnimator.SetTrigger(AnimationParameter.Dead);
+        SetupEndingStats(stageEndingAnimator.transform.GetChild(1));
     }
 
     public void OnRhythmMissed() => rhythmComboAnimator.SetTrigger(AnimationParameter.Fail);
