@@ -70,15 +70,15 @@ public class GameManager : SoundManager
         SceneManager.LoadScene("StartScene");
     }
 
-    public void OnBeforeStageStart(int stage)
+    public void OnBeforeStageStart()
     {
-        ChangeBgm(stage);
-        Bpm = stageBpmList[stage - 1];
-        ShowStageTransition(stage);
+        ChangeBgm(StageManager.Stage);
+        Bpm = stageBpmList[StageManager.Stage - 1];
+        ShowStageTransition();
         Time.timeScale = (float)(Bpm / 60.0);
     }
 
-    public void OnStageCleared(int stage)
+    public void OnStageCleared()
     {
         ShowGameClearMenu();
     }
@@ -93,5 +93,10 @@ public class GameManager : SoundManager
         ButtonDownSound();
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("Scenes/SampleScene");
+    }
+
+    public void OnGameEnded()
+    {
+        
     }
 }
