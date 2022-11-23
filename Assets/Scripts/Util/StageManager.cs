@@ -22,7 +22,7 @@ public class StageManager : MonoBehaviour
     public UnityEvent<int> onStageCleared;
     public UnityEvent onGameEnded;
 
-    private static int stageIndex = 0;
+    private static int stageIndex;
     private SpawnManager spawnManager;
 
     private StageInfo CurrentStage => stageList[stageIndex];

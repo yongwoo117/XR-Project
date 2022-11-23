@@ -42,7 +42,8 @@ public class UIManger : RhythmCore
         stageImage.sprite = stageSpriteList[stage - 1];
     }
 
-    protected void ActiveGameEndingMenu() => stageEndingAnimator.SetTrigger(AnimationParameter.Active);
+    protected void ShowGameClearMenu() => stageEndingAnimator.SetTrigger(AnimationParameter.Clear);
+    protected void ShowPlayerDeadMenu() => stageEndingAnimator.SetTrigger(AnimationParameter.Dead);
     public void OnRhythmMissed() => rhythmComboAnimator.SetTrigger(AnimationParameter.Fail);
     protected void DisplaySettingMenu() => settingInterface.SetActive(true);
 }

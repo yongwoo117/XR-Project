@@ -4,7 +4,7 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public sealed class GameManager : SoundManager
+public class GameManager : SoundManager
 {
     [SerializeField] private PlayerInput playerInput;
     [SerializeField] private List<float> stageBpmList;
@@ -80,7 +80,12 @@ public sealed class GameManager : SoundManager
 
     public void OnStageCleared(int stage)
     {
-        ActiveGameEndingMenu();
+        ShowGameClearMenu();
+    }
+
+    public void OnPlayerDead()
+    {
+        ShowPlayerDeadMenu();
     }
 
     public void OnNextStageButtonDown()
