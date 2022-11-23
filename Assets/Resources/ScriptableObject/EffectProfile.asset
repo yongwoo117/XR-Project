@@ -23,6 +23,7 @@ MonoBehaviour:
     - Eff_Trail
     - Eff_SlashDown
     - Eff_SlashUp
+    - Eff_MonsterAttack
     values:
     - {fileID: 7379835623210154396, guid: 4b2c702adee2188499d2c59ecf940b78, type: 3}
     - {fileID: 1554671603398015269, guid: f386edd851b401f4f8e398ab9651456e, type: 3}
@@ -33,3 +34,4 @@ MonoBehaviour:
     - {fileID: 5685028583324914395, guid: 7bfbe6e50aa5d9e40887e646a2b19cae, type: 3}
     - {fileID: 4465065297506960153, guid: b4a9e551932c81e43a40c1ec52bcd749, type: 3}
     - {fileID: 3095410878681566904, guid: 09090568c9dd3af46b5d47aefe8cd3ac, type: 3}
+    - {fileID: 1375985204495434791, guid: 1568ca49b0161b048a9298860d908e2c, type: 3}

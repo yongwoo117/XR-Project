@@ -40,6 +40,8 @@ namespace Enemy.State
                 return;
             }
 
+         
+
             playerPosition = colliders[0].transform.position;
             thresholdTime = Time.realtimeSinceStartup + preDelay;
             isAttacked = false;
@@ -53,6 +55,7 @@ namespace Enemy.State
             if (isAttacked) StateMachine.ChangeState(e_EnemyState.Idle);
             else
             {
+
                 StateMachine.Anim.SetTrigger(AnimationParameter.Attack);
                 var currentPosition = StateMachine.transform.position;
                 var direction = (playerPosition - currentPosition).normalized;
@@ -62,6 +65,15 @@ namespace Enemy.State
                 attackSfx.AttachedOneShot(StateMachine.gameObject);
                 thresholdTime = Time.realtimeSinceStartup + postDelay;
                 isAttacked = true;
+
+                GameObject attackEffect = EffectProfileData.Instance.PopEffect("Eff_MonsterAttack");
+
+                if (attackEffect is not null)
+                {
+                    attackEffect.transform.parent = StateMachine.transform.GetChild(0);
+                    attackEffect.transform.localPosition = Vector3.zero;
+                    attackEffect.transform.localScale = Vector3.one;
+                }
             }
         }
         
