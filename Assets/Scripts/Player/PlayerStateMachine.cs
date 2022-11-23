@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerStateMachine : CombatComboModule
@@ -37,4 +38,20 @@ public class PlayerStateMachine : CombatComboModule
         state.Profile = profile;
     }
 
+    public  void AddDictionaryState(e_PlayerState e_state)
+    {
+        //이미 추가된 키값이면 넘깁니다.
+        if (Dic_States.ContainsKey(e_state)) return;
+
+        var type = e_state.GetStateType();
+
+        //IState가 아닌 경우 넘깁니다.
+        if (type is null) return;
+        if (!type.IsSubclassOf(typeof(PlayerState))) return;
+
+        var state = (PlayerState)Activator.CreateInstance(type);
+        OnBeforeStateInitialize(state);
+        state.Initialize();
+        Dic_States.Add(e_state, state);
+    }
 }

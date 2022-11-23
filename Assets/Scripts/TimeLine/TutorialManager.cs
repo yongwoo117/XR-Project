@@ -32,6 +32,11 @@ public class TutorialManager:TimeLineManager
         TurtorialPannel?.SetActive(true);
     }
 
+    public void StartReadyTutorial()
+    {
+
+    }
+
     public void CutTutorial(InteractionType interactionType)
     {
         if (RhythmCore.Instance.Judge())
