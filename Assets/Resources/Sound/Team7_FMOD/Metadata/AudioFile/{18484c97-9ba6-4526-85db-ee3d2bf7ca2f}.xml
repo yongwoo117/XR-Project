@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{18484c97-9ba6-4526-85db-ee3d2bf7ca2f}">
+		<property name="assetPath">
+			<value>SFX_Thorn.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.75893424036281176</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{18f8c6cb-2f50-4251-b2ea-e1b24cb642d8}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -27,33 +27,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 839
---- !u!114 &-8146489917885079080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/UI/SFX_SceneChange
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/UI/SFX_SceneChange
-  Guid:
-    Data1: -1154074121
-    Data2: 1225744521
-    Data3: 463756417
-    Data4: -1317979096
-  Banks:
-  - {fileID: 9038951436755084139}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 2138
 --- !u!114 &-7818622840735630389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,6 +217,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 433
+--- !u!114 &-4348353893168351455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/EX/SFX_Thorn
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/EX/SFX_Thorn
+  Guid:
+    Data1: -508803040
+    Data2: 1252674903
+    Data3: -1353765705
+    Data4: 1420443896
+  Banks:
+  - {fileID: 9038951436755084139}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 758
 --- !u!114 &-4314165111636993103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,11 +340,38 @@ MonoBehaviour:
   Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/BGM.bank
   Name: BGM
   StudioPath: bank:/BGM
-  lastModified: 638048036451845661
+  lastModified: 638048053464416526
   FileSizes:
   - Name: Desktop
     Value: 2439968
   Exists: 1
+--- !u!114 &-3098408273209815641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/EX/SFX_SceneChange
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/EX/SFX_SceneChange
+  Guid:
+    Data1: -1154074121
+    Data2: 1225744521
+    Data3: 463756417
+    Data4: -1317979096
+  Banks:
+  - {fileID: 9038951436755084139}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2138
 --- !u!114 &-2243185654392656423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -435,13 +462,14 @@ MonoBehaviour:
   - {fileID: -6510170363237729584}
   - {fileID: -1454306105607235158}
   - {fileID: -5068784406860851296}
-  - {fileID: -8146489917885079080}
+  - {fileID: -4348353893168351455}
+  - {fileID: -3098408273209815641}
   EditorParameters: []
   MasterBanks:
   - {fileID: 2068330611387846578}
   StringsBanks:
   - {fileID: 890441174365130708}
-  cacheTime: 638048039585214708
+  cacheTime: 638048053464961299
   cacheVersion: 131592
 --- !u!114 &233107040631169585
 MonoBehaviour:
@@ -512,10 +540,10 @@ MonoBehaviour:
   Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638048004358692222
+  lastModified: 638048053464441603
   FileSizes:
   - Name: Desktop
-    Value: 1866
+    Value: 1908
   Exists: 1
 --- !u!114 &1608703334027761195
 MonoBehaviour:
@@ -559,7 +587,7 @@ MonoBehaviour:
   Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638046598426048534
+  lastModified: 638048053464433889
   FileSizes:
   - Name: Desktop
     Value: 1318
@@ -634,10 +662,10 @@ MonoBehaviour:
   Path: Assets/Resources/Sound/Team7_FMOD/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638048039585214708
+  lastModified: 638048053464961299
   FileSizes:
   - Name: Desktop
-    Value: 205632
+    Value: 222208
   Exists: 1
 --- !u!114 &9061318102381543862
 MonoBehaviour:
