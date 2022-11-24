@@ -55,12 +55,14 @@ public class UIManger : RhythmCore
     
     protected void ShowGameClearMenu()
     {
+        stageEndingAnimator.gameObject.SetActive(true);
         stageEndingAnimator.SetTrigger(AnimationParameter.Clear);
         SetupEndingStats(stageEndingAnimator.transform.GetChild(0));
     }
 
     protected void ShowPlayerDeadMenu()
     {
+        stageEndingAnimator.gameObject.SetActive(true);
         stageEndingAnimator.SetTrigger(AnimationParameter.Dead);
         SetupEndingStats(stageEndingAnimator.transform.GetChild(1));
     }

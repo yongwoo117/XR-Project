@@ -10,28 +10,14 @@ public class GameManager : SoundManager
     [SerializeField] private List<float> stageBpmList;
 
     public static readonly UnityEvent<bool> OnPause = new();
-
-    private bool IsPaused
-    {
-        get => isPaused;
-        set
-        {
-            isPaused = value;
-            Time.timeScale = IsPaused ? 0 : TimeScale;
-            playerInput.enabled = !IsPaused;
-            PauseSound(IsPaused);
-            PauseUI(IsPaused);
-            OnPause?.Invoke(IsPaused);
-        }
-    }
-    private bool isPaused;
-
+    public static bool IsPaused { get; private set; }
+    
     private float TimeScale => (float)(stageBpmList[StageManager.Stage - 1] / Bpm);
 
     protected override void Start()
     {
         base.Start();
-        isPaused = false;
+        IsPaused = false;
     }
 
     public void OnRhythmComboChanged(int combo)
@@ -40,22 +26,32 @@ public class GameManager : SoundManager
         UpdateSound(combo);
     }
 
+    private void SetPause(bool pause)
+    {
+        IsPaused = pause;
+        Time.timeScale = IsPaused ? 0 : TimeScale;
+        playerInput.enabled = !IsPaused;
+        PauseSound(IsPaused);
+        PauseUI(IsPaused);
+        OnPause?.Invoke(IsPaused);
+    }
+
     public void OnInterrupt(InputAction.CallbackContext context)
     {
         if (!context.started) return;
-        IsPaused = !IsPaused;
+        SetPause(!IsPaused);
     }
 
     public void OnPauseButtonDown()
     {
         ButtonDownSound();
-        IsPaused = true;
+        SetPause(true);
     }
 
     public void OnResumeButtonDown()
     {
         ButtonDownSound();
-        IsPaused = false;
+        SetPause(false);
     }
 
     public void OnOptionButtonDown()
