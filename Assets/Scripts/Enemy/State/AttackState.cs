@@ -64,12 +64,10 @@ namespace Enemy.State
 
                 GameObject attackEffect = EffectProfileData.Instance.PopEffect("Eff_MonsterAttack");
 
-                if (attackEffect is not null)
-                {
-                    attackEffect.transform.parent = StateMachine.transform.GetChild(0);
-                    attackEffect.transform.localPosition = Vector3.zero;
-                    attackEffect.transform.localScale = Vector3.one;
-                }
+                if (attackEffect is null) return;
+                attackEffect.transform.parent = StateMachine.transform.GetChild(0);
+                attackEffect.transform.localPosition = Vector3.zero;
+                attackEffect.transform.localScale = Vector3.one;
             }
         }
         

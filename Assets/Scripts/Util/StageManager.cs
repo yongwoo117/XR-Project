@@ -26,8 +26,9 @@ public class StageManager : MonoBehaviour
 
     private static int stageIndex;
     private SpawnManager spawnManager;
+    private double pausedTime;
 
-    public static double ElapsedTime => Time.timeAsDouble - startTime;
+    public static double ElapsedTime => Time.realtimeSinceStartupAsDouble - startTime;
     public static int Stage => stageIndex + 1;
 
     private StageInfo CurrentStage => stageList[stageIndex];
@@ -36,6 +37,7 @@ public class StageManager : MonoBehaviour
     {
         spawnManager = GetComponent<SpawnManager>();
         StartCoroutine(DelayStart());
+        GameManager.OnPause.AddListener(OnPaused);
     }
 
     private IEnumerator DelayStart()
@@ -43,7 +45,14 @@ public class StageManager : MonoBehaviour
         beforeStageStart?.Invoke();
         yield return new WaitForSeconds(startDelay);
         spawnManager.CurrentStage = CurrentStage;
-        startTime = Time.timeAsDouble;
+        // GameManager.OnPause.AddListener();
+        startTime = Time.realtimeSinceStartupAsDouble;
+    }
+
+    private void OnPaused(bool isPaused)
+    {
+        if (isPaused) pausedTime = Time.realtimeSinceStartupAsDouble;
+        else startTime += Time.realtimeSinceStartupAsDouble - pausedTime;
     }
 
     public void OnStageClear()

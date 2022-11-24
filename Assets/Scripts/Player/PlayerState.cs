@@ -92,4 +92,9 @@ public abstract class PlayerState : IState<e_PlayerState, PlayerState, PlayerSta
     {
         
     }
+
+    public void Release()
+    {
+        
+    }
 }

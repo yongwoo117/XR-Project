@@ -23,7 +23,7 @@ namespace Player.State
 
         private bool isActivated;
         
-        private readonly Collider[] collisionBuffer = new Collider[1];
+        private readonly Collider[] collisionBuffer = new Collider[5];
         private readonly List<GameObject> damagedObjects = new();
 
         private GameObject dashEffect;
@@ -132,10 +132,10 @@ namespace Player.State
                 Quaternion.Euler(0f, Mathf.Atan2(pointDir.z, pointDir.x) * -Mathf.Rad2Deg, 0f), GetLayerMasks.Enemy);
 
             if (size == 0) return;
-            foreach (var collider in collisionBuffer)
+            for (var index = 0; index < size; ++index)
             {
-                var enemy = collider.gameObject;
-                if(damagedObjects.Contains(enemy)) continue;
+                var enemy = collisionBuffer[index].gameObject;
+                if (damagedObjects.Contains(enemy)) continue;
                 enemy.GetComponent<HealthModule>()?.RequestDamage(damage * multiplier);
                 damagedObjects.Add(enemy);
             }

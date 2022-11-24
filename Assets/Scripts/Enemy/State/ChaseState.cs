@@ -36,7 +36,6 @@ namespace Enemy.State
                 chaseRange = value.f_ChaseRange;
                 chaseTime = value.f_ChaseTime;
                 chaseGraph = value.chasePhysicsGraph;
-
                 attackRange = value.f_AttackRange;
                 moveInstance = value.SFXDictionary[SFXType.Move].CreateAttach(StateMachine.transform);
             }
@@ -121,17 +120,20 @@ namespace Enemy.State
             StateMachine.ChangeState(e_EnemyState.Hit);
         }
 
+        public override void Release()
+        {
+            moveInstance.stop(STOP_MODE.IMMEDIATE);
+            moveInstance.release();
+        }
+
         public override void OnPause(bool isPaused) => moveInstance.setPaused(isPaused);
 
-        ~ChaseState() => moveInstance.release();
-        
         private void FlipToDirection(Vector3 direction)
         {
             Vector3 GFXScale = StateMachine.Anim.transform.localScale;
             GFXScale.x = Mathf.Abs(GFXScale.x) * (direction.x > 0 ? -1 : 1);
             StateMachine.Anim.transform.localScale = GFXScale;
         }
-
 
         /// <summary>
         /// 초기에 애니메이션 그래프를 fixedDeltaTime 주기에 맞게 적분하여 그래프 전체 영역을 구함

@@ -74,4 +74,9 @@ public class EnemyState : IState<e_EnemyState, EnemyState, EnemyStateMachine>
     {
 
     }
+
+    public virtual void Release()
+    {
+        
+    }
 }

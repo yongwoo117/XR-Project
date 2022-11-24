@@ -32,8 +32,9 @@ public class EnemyStateMachine : StateMachine<e_EnemyState, EnemyState, EnemySta
     private void OnPause(bool isPaused) => currentState?.OnPause(isPaused);
     private void OnRhythm() => currentState?.OnRhythm();
 
-    private void OnDestroy()
+    protected override void OnDestroy()
     {
+        base.OnDestroy();
         RhythmCore.Instance.onRhythm.RemoveListener(OnRhythm);
         GameManager.OnPause.RemoveListener(OnPause);
     }
