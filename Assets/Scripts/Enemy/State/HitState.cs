@@ -21,7 +21,7 @@ namespace Enemy.State
 
         public override void Enter()
         {
-            thresholdTime = Time.realtimeSinceStartup + hitTime;
+            thresholdTime = Time.time + hitTime;
             Debug.Log("Hit!");
 
             var hitEffect = EffectProfileData.Instance.PopEffect("Eff_MonsterHit");
@@ -34,7 +34,7 @@ namespace Enemy.State
 
         public override void LogicUpdate()
         {
-            if (Time.realtimeSinceStartup > thresholdTime)
+            if (Time.time > thresholdTime)
                 StateMachine.ChangeState(e_EnemyState.Idle);
         }
 

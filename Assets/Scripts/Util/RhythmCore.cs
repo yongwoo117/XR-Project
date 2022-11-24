@@ -18,8 +18,6 @@ public class RhythmCore : Singleton<RhythmCore>
     
     private EventState? currentEventState;
     private double eventActivateTime;
-    private bool pauseFlag;
-    private double pausedTime;
 
     /// <summary>
     /// Bpm이 변경되면 Callback됩니다.
@@ -76,7 +74,7 @@ public class RhythmCore : Singleton<RhythmCore>
     public double JudgeOffsetRatio => judgeOffsetRatio;
     
     /// <summary>
-    /// 분당 노트의 출현 횟수를 의미합니다.
+    /// 분당 노트의 출현 횟수를 의미합니다. BPM을 변경하면 리듬이 처음부터 다시 동작하므로 동기화가 깨질 수 있습니다.
     /// </summary>
     public double Bpm
     {
@@ -100,8 +98,8 @@ public class RhythmCore : Singleton<RhythmCore>
     /// </summary>
     public double? RemainTime(EventState destinationState)
     {
-        if (currentEventState is not { } currentState || pauseFlag) return null;
-        var nextRemain = eventActivateTime - Time.realtimeSinceStartupAsDouble;
+        if (currentEventState is not { } currentState) return null;
+        var nextRemain = eventActivateTime - Time.timeAsDouble;
         while (currentState != destinationState)
         {
             nextRemain += destinationState switch
@@ -126,7 +124,7 @@ public class RhythmCore : Singleton<RhythmCore>
     
     private void RhythmStart(double offset)
     {
-        eventActivateTime = Time.realtimeSinceStartupAsDouble + offset + currentEventState switch
+        eventActivateTime = Time.timeAsDouble + offset + currentEventState switch
         {
             EventState.OnHalf or EventState.OnLate => HalfToEarly,
             EventState.OnEarly or EventState.OnRhythm => JudgeOffset,
@@ -136,7 +134,7 @@ public class RhythmCore : Singleton<RhythmCore>
 
     protected virtual void FixedUpdate()
     {
-        if (eventActivateTime > Time.realtimeSinceStartupAsDouble || pauseFlag) return;
+        if (eventActivateTime > Time.timeAsDouble) return;
         switch (currentEventState)
         {
             case EventState.OnHalf:
@@ -164,15 +162,7 @@ public class RhythmCore : Singleton<RhythmCore>
 
     protected virtual void Start()
     {
-        pauseFlag = false;
         Initialize();
         RhythmStart(StartOffset);
-    }
-    
-    protected void PauseRhythm(bool isPaused)
-    {
-        pauseFlag = isPaused;
-        if (isPaused) pausedTime = eventActivateTime - Time.realtimeSinceStartupAsDouble;
-        else RhythmStart(pausedTime);
     }
 }

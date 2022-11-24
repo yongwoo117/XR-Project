@@ -26,7 +26,7 @@ public struct FeedbackStruct
     public float? EffectValue(float? value = null)
     {
         if (activationTime == null || targetTime == null) return null;
-        return Mathf.InverseLerp((float)activationTime, (float)targetTime, value ?? Time.realtimeSinceStartup);
+        return Mathf.InverseLerp((float)activationTime, (float)targetTime, value ?? Time.time);
     }
 
     public void Synchronize(string name = "Fill")
@@ -63,7 +63,6 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
     private RhythmCore rhythmCore;
 
     protected bool isFlip;
-    protected bool isSettingPaused;
 
     public FeedbackState EffectState
     {
@@ -81,7 +80,7 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
                     break;
                 case FeedbackState.Direction:
                     if (rhythmCore.RemainTime(EventState.OnEarly) is not { } remainTime) return;
-                    directionStruct.activationTime = Time.realtimeSinceStartup;
+                    directionStruct.activationTime = Time.time;
                     directionStruct.targetTime =
                         directionStruct.activationTime + (float)remainTime;
                     ActiveToggle(false);
@@ -115,14 +114,10 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
         rhythmCore = RhythmCore.Instance;
         control = GetComponent<IControl>();
         EffectState = FeedbackState.Idle;
-        GameManager.OnPause.AddListener(OnSettingPaused);
     }
 
     protected override void Update()
     {
-        if (isSettingPaused)
-            return;
-
         base.Update();
 
         if (control.Direction is { } dir) direction = dir;
@@ -150,7 +145,7 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
 
     private void FlipToMouseDir()
     {
-        if (control.Direction == null||!control.IsActive) return;
+        if (control.Direction == null || !control.IsActive) return;
         Vector3 GFXScale = GFX.transform.localScale;
 
         isFlip = direction.x > 0;
@@ -179,16 +174,11 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
 
         if (EffectState != FeedbackState.Idle) return;
         if (rhythmCore.RemainTime(EventState.OnEarly) is not { } remainTime) return;
-        idleCircleStruct.activationTime = Time.realtimeSinceStartup;
+        idleCircleStruct.activationTime = Time.time;
         idleDirectionStruct.activationTime = idleCircleStruct.targetTime
             = idleCircleStruct.activationTime + (float)remainTime;
         idleDirectionStruct.targetTime
             = idleDirectionStruct.activationTime + (float)rhythmCore.JudgeOffset * 2;
         effectFlag = true;
-    }
-
-    protected virtual void OnSettingPaused(bool isPause)
-    {
-        isSettingPaused = isPause;
     }
 }

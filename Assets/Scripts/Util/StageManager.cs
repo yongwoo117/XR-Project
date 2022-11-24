@@ -27,7 +27,7 @@ public class StageManager : MonoBehaviour
     private static int stageIndex;
     private SpawnManager spawnManager;
 
-    public static double ElapsedTime => Time.realtimeSinceStartupAsDouble - startTime;
+    public static double ElapsedTime => Time.timeAsDouble - startTime;
     public static int Stage => stageIndex + 1;
 
     private StageInfo CurrentStage => stageList[stageIndex];
@@ -43,7 +43,7 @@ public class StageManager : MonoBehaviour
         beforeStageStart?.Invoke();
         yield return new WaitForSeconds(startDelay);
         spawnManager.CurrentStage = CurrentStage;
-        startTime = Time.realtimeSinceStartupAsDouble;
+        startTime = Time.timeAsDouble;
     }
 
     public void OnStageClear()

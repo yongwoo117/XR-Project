@@ -17,15 +17,16 @@ public class GameManager : SoundManager
         set
         {
             isPaused = value;
-            Time.timeScale = IsPaused ? 0 : 1.0f;
+            Time.timeScale = IsPaused ? 0 : TimeScale;
             playerInput.enabled = !IsPaused;
-            PauseRhythm(IsPaused);
             PauseSound(IsPaused);
             PauseUI(IsPaused);
             OnPause?.Invoke(IsPaused);
         }
     }
     private bool isPaused;
+
+    private float TimeScale => (float)(stageBpmList[StageManager.Stage - 1] / Bpm);
 
     protected override void Start()
     {
@@ -66,16 +67,15 @@ public class GameManager : SoundManager
     public void OnExitButtonDown()
     {
         ButtonDownSound();
-        Time.timeScale = 1.0f;
+        Time.timeScale = TimeScale;
         SceneManager.LoadScene("StartScene");
     }
 
     public void OnBeforeStageStart()
     {
         ChangeBgm(StageManager.Stage);
-        Bpm = stageBpmList[StageManager.Stage - 1];
         ShowStageTransition();
-        Time.timeScale = (float)(Bpm / 60.0);
+        Time.timeScale = TimeScale;
     }
 
     public void OnStageCleared()
@@ -91,7 +91,6 @@ public class GameManager : SoundManager
     public void OnNextStageButtonDown()
     {
         ButtonDownSound();
-        Time.timeScale = 1.0f;
         SceneManager.LoadScene("Scenes/SampleScene");
     }
 
