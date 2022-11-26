@@ -8652,7 +8652,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -10265,6 +10265,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: eddb5e00-b8df-4b70-892b-4fc38a5402f3
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e1049364-4879-49db-a985-243ba56c67f4
+    m_ActionName: Player/DialogueInteraction[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -10336,6 +10340,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9c0c21490e6ca4d38a5e6b2dac1c2da1, type: 3}
   - {fileID: 21300000, guid: fd668640c19504d30b4931b88ebd28f4, type: 3}
   - {fileID: 21300000, guid: a672ab892b2a547a9a965be5e2612856, type: 3}
+  stageProgressSlider: {fileID: 1423812456}
   rhythmTrigger: 0a00000014000000
   buttonDownSound:
     Guid:
@@ -14145,6 +14150,21 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: StageManager, Assembly-CSharp
         m_MethodName: OnStageClear
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onStageProgressChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1659581287}
+        m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
+        m_MethodName: OnStageProgressChanged
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

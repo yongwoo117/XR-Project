@@ -31,10 +31,13 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private List<EnemyPoolingInfo> poolingList;
     private Dictionary<e_EnemyType, ObjectPool<GameObject>> poolDictionary;
     private int objectCount;
+    private int killCount;
+    private int overallCount;
 
-    public static Dictionary<e_EnemyType, int> KilledDictionary { get; private set; } = new();
+    public static Dictionary<e_EnemyType, int> KilledDictionary { get; } = new();
 
     public UnityEvent onStageCleared;
+    public UnityEvent<float> onStageProgressChanged;
     
     private StageInfo currentStage;
     public StageInfo CurrentStage
@@ -43,7 +46,8 @@ public class SpawnManager : MonoBehaviour
         set
         {
             currentStage = value;
-            objectCount = 0;
+            killCount = objectCount = 0;
+            overallCount = currentStage.OverallEnemyCount;
             for (var count = 0; count < currentStage.maximumExistEnemy; count++) SpawnObject();
         }
     }
@@ -152,7 +156,9 @@ public class SpawnManager : MonoBehaviour
     private void OnRelease(GameObject instance)
     {
         instance.SetActive(false);
-        objectCount--;
+        --objectCount;
+        ++killCount;
+        onStageProgressChanged?.Invoke(killCount / (float)overallCount);
         StartCoroutine(DelaySpawn(currentStage.respawnDelay));
     }
 }

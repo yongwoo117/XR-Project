@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,6 +11,8 @@ public struct StageInfo
     public int maximumExistEnemy;
     public float respawnDelay;
     public List<SpawnArea> spawnAreaList;
+
+    public int OverallEnemyCount => spawnAreaList.Sum(spawnArea => spawnArea.ReSpawnCount);
 }
 
 [RequireComponent(typeof(SpawnManager))]

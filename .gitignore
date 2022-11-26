@@ -95,3 +95,6 @@ fmod_editor.log
 
 #Mac OS cache File
 *.DS_Store
+
+#Rider setting folder
+.idea

@@ -14,6 +14,7 @@ public class UIManger : RhythmCore
     [SerializeField] private Animator stageEndingAnimator;
     [SerializeField] private Image stageImage;
     [SerializeField] private List<Sprite> stageSpriteList;
+    [SerializeField] private Slider stageProgressSlider;
 
     protected override void Start()
     {
@@ -72,4 +73,5 @@ public class UIManger : RhythmCore
 
     public void OnRhythmMissed() => rhythmComboAnimator.SetTrigger(AnimationParameter.Fail);
     protected void DisplaySettingMenu() => settingInterface.SetActive(true);
+    public void OnStageProgressChanged(float progress) => stageProgressSlider.value = progress;
 }
