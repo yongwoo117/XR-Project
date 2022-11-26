@@ -14,6 +14,7 @@ public class UIManger : RhythmCore
     [SerializeField] private Animator stageEndingAnimator;
     [SerializeField] private Image stageImage;
     [SerializeField] private List<Sprite> stageSpriteList;
+    [SerializeField] private Slider stageProgressSlider;
 
     protected override void Start()
     {
@@ -46,11 +47,11 @@ public class UIManger : RhythmCore
     {
         var texts = menuPanel.GetComponentsInChildren<TextMeshProUGUI>();
         texts[1].text = $"S      {StageManager.Stage}";
-        texts[5].text = $"{StageManager.ElapsedTime:F}초";
-        texts[6].text = RhythmComboModule.MaximumCombo.ToString();
-        texts[7].text = SpawnManager.KilledDictionary[e_EnemyType.Heavy].ToString();
-        texts[8].text = SpawnManager.KilledDictionary[e_EnemyType.Basic].ToString();
-        texts[9].text = SpawnManager.KilledDictionary[e_EnemyType.Speed].ToString();
+        texts[3].text = $"{StageManager.ElapsedTime:F}초";
+        texts[4].text = $"{RhythmComboModule.MaximumCombo}회";
+        texts[5].text = SpawnManager.KilledDictionary[e_EnemyType.Heavy].ToString();
+        texts[6].text = SpawnManager.KilledDictionary[e_EnemyType.Basic].ToString();
+        texts[7].text = SpawnManager.KilledDictionary[e_EnemyType.Speed].ToString();
     }
     
     protected void ShowGameClearMenu()
@@ -68,8 +69,9 @@ public class UIManger : RhythmCore
     }
 
     protected void DisableRestartButton() =>
-        stageEndingAnimator.transform.GetChild(0).GetChild(10).GetComponent<Button>().interactable = false;
+        stageEndingAnimator.transform.GetChild(0).GetChild(9).GetComponent<Button>().interactable = false;
 
     public void OnRhythmMissed() => rhythmComboAnimator.SetTrigger(AnimationParameter.Fail);
     protected void DisplaySettingMenu() => settingInterface.SetActive(true);
+    public void OnStageProgressChanged(float progress) => stageProgressSlider.value = progress;
 }
