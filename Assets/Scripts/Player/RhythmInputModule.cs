@@ -27,16 +27,16 @@ public abstract class RhythmInputModule : StateMachine<e_PlayerState, PlayerStat
     protected override void Awake()
     {
         base.Awake();
-        rhythmFlag = true;
+        RhythmFlag = true;
     }
 
     public void InteractionCallback(InteractionType type)
     {
-        if (rhythmFlag && RhythmCore.Instance.Judge())
+        if (RhythmFlag && RhythmCore.Instance.Judge())
         {
             OnInteraction(type);
             onRhythm?.Invoke(type);
-            rhythmFlag = false;
+            RhythmFlag = false;
         }
         else
         {

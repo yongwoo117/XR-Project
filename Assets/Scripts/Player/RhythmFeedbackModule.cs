@@ -120,7 +120,7 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
     {
         base.Update();
 
-        if(GameManager.IsPaused&&GameManager.IsDialogue) return;
+        if(GameManager.IsPaused||GameManager.IsDialogue) return;
         if (control.Direction is { } dir) direction = dir;
         
         switch (EffectState)

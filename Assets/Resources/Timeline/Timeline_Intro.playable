@@ -84,7 +84,7 @@ MonoBehaviour:
   m_MatchTargetFields: 63
   m_RemoveStartOffset: 1
   m_ApplyFootIK: 1
-  m_Loop: 0
+  m_Loop: 2
   m_Version: 1
   m_Rotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!114 &-5739595908894806257
@@ -1191,7 +1191,7 @@ MonoBehaviour:
   m_MatchTargetFields: 63
   m_RemoveStartOffset: 1
   m_ApplyFootIK: 1
-  m_Loop: 0
+  m_Loop: 2
   m_Version: 1
   m_Rotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!114 &4210517121420676528
@@ -1209,7 +1209,7 @@ MonoBehaviour:
   m_Time: 17.783333333333335
   m_Retroactive: 0
   m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: 49d7174d15c2d484b9fe7df7898c2e9d, type: 2}
+  m_Asset: {fileID: 11400000, guid: 72b589139a871f84f936cbcbfbe08b28, type: 2}
 --- !u!114 &5110053385698479033
 MonoBehaviour:
   m_ObjectHideFlags: 1
