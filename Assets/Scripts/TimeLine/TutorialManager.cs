@@ -8,7 +8,8 @@ public class TutorialManager:TimeLineManager
 {
     [SerializeField] private List<PlayableAsset> playableAssets; 
     [SerializeField] private PlayerStateMachine player;
-    [SerializeField] private GameObject TurtorialPannel;
+    [SerializeField] private Animator TurtorialPannel;
+    [SerializeField] private Animator HelpBoard;
     [SerializeField] private TextMeshProUGUI cutText;
 
     [SerializeField] private int MaxRhythmCount;
@@ -47,7 +48,8 @@ public class TutorialManager:TimeLineManager
         }
 
         rhythmInputModule.onRhythm.AddListener(Tutorial);
-        TurtorialPannel?.SetActive(true);
+        TurtorialPannel?.SetTrigger("On");
+        HelpBoard?.SetTrigger("On");
 
     }
 
@@ -80,7 +82,8 @@ public class TutorialManager:TimeLineManager
         if(OnRhythmCount>=MaxRhythmCount)
         {
             OnRhythmCount = 0;
-            TurtorialPannel?.SetActive(false);
+            TurtorialPannel?.SetTrigger("Off");
+            HelpBoard?.SetTrigger("Off");
             TimelineCnt++;
             rhythmInputModule.onRhythm.RemoveListener(Tutorial);
 
