@@ -41,7 +41,8 @@ namespace Player.State
                     StateMachine.ChangeState(e_PlayerState.Cut);
                     break;
                 case InteractionType.Dash:
-                    StateMachine.ChangeState(e_PlayerState.Dash);
+                    if (!StateMachine.ChangeState(e_PlayerState.Dash))
+                        StateMachine.ChangeState(e_PlayerState.Idle);
                     break;
                 default:
                     StateMachine.ChangeState(e_PlayerState.Miss);

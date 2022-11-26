@@ -83,10 +83,10 @@ public abstract class StateMachine<T1, T2, T3> : HealthModule where T1 : Enum
     /// 캐릭터의 상태를 변경합니다. 이 과정에서 Exit()와 Enter()가 Callback됩니다.
     /// </summary>
     /// <param name="e_state">변경할 상태입니다. 기존과 같은 상태인 경우 무시됩니다.</param>
-    public void ChangeState(T1 e_state)
+    public bool ChangeState(T1 e_state)
     {
         //캐릭터가 해당 상태를 보유하지 않은 경우
-        if (!Dic_States.ContainsKey(e_state)) return;
+        if (!Dic_States.ContainsKey(e_state)) return false;
 
         var state = Dic_States[e_state];
 
@@ -96,5 +96,6 @@ public abstract class StateMachine<T1, T2, T3> : HealthModule where T1 : Enum
         currentState?.Exit();
         currentState = state;
         currentState?.Enter();
+        return true;
     }
 }
