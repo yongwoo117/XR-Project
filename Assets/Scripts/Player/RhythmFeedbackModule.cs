@@ -60,8 +60,8 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
     private IControl control;
     private Vector3 direction;
     private Transform GFX;
-    private RhythmCore rhythmCore;
 
+    private RhythmCore rhythmCore;
     protected bool isFlip;
 
     public FeedbackState EffectState
@@ -114,13 +114,14 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
         rhythmCore = RhythmCore.Instance;
         control = GetComponent<IControl>();
         EffectState = FeedbackState.Idle;
+        gameManager = (GameManager)GameManager.Instance;
     }
 
     protected override void Update()
     {
         base.Update();
 
-        if(GameManager.IsPaused) return;
+        if(GameManager.IsPaused&&GameManager.IsDialogue) return;
         if (control.Direction is { } dir) direction = dir;
         
         switch (EffectState)

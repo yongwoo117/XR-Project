@@ -15,14 +15,29 @@ public abstract class RhythmInputModule : StateMachine<e_PlayerState, PlayerStat
     /// </summary>
     public UnityEvent onRhythmLost;
 
+
+    public UnityEvent<InteractionType> onRhythm;
     protected abstract void OnInteraction(InteractionType type);
+
 
     //true일 때만 노트를 칠 수 있습니다.
     public bool RhythmFlag { get; private set; }
-    
+
+
+    protected override void Awake()
+    {
+        base.Awake();
+        rhythmFlag = true;
+    }
+
     public void InteractionCallback(InteractionType type)
     {
-        if (RhythmFlag && RhythmCore.Instance.Judge()) OnInteraction(type);
+        if (rhythmFlag && RhythmCore.Instance.Judge())
+        {
+            OnInteraction(type);
+            onRhythm?.Invoke(type);
+            rhythmFlag = false;
+        }
         else
         {
             onRhythmMissed?.Invoke();

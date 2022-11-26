@@ -11,8 +11,44 @@ public class GameManager : SoundManager
 
     public static readonly UnityEvent<bool> OnPause = new();
     public static bool IsPaused { get; private set; }
+    public static bool IsDialogue{get; private set;}
     
     private float TimeScale => (float)(stageBpmList[StageManager.Stage - 1] / Bpm);
+    private bool IsTimeLine;
+    
+    public bool IsPaused
+    {
+        get => isPaused;
+        set
+        {
+            isPaused = value;
+            Time.timeScale = IsPaused ? 0 : 1.0f;
+            playerInput.enabled = !isPaused;
+            PauseRhythm(IsPaused);
+            PauseSound(IsPaused);
+            PauseUI(IsPaused);
+        }
+    }
+
+    public bool IsDialogue
+    {
+        get => isDialogue;
+        set
+        {
+            isDialogue = value;
+            playerInput.enabled = !IsDialogue;
+            PauseRhythm(IsDialogue);
+            PauseSound(IsDialogue);
+
+            if (IsDialogue)
+                TimeLineManager.Instance.PlayTimeLine();
+            else
+                TimeLineManager.Instance.isDialogueSkip = false;
+        }
+    }
+
+    private bool isPaused;
+    private bool isDialogue;
 
     protected override void Start()
     {
@@ -54,6 +90,21 @@ public class GameManager : SoundManager
         SetPause(false);
     }
 
+    public void OnDialogueInteraction(InputAction.CallbackContext context)
+    {
+        if (!context.started) return;
+
+        if(IsTimeLine)
+            IsDialogue = true;
+    }
+
+    public void OnResumeButtonDown() => IsPaused = false;
+
+    public void OnDialgoue(bool isActive)
+    {
+        IsTimeLine = isActive;
+        IsDialogue = isActive;
+    }
     public void OnOptionButtonDown()
     {
         ButtonDownSound();

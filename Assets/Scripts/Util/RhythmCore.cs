@@ -18,6 +18,9 @@ public class RhythmCore : Singleton<RhythmCore>
     
     private EventState? currentEventState;
     private double eventActivateTime;
+    private double earlyRemainTime;
+    private double earlyFixedRemainTime;
+    private double judgeOffset2;
 
     /// <summary>
     /// Bpm이 변경되면 Callback됩니다.
@@ -164,5 +167,22 @@ public class RhythmCore : Singleton<RhythmCore>
     {
         Initialize();
         RhythmStart(StartOffset);
+    }
+
+    private double pausedTime;
+    protected void PauseRhythm(bool isPaused)
+    {
+        if (isPaused)
+            pausedTime = RemainFormula;
+        else
+            RhythmStart(pausedTime - RhythmDelay);
+
+    }
+
+    private enum EventState
+    {
+        OnEarly,
+        OnRhythm,
+        OnLate
     }
 }
