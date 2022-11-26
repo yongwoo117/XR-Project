@@ -69,7 +69,7 @@ public class UIManger : RhythmCore
     }
 
     protected void DisableRestartButton() =>
-        stageEndingAnimator.transform.GetChild(0).GetChild(10).GetComponent<Button>().interactable = false;
+        stageEndingAnimator.transform.GetChild(0).GetChild(9).GetComponent<Button>().interactable = false;
 
     public void OnRhythmMissed() => rhythmComboAnimator.SetTrigger(AnimationParameter.Fail);
     protected void DisplaySettingMenu() => settingInterface.SetActive(true);
