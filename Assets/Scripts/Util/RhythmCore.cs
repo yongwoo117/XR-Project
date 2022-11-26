@@ -173,16 +173,10 @@ public class RhythmCore : Singleton<RhythmCore>
     protected void PauseRhythm(bool isPaused)
     {
         if (isPaused)
-            pausedTime = RemainFormula;
+            pausedTime = earlyRemainTime;
         else
             RhythmStart(pausedTime - RhythmDelay);
 
     }
 
-    private enum EventState
-    {
-        OnEarly,
-        OnRhythm,
-        OnLate
-    }
 }

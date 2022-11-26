@@ -15,40 +15,7 @@ public class GameManager : SoundManager
     
     private float TimeScale => (float)(stageBpmList[StageManager.Stage - 1] / Bpm);
     private bool IsTimeLine;
-    
-    public bool IsPaused
-    {
-        get => isPaused;
-        set
-        {
-            isPaused = value;
-            Time.timeScale = IsPaused ? 0 : 1.0f;
-            playerInput.enabled = !isPaused;
-            PauseRhythm(IsPaused);
-            PauseSound(IsPaused);
-            PauseUI(IsPaused);
-        }
-    }
 
-    public bool IsDialogue
-    {
-        get => isDialogue;
-        set
-        {
-            isDialogue = value;
-            playerInput.enabled = !IsDialogue;
-            PauseRhythm(IsDialogue);
-            PauseSound(IsDialogue);
-
-            if (IsDialogue)
-                TimeLineManager.Instance.PlayTimeLine();
-            else
-                TimeLineManager.Instance.isDialogueSkip = false;
-        }
-    }
-
-    private bool isPaused;
-    private bool isDialogue;
 
     protected override void Start()
     {
@@ -70,6 +37,19 @@ public class GameManager : SoundManager
         PauseSound(IsPaused);
         PauseUI(IsPaused);
         OnPause?.Invoke(IsPaused);
+    }
+
+    private void SetDialogue(bool dialogue)
+    {
+        IsDialogue = dialogue;
+        playerInput.enabled = !IsDialogue;
+        PauseRhythm(IsDialogue);
+        PauseSound(IsDialogue);
+
+        if (IsDialogue)
+            TimeLineManager.Instance.PlayTimeLine();
+        else
+            TimeLineManager.Instance.isDialogueSkip = false;
     }
 
     public void OnInterrupt(InputAction.CallbackContext context)
@@ -95,15 +75,13 @@ public class GameManager : SoundManager
         if (!context.started) return;
 
         if(IsTimeLine)
-            IsDialogue = true;
+            SetDialogue(true);
     }
-
-    public void OnResumeButtonDown() => IsPaused = false;
 
     public void OnDialgoue(bool isActive)
     {
         IsTimeLine = isActive;
-        IsDialogue = isActive;
+        SetDialogue(isActive);
     }
     public void OnOptionButtonDown()
     {

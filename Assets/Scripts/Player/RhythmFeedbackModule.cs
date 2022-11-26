@@ -114,7 +114,6 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
         rhythmCore = RhythmCore.Instance;
         control = GetComponent<IControl>();
         EffectState = FeedbackState.Idle;
-        gameManager = (GameManager)GameManager.Instance;
     }
 
     protected override void Update()
