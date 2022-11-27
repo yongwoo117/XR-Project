@@ -29,7 +29,6 @@ namespace Player.State
         private GameObject dashEffect;
 
         private EventReference dashSfx;
-        private EventReference hitSfx;
         
         #region StateFunction
         public override void Initialize()
@@ -50,7 +49,6 @@ namespace Player.State
                 damage = value.f_standardDamage;
                 multiplier = value.f_dashMultiplier;
                 dashSfx = value.SFXDictionary[SFXType.Attack1];
-                hitSfx = value.SFXDictionary[SFXType.Hit];
             }
         }
 
@@ -68,22 +66,14 @@ namespace Player.State
             Activate();
         }
         
-        public override void OnDamaged(float value)
-        {
-            hitSfx.AttachedOneShot(StateMachine.gameObject);
-            StateMachine.Anim.SetTrigger(AnimationParameter.Hit);
-        }
-
         public override void PhysicsUpdate()
         {
-            if (isActivated)
-                ApplyDashPhysics();
+            if (isActivated) ApplyDashPhysics();
         }
 
         public override void LogicUpdate()
         {
-            if(isActivated)
-                CheckEnemyHit();
+            if(isActivated) CheckEnemyHit();
         }
 
         public override void HandleInput(InteractionType interactionType)
@@ -102,13 +92,13 @@ namespace Player.State
             }
         }
 
-
         public override void Exit()
         {
             Debug.Log("Dash Exit");
             Deactivate();
         }
         #endregion
+        
         public override void OnDrawGizmos()
         {
             if (control.Direction == null) return;

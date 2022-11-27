@@ -1,4 +1,5 @@
 using System;
+using FMODUnity;
 using UnityEngine;
 
 /// <summary>
@@ -7,11 +8,13 @@ using UnityEngine;
 [Serializable]
 public abstract class PlayerState : IState<e_PlayerState, PlayerState, PlayerStateMachine>
 {
+    private EventReference hitSfx;
+    
     public PlayerStateMachine StateMachine { get; set; }
 
     public virtual PlayerProfile Profile
     {
-        set { }
+        set => hitSfx = value.SFXDictionary[SFXType.Hit];
     }
     
     public virtual void Initialize()
@@ -58,7 +61,8 @@ public abstract class PlayerState : IState<e_PlayerState, PlayerState, PlayerSta
 
     public virtual void Dead()
     {
-
+        hitSfx.AttachedOneShot(StateMachine.gameObject);
+        StateMachine.ChangeState(e_PlayerState.Die);
     }
 
     public virtual void HealthChanged(float value)
@@ -73,7 +77,7 @@ public abstract class PlayerState : IState<e_PlayerState, PlayerState, PlayerSta
 
     public virtual void OnDamaged(float value)
     {
-        
+        StateMachine.ChangeState(e_PlayerState.Hit);
     }
 
     public virtual bool AcceptHealthChange(ref float value) => true;

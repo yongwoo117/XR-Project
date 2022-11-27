@@ -41,19 +41,7 @@ public class PlayerStateMachine : RhythmFeedbackModule
         base.OnBeforeStateInitialize(state);
         state.Profile = profile;
     }
-
-    protected override void OnDamaged(float value)
-    {
-        base.OnDamaged(value);
-        ChangeState(e_PlayerState.Hit);
-    }
-
-    protected override void OnDead()
-    {
-        base.OnDead();
-        ChangeState(e_PlayerState.Die);
-    }
-
+    
     public  void AddDictionaryState(e_PlayerState e_state)
     {
         //이미 추가된 키값이면 넘깁니다.
