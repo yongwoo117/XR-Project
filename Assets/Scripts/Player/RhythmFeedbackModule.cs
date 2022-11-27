@@ -50,9 +50,11 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
     [SerializeField] private GameObject idleEffect;
     [SerializeField] private GameObject idleDirectionEffect;
     [SerializeField] private GameObject directionEffect;
+    [SerializeField] private GameObject directionBodyEffect;
 
     private FeedbackStruct idleCircleStruct;
     private FeedbackStruct idleDirectionStruct;
+    private FeedbackStruct directionBodyStruct;
     private FeedbackStruct directionStruct;
 
     private FeedbackState effectState;
@@ -80,10 +82,19 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
                     break;
                 case FeedbackState.Direction:
                     if (rhythmCore.RemainTime(EventState.OnEarly) is not { } remainTime) return;
-                    directionStruct.activationTime = Time.time;
-                    directionStruct.targetTime =
-                        directionStruct.activationTime + (float)remainTime;
-                    ActiveToggle(false);
+
+                    directionBodyStruct.activationTime = Time.time;
+                    directionStruct.activationTime = directionBodyStruct.targetTime
+                        = directionBodyStruct.activationTime + (float)remainTime;
+                    directionStruct.targetTime
+                        = directionStruct.activationTime + (float)rhythmCore.JudgeOffset * 2;
+
+
+                    //directionStruct.activationTime = Time.time;
+                    //directionStruct.targetTime =
+                    //    directionStruct.activationTime + (float)remainTime;
+                    //ActiveToggle(false);
+                    directionEffect.SetActive(true);
                     effectFlag = true;
                     break;
                 case FeedbackState.Off:
@@ -105,9 +116,16 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
     {
         idleCircleStruct = new FeedbackStruct(idleEffect);
         idleDirectionStruct = new FeedbackStruct(idleDirectionEffect);
+
         if (idleDirectionStruct.renderer is SpriteRenderer render)
             idleDirectionStruct.material.SetTexture("_MainTex", render.sprite.texture);
+
         directionStruct = new FeedbackStruct(directionEffect);
+
+        directionBodyStruct = new FeedbackStruct(directionBodyEffect);
+
+        if (directionBodyStruct.renderer is SpriteRenderer render2)
+            directionBodyStruct.material.SetTexture("_MainTex", render2.sprite.texture);
 
         GFX = transform.GetChild(0);
 
@@ -122,20 +140,26 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
 
         if(GameManager.IsPaused||GameManager.IsDialogue) return;
         if (control.Direction is { } dir) direction = dir;
-        
+
+        if (effectFlag)
+        {
+            idleCircleStruct.Synchronize();
+            idleDirectionStruct.Synchronize();
+        }
+
         switch (EffectState)
         {
             case FeedbackState.Idle:
-                if (effectFlag)
-                {
-                    idleCircleStruct.Synchronize();
-                    idleDirectionStruct.Synchronize();
-                }
                 RotateIdle();
                 break;
             case FeedbackState.Direction:
-                if (effectFlag) directionStruct.Synchronize();
+                if (effectFlag)
+                {
+                    directionStruct.Synchronize();
+                    directionBodyStruct.Synchronize();
+                }
                 RotateDirection();
+                RotateIdle();
                 break;
             default:
                 return;
@@ -166,7 +190,7 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
     private void RotateDirection()
     {
         if (directionStruct.renderer is not LineRenderer render) return;
-        render.SetPosition(1, new Vector3(direction.x, direction.z, 0));
+        render.SetPosition(1, Vector3.right*direction.magnitude);
     }
 
     public override void OnRhythmLate()
