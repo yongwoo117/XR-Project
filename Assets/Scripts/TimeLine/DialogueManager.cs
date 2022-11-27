@@ -14,27 +14,51 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Image PlayerImg;
     [SerializeField] private Image NpcImg;
     [SerializeField] private float TextLoopingTime;
-    private bool isOn;
+    [SerializeField] private GameObject Dialogue;
+    [SerializeField] private GameObject Help;
+
+    [SerializeField] private TextMeshProUGUI dialogueText;
+    [SerializeField] private TextMeshProUGUI helpText;
 
     public void SetDialogue(Sprite playerspr,Sprite Npcspr, string nameText, Color nameColor, string dialogueText, TMP_FontAsset font)
     {
-        PlayerImg.sprite = playerspr;
-        NpcImg.sprite = Npcspr;
+        if(PlayerImg!=null)
+            PlayerImg.sprite = playerspr;
 
-        NameText.text = nameText;
-        NameText.color = nameColor;
+        if (NpcImg != null)
+            NpcImg.sprite = Npcspr;
 
-        DialogueText.text = dialogueText;
+        if (NameText != null)
+        {
+            NameText.text = nameText;
+            NameText.color = nameColor;
+            NameText.font = font;
+        }
 
-        NameText.font = font;
-        DialogueText.font = font;
+        if (DialogueText != null)
+        {
+            DialogueText.text = dialogueText;
+            DialogueText.font = font;
+        }
     }
 
     public void SetActive(bool isActive)
     {
-        isOn = isActive;
         gameObject.SetActive(isActive);
+    }
 
+    public void SetHelpText()
+    {
+        Dialogue.SetActive(false);
+        Help.SetActive(true);
+        DialogueText = helpText;
+    }
+
+    public void SetDialgoueText()
+    {
+        Dialogue.SetActive(true);
+        Help.SetActive(false);
+        DialogueText = dialogueText;
     }
 
     public void EndDialogue()
