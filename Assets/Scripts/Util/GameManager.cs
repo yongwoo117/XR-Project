@@ -11,11 +11,10 @@ public class GameManager : SoundManager
 
     public static readonly UnityEvent<bool> OnPause = new();
     public static bool IsPaused { get; private set; }
-    public static bool IsDialogue{get; private set;}
-    
+    public static bool IsDialogue { get; private set; }
+
     private float TimeScale => (float)(stageBpmList[StageManager.Stage - 1] / Bpm);
     private bool IsTimeLine;
-
 
     protected override void Start()
     {
@@ -46,10 +45,8 @@ public class GameManager : SoundManager
         PauseRhythm(IsDialogue);
         PauseSound(IsDialogue);
 
-        if (IsDialogue)
-            TimeLineManager.Instance.PlayTimeLine();
-        else
-            TimeLineManager.Instance.isDialogueSkip = false;
+        if (IsDialogue) TimeLineManager.Instance.PlayTimeLine();
+        else TimeLineManager.Instance.isDialogueSkip = false;
     }
 
     public void OnInterrupt(InputAction.CallbackContext context)
@@ -73,16 +70,15 @@ public class GameManager : SoundManager
     public void OnDialogueInteraction(InputAction.CallbackContext context)
     {
         if (!context.started) return;
-
-        if(IsTimeLine)
-            SetDialogue(true);
+        if (IsTimeLine) SetDialogue(true);
     }
 
-    public void OnDialgoue(bool isActive)
+    public void OnDialogue(bool isActive)
     {
         IsTimeLine = isActive;
         SetDialogue(isActive);
     }
+
     public void OnOptionButtonDown()
     {
         ButtonDownSound();
@@ -105,11 +101,15 @@ public class GameManager : SoundManager
 
     public void OnStageCleared()
     {
+        playerInput.enabled = false;
+        GetComponent<PlayerInput>().enabled = false;
         ShowGameClearMenu();
     }
 
     public void OnPlayerDead()
     {
+        playerInput.enabled = false;
+        GetComponent<PlayerInput>().enabled = false;
         ShowPlayerDeadMenu();
     }
 

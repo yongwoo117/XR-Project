@@ -36,7 +36,7 @@ public class TimeLineManager : Singleton<TimeLineManager>
 
     public void OnDialogue(bool isDialogue)
     {
-        gameManager.OnDialgoue(isDialogue);
+        gameManager.OnDialogue(isDialogue);
     }
 
     public void PlayTimeLine()
