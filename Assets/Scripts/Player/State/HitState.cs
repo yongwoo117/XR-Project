@@ -6,23 +6,13 @@ namespace Player.State
 {
     public class HitState : PlayerState
     {
-        private EventReference hitSfx;
-
-        public override PlayerProfile Profile
-        {
-            set => hitSfx = value.SFXDictionary[SFXType.Hit];
-        }
-
         public override void Enter()
         {
-            hitSfx.AttachedOneShot(StateMachine.gameObject);
-            StateMachine.EffectState = FeedbackState.Idle;
             StateMachine.Anim.SetTrigger(AnimationParameter.Hit);
 
             var hitEffect = EffectProfileData.Instance.PopEffect("Eff_CharacterHit");
-            if (hitEffect is not null)
-                hitEffect.transform.parent = StateMachine.transform.GetChild(0);
-
+            if (hitEffect is null) return;
+            hitEffect.transform.parent = StateMachine.transform.GetChild(0);
             hitEffect.transform.localPosition = Vector3.zero;
             hitEffect.transform.localScale = Vector3.one;
         }
