@@ -11,6 +11,9 @@ public class TutorialManager:TimeLineManager
     [SerializeField] private Animator TurtorialPannel;
     [SerializeField] private Animator HelpBoard;
     [SerializeField] private TextMeshProUGUI cutText;
+    [SerializeField] private TextMeshProUGUI helpText;
+    [SerializeField] private DialogueManager TextBoard;
+
 
     [SerializeField] private int MaxRhythmCount;
     private RhythmInputModule rhythmInputModule;
@@ -49,8 +52,12 @@ public class TutorialManager:TimeLineManager
 
         rhythmInputModule.onRhythm.AddListener(Tutorial);
         TurtorialPannel?.SetTrigger("On");
-        HelpBoard?.SetTrigger("On");
 
+    }
+
+    public void HelpBoardOn()
+    {
+        TextBoard.SetHelpText(helpText);
     }
 
 
@@ -83,7 +90,6 @@ public class TutorialManager:TimeLineManager
         {
             OnRhythmCount = 0;
             TurtorialPannel?.SetTrigger("Off");
-            HelpBoard?.SetTrigger("Off");
             TimelineCnt++;
             rhythmInputModule.onRhythm.RemoveListener(Tutorial);
 

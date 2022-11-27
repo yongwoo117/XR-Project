@@ -21,11 +21,13 @@ public class UIManger : RhythmCore
         base.Start();
         rhythmStreakText.text = "0";
         pauseInterface.SetActive(false);
-        onHalf.AddListener(() => rhythmComboAnimator.SetTrigger(AnimationParameter.Idle));
+
+        if (rhythmComboAnimator.gameObject.activeSelf)
+            onHalf.AddListener(() => rhythmComboAnimator?.SetTrigger(AnimationParameter.Idle));
     }
-    
+
     protected void UpdateComboUI(int combo)
-    { 
+    {
         rhythmStreakText.text = combo.ToString();
         if (combo != 0) return;
         rhythmComboAnimator.SetTrigger(AnimationParameter.Fail);
@@ -53,7 +55,7 @@ public class UIManger : RhythmCore
         texts[6].text = SpawnManager.KilledDictionary[e_EnemyType.Basic].ToString();
         texts[7].text = SpawnManager.KilledDictionary[e_EnemyType.Speed].ToString();
     }
-    
+
     protected void ShowGameClearMenu()
     {
         stageEndingAnimator.gameObject.SetActive(true);
@@ -71,7 +73,13 @@ public class UIManger : RhythmCore
     protected void DisableRestartButton() =>
         stageEndingAnimator.transform.GetChild(0).GetChild(9).GetComponent<Button>().interactable = false;
 
-    public void OnRhythmMissed() => rhythmComboAnimator.SetTrigger(AnimationParameter.Fail);
+    public void OnRhythmMissed()
+    {
+        if (rhythmComboAnimator.gameObject.activeSelf) 
+            rhythmComboAnimator.SetTrigger(AnimationParameter.Fail);
+                
+    }
+
     protected void DisplaySettingMenu() => settingInterface.SetActive(true);
     public void OnStageProgressChanged(float progress) => stageProgressSlider.value = progress;
 }
