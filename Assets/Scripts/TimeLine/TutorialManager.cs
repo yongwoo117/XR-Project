@@ -11,7 +11,6 @@ public class TutorialManager:TimeLineManager
     [SerializeField] private Animator TurtorialPannel;
     [SerializeField] private Animator HelpBoard;
     [SerializeField] private TextMeshProUGUI cutText;
-    [SerializeField] private TextMeshProUGUI helpText;
     [SerializeField] private DialogueManager TextBoard;
 
 
@@ -42,9 +41,12 @@ public class TutorialManager:TimeLineManager
                 break;
             case 2:
                 player.AddDictionaryState(e_PlayerState.Dash);
-                cutText.text = "대쉬를(" + OnRhythmCount + "/" + MaxRhythmCount + ")번 성공 시키세요.";
+                cutText.text = "대쉬를 성공 시키세요.";
                 break;
             case 3:
+                cutText.text = "대쉬를(" + OnRhythmCount + "/" + MaxRhythmCount + ")번 성공 시키세요.";
+                break;
+            case 4:
                 player.AddDictionaryState(e_PlayerState.Cut);
                 cutText.text = "자르기를(" + OnRhythmCount + "/" + MaxRhythmCount + ")번 성공 시키세요.";
                 break;
@@ -57,7 +59,12 @@ public class TutorialManager:TimeLineManager
 
     public void HelpBoardOn()
     {
-        TextBoard.SetHelpText(helpText);
+        TextBoard.SetHelpText();
+    }
+
+    public void DialogueBoardOn()
+    {
+        TextBoard.SetDialgoueText();
     }
 
 
@@ -74,11 +81,13 @@ public class TutorialManager:TimeLineManager
                         cutText.text = "준비자세를(" + ++OnRhythmCount + "/" + MaxRhythmCount + ")번 성공 시키세요.";
                     break;
                 case InteractionType.Dash:
-                    if (TimelineCnt == 2)
+                    if (TimelineCnt == 3)
                         cutText.text = "대쉬를(" + ++OnRhythmCount + "/" + MaxRhythmCount + ")번 성공 시키세요.";
+                    else if (TimelineCnt == 2)
+                        OnRhythmCount = 3;
                     break;
                 case InteractionType.Cut:
-                    if (TimelineCnt == 3)
+                    if (TimelineCnt == 4)
                         cutText.text = "자르기를(" + ++OnRhythmCount + "/" + MaxRhythmCount + ")번 성공 시키세요.";
                     break;
                 default:
@@ -88,6 +97,8 @@ public class TutorialManager:TimeLineManager
 
         if(OnRhythmCount>=MaxRhythmCount)
         {
+
+
             OnRhythmCount = 0;
             TurtorialPannel?.SetTrigger("Off");
             TimelineCnt++;

@@ -119,6 +119,12 @@ public class GameManager : SoundManager
         SceneManager.LoadScene("Scenes/SampleScene");
     }
 
+    public void OnMainScene()
+    {
+        SetDialogue(false);
+        SceneManager.LoadScene("Scenes/SampleScene");
+    }
+
     public void OnGameEnded()
     {
         DisableRestartButton();

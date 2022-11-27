@@ -17,6 +17,9 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject Dialogue;
     [SerializeField] private GameObject Help;
 
+    [SerializeField] private TextMeshProUGUI dialogueText;
+    [SerializeField] private TextMeshProUGUI helpText;
+
     public void SetDialogue(Sprite playerspr,Sprite Npcspr, string nameText, Color nameColor, string dialogueText, TMP_FontAsset font)
     {
         if(PlayerImg!=null)
@@ -44,11 +47,18 @@ public class DialogueManager : MonoBehaviour
         gameObject.SetActive(isActive);
     }
 
-    public void SetHelpText(TextMeshProUGUI text)
+    public void SetHelpText()
     {
         Dialogue.SetActive(false);
         Help.SetActive(true);
-        DialogueText = text;
+        DialogueText = helpText;
+    }
+
+    public void SetDialgoueText()
+    {
+        Dialogue.SetActive(true);
+        Help.SetActive(false);
+        DialogueText = dialogueText;
     }
 
     public void EndDialogue()
