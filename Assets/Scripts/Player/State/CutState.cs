@@ -1,6 +1,5 @@
 using FMODUnity;
 using Player.Animation;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Player.State
@@ -10,7 +9,7 @@ namespace Player.State
         private float attackRange;
         private float damage;
         private float multiplier;
-        private int cutIndex=0;
+        private int cutIndex;
 
         private EventReference cutSfx;
         private IControl control;

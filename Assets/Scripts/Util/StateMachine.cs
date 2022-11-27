@@ -65,11 +65,7 @@ public abstract class StateMachine<T1, T2, T3> : HealthModule where T1 : Enum
     protected virtual void FixedUpdate() => currentState.PhysicsUpdate();
     protected virtual void OnDrawGizmos() => currentState?.OnDrawGizmos();
     protected virtual void OnDestroy() => currentState?.Release();
-
-    protected virtual void OnBeforeStateInitialize(T2 state)
-    {
-        state.StateMachine = (T3)this;
-    }
+    protected virtual void OnBeforeStateInitialize(T2 state) => state.StateMachine = (T3)this;
 
     protected virtual void OnDisable()
     {
