@@ -10228,6 +10228,13 @@ MonoBehaviour:
       Data3: 1283849356
       Data4: -369122788
     Path: event:/BGM/Defeat
+  stageChangeSfx:
+    Guid:
+      Data1: -1154074121
+      Data2: 1225744521
+      Data3: 463756417
+      Data4: -1317979096
+    Path: event:/SFX/Ex/SFX_SceneChange
   playerInput: {fileID: 1680146607699291306}
   stageBpmList:
   - 60

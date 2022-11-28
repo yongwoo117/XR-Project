@@ -11,6 +11,7 @@ public class SoundManager : UIManger
     [SerializeField] private List<EventReference> stageBgmList = new();
     [SerializeField] private EventReference winBgm;
     [SerializeField] private EventReference defeatBgm;
+    [SerializeField] private EventReference stageChangeSfx;
 
     private EventInstance? currentBgm;
     
@@ -36,7 +37,12 @@ public class SoundManager : UIManger
         currentBgm?.release();
     }
     
-    protected void SetBgmByStage(int stage) => ChangeBgm(stageBgmList[stage - 1]);
+    protected void SetBgmByStage(int stage)
+    {
+        ChangeBgm(stageBgmList[stage - 1]);
+        stageChangeSfx.PlayOneShot();
+    }
+
     protected void PlayWinBgm() => ChangeBgm(winBgm);
     protected void PlayDefeatBgm() => ChangeBgm(defeatBgm);
 }

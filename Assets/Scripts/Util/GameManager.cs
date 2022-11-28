@@ -48,13 +48,7 @@ public class GameManager : SoundManager
 
     private void ChangeBackGround(int stage)
     {
-        for(int i=0;i<stageBackGround.Count;i++)
-        {
-            if (stage-1 == i)
-                stageBackGround[i].SetActive(true);
-            else
-                stageBackGround[i].SetActive(false);
-        }
+        for (var i = 0; i < stageBackGround.Count; i++) stageBackGround[i].SetActive(stage - 1 == i);
     }
 
     public void OnInterrupt(InputAction.CallbackContext context)
@@ -77,8 +71,7 @@ public class GameManager : SoundManager
 
     public void OnDialogueInteraction(InputAction.CallbackContext context)
     {
-        if (!context.started) return;
-        if (IsTimeLine) SetDialogue(true);
+        if (context.started && IsTimeLine) SetDialogue(true);
     }
 
     public void OnDialogue(bool isActive)
@@ -136,8 +129,5 @@ public class GameManager : SoundManager
         SceneManager.LoadScene("Scenes/SampleScene");
     }
 
-    public void OnGameEnded()
-    {
-        DisableRestartButton();
-    }
+    public void OnGameEnded() => DisableRestartButton();
 }
