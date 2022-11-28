@@ -6,40 +6,14 @@ using STOP_MODE = FMOD.Studio.STOP_MODE;
 
 public class SoundManager : UIManger
 {
-    [SerializeField] private List<int> rhythmTrigger;
     [SerializeField] private EventReference buttonDownSound;
     [SerializeField] private EventReference pauseSound;
     [SerializeField] private List<EventReference> stageBgmList = new();
+    [SerializeField] private EventReference winBgm;
+    [SerializeField] private EventReference defeatBgm;
 
-    private int rhythmIndex;
     private EventInstance? currentBgm;
     
-    protected override void Start()
-    {
-        base.Start();
-        rhythmIndex = 0;
-    }
-    
-    protected void UpdateSound(int combo)
-    {
-        if (rhythmIndex < rhythmTrigger.Count && combo >= rhythmTrigger[rhythmIndex])
-        {
-            rhythmIndex++;
-            currentBgm?.setParameterByName("Battle", rhythmIndex);
-        }
-        else if (rhythmIndex > 0)
-        {
-            if (combo >= rhythmTrigger[rhythmIndex - 1]) return;
-            for (var index = 0; index < rhythmTrigger.Count; index++)
-            {
-                if (combo >= rhythmTrigger[index]) continue;
-                rhythmIndex = index;
-                break;
-            }
-            currentBgm?.setParameterByName("Battle", rhythmIndex);
-        }
-    }
-
     protected void ButtonDownSound() => buttonDownSound.PlayOneShot();
     
     protected void PauseSound(bool pause)
@@ -48,18 +22,21 @@ public class SoundManager : UIManger
         currentBgm?.setPaused(pause);
     }
 
-    protected void ChangeBgm(int stage)
+    private void ChangeBgm(EventReference eventReference)
     {
         currentBgm?.stop(STOP_MODE.ALLOWFADEOUT);
         currentBgm?.release();
-        currentBgm = RuntimeManager.CreateInstance(stageBgmList[stage - 1]);
+        currentBgm = RuntimeManager.CreateInstance(eventReference);
         currentBgm.Value.start();
-        currentBgm.Value.setParameterByName("Battle", rhythmIndex);
     }
-
+    
     protected virtual void OnDestroy()
     {
         currentBgm?.stop(STOP_MODE.IMMEDIATE);
         currentBgm?.release();
     }
+    
+    protected void SetBgmByStage(int stage) => ChangeBgm(stageBgmList[stage - 1]);
+    protected void PlayWinBgm() => ChangeBgm(winBgm);
+    protected void PlayDefeatBgm() => ChangeBgm(defeatBgm);
 }
