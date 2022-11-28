@@ -8,6 +8,7 @@ public class GameManager : SoundManager
 {
     [SerializeField] private PlayerInput playerInput;
     [SerializeField] private List<float> stageBpmList;
+    [SerializeField] private List<GameObject> stageBackGround;
 
     public static readonly UnityEvent<bool> OnPause = new();
     public static bool IsPaused { get; private set; }
@@ -47,6 +48,17 @@ public class GameManager : SoundManager
 
         if (IsDialogue) TimeLineManager.Instance.PlayTimeLine();
         else TimeLineManager.Instance.isDialogueSkip = false;
+    }
+
+    private void ChangeBackGround(int stage)
+    {
+        for(int i=0;i<stageBackGround.Count;i++)
+        {
+            if (stage-1 == i)
+                stageBackGround[i].SetActive(true);
+            else
+                stageBackGround[i].SetActive(false);
+        }
     }
 
     public void OnInterrupt(InputAction.CallbackContext context)
@@ -95,6 +107,7 @@ public class GameManager : SoundManager
     public void OnBeforeStageStart()
     {
         ChangeBgm(StageManager.Stage);
+        ChangeBackGround(StageManager.Stage);
         ShowStageTransition();
         Time.timeScale = TimeScale;
     }
