@@ -8773,7 +8773,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 522281279840906236, guid: e3067a7c2b10dc342aa9761ae583b53a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 522281279840906237, guid: e3067a7c2b10dc342aa9761ae583b53a, type: 3}
       propertyPath: m_Pivot.x
@@ -8861,19 +8861,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2799599946212639675, guid: e3067a7c2b10dc342aa9761ae583b53a, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3089085431652752863, guid: e3067a7c2b10dc342aa9761ae583b53a, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3089085431652752863, guid: e3067a7c2b10dc342aa9761ae583b53a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 450
+      objectReference: {fileID: 0}
+    - target: {fileID: 3089085431652752863, guid: e3067a7c2b10dc342aa9761ae583b53a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 350
+      objectReference: {fileID: 0}
     - target: {fileID: 5673805399014177883, guid: e3067a7c2b10dc342aa9761ae583b53a, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6283685010088681098, guid: e3067a7c2b10dc342aa9761ae583b53a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 550
+      objectReference: {fileID: 0}
+    - target: {fileID: 6283685010088681098, guid: e3067a7c2b10dc342aa9761ae583b53a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 450
+      objectReference: {fileID: 0}
     - target: {fileID: 7385828673799453333, guid: e3067a7c2b10dc342aa9761ae583b53a, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3067a7c2b10dc342aa9761ae583b53a, type: 3}
@@ -10494,7 +10510,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: fd668640c19504d30b4931b88ebd28f4, type: 3}
   - {fileID: 21300000, guid: a672ab892b2a547a9a965be5e2612856, type: 3}
   stageProgressSlider: {fileID: 0}
-  rhythmTrigger: 0a00000014000000
   buttonDownSound:
     Guid:
       Data1: 1802553109
@@ -10528,11 +10543,26 @@ MonoBehaviour:
       Data3: 431524517
       Data4: -147980240
     Path: event:/BGM/Stage_3
+  winBgm:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  defeatBgm:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   playerInput: {fileID: 1680146607699291306}
   stageBpmList:
   - 60
   - 70
   - 80
+  stageBackGround: []
 --- !u!114 &1659581288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10678,13 +10708,17 @@ PlayableDirector:
   - key: {fileID: 0}
     value: {fileID: 2040655882983459080}
   - key: {fileID: -4304503150389808141, guid: 0612bc8a3d7694d449546c5b63d7f3e5, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 1021400067}
   - key: {fileID: 84329215786672964, guid: 0612bc8a3d7694d449546c5b63d7f3e5, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 1846904899}
   - key: {fileID: 1212227901233092525, guid: 0612bc8a3d7694d449546c5b63d7f3e5, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 1467569080}
   - key: {fileID: -76014882950392648, guid: 05042a522af093245a8b2117d6354823, type: 2}
     value: {fileID: 1659581289}
+  - key: {fileID: 6117240549479165412, guid: 7b9216a77a70ed24896de6199705c140, type: 2}
+    value: {fileID: 1846904899}
+  - key: {fileID: -2181311019926634312, guid: 7b9216a77a70ed24896de6199705c140, type: 2}
+    value: {fileID: 1467569080}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &1659581291
