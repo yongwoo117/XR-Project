@@ -7104,6 +7104,13 @@ MonoBehaviour:
   damage: 40
   warningTime: 3
   attackRange: 8
+  attackSfx:
+    Guid:
+      Data1: -508803040
+      Data2: 1252674903
+      Data3: -1353765705
+      Data4: 1420443896
+    Path: event:/SFX/Ex/SFX_Thorn
 --- !u!95 &1100799302
 Animator:
   serializedVersion: 4

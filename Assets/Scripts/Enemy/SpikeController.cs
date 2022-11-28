@@ -1,5 +1,6 @@
 using System.Collections;
 using Enemy.Animation;
+using FMODUnity;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -10,6 +11,7 @@ public class SpikeController : MonoBehaviour
     [SerializeField] private float damage;
     [SerializeField] private float warningTime;
     [SerializeField] private float attackRange;
+    [SerializeField] private EventReference attackSfx;
     
     private GameObject player;
     private float activateTime;
@@ -36,7 +38,13 @@ public class SpikeController : MonoBehaviour
         transform.position = player.transform.position;
         animator.SetTrigger(AnimationParameter.Ready);
         yield return new WaitForSeconds(warningTime);
+        Attack();
+    }
+
+    private void Attack()
+    {
         animator.SetTrigger(AnimationParameter.Attack);
+        attackSfx.AttachedOneShot(gameObject);
         var count = Physics.OverlapSphereNonAlloc(transform.position, attackRange, collisionBuffer,
             GetLayerMasks.Player);
         for (var i = 0; i < count; ++i)
