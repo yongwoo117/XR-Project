@@ -10177,7 +10177,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: fd668640c19504d30b4931b88ebd28f4, type: 3}
   - {fileID: 21300000, guid: a672ab892b2a547a9a965be5e2612856, type: 3}
   stageProgressSlider: {fileID: 1423812456}
-  rhythmTrigger: 0a00000014000000
   buttonDownSound:
     Guid:
       Data1: 1802553109
@@ -10194,10 +10193,10 @@ MonoBehaviour:
     Path: event:/SFX/UI/SFX_UI_Stop
   stageBgmList:
   - Guid:
-      Data1: -1314278806
-      Data2: 1245105814
-      Data3: -1708895574
-      Data4: -950846002
+      Data1: -1588661093
+      Data2: 1287128401
+      Data3: -797236347
+      Data4: 1116336664
     Path: event:/BGM/Stage_1
   - Guid:
       Data1: 1529450376
@@ -10211,6 +10210,20 @@ MonoBehaviour:
       Data3: 431524517
       Data4: -147980240
     Path: event:/BGM/Stage_3
+  winBgm:
+    Guid:
+      Data1: -64285144
+      Data2: 1084498189
+      Data3: 721766803
+      Data4: -1934976820
+    Path: event:/BGM/Win
+  defeatBgm:
+    Guid:
+      Data1: 2061700551
+      Data2: 1212162382
+      Data3: 1283849356
+      Data4: -369122788
+    Path: event:/BGM/Defeat
   playerInput: {fileID: 1680146607699291306}
   stageBpmList:
   - 60

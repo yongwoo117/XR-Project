@@ -22,11 +22,7 @@ public class GameManager : SoundManager
         IsPaused = false;
     }
 
-    public void OnRhythmComboChanged(int combo)
-    {
-        UpdateComboUI(combo);
-        UpdateSound(combo);
-    }
+    public void OnRhythmComboChanged(int combo) => UpdateComboUI(combo);
 
     private void SetPause(bool pause)
     {
@@ -94,7 +90,7 @@ public class GameManager : SoundManager
 
     public void OnBeforeStageStart()
     {
-        ChangeBgm(StageManager.Stage);
+        SetBgmByStage(StageManager.Stage);
         ShowStageTransition();
         Time.timeScale = TimeScale;
     }
@@ -104,6 +100,7 @@ public class GameManager : SoundManager
         playerInput.enabled = false;
         GetComponent<PlayerInput>().enabled = false;
         ShowGameClearMenu();
+        PlayWinBgm();
     }
 
     public void OnPlayerDead()
@@ -111,6 +108,7 @@ public class GameManager : SoundManager
         playerInput.enabled = false;
         GetComponent<PlayerInput>().enabled = false;
         ShowPlayerDeadMenu();
+        PlayDefeatBgm();
     }
 
     public void OnNextStageButtonDown()
