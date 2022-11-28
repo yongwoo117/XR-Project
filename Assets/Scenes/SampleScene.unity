@@ -5498,7 +5498,7 @@ Transform:
   - {fileID: 555730509}
   - {fileID: 1265162507}
   m_Father: {fileID: 1597045478}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &852054448
 GameObject:
@@ -9626,8 +9626,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 221218362}
-  - {fileID: 1735584689}
   - {fileID: 811303786}
+  - {fileID: 1735584689}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10121,7 +10121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bpm: 60
   judgeOffsetRatio: 0.30000001192092896
-  startOffset: 0
+  startOffset: 0.4
   onBpmChanged:
     m_PersistentCalls:
       m_Calls: []
