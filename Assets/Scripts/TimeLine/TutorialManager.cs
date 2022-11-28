@@ -1,12 +1,11 @@
 using UnityEngine;
-using UnityEditor.UI;
 using TMPro;
 using System.Collections.Generic;
 using UnityEngine.Playables;
 
-public class TutorialManager:TimeLineManager
+public class TutorialManager : TimeLineManager
 {
-    [SerializeField] private List<PlayableAsset> playableAssets; 
+    [SerializeField] private List<PlayableAsset> playableAssets;
     [SerializeField] private PlayerStateMachine player;
     [SerializeField] private Animator TurtorialPannel;
     [SerializeField] private Animator HelpBoard;
@@ -21,16 +20,14 @@ public class TutorialManager:TimeLineManager
 
     protected override void Start()
     {
-        if (player == null)
-        {
-            player = GameObject.FindGameObjectWithTag("Pllayer").GetComponent < PlayerStateMachine>() ;
-        }
+        player ??= GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStateMachine>();
 
         rhythmInputModule = player.GetComponent<RhythmInputModule>();
         TimelineCnt = 0;
 
         base.Start();
     }
+
     public void StartTutorial()
     {
         switch (TimelineCnt)
@@ -54,61 +51,43 @@ public class TutorialManager:TimeLineManager
 
         rhythmInputModule.onRhythm.AddListener(Tutorial);
         TurtorialPannel?.SetTrigger("On");
-
     }
 
-    public void HelpBoardOn()
-    {
-        TextBoard.SetHelpText();
-    }
-
-    public void DialogueBoardOn()
-    {
-        TextBoard.SetDialgoueText();
-    }
-
-
+    public void HelpBoardOn() => TextBoard.SetHelpText();
+    public void DialogueBoardOn() => TextBoard.SetDialgoueText();
+    
     public void Tutorial(InteractionType interactionType)
     {
         if (RhythmCore.Instance.Judge())
-        {            
-            switch (interactionType)
+        {
+            switch (interactionType, TimelineCnt)
             {
-                case InteractionType.Ready:
-                    if (TimelineCnt==0)
-                        cutText.text = "박자를(" + ++OnRhythmCount + "/" + MaxRhythmCount + ")번 성공 시키세요.";
-                    else if(TimelineCnt==1)
-                        cutText.text = "준비자세를(" + ++OnRhythmCount + "/" + MaxRhythmCount + ")번 성공 시키세요.";
+                case (InteractionType.Ready, 0):
+                    cutText.text = "박자를(" + ++OnRhythmCount + "/" + MaxRhythmCount + ")번 성공 시키세요.";
                     break;
-                case InteractionType.Dash:
-                    if (TimelineCnt == 3)
-                        cutText.text = "대쉬를(" + ++OnRhythmCount + "/" + MaxRhythmCount + ")번 성공 시키세요.";
-                    else if (TimelineCnt == 2)
-                        OnRhythmCount = 3;
+                case (InteractionType.Ready, 1):
+                    cutText.text = "준비자세를(" + ++OnRhythmCount + "/" + MaxRhythmCount + ")번 성공 시키세요.";
                     break;
-                case InteractionType.Cut:
-                    if (TimelineCnt == 4)
-                        cutText.text = "자르기를(" + ++OnRhythmCount + "/" + MaxRhythmCount + ")번 성공 시키세요.";
+                case (InteractionType.Dash, 3):
+                    cutText.text = "대쉬를(" + ++OnRhythmCount + "/" + MaxRhythmCount + ")번 성공 시키세요.";
                     break;
-                default:
+                case (InteractionType.Dash, 2):
+                    OnRhythmCount = 3;
+                    break;
+                case (InteractionType.Cut, 4):
+                    cutText.text = "자르기를(" + ++OnRhythmCount + "/" + MaxRhythmCount + ")번 성공 시키세요.";
                     break;
             }
         }
 
-        if(OnRhythmCount>=MaxRhythmCount)
-        {
+        if (OnRhythmCount < MaxRhythmCount) return;
+        OnRhythmCount = 0;
+        TurtorialPannel?.SetTrigger("Off");
+        TimelineCnt++;
+        rhythmInputModule.onRhythm.RemoveListener(Tutorial);
 
-
-            OnRhythmCount = 0;
-            TurtorialPannel?.SetTrigger("Off");
-            TimelineCnt++;
-            rhythmInputModule.onRhythm.RemoveListener(Tutorial);
-
-            if(TimelineCnt<playableAssets.Count)
-            PlayerTimeLine(playableAssets[TimelineCnt]);
-        }
+        if (TimelineCnt < playableAssets.Count) PlayerTimeLine(playableAssets[TimelineCnt]);
     }
 
-   
-
+    public void OnSkipButtonClick() => ((GameManager)GameManager.Instance).OnMainScene();
 }
