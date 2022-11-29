@@ -5217,6 +5217,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 572835815}
   m_CullTransparentMesh: 1
+--- !u!1 &578064362 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 376021511, guid: 57d210aadf8ca364ca469553f372e63f, type: 3}
+  m_PrefabInstance: {fileID: 1680146607699291301}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &592808166
 GameObject:
   m_ObjectHideFlags: 0
@@ -8907,6 +8912,13 @@ MonoBehaviour:
   warningTime: 3
   attackRange: 12
   attackSfx:
+    Guid:
+      Data1: -508803040
+      Data2: 1252674903
+      Data3: -1353765705
+      Data4: 1420443896
+    Path: event:/SFX/Ex/SFX_Thorn
+  warningSfx:
     Guid:
       Data1: -508803040
       Data2: 1252674903
@@ -19382,7 +19394,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1680146609352771348, guid: 57d210aadf8ca364ca469553f372e63f, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1680146609352771348, guid: 57d210aadf8ca364ca469553f372e63f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19424,6 +19436,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1680146609352771351, guid: 57d210aadf8ca364ca469553f372e63f, type: 3}
+      propertyPath: directionBodyEffect
+      value: 
+      objectReference: {fileID: 578064362}
     - target: {fileID: 1680146609352771351, guid: 57d210aadf8ca364ca469553f372e63f, type: 3}
       propertyPath: onDead.m_PersistentCalls.m_Calls.Array.size
       value: 1

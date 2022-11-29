@@ -454,6 +454,7 @@ MonoBehaviour:
   idleEffect: {fileID: 6479626462992240068}
   idleDirectionEffect: {fileID: 3028011954084740947}
   directionEffect: {fileID: 342444170}
+  directionBodyEffect: {fileID: 376021511}
   profile: {fileID: 11400000, guid: 12ebb71ec91446c4399f88950e6c7b1c, type: 2}
   AnimationController: {fileID: 1680146607286058979}
 --- !u!114 &1680146609352771350
