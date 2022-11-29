@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Mat_RhythmDir
+  m_Name: Mat_RhythmDir2
   m_Shader: {fileID: -6465566751694194690, guid: 70d084332fbf6b74392246646777b434, type: 3}
   m_ValidKeywords:
   - _SURFACE_TYPE_TRANSPARENT
