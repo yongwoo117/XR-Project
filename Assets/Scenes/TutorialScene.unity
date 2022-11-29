@@ -10675,7 +10675,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   rhythmStreakText: {fileID: 7707604233262975726}
-  pauseInterface: {fileID: 2114241537}
+  pauseInterface: {fileID: 0}
   settingInterface: {fileID: 0}
   stageTransitionAnimator: {fileID: 143749270}
   rhythmComboAnimator: {fileID: 1747911640}
@@ -10736,11 +10736,11 @@ MonoBehaviour:
     Path: event:/BGM/Defeat
   stageChangeSfx:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1154074121
+      Data2: 1225744521
+      Data3: 463756417
+      Data4: -1317979096
+    Path: event:/SFX/Ex/SFX_SceneChange
   playerInput: {fileID: 1680146607699291306}
   stageBpmList:
   - 60
@@ -10851,7 +10851,7 @@ PlayableDirector:
   m_GameObject: {fileID: 1659581279}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: d0de4d02eb5d01d45b39ecca9bcdcfe9, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 7b9216a77a70ed24896de6199705c140, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
