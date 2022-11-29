@@ -85,7 +85,7 @@ Material:
     m_Colors:
     - BlankColor: {r: 0.45098042, g: 0.45098042, b: 0.44705886, a: 1}
     - BlendColor: {r: 0.9427509, g: 1, b: 0, a: 1}
-    - FillColor: {r: 1, g: 0.95496154, b: 0, a: 1}
+    - FillColor: {r: 0.9529412, g: 1, b: 0, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
