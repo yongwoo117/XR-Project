@@ -225,7 +225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   standardAttackDelay: 3
   attackDelayRange: 1
-  damage: 40
+  damage: 5
   warningTime: 3
   attackRange: 8
   attackSfx:
