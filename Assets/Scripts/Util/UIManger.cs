@@ -51,9 +51,9 @@ public class UIManger : RhythmCore
         texts[1].text = $"S      {StageManager.Stage}";
         texts[3].text = $"{StageManager.ElapsedTime:F}초";
         texts[4].text = $"{RhythmComboModule.MaximumCombo}회";
-        texts[5].text = SpawnManager.KilledDictionary[e_EnemyType.Heavy].ToString();
-        texts[6].text = SpawnManager.KilledDictionary[e_EnemyType.Basic].ToString();
-        texts[7].text = SpawnManager.KilledDictionary[e_EnemyType.Speed].ToString();
+        texts[5].text = SpawnManager.KilledDictionary[e_EnemyType.Speed].ToString();
+        texts[6].text = SpawnManager.KilledDictionary[e_EnemyType.Heavy].ToString();
+        texts[7].text = SpawnManager.KilledDictionary[e_EnemyType.Basic].ToString();
     }
 
     protected void ShowGameClearMenu()
