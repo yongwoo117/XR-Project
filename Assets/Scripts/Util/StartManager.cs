@@ -9,7 +9,7 @@ public class StartManager : MonoBehaviour
 
     private void Start()
     {
-        gameScene = SceneManager.LoadSceneAsync("Scenes/SampleScene");
+        gameScene = SceneManager.LoadSceneAsync("Scenes/TutorialScene");
         gameScene.allowSceneActivation = false;
     }
 
