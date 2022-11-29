@@ -7184,6 +7184,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 895278499}
+  m_CullTransparentMesh: 1
 --- !u!1 &899803055
 GameObject:
   m_ObjectHideFlags: 0
@@ -13074,7 +13075,7 @@ MonoBehaviour:
   - 80
   stageBackGround:
   - {fileID: 1970754303}
-  - {fileID: 1272361053}
+  - {fileID: 1771700745}
   - {fileID: 1723736108}
 --- !u!114 &1659581288
 MonoBehaviour:
@@ -14170,6 +14171,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1748573046}
   m_CullTransparentMesh: 1
+--- !u!1 &1771700745 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8839743293329009356, guid: 5788b913021d66b41996a4922a71763d, type: 3}
+  m_PrefabInstance: {fileID: 2059505323}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1782955282
 GameObject:
   m_ObjectHideFlags: 0
@@ -14901,11 +14907,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1823902686}
   m_CullTransparentMesh: 1
---- !u!4 &1830383169 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3571740345613556963, guid: c0cd394f866f28a4d9c0f25c921b4de5, type: 3}
-  m_PrefabInstance: {fileID: 918916683}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1856220176
 GameObject:
   m_ObjectHideFlags: 0
