@@ -235,6 +235,13 @@ MonoBehaviour:
       Data3: -1353765705
       Data4: 1420443896
     Path: event:/SFX/Ex/SFX_Thorn
+  warningSfx:
+    Guid:
+      Data1: 397175016
+      Data2: 1310589400
+      Data3: 690986900
+      Data4: -670500042
+    Path: event:/SFX/Ex/SFX_Thorn_Before
 --- !u!95 &4438920756777812752
 Animator:
   serializedVersion: 4
