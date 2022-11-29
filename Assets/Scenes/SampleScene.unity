@@ -8908,7 +8908,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   standardAttackDelay: 3
   attackDelayRange: 1
-  damage: 40
+  damage: 5
   warningTime: 3
   attackRange: 12
   attackSfx:
@@ -8920,11 +8920,11 @@ MonoBehaviour:
     Path: event:/SFX/Ex/SFX_Thorn
   warningSfx:
     Guid:
-      Data1: -508803040
-      Data2: 1252674903
-      Data3: -1353765705
-      Data4: 1420443896
-    Path: event:/SFX/Ex/SFX_Thorn
+      Data1: 397175016
+      Data2: 1310589400
+      Data3: 690986900
+      Data4: -670500042
+    Path: event:/SFX/Ex/SFX_Thorn_Before
 --- !u!95 &1100799302
 Animator:
   serializedVersion: 4
