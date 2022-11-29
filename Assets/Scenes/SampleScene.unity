@@ -4310,7 +4310,7 @@ RectTransform:
   - {fileID: 1239885324}
   - {fileID: 999693493}
   m_Father: {fileID: 1633477617}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -8908,7 +8908,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   standardAttackDelay: 3
   attackDelayRange: 1
-  damage: 40
+  damage: 5
   warningTime: 3
   attackRange: 12
   attackSfx:
@@ -8920,11 +8920,11 @@ MonoBehaviour:
     Path: event:/SFX/Ex/SFX_Thorn
   warningSfx:
     Guid:
-      Data1: -508803040
-      Data2: 1252674903
-      Data3: -1353765705
-      Data4: 1420443896
-    Path: event:/SFX/Ex/SFX_Thorn
+      Data1: 397175016
+      Data2: 1310589400
+      Data3: 690986900
+      Data4: -670500042
+    Path: event:/SFX/Ex/SFX_Thorn_Before
 --- !u!95 &1100799302
 Animator:
   serializedVersion: 4
@@ -12521,7 +12521,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_SizeDelta: {x: 1920, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1619564809
 MonoBehaviour:
@@ -12747,9 +12747,9 @@ RectTransform:
   - {fileID: 1423812455}
   - {fileID: 1783547291}
   - {fileID: 143749266}
-  - {fileID: 518475254}
   - {fileID: 2114241538}
   - {fileID: 563214423606840814}
+  - {fileID: 518475254}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13105,7 +13105,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   rhythmStreakText: {fileID: 7707604233262975726}
-  pauseInterface: {fileID: 2114241537}
+  pauseInterface: {fileID: 2114241541}
   settingInterface: {fileID: 563214423606840815}
   stageTransitionAnimator: {fileID: 143749270}
   rhythmComboAnimator: {fileID: 1747911640}
@@ -17183,7 +17183,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2114241538
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17198,7 +17198,7 @@ RectTransform:
   m_Children:
   - {fileID: 1619564808}
   m_Father: {fileID: 1633477617}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -17218,7 +17218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.53333336}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -18138,7 +18138,7 @@ RectTransform:
   - {fileID: 563214423666215582}
   - {fileID: 563214422922058606}
   m_Father: {fileID: 1633477617}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
