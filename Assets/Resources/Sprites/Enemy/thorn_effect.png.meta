@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cbaedc83bf044434dbce3e644996f7c6
+guid: d8146ca85776f4e88a9095bc7be8376d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,7 +104,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: clover_Idle_0
+      name: thorn_effect_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,14 +118,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed446fd6c7d2c4a50a83b9ed2ce57fed
-      internalID: -334316568
+      spriteID: 6d999876eff7f429788223ecf24cc91e
+      internalID: 837798996
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: clover_Idle_1
+      name: thorn_effect_1
       rect:
         serializedVersion: 2
         x: 512
@@ -139,14 +139,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0adc95165b2240aba95b8ab1b03b79a
-      internalID: 804704323
+      spriteID: 3a8f999be3ac147d89ff1a6ef27324f7
+      internalID: -35797194
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: clover_Idle_2
+      name: thorn_effect_2
       rect:
         serializedVersion: 2
         x: 1024
@@ -160,14 +160,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1cd0c148325df4ab29f9f9cea12d60b7
-      internalID: 1508760622
+      spriteID: 312d170ba4edc41c4b9caf27fff07295
+      internalID: -1107220426
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: clover_Idle_3
+      name: thorn_effect_3
       rect:
         serializedVersion: 2
         x: 1536
@@ -181,14 +181,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1495efb0372ee458ab0e910653abf87a
-      internalID: -2060368295
+      spriteID: 18b27bbc46ca74443b3348d013fd4c0f
+      internalID: -65095905
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: clover_Idle_4
+      name: thorn_effect_4
       rect:
         serializedVersion: 2
         x: 0
@@ -202,14 +202,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6dc88edc044849799c1e0ea90b709a7
-      internalID: 1073602575
+      spriteID: e55dd562ded51438fb34503157bf564b
+      internalID: -733270619
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: clover_Idle_5
+      name: thorn_effect_5
       rect:
         serializedVersion: 2
         x: 512
@@ -223,14 +223,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b4258da5a27b4ce58e40cc097d62fe2
-      internalID: 530436459
+      spriteID: 40a958256e7194896b4bdd58334e8218
+      internalID: 65475423
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: clover_Idle_6
+      name: thorn_effect_6
       rect:
         serializedVersion: 2
         x: 1024
@@ -244,113 +244,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 851c0139c37c24c87828c26910ab23e9
-      internalID: 1581002710
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: clover_Idle_7
-      rect:
-        serializedVersion: 2
-        x: 1536
-        y: 1024
-        width: 512
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b41846500556d4b7aa3a28246325886e
-      internalID: -777745453
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: clover_Idle_8
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 512
-        width: 512
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 785c86803cd37459ea6f67481c701b74
-      internalID: 239189471
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: clover_Idle_9
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 512
-        width: 512
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 39b6d372509274dd9866ae7ee0ce642a
-      internalID: 1348555369
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: clover_Idle_10
-      rect:
-        serializedVersion: 2
-        x: 1024
-        y: 512
-        width: 512
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9d5f48b44789e459bb3030649723f305
-      internalID: 1738677303
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: clover_Idle_11
-      rect:
-        serializedVersion: 2
-        x: 1536
-        y: 512
-        width: 512
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ffb90848a61d8416cae4a012dd9645ae
-      internalID: 603682824
+      spriteID: 9cbef34f6326a480281b4a6eed7c35eb
+      internalID: -142118337
       vertices: []
       indices: 
       edges: []
@@ -366,18 +261,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      clover_Idle_5: 530436459
-      clover_Idle_0: -334316568
-      clover_Idle_2: 1508760622
-      clover_Idle_1: 804704323
-      clover_Idle_9: 1348555369
-      clover_Idle_10: 1738677303
-      clover_Idle_6: 1581002710
-      clover_Idle_11: 603682824
-      clover_Idle_3: -2060368295
-      clover_Idle_7: -777745453
-      clover_Idle_4: 1073602575
-      clover_Idle_8: 239189471
+      thorn_effect_5: 65475423
+      thorn_effect_0: 837798996
+      thorn_effect_6: -142118337
+      thorn_effect_3: -65095905
+      thorn_effect_4: -733270619
+      thorn_effect_2: -1107220426
+      thorn_effect_1: -35797194
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
