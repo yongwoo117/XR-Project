@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
 using UnityEngine.Playables;
+using System.Collections;
 
 public class TutorialManager : TimeLineManager
 {
@@ -11,16 +12,19 @@ public class TutorialManager : TimeLineManager
     [SerializeField] private Animator HelpBoard;
     [SerializeField] private TextMeshProUGUI cutText;
     [SerializeField] private DialogueManager TextBoard;
+    [SerializeField] private GameObject Spike;
 
 
     [SerializeField] private int MaxRhythmCount;
     private RhythmInputModule rhythmInputModule;
     private int OnRhythmCount;
     private int TimelineCnt;
+    private float SpikeTime = 10f;
 
     protected override void Start()
     {
         player ??= GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStateMachine>();
+        Spike ??= GameObject.FindGameObjectWithTag("Spike");
 
         rhythmInputModule = player.GetComponent<RhythmInputModule>();
         TimelineCnt = 0;
@@ -47,6 +51,12 @@ public class TutorialManager : TimeLineManager
                 player.AddDictionaryState(e_PlayerState.Cut);
                 cutText.text = "자르기를(" + OnRhythmCount + "/" + MaxRhythmCount + ")번 성공 시키세요.";
                 break;
+            case 5:
+                player.onDamaged.AddListener(ResetSpikeTime);
+                Spike.gameObject.SetActive(true);
+                StartCoroutine(SpikeTimer());
+                cutText.text = "찌르기를 통해서 가시를 회피하세요.";
+                break;
         }
 
         rhythmInputModule.onRhythm.AddListener(Tutorial);
@@ -55,7 +65,7 @@ public class TutorialManager : TimeLineManager
 
     public void HelpBoardOn() => TextBoard.SetHelpText();
     public void DialogueBoardOn() => TextBoard.SetDialgoueText();
-    
+
     public void Tutorial(InteractionType interactionType)
     {
         if (RhythmCore.Instance.Judge())
@@ -81,6 +91,15 @@ public class TutorialManager : TimeLineManager
         }
 
         if (OnRhythmCount < MaxRhythmCount) return;
+
+        NextTutorial();
+    }
+
+
+    public void OnSkipButtonClick() => ((GameManager)GameManager.Instance).OnMainScene();
+
+    private void NextTutorial()
+    {
         OnRhythmCount = 0;
         TurtorialPannel?.SetTrigger("Off");
         TimelineCnt++;
@@ -89,5 +108,19 @@ public class TutorialManager : TimeLineManager
         if (TimelineCnt < playableAssets.Count) PlayerTimeLine(playableAssets[TimelineCnt]);
     }
 
-    public void OnSkipButtonClick() => ((GameManager)GameManager.Instance).OnMainScene();
+    private void ResetSpikeTime(float val)
+    {
+        SpikeTime = 10f;
+    }
+    IEnumerator SpikeTimer()
+    {
+        while(SpikeTime>0f)
+        {
+            SpikeTime -= Time.deltaTime;
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+        Spike.gameObject.SetActive(false);
+        player.onDamaged.RemoveListener(ResetSpikeTime);
+        NextTutorial();
+    }
 }
