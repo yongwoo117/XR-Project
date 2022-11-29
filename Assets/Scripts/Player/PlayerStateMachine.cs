@@ -35,6 +35,7 @@ public class PlayerStateMachine : RhythmFeedbackModule
     
     protected override e_PlayerState StartState => e_PlayerState.Idle;
     protected override float MaximumHealth => profile.f_maximumHealth;
+    protected override float FeedBackRange => profile.f_dashDistance;
     protected override void OnInteraction(InteractionType type) => currentState?.HandleInput(type);
     protected override void OnBeforeStateInitialize(PlayerState state)
     {

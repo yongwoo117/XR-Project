@@ -65,6 +65,7 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
 
     private RhythmCore rhythmCore;
     protected bool isFlip;
+    protected abstract float FeedBackRange { get; }
 
     public FeedbackState EffectState
     {
@@ -190,7 +191,10 @@ public abstract class RhythmFeedbackModule : RhythmComboModule
     private void RotateDirection()
     {
         if (directionStruct.renderer is not LineRenderer render) return;
-        render.SetPosition(1, Vector3.right*direction.magnitude);
+
+        float range = direction.magnitude;
+        if (range > FeedBackRange) range = FeedBackRange;
+        render.SetPosition(1, Vector3.right*range);
     }
 
     public override void OnRhythmLate()
