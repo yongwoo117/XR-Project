@@ -17419,9 +17419,9 @@ MonoBehaviour:
       ReSpawnCount: 4
     - SpawnTransform: {fileID: 867981073}
       AreaSize: {x: 20, y: 20}
-      List_EnemyType: 01000000
+      List_EnemyType: 00000000
       ReSpawnCount: 4
-  - maximumExistEnemy: 7
+  - maximumExistEnemy: 6
     respawnDelay: 1
     spawnAreaList:
     - SpawnTransform: {fileID: 975941269}
@@ -17431,7 +17431,7 @@ MonoBehaviour:
     - SpawnTransform: {fileID: 1981732381}
       AreaSize: {x: 20, y: 20}
       List_EnemyType: 0000000001000000
-      ReSpawnCount: 9
+      ReSpawnCount: 10
     - SpawnTransform: {fileID: 680279321}
       AreaSize: {x: 20, y: 20}
       List_EnemyType: 02000000
@@ -17439,7 +17439,7 @@ MonoBehaviour:
     - SpawnTransform: {fileID: 867981073}
       AreaSize: {x: 20, y: 20}
       List_EnemyType: 0000000001000000
-      ReSpawnCount: 9
+      ReSpawnCount: 10
   - maximumExistEnemy: 8
     respawnDelay: 1
     spawnAreaList:
@@ -17450,7 +17450,7 @@ MonoBehaviour:
     - SpawnTransform: {fileID: 1981732381}
       AreaSize: {x: 20, y: 20}
       List_EnemyType: 0000000001000000
-      ReSpawnCount: 11
+      ReSpawnCount: 12
     - SpawnTransform: {fileID: 680279321}
       AreaSize: {x: 20, y: 20}
       List_EnemyType: 02000000
@@ -17458,7 +17458,7 @@ MonoBehaviour:
     - SpawnTransform: {fileID: 867981073}
       AreaSize: {x: 20, y: 20}
       List_EnemyType: 0000000001000000
-      ReSpawnCount: 11
+      ReSpawnCount: 12
   startDelay: 3
   beforeStageStart:
     m_PersistentCalls:
