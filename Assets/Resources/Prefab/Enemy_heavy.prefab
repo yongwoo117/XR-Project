@@ -193,7 +193,7 @@ Animator:
   m_GameObject: {fileID: 8248359139343481177}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 731c24c040d3bb344b66a5349243a31f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3e1387fcf0f2d47389b8363c6c6a1dd4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -229,7 +229,7 @@ MonoBehaviour:
   - {x: 2.56, y: -2.56, z: 0}
   m_ShapePathHash: -61463063
   m_Mesh: {fileID: 0}
-  m_InstanceId: 121978
+  m_InstanceId: 35508
 --- !u!1 &8248359141127274625
 GameObject:
   m_ObjectHideFlags: 0
