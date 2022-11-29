@@ -2,7 +2,6 @@ using System.Collections;
 using Enemy.Animation;
 using FMODUnity;
 using UnityEngine;
-using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 public class SpikeController : MonoBehaviour
@@ -13,6 +12,7 @@ public class SpikeController : MonoBehaviour
     [SerializeField] private float warningTime;
     [SerializeField] private float attackRange;
     [SerializeField] private EventReference attackSfx;
+    [SerializeField] private EventReference warningSfx;
 
     private GameObject player;
     private float activateTime;
@@ -38,6 +38,7 @@ public class SpikeController : MonoBehaviour
     {
         transform.position = player.transform.position;
         animator.SetTrigger(AnimationParameter.Ready);
+        warningSfx.AttachedOneShot(gameObject);
         yield return new WaitForSeconds(warningTime);
         Attack();
     }
