@@ -7,7 +7,7 @@ using UI;
 public class UIManger : RhythmCore
 {
     [SerializeField] private TMP_Text rhythmStreakText;
-    [SerializeField] private GameObject pauseInterface;
+    [SerializeField] private Animator pauseInterface;
     [SerializeField] private GameObject settingInterface;
     [SerializeField] private Animator stageTransitionAnimator;
     [SerializeField] private Animator rhythmComboAnimator;
@@ -20,8 +20,6 @@ public class UIManger : RhythmCore
     {
         base.Start();
         rhythmStreakText.text = "0";
-        pauseInterface.SetActive(false);
-
         if (rhythmComboAnimator.gameObject.activeSelf)
             onHalf.AddListener(() => rhythmComboAnimator?.SetTrigger(AnimationParameter.Idle));
     }
@@ -35,7 +33,7 @@ public class UIManger : RhythmCore
 
     protected void PauseUI(bool isPaused)
     {
-        pauseInterface.SetActive(isPaused);
+        pauseInterface.SetTrigger(isPaused ? "Activate" : "Disable");
         if (!isPaused) settingInterface.SetActive(false);
     }
 
