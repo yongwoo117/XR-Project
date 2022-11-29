@@ -63,7 +63,7 @@ public class SettingComponent : MonoBehaviour
     private void SetupSlider(string path, Slider slider, PrefsKey prefsKey)
     {
         //버스 받아오기
-        var bus = FMODUnity.RuntimeManager.GetBus(path);
+        var bus = RuntimeManager.GetBus(path);
 
         //슬라이더 기본값 세팅
         slider.value = Prefs.HasKey(prefsKey) ? Prefs.GetFloat(prefsKey) : slider.maxValue / 2;
