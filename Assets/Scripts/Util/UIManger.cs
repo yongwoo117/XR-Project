@@ -8,7 +8,7 @@ public class UIManger : RhythmCore
 {
     [SerializeField] private TMP_Text rhythmStreakText;
     [SerializeField] private Animator pauseInterface;
-    [SerializeField] private GameObject settingInterface;
+    [SerializeField] private Animator settingInterface;
     [SerializeField] private Animator stageTransitionAnimator;
     [SerializeField] private Animator rhythmComboAnimator;
     [SerializeField] private Animator stageEndingAnimator;
@@ -34,7 +34,7 @@ public class UIManger : RhythmCore
     protected void PauseUI(bool isPaused)
     {
         pauseInterface.SetTrigger(isPaused ? "Activate" : "Disable");
-        if (!isPaused) settingInterface.SetActive(false);
+        if (!isPaused) settingInterface.SetTrigger("Disable");
     }
 
     protected void ShowStageTransition()
@@ -78,6 +78,11 @@ public class UIManger : RhythmCore
                 
     }
 
-    protected void DisplaySettingMenu() => settingInterface.SetActive(true);
+    protected void DisplaySettingMenu()
+    {
+        settingInterface.SetTrigger("Activate");
+        settingInterface.ResetTrigger("Disable");
+    }
+
     public void OnStageProgressChanged(float progress) => stageProgressSlider.value = progress;
 }
