@@ -5,7 +5,9 @@ Shader "Custom/Lit_ZWriteOn"
         _MainTex("Diffuse", 2D) = "white" {}
         _MaskTex("Mask", 2D) = "white" {}
         _NormalMap("Normal Map", 2D) = "bump" {}
+
         _Radius("Radius", Range(0.001, 500)) = 10
+        [Enum(Off,0,On,1)]_ZWrite("ZWrite", Float) = 1.
 
         // Legacy properties. They're here so that materials using this shader can gracefully fallback to the legacy sprite shader.
         [HideInInspector] _Color("Tint", Color) = (1,1,1,1)
@@ -21,7 +23,7 @@ Shader "Custom/Lit_ZWriteOn"
 
             Blend SrcAlpha OneMinusSrcAlpha, One OneMinusSrcAlpha
             Cull Off
-            ZWrite On
+            ZWrite [_ZWrite]
 
             Pass
             {

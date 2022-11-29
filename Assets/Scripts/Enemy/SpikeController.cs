@@ -13,7 +13,6 @@ public class SpikeController : MonoBehaviour
     [SerializeField] private float attackRange;
     [SerializeField] private EventReference attackSfx;
     [SerializeField] private EventReference warningSfx;
-
     private GameObject player;
     private float activateTime;
     private Animator animator;
@@ -45,6 +44,7 @@ public class SpikeController : MonoBehaviour
 
     private void Attack()
     {
+
         animator.SetTrigger(AnimationParameter.Attack);
         attackSfx.AttachedOneShot(gameObject);
         var count = Physics.OverlapSphereNonAlloc(transform.position, attackRange, collisionBuffer,

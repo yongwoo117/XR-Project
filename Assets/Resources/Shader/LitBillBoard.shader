@@ -18,7 +18,7 @@
         {
             Tags {"Queue" = "Transparent" "RenderType" = "Transparent" "RenderPipeline" = "UniversalPipeline"  "DisableBatching" = "True"}
 
-            Blend SrcAlpha OneMinusSrcAlpha, One OneMinusSrcAlpha
+            Blend SrcAlpha OneMinusSrcAlpha
             Cull Off
             ZWrite On
 
